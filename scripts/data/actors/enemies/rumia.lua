@@ -7,7 +7,7 @@ function actor:init()
     self.name = "Rumia"
 
     -- Width and height for this actor, used to determine its center
-    self.width = 44
+    self.width = 40
     self.height = 49
 
     -- Hitbox for this actor in the overworld (optional, uses width and height by default)
@@ -34,10 +34,13 @@ function actor:init()
     -- Table of talk sprites and their talk speeds (default 0.25)
     self.talk_sprites = {}
 
-    -- Table of sprite animations
     self.animations = {
         ["idle"] = {"idle", 1/10, true},
-        ["attack"] = {"attack", 1/10, true}
+        ["obtain_axe"] = {"obtain_axe", 1/10, false},
+
+        ["battle/idle"] = {"battle/idle", 1/10, true},
+        ["battle/attack"] = {"battle/attack", 1/10, true},
+        ["battle/shock"] = {"battle/shock", 1/10, false}
     }
 
     -- Table of sprite offsets (indexed by sprite name)

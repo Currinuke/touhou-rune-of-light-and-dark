@@ -1,26 +1,19 @@
 return {
-    heal = function(cutscene, battler, enemy)
-        -- Open textbox and wait for completion
-        cutscene:text("* Susie threw a punch at\nthe dummy.")
+    heal = function(cutscene, encounter, enemy)
+        cutscene:text("* Rumia 过于紧张，吸收了大量黑暗。")
+        cutscene:text("* Rumia 的攻击力上升了。")
 
-        -- Hurt the target enemy for 1 damage
-        Assets.playSound("damage")
-        -- enemy:heal(1)
-        enemy:hurt(999, battler)
-        -- Wait 1 second
-        cutscene:wait(1)
-
-        -- Susie text
-        cutscene:text("* You,[wait:5] uh,[wait:5] look like a weenie.[wait:5]\n* I don\'t like beating up\npeople like that.", "nervous_side", "susie")
-
-        if cutscene:getCharacter("ralsei") then
-            -- Ralsei text, if he's in the party
-            cutscene:text("* Aww,[wait:5] Susie!", "blush_pleased", "ralsei")
-        end
+        enemy:heal(enemy.max_health)
+        enemy.attack = enemy.attack + 1
+        enemy.wave_override = "empty_wave"
     end,
 
     act_wind = function(cutscene, battler, enemy)
         cutscene:text("* Kogasa orders Rin to create\na strong wind.")
         cutscene:text("* Press [bind:confirm] to summon!")
+        
+        enemy:setTired(true)
+        enemy:addMercy(50)
+        enemy:addMercy(40)
     end
 }

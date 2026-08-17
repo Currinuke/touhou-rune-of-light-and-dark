@@ -12,11 +12,10 @@ end
 
 function Rumia:onActionsEnd()
     for _, enemy in ipairs(Game.battle.enemies) do
-        if enemy.health <= enemy.max_health / 10 then
-            -- enemy:event_heal()
-            enemy:heal(enemy.max_health)
-            -- Game.battle:startActCutscene("rumia", "heal")
-            break
+        if enemy.name == "Rumia" and enemy.health <= enemy.max_health / 10 then
+            Game.battle:startCutscene("rumia", "heal", self, enemy)
+            -- Game.battle:setState("DEFENDINGEND", "WAVEENDED")
+            return true
         end
     end
 end

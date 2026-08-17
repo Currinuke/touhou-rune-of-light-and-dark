@@ -14,10 +14,9 @@ function Meirin:init()
     self.buy_too_expensive_text = "Sorry, no discount."
     self.buy_no_space_text = "You're\ncarrying\ntoo much."
     
-    -- Shown when you enter the talk menu.
     self.talk_text = "Feel free to ask anything."
 
-    self.background = "ui/shop/bg_seam"
+    self.background = "ui/shop/bg_meirin"
     self.background_speed = 5/30
 
     self.shopkeeper:setActor("shopkeepers/amelia")

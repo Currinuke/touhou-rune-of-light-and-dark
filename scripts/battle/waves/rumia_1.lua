@@ -13,9 +13,9 @@ function Rumia:onStart()
             if _times < 0 then return end
             local x, y = attacker:getRelativePos(attacker.width / 2, attacker.height / 2)
             local angle = MathUtils.angle(x, y, Game.battle.soul.x, Game.battle.soul.y)
-            for rate_x = -5, -4 do
+            for rate_x = -10, -8, 2 do
                 for rate_y = -1, 1 do
-                    self:spawnBullet("rumia/smallbullet", x, y, rate_x * 2, rate_x * math.tan(angle) + (rate_x + 2) * rate_y)
+                    self:spawnBullet("rumia/wobblebullet", x, y, rate_x, rate_x * math.tan(angle) + (rate_x / 2+ 2) * rate_y)
                 end
             end
         end

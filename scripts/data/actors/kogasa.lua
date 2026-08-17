@@ -13,7 +13,7 @@ function actor:init()
     self.soul_offset = {10, 24}
 
     -- Color for this actor used in outline areas (optional, defaults to red)
-    self.color = {0, 1, 1}
+    self.color = {117/255, 251/255, 237/255}
 
     self.path = "party/kogasa/dark"
     self.default = "walk"

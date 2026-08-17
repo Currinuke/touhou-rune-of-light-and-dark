@@ -45,44 +45,38 @@ function Rumia:init()
         "* Rumia cannot suppress her desire\nto swing the axe."
     }
     
-    self.tired_percentage = 0
+    self.tired_percentage = -math.huge
     self.low_health_percentage = 0
 
     self:registerAct("Scare-ya", "Tire a\nenemy", nil, 32)
     self:registerAct("Strong Wind", "Remove\ndarkness", {"rin"}, 50)
-    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 102)
-
-    self.event_heal = function()
-        Game.battle:startActCutscene("rumia", "heal")
-    end
+    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 0)--102)
 end
 
 function Rumia:onAct(battler, name)
     if name == "Scare-ya" then
-        -- self:setTired(true)
         self:addMercy(40)
         return "* Kogasa scared Rumia!\n[wait:5]* Rumia\'s attention wavered a little."
     elseif name == "Strong Wind" then
-        self:setTired(true)
-        self:addMercy(50)
-        self:addMercy(40)
         Game.battle:startActCutscene("rumia", "act_wind")
         return
     elseif name == "Seija\'s Idea" then -- cheater's choice
-        error("聪明。但是 Currinuke 拒绝了你的尝试。")
+        error("聪明。但是 Currinuke 拒绝了你的尝试。（原作者没做啊）")
         return
     end
 
     return super.onAct(self, battler, name)
 end
 
+--[[
 function Rumia:onHurt(damage, battler)
     self:toggleOverlay(true)
     if not self:getActiveSprite():setAnimation("hurt") then
         self:toggleOverlay(false)
     end
     self:getActiveSprite():shake(9, 0, 0.5, 2 / 30)
-end
+end--]]
+
 
 function Rumia:onDefeat(damage, battler)
 end

@@ -17,7 +17,7 @@ function Battle:updateIntro()
 end--]]
 
 function Battle:updateIntro()
-    -- 保证小伞的battle_intro动画不会被打断
+    -- 保证小伞的battle/intro动画不会被打断
     self.intro_timer = self.intro_timer - 0.5 * DTMULT
     super.updateIntro(self)
 end

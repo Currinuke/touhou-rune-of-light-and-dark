@@ -10,6 +10,13 @@ function Dummy:init()
 
     self:addEnemy("dummy")
     self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
+    self:addEnemy("dummy")
 end
 
 function Dummy:createSoul(x, y, color, index)

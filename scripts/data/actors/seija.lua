@@ -37,7 +37,7 @@ function actor:init(style)
     self.voice = "susie"
     -- Path to this actor's portrait for dialogue (optional)
     if susie_style == 1 then
-        self.portrait_path = "face/seija_bangs"
+        self.portrait_path = "face/seija/bangs"
     else
         self.portrait_path = "face/seija"
     end
@@ -74,11 +74,11 @@ function actor:init(style)
         ["battle/swooned"]      = {"battle/swooned", 1/15, false},
 
         ["battle/transition"]   = {self.default.."/right_1", 1/15, false},
-        ["battle/intro"]        = {"battle/attack", 1/15, true},
+        ["battle/intro"]        = {"battle/attack", 1/15, false},
         ["battle/victory"]      = {"battle/victory", 1/10, false},
         ["battle/transition_out"] = {"battle/transition_out", 1/15, false},
 
-        ["battle/rude_buster"]  = {"battle/rudebuster", 1/15, false, next="battle/idle"},
+        ["battle/rule_burster"]  = {"battle/ruleburster", 1/15, false, next="battle/idle"},
 
         -- Cutscene animations
         ["jump_fall"]           = {"fall", 1/5, true},
