@@ -8,7 +8,7 @@ function spell:init()
     self.name = "Scare-ya"
     self.cast_name = self.name
     self.effect = "Tire a\nenemy"
-    self.description = "Scare one enemy to make them TIRED.\nIs it magic?"
+    self.description = "Scare one enemy to make them TIRED.\nJust for making a living."
     self.cost = 32
 
     -- Target mode (ally, party, enemy, enemies, or none)

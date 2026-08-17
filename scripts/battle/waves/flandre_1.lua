@@ -23,6 +23,7 @@ end
 function Flandre:onStart()
     self.time = 20
     Game.battle.arena.color = {0, 0.75, 0, 0}
+    Game.battle.arena.alpha = 0
     Game.battle.arena:setBackgroundColor(0, 0, 0, 0)
     self:setSoulPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
@@ -37,14 +38,14 @@ function Flandre:onStart()
         for i = 1, rep do
             local x = SCREEN_WIDTH + 20
             local y = MathUtils.random(0, SCREEN_HEIGHT)
-            local bullet = self:spawnBullet("scarletbat1", x, y, math.rad(180), 6)
+            local bullet = self:spawnBullet("remilia/scarletbat1", x, y, "left", 8, 5)
             bullet.remove_offscreen = false
         end
     end)
 end
 
 function Flandre:update()
-    --self:setArenaRotation(self.arena_rotation + math.rad(1))
+    --self:setArenaRotation(self.arena_rotation + math.rad(0.5))
     super.update(self)
 end
 

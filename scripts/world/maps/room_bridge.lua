@@ -261,7 +261,7 @@ return {
         },
         {
           id = 30,
-          name = "enemy",
+          name = "npc",
           type = "",
           shape = "rectangle",
           x = 840,

@@ -1,5 +1,6 @@
 local Battle, super = HookSystem.hookScript(Battle)
 
+--[[
 function Battle:updateIntro()
     if false then -- 哈哈直接禁用
         super.updateIntro(self)
@@ -10,9 +11,15 @@ function Battle:updateIntro()
                 v:setAnimation("battle/idle")
             end
             self:setState("ACTIONSELECT", "INTRO")
-            self:nextTurn()
+            -- self:nextTurn()
         end
     end
+end--]]
+
+function Battle:updateIntro()
+    -- 保证小伞的battle_intro动画不会被打断
+    self.intro_timer = self.intro_timer - 0.5 * DTMULT
+    super.updateIntro(self)
 end
 
 function Battle:nextTurn()

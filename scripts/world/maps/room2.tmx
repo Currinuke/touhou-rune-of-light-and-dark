@@ -49,8 +49,8 @@
  <objectgroup color="#ff00ff" id="5" name="objects">
   <object id="6" name="enemy" x="440" y="120" width="40" height="40">
    <properties>
-    <property name="actor" value="remilia_scarlet"/>
-    <property name="encounter" value="remilia_scarlet"/>
+    <property name="actor" value="remilia"/>
+    <property name="encounter" value="remilia"/>
    </properties>
   </object>
   <object id="9" name="transition" x="-40" y="320" width="40" height="80">

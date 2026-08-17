@@ -200,8 +200,8 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "remilia_scarlet",
-            ["encounter"] = "remilia_scarlet"
+            ["actor"] = "remilia",
+            ["encounter"] = "remilia"
           }
         },
         {

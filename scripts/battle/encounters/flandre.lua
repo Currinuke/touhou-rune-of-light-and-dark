@@ -1,13 +1,13 @@
-local FlandreScarlet, super = Class(Encounter)
+local Flandre, super = Class(Encounter)
 
-function FlandreScarlet:init()
+function Flandre:init()
     super.init(self)
     self.text = "* Let the game begin."
     self.music = "joker"
     self.background = false
 
     for _, value in ipairs({"B","C","D"}) do
-        local enemy = self:addEnemy("flandre_scarlet")
+        local enemy = self:addEnemy("flandre")
         local div = " "
         enemy.name = enemy.name .. div .. value
         if value == "A" then
@@ -18,7 +18,7 @@ function FlandreScarlet:init()
     self.no_end_message = true
 end
 
-function FlandreScarlet:createSoul(x, y, color)
+function Flandre:createSoul(x, y, color)
     return DoubleSoul(x, y, color)
 end
 
@@ -44,4 +44,4 @@ function Flandre:getSoulSpawnLocation()
     return 0, 0
 end]]
 
-return FlandreScarlet
+return Flandre

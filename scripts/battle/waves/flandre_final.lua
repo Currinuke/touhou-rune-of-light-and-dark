@@ -3,6 +3,7 @@ local Basic, super = Class(Wave)
 function Basic:onArenaEnter()
     self:setArenaSize(SCREEN_WIDTH, SCREEN_HEIGHT)
     self:setArenaPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    -- self:setSoulPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 end
 
 function Basic:onStart()
@@ -19,7 +20,7 @@ function Basic:onStart()
         for i = 1, rep do
             local x = SCREEN_WIDTH + 20
             local y = MathUtils.random(0, SCREEN_HEIGHT)
-            local bullet = self:spawnBullet("scarletbat1", x, y, math.rad(180), 6)
+            local bullet = self:spawnBullet("remilia/scarletbat1", x, y, "left", 8, 5)
             bullet.remove_offscreen = false
         end
     end)

@@ -1,0 +1,45 @@
+return {
+    kogasa_talk = function(cutscene, battler, enemy)
+        cutscene:text("* Tatara Kogasa attempts to talk...")
+        cutscene:text("* Miss Scarlet... [wait:10]Um, well,\n[wait:5]I think we can still talk this out friendly...", "neutral", "kogasa")
+        cutscene:text("* Shut up! [wait:10]Do you really think being a lightner means you\'re someone great?", "angry_b_alt", "remilia")
+        cutscene:text("* Useless as you\nshould be doomed in the trash!", "angry_b_alt", "remilia")
+        cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
+        cutscene:text("* Kogasa...? [wait:10]Are you okay?", "blush_pleased", "ralsei")
+        cutscene:text("* ...", "starwalker")
+        cutscene:text("* Tatara Kogasa\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]ME SHIELD[color:reset]!")
+    end,
+    seija_talk = function(cutscene, battler, enemy)
+        cutscene:text("* Kijin Seija attempts to talk...")
+        cutscene:text("* Miss Scarlet... [wait:10]Um, well,\n[wait:5]I think we can still talk this out friendly...", "starwalker")
+        cutscene:text("* Shut up! [wait:10]Do you really think being a lightner means you\'re someone great?", "starwalker")
+        cutscene:text("* Useless as you\nshould be in the trash!", "starwalker")
+        cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
+        cutscene:text("* Kogasa...? [wait:10]Are you okay?", "starwalker")
+        cutscene:text("* ...", "starwalker")
+        cutscene:text("* Kijin Seija\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]SCARE BURSTER[color:reset]!")
+    end,
+    rin_talk = function(cutscene, battler, enemy)
+        cutscene:text("* Satsuki Rin attempts to talk...")
+        cutscene:text("* Miss Scarlet... [wait:10]Um, well,\n[wait:5]I think we can still talk this out friendly...", "starwalker")
+        cutscene:text("* Shut up! [wait:10]Do you really think being a lightner means you\'re someone great?", "angry_b_alt", "remilia")
+        cutscene:text("* Useless as you\nshould be in the trash!", "angry_b_alt", "remilia")
+        cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
+        cutscene:text("* Kogasa...? [wait:10]Are you okay?", "blush_pleased", "ralsei")
+        cutscene:text("* ...", "starwalker")
+        cutscene:text("* Satsuki Rin\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]Wind Flower [Data Falsifier][color:reset]!")
+    end,
+    kogasa_act = function(cutscene, battler, enemy)
+        Game.battle:powerAct("me_shield", battler, "kogasa", Game.battle.party)
+        cutscene:text("* Your SOUL shined its power on\nTatara Kogasa!")
+        cutscene:text("* Kogasa will take all damage for her teammates before DOWN!")
+    end,
+    seija_act = function(cutscene, battler, enemy)
+        Game.battle:powerAct("scare_burster", battler, "seija", enemy)
+        cutscene:text("* Your SOUL shined its power on\nKijin Seija!")
+    end,
+    rin_act = function(cutscene, battler, enemy)
+        Game.battle:powerAct("wind_flower_data_falsifier", battler, "rin", Game.battle.party)
+        cutscene:text("* Your SOUL shined its power on\nSatsuki Rin!")
+    end
+}

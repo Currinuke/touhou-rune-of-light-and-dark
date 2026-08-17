@@ -7,7 +7,7 @@ function DoubleSoul:init(x, y, color)
     self.swap_timer = 0
     self.swap_timer_max = 30
     self.color = {1, 1, 1, 0}
-    self.charge_sfx = Assets.getSound("chargeshot_charge")
+    self.charge_sfx = Assets.getSound("doublesoul_charge")
 
     self.double_offset = 100
 
@@ -368,14 +368,6 @@ function DoubleSoul:update()
             self.double_offset = 100 * self.timer / 7
         end
 
-        self.double_left.sprite:setOrigin(0.5 + self.double_offset / 20, 0.5)
-        self.double_left.graze_sprite:setOrigin(0.5 + self.double_offset / 50, 0.5)
-        self.double_left.mask_sprite:setOrigin(0.5 + self.double_offset / 20, 0.5)
-
-        self.double_right.sprite:setOrigin(0.5 - self.double_offset / 20, 0.5)
-        self.double_right.graze_sprite:setOrigin(0.5 - self.double_offset / 50, 0.5)
-        self.double_right.mask_sprite:setOrigin(0.5 - self.double_offset / 20, 0.5)
-
         if self.timer >= 7 then
             Input.clear("cancel")
             self.timer = 0
@@ -396,6 +388,14 @@ function DoubleSoul:update()
             -- self.sprite:setColor(self.color[1], self.color[2], self.color[3], self.alpha)
             self.timer = self.timer + (1 * DTMULT)
         end
+
+        self.double_left.sprite:setOrigin(0.5 + self.double_offset / 20, 0.5)
+        self.double_left.graze_sprite:setOrigin(0.5 + self.double_offset / 50, 0.5)
+        self.double_left.mask_sprite:setOrigin(0.5 + self.double_offset / 20, 0.5)
+
+        self.double_right.sprite:setOrigin(0.5 - self.double_offset / 20, 0.5)
+        self.double_right.graze_sprite:setOrigin(0.5 - self.double_offset / 50, 0.5)
+        self.double_right.mask_sprite:setOrigin(0.5 - self.double_offset / 20, 0.5)
         return
     end
 
@@ -418,10 +418,15 @@ function DoubleSoul:update()
                     Assets.playSound("noise")
 
                     local bx, by = Game.battle:getSoulLocation()
-                    self:addChild(DoubleSwapEffect(bx - 60, by))
-                    self:addChild(DoubleSwapEffect(bx + 60, by))
+                    -- self:addChild(DoubleSwapEffect(bx - self.double_offset, by))
+                    -- self:addChild(DoubleSwapEffect(bx + self.double_offset, by))
+                    DoubleSwapEffect(bx - self.double_offset, by)
+                    DoubleSwapEffect(bx + self.double_offset, by)
+                    -- AfterImage(bx + self.double_offset, by)
+                    -- HeartBurst(bx - self.double_offset, by, {1, 1, 1, 1})
+                    -- HeartBurst(bx + self.double_offset, by, {1, 1, 1, 1})
                 else
-                    self.charge_sfx = Assets.getSound("chargeshot_charge")
+                    self.charge_sfx = Assets.getSound("doublesoul_charge")
                     self.charge_sfx:setLooping(true)
                     self.charge_sfx:setVolume(MathUtils.clamp(self.swap_timer/15, 0, 1))
                     self.charge_sfx:play()
@@ -439,32 +444,8 @@ function DoubleSoul:update()
         self.double_right.mask_sprite:setColor(1, 1, 1, self.swap_timer / 30)
 
         self:doMovement()
-        --self.double_left:doMovement()
-        --self.double_right:doMovement()
     end
 
-    -- 这一块代码不会让两个灵魂同时进入无敌时间，其实是没用的代码
-    -- 什么叫Game.inv_frames是nil搞得我还得额外写一个判断语句
-    -- 哦原来我用的是旧版啊
-    --[[
-    if Game.inv_frames then
-        for _, soul in ipairs({self.double_left, self.double_right}) do
-            if Game.inv_frames > 0 then
-                soul.inv_flash_timer = soul.inv_flash_timer + DT
-                local amt = math.floor(soul.inv_flash_timer / (4 / 30))
-                if (amt % 2) == 1 then
-                    soul.sprite:setColor(0.5, 0.5, 0.5)
-                else
-                    soul.sprite:setColor(1, 1, 1)
-                end
-            else
-                soul.inv_flash_timer = 0
-                soul.sprite:setColor(1, 1, 1)
-            end
-        end
-    end--]]
-
-    -- 这段代码，会
     if Game.inv_frames then
         for _, soul in ipairs({self.double_left, self.double_right}) do
             if soul.inv_timer > 0 then

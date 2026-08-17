@@ -20,7 +20,7 @@ function actor:init()
 
     self.voice = nil
     self.portrait_path = "face/kogasa"
-    self.portrait_offset = {-12, -10}
+    self.portrait_offset = {-22, -14}
 
     self.can_blush = false
 

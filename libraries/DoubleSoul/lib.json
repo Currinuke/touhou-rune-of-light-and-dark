@@ -1,5 +1,7 @@
 {
     "id": "throld-doublesoul",
-    "version": "0.1.0",
-    "config": {}
+    "version": "0.1.1",
+    "config": {
+        "sameInv": true
+    }
 }
