@@ -23,7 +23,7 @@ return {
             cutscene:text("* She told you a pun about apples.")
             cutscene:text("* ...")
             cutscene:text("* But neither you nor she laughed.")
-            cutscene:text("* She offered to give you something as compensation.")
+            cutscene:text("* She offers to give you something as compensation.")
             cutscene:text("* Accept her kindness?")
 
             local option = cutscene:choicer({"Yes", "No"})

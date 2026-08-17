@@ -11,21 +11,13 @@ function Rumia:onStart()
         for _, attacker in ipairs(attackers) do
             _times = _times - 1
             if _times < 0 then return end
-            -- Get the attacker's center position
             local x, y = attacker:getRelativePos(attacker.width / 2, attacker.height / 2)
-
-            -- Get the angle between the bullet position and the soul's position
             local angle = MathUtils.angle(x, y, Game.battle.soul.x, Game.battle.soul.y)
-
-            -- Spawn smallbullet angled towards the player with speed 8 (see scripts/battle/bullets/smallbullet.lua)
-            self:spawnBullet("smallbullet", x, y, angle + math.rad(15), 10)
-            self:spawnBullet("smallbullet", x, y, angle + math.rad(15), 12)
-
-            self:spawnBullet("smallbullet", x, y, angle, 10)
-            self:spawnBullet("smallbullet", x, y, angle, 12)
-
-            self:spawnBullet("smallbullet", x, y, angle - math.rad(15), 10)
-            self:spawnBullet("smallbullet", x, y, angle - math.rad(15), 12)
+            for rate_x = -5, -4 do
+                for rate_y = -1, 1 do
+                    self:spawnBullet("rumia/smallbullet", x, y, rate_x * 2, rate_x * math.tan(angle) + (rate_x + 2) * rate_y)
+                end
+            end
         end
     end)
     

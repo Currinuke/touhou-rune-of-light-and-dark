@@ -1,24 +1,24 @@
 local Basic, super = Class(Wave)
 
 function Basic:onStart()
-    -- Every 0.33 seconds...
-    self.timer:every(1 / 6, function()
-        -- Our X position is offscreen, to the right
-        local x = SCREEN_WIDTH + 20
-        -- Get a random Y position between the top and the bottom of the arena
-        local y = MathUtils.random(Game.battle.arena.top, Game.battle.arena.bottom)
+    self.timer:every(0.3, function()
+        local rep = 1
+        local num = MathUtils.random()
 
-        -- Spawn smallbullet going left with speed 8 (see scripts/battle/bullets/smallbullet.lua)
-        local bullet = self:spawnBullet("smallbullet", x, y, math.rad(180), 8)
+        if num < 0.3 then
+            rep = 2
+        end
 
-        -- Dont remove the bullet offscreen, because we spawn it offscreen
-        bullet.remove_offscreen = false
+        for i = 1, rep do
+            local x = SCREEN_WIDTH + 20
+            local y = MathUtils.random(Game.battle.arena.top, Game.battle.arena.bottom)
+            local bullet = self:spawnBullet("scarletbat1", x, y, math.rad(180), 8)
+            bullet.remove_offscreen = false
+        end
     end)
 end
 
 function Basic:update()
-    -- Code here gets called every frame
-
     super.update(self)
 end
 

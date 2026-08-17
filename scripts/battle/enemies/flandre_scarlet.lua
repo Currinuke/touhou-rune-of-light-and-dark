@@ -1,6 +1,6 @@
-local Flandre, super = Class(EnemyBattler)
+local FlandreScarlet, super = Class(EnemyBattler)
 
-function Flandre:init()
+function FlandreScarlet:init()
     super.init(self)
     self.is_flandre = true
 
@@ -28,9 +28,9 @@ function Flandre:init()
         "aiming",
         "aiming_old",
         "movingarena",
-        "rumia_1",
-        "rumia_2",
-        "rumia_showcase"
+        --"rumia_1",
+        "rumia_2"--,
+        --"rumia_showcase"
     }
 
     -- Dialogue randomly displayed in the enemy's speech bubble
@@ -40,8 +40,7 @@ function Flandre:init()
 
     -- Check text (automatically has "ENEMY NAME - " at the start)
     self.check = "AT 4 DF 0\n* Cotton heart and button eye\n* Looks just like a fluffy guy."
-
-    -- Text randomly displayed at the bottom of the screen each turn
+    
     self.text = {
         "* The dummy gives you a soft\nsmile.",
         "* The power of fluffy boys is\nin the air.",
@@ -49,22 +48,20 @@ function Flandre:init()
     }
 
     self.tired_percentage = 0
-    -- Text displayed at the bottom of the screen when the enemy has low health
+    self.low_health_percentage = 0.15
     self.low_health_text = "* Is it because her HP too low,\nor has Flandre really become tried?"
 
-    -- Register act called "Smile"
-    self:registerAct("Umbrella Spin", "Unstable\nResult")
-    -- Register party act with Ralsei called "Tell Story"
-    -- (second argument is description, usually empty)
+    self:registerAct("UMB. Spin", "Unstable\nResult")
     self:registerAct("Group Hypnotize", "Hypnotize\nFlandre\n... a bit.", {"seija", "rin"})
 end
 
-function Flandre:onAct(battler, name)
-    if name == "Umbrella Spin" then
+function FlandreScarlet:onAct(battler, name)
+    if name == "UMB. Spin" then
         --for _, enemy in ipairs(Game.battle.enemies) do
             -- Make the enemy tired
         --    enemy:setTired(false)
         --end
+        local _turn = Game.battle.turn_count
         return {
             "* Kogasa used Umbrella Spin.",
             "* What a rescue?!\nA random party has aiufehjuardwejgaiworjg"
@@ -81,4 +78,4 @@ function Flandre:onAct(battler, name)
     return super.onAct(self, battler, name)
 end
 
-return Flandre
+return FlandreScarlet

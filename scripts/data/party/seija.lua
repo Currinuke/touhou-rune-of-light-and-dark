@@ -7,7 +7,7 @@ function character:init()
     self.name = "Seija"
 
     -- Actor (handles sprites)
-    self:setActor("susie")
+    self:setActor("seija")
     self:setLightActor("susie_lw")
     self:setDarkTransitionActor("susie_dark_transition")
 
@@ -37,7 +37,7 @@ function character:init()
     self.xact_name = "S-Action"
 
     -- Spells
-    self:addSpell("reverse_smack")
+    self:addSpell("rule_burster")
     if Game.chapter == 2 then
         self:addSpell("ultimate_heal")
     elseif Game.chapter == 3 then
@@ -57,7 +57,7 @@ function character:init()
     elseif Game.chapter == 2 then
         self.health = 140
     elseif Game.chapter == 3 then
-        self.health = 190
+        self.health = 200
     elseif Game.chapter == 4 then
         self.health = 230
     elseif Game.chapter >= 5 then
@@ -81,7 +81,7 @@ function character:init()
         }
     elseif Game.chapter == 3 then
         self.stats = {
-            health = 190,
+            health = 200,
             attack = 18,
             defense = 2,
             magic = 2
@@ -159,11 +159,11 @@ function character:init()
 
     -- Character color (for action box outline and hp bar)
     -- self.color = {1, 0, 1}
-    self.color = {205/255, 47/255, 42/255}
+    self.color = {204/255, 41/255, 41/255}
     -- Damage color (for the number when attacking enemies) (defaults to the main color)
-    self.dmg_color = {202/255, 40/255, 42/255}-- {0.8, 0.6, 0.8}
+    self.dmg_color = {204/255, 41/255, 41/255}-- {0.8, 0.6, 0.8}
     -- Attack bar color (for the target bar used in attack mode) (defaults to the main color)
-    self.attack_bar_color = {214/255, 44/255, 37/255} -- {234/255, 121/255, 200/255}
+    self.attack_bar_color = {204/255, 41/255, 41/255} -- {234/255, 121/255, 200/255}
     -- Attack box color (for the attack area in attack mode) (defaults to darkened main color)
     self.attack_box_color = {1, 0, 0} -- {0.5, 0, 0.5}
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
@@ -172,9 +172,9 @@ function character:init()
     -- Head icon in the equip / power menu
     self.menu_icon = "party/susie/head"
     -- Path to head icons used in battle
-    self.head_icons = "party/susie/icon"
+    self.head_icons = "party/seija/icon"
     -- Name sprite (optional)
-    self.name_sprite = "party/susie/name"
+    -- self.name_sprite = "party/susie/name"
 
     -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/mash"
@@ -202,7 +202,7 @@ end
 
 function character:getTitle()
     if self:getFlag("auto_attack", false) then
-        return "LV" .. self:getLevel() .. " Mean Girl\nWon't do anything\nbut fight."
+        return "LV" .. self:getLevel() .. " Mean Girl\nWon\'t do anything\nbut fight."
     else
         return super.getTitle(self)
     end

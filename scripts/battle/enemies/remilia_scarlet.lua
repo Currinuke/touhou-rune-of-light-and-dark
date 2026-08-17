@@ -8,7 +8,7 @@ function RemiliaScarlet:init()
     -- Enemy name
     self.name = "Remilia Scarlet"
     -- Sets the actor, which handles the enemy's sprites (see scripts/data/actors/dummy",")
-    self:setActor("dummy")
+    self:setActor("remilia_scarlet")
 
     -- Enemy health
     self.max_health = 3000
@@ -24,73 +24,72 @@ function RemiliaScarlet:init()
     self.spare_points = 0
 
     -- List of possible wave ids, randomly picked each turn
-    self.waves = {}
+    self.waves = {
+        "remilia_1"
+    }
 
     -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
         "..."
     }
 
+    -- self.exit_on_defeat = false
+
     -- Check text (automatically has "ENEMY NAME - " at the start)
-    self.check = "AT 4 DF 0\n* Cotton heart and button eye\n* Looks just like a fluffy guy."
+    self.check = {
+        "A baojun.",
+        "If aaaaaaaaaaa."
+    }
 
     -- Text randomly displayed at the bottom of the screen each turn
     self.text = {
         "* It would be an awful night.",
         "* It would be a joyful night.",
         "* It would be a scary night.",
+        "* Scarlet gazes at all of you.",
+        "* Smells like a vampire bat.",
+        "* Moonlight shines through the red mist upon the battlefield.",
+        "* Moonlight shines through the red mist upon the battlefield.\n[wait:5]* Moonlight is scarlet."
     }
 
     self.tired_percentage = 0
+    self.low_health_percentage = 0.15
     -- Text displayed at the bottom of the screen when the enemy has low health
-    self.low_health_text = "* Is her HP too low, \nor has she really become tried?"
-    --[[
-    talk1 = self:registerAct("Talk", "")
-    --self:registerAct("Talk ", "", {"seija"})
-    --self:registerAct("Talk  ", "", {"rin"})
-    talk2 = self:registerAct("Talk", "", {"seija"})
-    talk3 = self:registerAct("Talk", "", {"rin"})]]
+    self.low_health_text = "* Scarlet\'s hand trembles slightly."
 
     self:registerAct("Talk", "")
-    self:registerAct("Talk ", "", {"seija"})
-    self:registerAct("Talk  ", "", {"rin"})
+    self:registerAct("S-Talk", "", {"seija"})
+    self:registerAct("R-Talk", "", {"rin"})
 end
 
 function RemiliaScarlet:onAct(battler, name)
-    --Kristal.Console:log(battler.chara.id)
     if name == "Talk" then
-        self:registerActIndex(2, "Shelter", "Take hit\nfor party", nil, 8)
-        return {
-            "* Kogasa tried to talk with Remilia...",
-            "* What a rescue?!\nA random party has aiufehj uardwej gaiwo rjg"
-        }
-    elseif name == "Talk " then
-        self:registerActIndex(3, "Scare Smask", "Scare\ndamage", {"seija"}, 60)
-        return {
-            "* Seija tried to talk with Remilia...",
-            "* What a rescue?!\nA random party has aiufeh jua rdwejgai worjg"
-        }
-    elseif name == "Talk  " then
-        self:registerActIndex(4, "Fuuka [D. Alter]", "Change HP\ndata", {"rin"}, 50)
-        return {
-            "* Rin tried to talk with Remilia...",
-            "* What a rescue?!\nA random party has ai ufeh ju ard wejgai wor jg"
-        }
-    elseif name == "Shelter" then
+        self:registerActIndex(2, "Me Shield", "Take hit\nfor party", nil, 8)
+        Game.battle:startActCutscene("remilia_scarlet", "kogasa_talk")
+        return
+    elseif name == "S-Talk" then
+        self:registerActIndex(3, "Scare Burster", "Scare\ndamage", {"seija"}, 60)
+        Game.battle:startActCutscene("remilia_scarlet", "seija_talk")
+        return
+    elseif name == "R-Talk" then
+        self:registerActIndex(4, "W.F.[D.F.]", "Falsify\nHP data", {"rin"}, 50)
+        Game.battle:startActCutscene("remilia_scarlet", "rin_talk")
+        return
+    elseif name == "Me Shield" then
         -- Game.battle:powerAct("shelter", battler, "kogasa")
         return {
-            "* Your SOUL shined its power on\nthe party!",
-            "* Kogasa will now take damage until she downs!"
+            "* Your SOUL shined its power on\nTatara Kogasa!",
+            "* Kogasa will take all damage for her teammates before DOWN!"
         }
-    elseif name == "Scare Smask" then
-        Game.battle:powerAct("scare_smack", battler, "seija")
+    elseif name == "Scare Burster" then
+        Game.battle:powerAct("scare_burster", battler, "seija")
         return {
-            "* Your SOUL shined its power on\nSeija!"
+            "* Your SOUL shined its power on\nKijin Seija!"
         }
-    elseif name == "Fuuka [D. Alter]" then
-        Game.battle:powerAct("fuuka_data_alter", battler, "rin")
+    elseif name == "W.F.[D.F.]" then
+        Game.battle:powerAct("wind_flower_data_falsifier", battler, "rin")
         return {
-            "* Your SOUL shined its power on\nRin!"
+            "* Your SOUL shined its power on\nSatsuki Rin!"
         }
     end
 
@@ -99,50 +98,8 @@ function RemiliaScarlet:onAct(battler, name)
     return super.onAct(self, battler, name)
 end
 
---[[
-function RemiliaScarlet:onAct(battler, name)
-    if name == "Talk" then
-        self:registerActOn(2, "Shelter", "Take hit\nfor party", nil, 8)
-        return {
-            "* Kogasa tried to talk ...",
-            "* What a rescue?!\nA random party hasaiufehjuardwejgaiworjg"
-        }
-    elseif name == "Talk " then
-        self:registerActOn(3, "Scare Smask", "", {"seija"}, 60)
-        return {
-            "* 23232322323232323.",
-            "* What a rescue?!\nA random party hasaiufehjuardwejgaiworjg"
-        }
-    elseif name == "Talk  " then
-        self:registerActOn(4, "Fuuka [D. Eater]", "Change HP\ndata", {"rin"}, 50)
-        return {
-            "* 11111111111111",
-            "* What a rescue?!\nA random party hasaiufehjuardwejgaiworjg"
-        }
-    elseif name == "Shelter" then
-        return {
-            "* 11111111111111",
-            "* Kogasa will take damage until her downs!"
-        }
-    elseif name == "Scare Smask" then
-        return {
-            "* 11111111111111",
-            "* What a rescue?!\nA random party hasaiufehjuardwejgaiworjg"
-        }
-    elseif name == "Fuuka [D. Eater]" then
-        return {
-            "* 11111111111111",
-            "* What a rescue?!\nA random party hasaiufehjuardwejgaiworjg"
-        }
-    end
-
-    -- If the act is none of the above, run the base onAct function
-    -- (this handles the Check act)
-    return super.onAct(self, battler, name)
-end]]
-
-function RemiliaScarlet:onTurnStart()
-    self.wave_override = "remilia_" .. MathUtils.clamp(tostring(Game.battle.turn_count), 1, 1)
+function RemiliaScarlet:onTurnEnd()
+    self.wave_override = "remilia_" .. tostring(MathUtils.clamp(Game.battle.turn_count, 1, 1))
     self.defense = self.defense - 1
 end
 

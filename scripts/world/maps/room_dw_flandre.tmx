@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="7">
+ <editorsettings>
+  <export target="room_dw_flandre.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="name" value="Basement - Flandre's Room"/>
+ </properties>
+ <imagelayer id="2" name="background">
+  <image source="../../../assets/sprites/backgrounds/dark/flandre.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#ff00ff" id="3" name="objects">
+  <object id="1" name="enemy" x="400" y="80" width="40" height="40">
+   <properties>
+    <property name="actor" value="dummy"/>
+    <property name="encounter" value="flandre"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#7f00ff" id="5" name="markers">
+  <object id="4" name="spawn" x="320" y="240">
+   <point/>
+  </object>
+  <object id="6" name="entry" x="280" y="320">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

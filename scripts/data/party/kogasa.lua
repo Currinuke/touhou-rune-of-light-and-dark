@@ -8,8 +8,8 @@ function character:init()
     -- self.name = "小伞"
 
     -- Actor (handles overworld/battle sprites)
-    self:setActor("kris")
-    self:setLightActor("kris_lw")
+    self:setActor("kogasa")
+    self:setLightActor("kogasa_lw")
     self:setDarkTransitionActor("kris_dark_transition")
 
     -- Display level (saved to the save file)
@@ -41,13 +41,14 @@ function character:init()
     -- X-Action name (displayed in this character's spell menu)
     self.xact_name = "K-Action"
 
+    self:addSpell("_scare_ya")
     -- Current health (saved to the save file)
     if Game.chapter == 1 then
         self.health = 100
     elseif Game.chapter == 2 then
         self.health = 120
     elseif Game.chapter == 3 then
-        self.health = 160
+        self.health = 170
     elseif Game.chapter == 4 then
         self.health = 200
     elseif Game.chapter >= 5 then
@@ -71,7 +72,7 @@ function character:init()
         }
     elseif Game.chapter == 3 then
         self.stats = {
-            health = 160,
+            health = 170,
             attack = 14,
             defense = 2,
             magic = 0
@@ -172,9 +173,9 @@ function character:init()
     -- Head icon in the equip / power menu
     self.menu_icon = "party/kris/head"
     -- Path to head icons used in battle
-    self.head_icons = "party/kris/icon"
+    self.head_icons = "party/kogasa/icon"
     -- Name sprite
-    self.name_sprite = "party/kris/name"
+    -- self.name_sprite = "party/kris/name"
 
     -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/cut"

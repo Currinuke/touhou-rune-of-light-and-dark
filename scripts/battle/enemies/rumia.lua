@@ -6,7 +6,7 @@ function Rumia:init()
     -- Enemy name
     self.name = "Rumia"
     -- Sets the actor, which handles the enemy's sprites (see scripts/data/actors/dummy.lua)
-    self:setActor("dummy")
+    self:setActor("rumia")
 
     -- Enemy health
     self.max_health = 320
@@ -30,56 +30,61 @@ function Rumia:init()
 
     -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
-        "..."
+        "Is that so?\n[wait:5]Is that so?"
     }
 
-    -- Check text (automatically has "ENEMY NAME - " at the start)
+    -- self.exit_on_defeat = false
+    
     self.check = {
-        "AT 9 DF 2\n* Cotton heart and button eye\n* Looks just like a fluffy guy.",
-        "Cotton heart and button eye looks just like a fluffy guy."
+        "AT 9 DF 2\n[wait:5]* Her headpiece could be a decoration, [wait:5]but it\'s actually a fire axe!",
+        "If that axe got removed, [wait:5]she\'ll likely become harmless again."
     
     }
 
-    -- Text randomly displayed at the bottom of the screen each turn
     self.text = {
-        "* The dummy gives you a soft\nsmile.",
-        "* The power of fluffy boys is\nin the air.",
-        "* Smells like cardboard.",
+        "* Rumia cannot suppress her desire\nto swing the axe."
     }
-    -- Text displayed at the bottom of the screen when the enemy has low health
-    self.low_health_text = "* The dummy looks like it's\nabout to fall over."
+    
+    self.tired_percentage = 0
+    self.low_health_percentage = 0
 
-    -- self:registerAct("Check", "Useless\nanalysis")
-    self:registerAct("Startle", "Startle\nAction", nil, 32)
+    self:registerAct("Scare-ya", "Tire a\nenemy", nil, 32)
     self:registerAct("Strong Wind", "Remove\ndarkness", {"rin"}, 50)
-    self:registerAct("Seija's Idea", "Need\nteam up", {"seija", "rin"}, 102)
+    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 102)
+
+    self.event_heal = function()
+        Game.battle:startActCutscene("rumia", "heal")
+    end
 end
 
 function Rumia:onAct(battler, name)
-    if name == "Startle" then
+    if name == "Scare-ya" then
+        -- self:setTired(true)
         self:addMercy(40)
-        -- Change this enemy's dialogue for 1 turn
-        -- self.dialogue_override = "... ^^"
-        return "* "
+        return "* Kogasa scared Rumia!\n[wait:5]* Rumia\'s attention wavered a little."
     elseif name == "Strong Wind" then
         self:setTired(true)
         self:addMercy(50)
         self:addMercy(40)
-        return {
-            "* Kogasa commands Rin to blow strong wind!",
-            "* Press [bind:confirm] to summon strong wind!"
-        }
-
-    elseif name == "Seija's Idea" then -- cheater's choice
-        return "* Cheater..."
+        Game.battle:startActCutscene("rumia", "act_wind")
+        return
+    elseif name == "Seija\'s Idea" then -- cheater's choice
+        error("聪明。但是 Currinuke 拒绝了你的尝试。")
+        return
     end
 
-    -- If the act is none of the above, run the base onAct function
-    -- (this handles the Check act)
     return super.onAct(self, battler, name)
 end
 
-function Rumia:onHurtEnd()
+function Rumia:onHurt(damage, battler)
+    self:toggleOverlay(true)
+    if not self:getActiveSprite():setAnimation("hurt") then
+        self:toggleOverlay(false)
+    end
+    self:getActiveSprite():shake(9, 0, 0.5, 2 / 30)
+end
+
+function Rumia:onDefeat(damage, battler)
 end
 
 return Rumia

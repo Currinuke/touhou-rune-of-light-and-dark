@@ -3,17 +3,32 @@ local RemiliaScarlet, super = Class(Encounter)
 function RemiliaScarlet:init()
     super.init(self)
 
-    -- Text displayed at the bottom of the screen at the start of the encounter
-    self.text = "* The Scarlet Devil blocked your way!"
-
-    -- Battle music ("battle" is rude buster)
+    self.text = "* The Scarlet Devil blocked your\nway!"
     self.music = "kingboss"
-    -- Enables the purple grid battle background
     self.background = false
 
     self:addEnemy("remilia_scarlet")
-    -- skip the YOU WON! text
+    
     self.no_end_message = true
 end
+
+--[[
+function RemiliaScarlet:onMenuSelect(state_reason, item, can_select)
+    if state_reason == "ACT" then
+        if item.name == "W.F.[D.F.]" then
+            Assets.playSound("ui_select")
+            Game.battle:setState("PARTYSELECT", "SPELL")
+            return true
+        end
+    end
+end
+--[[
+function RemiliaScarlet:onPartySelect(state_reason, party_index)
+    
+end
+
+function RemiliaScarlet:onPartyCancel(state_reason, party_index)
+
+end]]
 
 return RemiliaScarlet

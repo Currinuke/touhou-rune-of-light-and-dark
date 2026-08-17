@@ -49,7 +49,7 @@ function item:init()
     self.reactions = {
         seija = "Too small. Kris-size.",
         rin = "Umm, I might hurt myself...",
-        noelle = "That's, um, nostalgic."
+        rensei = "That\'s, um, nostalgic."
     }
 end
 

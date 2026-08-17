@@ -1,5 +1,20 @@
 local Battle, super = HookSystem.hookScript(Battle)
 
+function Battle:updateIntro()
+    if false then -- 哈哈直接禁用
+        super.updateIntro(self)
+    else
+        self.intro_timer = self.intro_timer + 1 * DTMULT
+        if self.intro_timer >= 26 then
+            for _, v in ipairs(self.party) do
+                v:setAnimation("battle/idle")
+            end
+            self:setState("ACTIONSELECT", "INTRO")
+            self:nextTurn()
+        end
+    end
+end
+
 function Battle:nextTurn()
     self.turn_count = self.turn_count + 1
     if self.turn_count > 1 then
@@ -55,6 +70,7 @@ function Battle:nextTurn()
     if self.battle_ui then
         for _, box in ipairs(self.battle_ui.action_boxes) do
             box.selected_button = 1
+            -- 好像这个才是呢
             if box.battler.chara.name == "Seija" then box.selected_button = #box:getSelectableButtons() end
             --box:setHeadIcon("head")
             box:resetHeadIcon()
@@ -96,7 +112,8 @@ function Battle:nextTurn()
         self:setState("ACTIONSELECT")
     end
 end
---[[
+
+
 --- Spawns the soul and sets up its transition from the source character to its starting position
 ---@param x? number
 ---@param y? number
@@ -106,7 +123,7 @@ function Battle:spawnSoul(x, y)
 
     self:addChild(HeartBurst(bx - 2, by + 1, color))
 
-    if not self.soul then
+    if not self.soul then 
         self.soul = self.encounter:createSoul(bx, by, color)
         self.soul:transitionTo(x or SCREEN_WIDTH / 2, y or SCREEN_HEIGHT / 2)
         self.soul.target_alpha = self.soul.alpha
@@ -114,8 +131,6 @@ function Battle:spawnSoul(x, y)
         self:addChild(self.soul)
     end
 
-    self.soul_alt = self.soul
-    --self:addChild(self.soul_alt)
 
     if not Game:getConfig("soulInvBetweenWaves") then
         -- There is technically one frame of invulnerability here, otherwise it would be `-1`
@@ -124,6 +139,18 @@ function Battle:spawnSoul(x, y)
 
     if self.state == "DEFENDINGBEGIN" or self.state == "DEFENDING" then
         self.soul:onWaveStart()
+    end
+end
+
+--[[
+function Battle:returnSoul(dont_destroy)
+    if dont_destroy == nil then dont_destroy = false end
+    local bx, by = self:getSoulLocation(true)
+    for _, soul in ipairs({self.soul or false, self.soul_left or false, self.soul_right or false}) do
+        Kristal.Console:push(tostring(soul))
+        if soul then
+            soul:transitionTo(bx - 2, by + 1, not dont_destroy)
+        end
     end
 end]]
 

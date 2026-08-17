@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 70,
+  nextobjectid = 73,
   properties = {
     ["name"] = "Test Map - Room 1"
   },
@@ -55,11 +55,11 @@ return {
         0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 18, 19, 20, 0,
-        0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 22, 23, 24, 0,
-        0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 22, 9, 24, 0,
-        0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 10, 11, 12, 0,
-        0, 0, 0, 0, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 10, 11, 12, 0,
-        0, 6, 7, 7, 7, 7, 11, 11, 11, 7, 7, 7, 7, 7, 7, 7, 11, 11, 12, 0,
+        0, 0, 23, 23, 0, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 22, 23, 24, 0,
+        0, 23, 23, 23, 23, 0, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 22, 9, 24, 0,
+        0, 23, 11, 11, 23, 0, 2, 3, 4, 0, 0, 11, 11, 0, 0, 0, 10, 11, 12, 0,
+        0, 23, 11, 11, 23, 0, 2, 3, 4, 0, 0, 11, 11, 0, 0, 0, 10, 11, 12, 0,
+        0, 6, 11, 11, 7, 7, 11, 11, 11, 7, 7, 11, 11, 7, 7, 7, 11, 11, 12, 0,
         0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 15, 15, 15, 15, 16, 0,
         0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 0, 0, 0, 0, 0, 0,
         0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 0, 0, 0, 0, 0, 0,
@@ -230,7 +230,7 @@ return {
           shape = "rectangle",
           x = 360,
           y = 680,
-          width = 280,
+          width = 80,
           height = 40,
           rotation = 0,
           opacity = 1,
@@ -371,7 +371,7 @@ return {
           x = 600,
           y = 640,
           width = 40,
-          height = 40,
+          height = 80,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -425,6 +425,20 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
+          y = 680,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 72,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 520,
           y = 680,
           width = 80,
           height = 40,
@@ -511,8 +525,8 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room2",
-            ["marker"] = "entry"
+            ["map"] = "room_bridge",
+            ["marker"] = "entry_left"
           }
         },
         {
@@ -565,7 +579,7 @@ return {
           properties = {
             ["facing"] = "down",
             ["marker"] = { id = 46 },
-            ["shop"] = "shop_meirin"
+            ["shop"] = "meirin"
           }
         },
         {
@@ -583,6 +597,40 @@ return {
           properties = {
             ["actor"] = "starwalker",
             ["cutscene"] = "debug_seija.set"
+          }
+        },
+        {
+          id = 70,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 440,
+          y = 680,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["map"] = "room_dw_flandre",
+            ["marker"] = "entry"
+          }
+        },
+        {
+          id = 71,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 640,
+          width = 120,
+          height = 80,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["once"] = false,
+            ["script"] = "room_girl"
           }
         }
       }

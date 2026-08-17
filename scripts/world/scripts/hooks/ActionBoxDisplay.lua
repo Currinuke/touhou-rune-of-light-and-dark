@@ -4,9 +4,14 @@ function ActionBoxDisplay:draw()
     if self.actbox.battler.chara.id ~= "seija" then
         super.draw(self) -- 不是正邪就应用原函数
     else
+        -- 由于没有重写注释，以下注释都可能是错的
+        -- 包括 212 * 44
         -- 212 * 44
         -- love.graphics.line(1  , 2, 1,   36)
         -- love.graphics.line(212, 2, 212, 36)
+        
+        local bar_x = 212
+        local bar_y = 44
 
         if Game.battle.current_selecting == self.actbox.index then
            Draw.setColor(self.actbox.battler.chara:getColor())

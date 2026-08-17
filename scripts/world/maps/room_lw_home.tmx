@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="4" nextobjectid="8">
+ <editorsettings>
+  <export target="room_lw_home.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="light" type="bool" value="true"/>
+  <property name="name" value="Unnamed"/>
+ </properties>
+ <imagelayer id="2" name="background">
+  <image source="../../../assets/sprites/backgrounds/light/home.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#0000ff" id="3" name="collision">
+  <object id="1" x="40" y="200" width="40" height="200"/>
+  <object id="2" x="560" y="200" width="40" height="200"/>
+  <object id="3" x="80" y="160" width="480" height="40"/>
+  <object id="4" x="80" y="400" width="160" height="40"/>
+  <object id="5" x="400" y="400" width="160" height="40"/>
+  <object id="6" x="240" y="400" width="40" height="80"/>
+  <object id="7" x="360" y="400" width="40" height="80"/>
+ </objectgroup>
+</map>

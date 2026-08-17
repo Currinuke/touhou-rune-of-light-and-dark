@@ -6,7 +6,7 @@ function item:init()
     -- Display name
     self.name = "Tanghulu"
     -- Name displayed when used in battle (optional)
-    self.use_name = "Tanghulu"
+    self.use_name = self.name
 
     -- Item type (item, key, weapon, armor)
     self.type = "item"
@@ -19,9 +19,9 @@ function item:init()
     -- Battle description
     self.effect = "Heals\n40HP"
     -- Shop description
-    self.shop = "Tasty snack\nfrom Hong's\nhomeland\nHeals 40HP"
+    self.shop = "Tasty snack\nfrom Hong\'s\nhomeland\nHeals 40HP"
     -- Menu description
-    self.description = "Tasty snack from Hong's homeland. Heals 40 HP. "
+    self.description = "Tasty snack from Hong\'s homeland.\nMade with cherries. Heals 40 HP. "
 
     -- Default shop price (sell price is halved)
     self.price = 250
@@ -48,12 +48,13 @@ function item:init()
 
     -- Character reactions (key = party member id)
     self.reactions = {
-        susie = "Yeahh!! That's good!",
-        ralsei = {
-            ralsei = "Yummy!!! Marshmallows!!",
-            susie = "Hey, feed ME!!!"
+        kogasa = "Sweet... and sour!",
+        seija = {
+            seija = "Ah, \"sweet before bitter\"!",
+            rin = "Isn\'t it \"bitter before sweet\"?"
         },
-        noelle = "Oh, it's... sticky?"
+        rin = "Is this really tanghulu?",
+        reisen = "It looks so familiar..."
     }
 end
 

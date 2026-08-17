@@ -4,12 +4,19 @@ function ActionBox:init(x, y, index, battler)
     if battler.chara.id ~= "seija" then
         super.init(self, x, y, index, battler) -- 不是正邪就应用原函数
     else
+        -- 由于没有重写注释，以下注释都可能是错的
+        -- 包括 212 * 44
         -- 212 * 44
         -- love.graphics.line(1  , 2, 1,   36)
         -- love.graphics.line(212, 2, 212, 36)
 
         -- -212,325 -> 0,0
         -- 0,0 -> 213,325
+
+        local bar_x = 212
+        local bar_y = 44
+
+        -- bar_x - 原数字 - 贴图横像素数 = 新数字
 
         super.super.init(self, x, y)
 
@@ -32,6 +39,7 @@ function ActionBox:init(x, y, index, battler)
 
         -- self.head_sprite = Sprite(battler.chara:getHeadIcons().."/"..battler:getHeadIcon(), 13 + self.head_offset_x, 11 + self.head_offset_y)
         -- 34*25
+        -- 
         -- 212 = 13 + 165 + 34
         -- 36 = 11 + 0 + 25
         self.head_sprite = Sprite(battler.chara:getHeadIcons().."/"..battler:getHeadIcon(), 165 + self.head_offset_x, 8 + self.head_offset_y)
@@ -97,9 +105,10 @@ function ActionBox:createButtons()
                 table.insert(self.buttons, btn)
                 self:addChild(btn)
             end
-            self.selected_button = self.selected_button + 1
             -- 让正邪的初始按钮改成最后一个（攻击）
             -- 别问我为什么这么写，能跑就行
+            -- 可能这行代码没用，但是我懒得测试了
+            self.selected_button = self.selected_button + 1
         end
     
         self.selected_button = MathUtils.clamp(self.selected_button, 1, #self:getSelectableButtons())

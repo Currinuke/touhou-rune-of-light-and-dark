@@ -9,7 +9,7 @@ function character:init()
     self.name = "Rin"
 
     -- Actor (handles sprites)
-    self:setActor("ralsei")
+    self:setActor("rin")
 
     -- Display level (saved to the save file)
     self.level = Game.chapter
@@ -53,7 +53,7 @@ function character:init()
     elseif Game.chapter == 2 then
         self.health = 100
     elseif Game.chapter == 3 then
-        self.health = 140
+        self.health = 120
     elseif Game.chapter == 4 then
         self.health = 180
     elseif Game.chapter >= 5 then
@@ -77,7 +77,7 @@ function character:init()
         }
     elseif Game.chapter == 3 then
         self.stats = {
-            health = 140,
+            health = 120,
             attack = 12,
             defense = 2,
             magic = 11
@@ -158,13 +158,13 @@ function character:init()
     self.lw_armor_default = "light/bandage"
 
     -- Character color (for action box outline and hp bar)
-    self.color = {1, 1, 13/255}
+    self.color = {1, 1, 0}
     -- Damage color (for the number when attacking enemies) (defaults to the main color)
-    self.dmg_color = {1, 1, 75/255}
+    self.dmg_color = {1, 1, 0}
     -- Attack bar color (for the target bar used in attack mode) (defaults to the main color)
     self.attack_bar_color = {1, 1, 0}
     -- Attack box color (for the attack area in attack mode) (defaults to darkened main color)
-    self.attack_box_color = {1, 1, 167/255}
+    self.attack_box_color = {1, 1, 127/255}
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {0.5, 1, 0.5}
 
@@ -175,9 +175,9 @@ function character:init()
         self.menu_icon = "party/ralsei/head"
     end
     -- Path to head icons used in battle
-    self.head_icons = "party/ralsei/icon"
+    self.head_icons = "party/rin/icon"
     -- Name sprite (optional)
-    self.name_sprite = "party/ralsei/name"
+    -- self.name_sprite = "party/ralsei/name"
 
     -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/slap_r"
@@ -196,7 +196,7 @@ function character:init()
     -- Message shown on gameover (optional)
     self.gameover_message = {
         "This is not\nyour fate...!",
-        "Please,[wait:5]\ndon't give up!"
+        "Please,[wait:5]\ndon\'t give up!"
     }
 end
 

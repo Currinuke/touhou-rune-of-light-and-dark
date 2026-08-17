@@ -9,10 +9,10 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 6,
-  nextobjectid = 15,
+  nextlayerid = 7,
+  nextobjectid = 22,
   properties = {
-    ["name"] = "Test Map - Room 2"
+    ["name"] = "Bridge"
   },
   tilesets = {
     {
@@ -176,6 +176,91 @@ return {
     {
       type = "objectgroup",
       draworder = "topdown",
+      id = 5,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 6,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 440,
+          y = 120,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "remilia_scarlet",
+            ["encounter"] = "remilia_scarlet"
+          }
+        },
+        {
+          id = 9,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = -40,
+          y = 320,
+          width = 40,
+          height = 80,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["map"] = "room_bridge",
+            ["marker"] = "entry_right"
+          }
+        },
+        {
+          id = 14,
+          name = "savepoint",
+          type = "",
+          shape = "rectangle",
+          x = 680,
+          y = 320,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["text1"] = "* Silence echoes in the darkness\nof this familiar-yet-different\nscenery.",
+            ["text2"] = "* The power of avoiding copying\nofficial music shines within\nyou."
+          }
+        },
+        {
+          id = 20,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 280,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "dummy",
+            ["encounter"] = "dummy",
+            ["once"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
       id = 4,
       name = "markers",
       class = "",
@@ -192,8 +277,8 @@ return {
           name = "spawn",
           type = "",
           shape = "point",
-          x = 360,
-          y = 240,
+          x = 460,
+          y = 260,
           width = 0,
           height = 0,
           rotation = 0,
@@ -214,90 +299,6 @@ return {
           opacity = 1,
           visible = true,
           properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      draworder = "topdown",
-      id = 5,
-      name = "objects",
-      class = "",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      properties = {},
-      objects = {
-        {
-          id = 6,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 720,
-          y = 120,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "remilia_scarlet"
-          }
-        },
-        {
-          id = 9,
-          name = "transition",
-          type = "",
-          shape = "rectangle",
-          x = -40,
-          y = 320,
-          width = 40,
-          height = 80,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["map"] = "room1",
-            ["marker"] = "entry"
-          }
-        },
-        {
-          id = 12,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 200,
-          y = 280,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "flandre_scarlet"
-          }
-        },
-        {
-          id = 14,
-          name = "savepoint",
-          type = "",
-          shape = "rectangle",
-          x = 520,
-          y = 300,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["text1"] = "* Silence echoes in the darkness\nof this familiar-yet-different\nscenery.",
-            ["text2"] = "* The power of avoiding copying\nofficial music shines within\nyou."
-          }
         }
       }
     }

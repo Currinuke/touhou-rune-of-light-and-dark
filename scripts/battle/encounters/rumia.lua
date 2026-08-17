@@ -2,21 +2,23 @@ local Rumia, super = Class(Encounter)
 
 function Rumia:init()
     super.init(self)
-
-    -- Text displayed at the bottom of the screen at the start of the encounter
-    self.text = "* The axe youkai strikes over."
-
-    -- Battle music ("battle" is rude buster)
+    self.text = "* The night youkai axe-identally strikes over."
     self.music = "checkers"
-    -- Enables the purple grid battle background
     self.background = false
     self.hide_world = true
-
-    -- Add the dummy enemy to the encounter
     self:addEnemy("rumia")
-
-    -- skip the YOU WON! text
     self.no_end_message = false
+end
+
+function Rumia:onActionsEnd()
+    for _, enemy in ipairs(Game.battle.enemies) do
+        if enemy.health <= enemy.max_health / 10 then
+            -- enemy:event_heal()
+            enemy:heal(enemy.max_health)
+            -- Game.battle:startActCutscene("rumia", "heal")
+            break
+        end
+    end
 end
 
 return Rumia

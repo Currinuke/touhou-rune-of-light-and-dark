@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="15">
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="22">
  <editorsettings>
   <export target="room2.lua" format="lua"/>
  </editorsettings>
  <properties>
-  <property name="name" value="Test Map - Room 2"/>
+  <property name="name" value="Bridge"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/castle.tsx"/>
  <layer id="1" name="tiles" width="20" height="12">
@@ -46,34 +46,20 @@
   <object id="4" x="160" y="80" width="600" height="40"/>
   <object id="7" x="0" y="280" width="120" height="40"/>
  </objectgroup>
- <objectgroup color="#7f00ff" id="4" name="markers">
-  <object id="5" name="spawn" x="360" y="240">
-   <point/>
-  </object>
-  <object id="8" name="entry" x="40" y="360">
-   <point/>
-  </object>
- </objectgroup>
  <objectgroup color="#ff00ff" id="5" name="objects">
-  <object id="6" name="enemy" x="720" y="120" width="40" height="40">
+  <object id="6" name="enemy" x="440" y="120" width="40" height="40">
    <properties>
-    <property name="actor" value="dummy"/>
+    <property name="actor" value="remilia_scarlet"/>
     <property name="encounter" value="remilia_scarlet"/>
    </properties>
   </object>
   <object id="9" name="transition" x="-40" y="320" width="40" height="80">
    <properties>
-    <property name="map" value="room1"/>
-    <property name="marker" value="entry"/>
+    <property name="map" value="room_bridge"/>
+    <property name="marker" value="entry_right"/>
    </properties>
   </object>
-  <object id="12" name="enemy" x="200" y="280" width="40" height="40">
-   <properties>
-    <property name="actor" value="dummy"/>
-    <property name="encounter" value="flandre_scarlet"/>
-   </properties>
-  </object>
-  <object id="14" name="savepoint" x="520" y="300" width="40" height="40">
+  <object id="14" name="savepoint" x="680" y="320" width="40" height="40">
    <properties>
     <property name="text1">* Silence echoes in the darkness
 of this familiar-yet-different
@@ -82,6 +68,21 @@ scenery.</property>
 official music shines within
 you.</property>
    </properties>
+  </object>
+  <object id="20" name="enemy" x="200" y="280" width="40" height="40">
+   <properties>
+    <property name="actor" value="dummy"/>
+    <property name="encounter" value="dummy"/>
+    <property name="once" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#7f00ff" id="4" name="markers">
+  <object id="5" name="spawn" x="460" y="260">
+   <point/>
+  </object>
+  <object id="8" name="entry" x="40" y="360">
+   <point/>
   </object>
  </objectgroup>
 </map>

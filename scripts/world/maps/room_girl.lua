@@ -12,7 +12,8 @@ return {
   nextlayerid = 10,
   nextobjectid = 23,
   properties = {
-    ["music"] = "man"
+    ["music"] = "man",
+    ["name"] = "Apple Tree"
   },
   tilesets = {
     {
@@ -195,7 +196,7 @@ return {
           type = "",
           shape = "point",
           x = 320,
-          y = 440,
+          y = 320,
           width = 0,
           height = 0,
           rotation = 0,
@@ -246,7 +247,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room2",
+            ["map"] = "room1",
             ["marker"] = "entry"
           }
         },
@@ -273,9 +274,9 @@ return {
           type = "",
           shape = "rectangle",
           x = 280,
-          y = 80,
+          y = 120,
           width = 80,
-          height = 160,
+          height = 80,
           rotation = 0,
           opacity = 1,
           visible = true,

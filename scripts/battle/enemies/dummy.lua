@@ -49,7 +49,7 @@ function Dummy:init()
     self:registerAct("Smile")
     -- Register party act with Ralsei called "Tell Story"
     -- (second argument is description, usually empty)
-    self:registerAct("Tell Story", "", {"ralsei"})
+    self:registerAct("Tell Story", "", {"rin"})
 end
 
 function Dummy:onAct(battler, name)
@@ -75,10 +75,10 @@ function Dummy:onAct(battler, name)
     elseif name == "Standard" then --X-Action
         -- Give the enemy 50% mercy
         self:addMercy(50)
-        if battler.chara.id == "ralsei" then
+        if battler.chara.id == "rin" then
             -- R-Action text
             return "* Ralsei bowed politely.\n* The dummy spiritually bowed\nin return."
-        elseif battler.chara.id == "susie" then
+        elseif battler.chara.id == "seija" then
             -- S-Action: start a cutscene (see scripts/battle/cutscenes/dummy.lua)
             Game.battle:startActCutscene("dummy", "susie_punch")
             return

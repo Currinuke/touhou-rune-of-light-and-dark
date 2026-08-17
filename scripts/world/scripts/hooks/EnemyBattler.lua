@@ -5,6 +5,7 @@ function EnemyBattler:init(...)
     self.is_flandre = false
 end
 
+-- new function
 function EnemyBattler:registerActIndex(index, name, description, party, tp, highlight, icons)
     if type(party) == "string" then
         if party == "all" then
@@ -36,9 +37,36 @@ function EnemyBattler:registerActIndex(index, name, description, party, tp, high
     return act
 end
 
---- Retrieves the data of an act on this enemy by its `name`
----@param name string
----@return table?
+function EnemyBattler:onAct(battler, name)
+    if name == "Check" then
+        self:onCheck(battler)
+        local _text = self:getCheckText(battler)
+        local _check = "* " .. battler.chara.name .. " checked the enemy!"
+        if type(_text) == "table" then
+            table.insert(_text, 1, _check)
+            return _text
+        else
+            return {_check, _text}
+        end
+    end
+end
+
+function EnemyBattler:getCheckText(battler)
+    if type(self.check) == "table" then
+        local tbl = {}
+        for i, check in ipairs(self.check) do
+            if i == 1 then
+                table.insert(tbl, "* " .. self.name .. " - " .. check)
+            else
+                table.insert(tbl, "* " .. check)
+            end
+        end
+        return tbl
+    else
+        return "* " .. self.name .. " - " .. self.check
+    end
+end
+
 function EnemyBattler:getIndexAct(id, name)
     for index, act in ipairs(self.acts) do
         if act.name == name then
