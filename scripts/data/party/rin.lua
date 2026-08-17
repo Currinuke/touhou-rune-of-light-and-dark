@@ -158,13 +158,13 @@ function character:init()
     self.lw_armor_default = "light/bandage"
 
     -- Character color (for action box outline and hp bar)
-    self.color = {0, 1, 0}
+    self.color = {1, 1, 13/255}
     -- Damage color (for the number when attacking enemies) (defaults to the main color)
-    self.dmg_color = {0.5, 1, 0.5}
+    self.dmg_color = {1, 1, 75/255}
     -- Attack bar color (for the target bar used in attack mode) (defaults to the main color)
-    self.attack_bar_color = {181/255, 230/255, 29/255}
+    self.attack_bar_color = {1, 1, 0}
     -- Attack box color (for the attack area in attack mode) (defaults to darkened main color)
-    self.attack_box_color = {0, 0.5, 0}
+    self.attack_box_color = {1, 1, 167/255}
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {0.5, 1, 0.5}
 

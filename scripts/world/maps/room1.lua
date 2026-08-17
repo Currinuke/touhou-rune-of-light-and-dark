@@ -1,15 +1,16 @@
 return {
-  version = "1.5",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.8.4",
+  tiledversion = "1.12.2",
+  class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 20,
   height = 24,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 6,
-  nextobjectid = 37,
+  nextlayerid = 8,
+  nextobjectid = 70,
   properties = {
     ["name"] = "Test Map - Room 1"
   },
@@ -17,7 +18,8 @@ return {
     {
       name = "castle",
       firstgid = 1,
-      filename = "../tilesets/castle.tsx"
+      filename = "../tilesets/castle.tsx",
+      exportfilename = "../tilesets/castle.lua"
     }
   },
   layers = {
@@ -29,6 +31,7 @@ return {
       height = 24,
       id = 1,
       name = "tiles",
+      class = "",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -72,6 +75,7 @@ return {
       height = 24,
       id = 2,
       name = "decal",
+      class = "",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -110,8 +114,9 @@ return {
     {
       type = "objectgroup",
       draworder = "topdown",
-      id = 3,
+      id = 7,
       name = "collision",
+      class = "",
       visible = true,
       opacity = 0.5,
       offsetx = 0,
@@ -121,7 +126,7 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
+          id = 47,
           name = "",
           type = "",
           shape = "rectangle",
@@ -130,11 +135,12 @@ return {
           width = 520,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 2,
+          id = 48,
           name = "",
           type = "",
           shape = "rectangle",
@@ -143,11 +149,12 @@ return {
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 3,
+          id = 49,
           name = "",
           type = "",
           shape = "rectangle",
@@ -156,11 +163,12 @@ return {
           width = 200,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 4,
+          id = 50,
           name = "",
           type = "",
           shape = "rectangle",
@@ -169,11 +177,12 @@ return {
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 5,
+          id = 51,
           name = "",
           type = "",
           shape = "rectangle",
@@ -182,11 +191,12 @@ return {
           width = 200,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 6,
+          id = 52,
           name = "",
           type = "",
           shape = "rectangle",
@@ -195,11 +205,12 @@ return {
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 7,
+          id = 53,
           name = "",
           type = "",
           shape = "rectangle",
@@ -208,11 +219,12 @@ return {
           width = 80,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 8,
+          id = 54,
           name = "",
           type = "",
           shape = "rectangle",
@@ -221,11 +233,12 @@ return {
           width = 280,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 9,
+          id = 55,
           name = "",
           type = "",
           shape = "rectangle",
@@ -234,11 +247,12 @@ return {
           width = 40,
           height = 120,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 10,
+          id = 56,
           name = "",
           type = "",
           shape = "rectangle",
@@ -247,11 +261,12 @@ return {
           width = 520,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 11,
+          id = 57,
           name = "",
           type = "",
           shape = "rectangle",
@@ -260,24 +275,26 @@ return {
           width = 40,
           height = 200,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 12,
+          id = 58,
           name = "",
           type = "",
           shape = "rectangle",
           x = 40,
           y = 680,
-          width = 200,
+          width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 14,
+          id = 59,
           name = "",
           type = "",
           shape = "rectangle",
@@ -286,11 +303,12 @@ return {
           width = 80,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 15,
+          id = 60,
           name = "",
           type = "",
           shape = "rectangle",
@@ -299,11 +317,12 @@ return {
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 16,
+          id = 61,
           name = "",
           type = "",
           shape = "rectangle",
@@ -312,11 +331,12 @@ return {
           width = 40,
           height = 240,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 17,
+          id = 62,
           name = "",
           type = "",
           shape = "rectangle",
@@ -325,11 +345,12 @@ return {
           width = 40,
           height = 240,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 18,
+          id = 63,
           name = "",
           type = "",
           shape = "rectangle",
@@ -338,11 +359,12 @@ return {
           width = 40,
           height = 240,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 23,
+          id = 64,
           name = "",
           type = "",
           shape = "rectangle",
@@ -351,11 +373,12 @@ return {
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 24,
+          id = 65,
           name = "",
           type = "",
           shape = "rectangle",
@@ -364,11 +387,12 @@ return {
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 25,
+          id = 66,
           name = "",
           type = "",
           shape = "rectangle",
@@ -377,11 +401,12 @@ return {
           width = 40,
           height = 160,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 26,
+          id = 67,
           name = "",
           type = "",
           shape = "rectangle",
@@ -390,6 +415,21 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 68,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 680,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -398,8 +438,9 @@ return {
     {
       type = "objectgroup",
       draworder = "topdown",
-      id = 4,
+      id = 6,
       name = "objects",
+      class = "",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -409,7 +450,7 @@ return {
       properties = {},
       objects = {
         {
-          id = 19,
+          id = 44,
           name = "npc",
           type = "",
           shape = "rectangle",
@@ -418,6 +459,7 @@ return {
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["actor"] = "starwalker",
@@ -426,7 +468,7 @@ return {
           }
         },
         {
-          id = 27,
+          id = 39,
           name = "savepoint",
           type = "",
           shape = "rectangle",
@@ -435,6 +477,7 @@ return {
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["text1"] = "* Silence echoes in the darkness\nof this familiar-yet-different\nscenery.",
@@ -442,7 +485,7 @@ return {
           }
         },
         {
-          id = 28,
+          id = 40,
           name = "squeak",
           type = "",
           shape = "rectangle",
@@ -451,11 +494,12 @@ return {
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 29,
+          id = 41,
           name = "transition",
           type = "",
           shape = "rectangle",
@@ -464,6 +508,7 @@ return {
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "room2",
@@ -471,7 +516,7 @@ return {
           }
         },
         {
-          id = 33,
+          id = 42,
           name = "interactable",
           type = "",
           shape = "rectangle",
@@ -480,6 +525,7 @@ return {
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["cutscene"] = "room1.wall",
@@ -487,7 +533,7 @@ return {
           }
         },
         {
-          id = 35,
+          id = 43,
           name = "npc",
           type = "",
           shape = "point",
@@ -496,11 +542,47 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["actor"] = "wall",
             ["flagcheck"] = "wall_hit",
             ["text1"] = "* I Am the Wall Guardian.[wait:5]\n* This Wall is Off Limits for you\nno-good wall slammers."
+          }
+        },
+        {
+          id = 45,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 680,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["facing"] = "down",
+            ["marker"] = { id = 46 },
+            ["shop"] = "shop_meirin"
+          }
+        },
+        {
+          id = 69,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 160,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "starwalker",
+            ["cutscene"] = "debug_seija.set"
           }
         }
       }
@@ -510,6 +592,7 @@ return {
       draworder = "topdown",
       id = 5,
       name = "markers",
+      class = "",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -528,6 +611,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -541,6 +625,21 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 46,
+          name = "shop_exit",
+          type = "",
+          shape = "point",
+          x = 120,
+          y = 760,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }

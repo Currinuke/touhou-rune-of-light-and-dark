@@ -41,6 +41,8 @@ function Flandre:init()
         "* The power of fluffy boys is\nin the air.",
         "* Smells like cardboard.",
     }
+    
+    self.tired_percentage = 0
     -- Text displayed at the bottom of the screen when the enemy has low health
     self.low_health_text = "* The dummy looks like it's\nabout to fall over."
 

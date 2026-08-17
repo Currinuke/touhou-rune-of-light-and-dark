@@ -37,7 +37,7 @@ function character:init()
     self.xact_name = "S-Action"
 
     -- Spells
-    self:addSpell("reverse_strike")
+    self:addSpell("reverse_smack")
     if Game.chapter == 2 then
         self:addSpell("ultimate_heal")
     elseif Game.chapter == 3 then
@@ -158,13 +158,14 @@ function character:init()
     self.lw_armor_default = "light/bandage"
 
     -- Character color (for action box outline and hp bar)
-    self.color = {1, 0, 1}
+    -- self.color = {1, 0, 1}
+    self.color = {205/255, 47/255, 42/255}
     -- Damage color (for the number when attacking enemies) (defaults to the main color)
-    self.dmg_color = {0.8, 0.6, 0.8}
+    self.dmg_color = {202/255, 40/255, 42/255}-- {0.8, 0.6, 0.8}
     -- Attack bar color (for the target bar used in attack mode) (defaults to the main color)
-    self.attack_bar_color = {234/255, 121/255, 200/255}
+    self.attack_bar_color = {214/255, 44/255, 37/255} -- {234/255, 121/255, 200/255}
     -- Attack box color (for the attack area in attack mode) (defaults to darkened main color)
-    self.attack_box_color = {0.5, 0, 0.5}
+    self.attack_box_color = {1, 0, 0} -- {0.5, 0, 0.5}
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {1, 0.5, 1}
 
@@ -194,7 +195,7 @@ function character:init()
 
     -- Character flags (saved to the save file)
     self.flags = {
-        ["auto_attack"] = false,
+        ["auto_attack"] = true,
         ["can_wear_ribbons"] = false
     }
 end

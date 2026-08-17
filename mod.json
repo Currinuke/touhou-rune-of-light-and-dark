@@ -2,12 +2,12 @@
     // The ID of your project. Should be unique!!
     "id": "touhou-rune-of-light-and-dark",
     // Displays on the main menu.
-    "name": "TH:RoLD - Flandre Fight",
+    "name": "TH:RoLD - Rumia Fight",
     // Displays underneath the name. Optional.
-    "subtitle": "Flandre wants to play... a game?",
+    "subtitle": "Night Axe",
 
     // The version of your project.
-    "version": "v0.1.0",
+    "version": "v0.2.0",
     // What version of the engine your project was made with.
     "engineVer": "v0.10.0",
 
@@ -24,7 +24,7 @@
 
     // The inventory. Contains three darkburgers, a cell phone and a shadow crystal by default.
     "inventory": {
-        "items": ["glowshard", "darkburger", "darkburger", "darkburger"],
+        "items": ["glowshard"],
         "key_items": ["cell_phone", "shadowcrystal"]
     },
 

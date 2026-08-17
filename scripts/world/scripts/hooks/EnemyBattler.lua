@@ -5,6 +5,48 @@ function EnemyBattler:init(...)
     self.is_flandre = false
 end
 
+function EnemyBattler:registerActIndex(index, name, description, party, tp, highlight, icons)
+    if type(party) == "string" then
+        if party == "all" then
+            party = {}
+            if Game.battle ~= nil then
+                for _, battler in ipairs(Game.battle.party) do
+                    table.insert(party, battler.chara.id)
+                end
+            else
+                for _, chara in ipairs(Game.party) do
+                    table.insert(party, chara.id)
+                end
+            end
+        else
+            party = { party }
+        end
+    end
+    local act = {
+        ["character"] = nil,
+        ["name"] = name,
+        ["description"] = description,
+        ["party"] = party,
+        ["tp"] = tp or 0,
+        ["highlight"] = highlight,
+        ["short"] = false,
+        ["icons"] = icons
+    }
+    self.acts[index] = act
+    return act
+end
+
+--- Retrieves the data of an act on this enemy by its `name`
+---@param name string
+---@return table?
+function EnemyBattler:getIndexAct(id, name)
+    for index, act in ipairs(self.acts) do
+        if act.name == name then
+            return index, act
+        end
+    end
+end
+
 function EnemyBattler:hurt(amount, battler, on_defeat, color, show_status, attacked)
     if amount == 0 or (amount < 0 and Game:getConfig("damageUnderflowFix")) then
         if show_status ~= false then
@@ -34,22 +76,5 @@ function EnemyBattler:hurt(amount, battler, on_defeat, color, show_status, attac
 
     self:checkHealth(on_defeat, amount, battler)
 end
---[[
-function EnemyBattler:hurt(...)
-    -- Code above the original function runs before it:
-    Kristal.Console:log("Enemy " .. self.name .. " has " .. self.health .. " HP.")
-
-    super.hurt(self, ...)
-
-    -- Code below the original function runs after it:
-    Kristal.Console:log("Enemy " .. self.name .. " has " .. self.health .. " HP.")
-
-    Kristal.Console:log("-------------") -- Draw a big line at the end so we can easily see where each Hurt ends
-    lobal table = ...
-    for _, enemy in ipairs(Game.battle.enemies) do
-        -- Make the enemy tired
-        enemy.health = enemy.health - table
-    end
-end]]
 
 return EnemyBattler
