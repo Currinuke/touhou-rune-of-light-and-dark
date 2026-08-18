@@ -5,12 +5,11 @@ function actor:init()
 
     self.name = "Kogasa"
 
-    -- Width and height for this actor, used to determine its center
-    self.width = 19
-    self.height = 37
+    self.width = 18
+    self.height = 38
 
-    self.hitbox = {0, 25, 19, 14}
-    self.soul_offset = {10, 24}
+    self.hitbox = {0, 24, 18, 14}
+    self.soul_offset = {9, 22}
 
     -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {117/255, 251/255, 237/255}
@@ -70,6 +69,7 @@ function actor:init()
 
     -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
+        -- 向左上为减，右下为加
         -- Movement offsets
         ["walk/left"] = {0, 0},
         ["walk/right"] = {0, 0},
@@ -78,27 +78,27 @@ function actor:init()
 
         ["walk_blush/down"] = {0, 0},
 
-        ["slide"] = {0, 0},
+        ["slide"] = {-2, 0},
         ["slide_animated"] = {-5, -2},
         ["slide_new"] = {-5, -2},
 
         -- Battle offsets
-        ["battle/idle"] = {-8, -1},
+        ["battle/idle"] = {-11, -1},
 
-        ["battle/attack"] = {-13, -3},
-        ["battle/attackready"] = {0, -1},
-        ["battle/act"] = {-8, -1},
+        ["battle/attack"] = {-16, -3},
+        ["battle/attackready"] = {-3, -1},
+        ["battle/act"] = {-11, -1},
         ["battle/actend"] = {-6, -6},
-        ["battle/actready"] = {-8, 1},
-        ["battle/item"] = {-8, -6},
-        ["battle/itemready"] = {-8, 0},
-        ["battle/defend"] = {-8, 0},
+        ["battle/actready"] = {-11, 1},
+        ["battle/item"] = {-11, -6},
+        ["battle/itemready"] = {-11, 0},
+        ["battle/defend"] = {-11, 0},
 
         ["battle/defeat"] = {0, 8},
-        ["battle/hurt"] = {-11, -1},
+        ["battle/hurt"] = {-14, -1},
 
-        ["battle/intro"] = {-13, 0},
-        ["battle/victory"] = {-3, 0},
+        ["battle/intro"] = {-16, 0},
+        ["battle/victory"] = {-14, 0},
 
         -- Climb offsets
         ["climb/climbing"] = {-5, -15},
@@ -115,8 +115,8 @@ function actor:init()
         -- Cutscene offsets
         ["pose"] = {-4, -2},
 
-        ["fall"] = {-5, -6},
-        ["ball"] = {1, 8},
+        ["fall"] = {-3, -6},
+        ["ball"] = {-2, 8},
         ["landed"] = {-4, -2},
 
         ["fell"] = {-14, 1},
@@ -150,15 +150,6 @@ function actor:init()
 
     -- The x and y offsets of the ReviveSong spotlight
     self.spotlight_offset = { -2, -5 }
-end
-
-function actor:onSetAnimation(sprite, anim, callback)
-    -- Kristal.Console:push("old: " .. tostring(sprite.temp_sprite))
-    -- Kristal.Console:push("new: " .. anim[1])
-    -- Kristal.Console:push(tostring(anim[1]))
-    if anim[1] == "battle/idle" then
-        --Assets.playSound("ominous")
-    end
 end
 
 return actor

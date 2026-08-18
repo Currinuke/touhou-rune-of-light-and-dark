@@ -31,7 +31,8 @@ return {
             cutscene:walkTo(kogasa, x + 240, y - 20, 2, "right")
             cutscene:walkTo(seija, x + 180, y - 20, 2, "right")
             cutscene:walkTo(rin, x + 120, y - 20, 2, "right")
-            cutscene:panToSpeed(640, 240)
+            local cx, cy, data = cutscene:getMarker("camera")
+            cutscene:panToSpeed(cx, cy)
             cutscene:wait(3)
 
             cutscene:text("* Oh hey, little guy!", "smile", "rin")

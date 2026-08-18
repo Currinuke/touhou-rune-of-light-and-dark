@@ -31,5 +31,50 @@ return {
             cutscene:text("* (He\'s just standing here.)")
             cutscene:text("* (If [color:yellow]Seija[color:reset] is here as well...)")
         end
+    end,
+    anim = function(cutscene, event)
+        --[[
+        if not event.sprite_fade then
+            event.sprite_fade = Sprite("walk/down")
+            event.sprite_fade.alpha = 0.3
+            event:addChild(event.sprite_fade)
+            --event.sprite
+        end]]
+        local actor = "kogasa"
+        event:setActor(actor)
+        local kogasa = cutscene:getCharacter(actor)
+        if not kogasa then
+            Kristal.Console:push("No Kogasa")
+            return
+        end
+
+        --for key, value in pairs(kogasa.actor.animations) do
+        --    Kristal.Console:push(tostring(key) .. ": " .. tostring(value))
+        --end
+
+        local anims = {}
+        local i = 0
+        for key, value in pairs(kogasa.actor.animations) do
+            i = i + 1
+            anims[i] = value[1]
+        end
+        
+        -- Kristal.Console:push("Animations: " .. tostring(i))
+        local num = event:getFlag("anim", 0)
+
+        num = num + 1
+        if num > i then
+            num = 1
+        end
+        event:setFlag("anim", num)
+        Assets.playSound("noise")
+        local anim = anims[num]
+        Kristal.Console:push("Animation(" .. tostring(num) .. "): " .. tostring(anim))
+        --if event.actor:getAnimation(anim) then
+        if event.sprite.name == anim then
+            event.sprite:setAnimation({"walk/down", 0.1, true})
+        else
+            event.sprite:setAnimation({anim, 0.1, true})
+        end
     end
 }

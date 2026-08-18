@@ -107,7 +107,7 @@ function Flandre:onAct(battler, name)
 end
 
 function Flandre:onTurnStart()
-    local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
+    local turn = MathUtils.clamp(Game.battle.turn_count, 1, 7)
 
     if turn > 1 then
         turn = "final"

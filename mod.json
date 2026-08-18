@@ -3,12 +3,12 @@
     "name": "Touhou: Rune of Light and Dark",
     "subtitle": "TH: RoLD - Chapter 1",
 
-    "version": "v0.3.2",
+    "version": "v0.3.3-alpha1",
     "engineVer": "v0.10.0",
 
     "chapter": 1,
     "transition": false,
-    "map": "room1",
+    "map": "room_bridge",
 
     "party": ["kogasa", "seija", "rin"],
 

@@ -9,8 +9,8 @@ return {
   height = 24,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 8,
-  nextobjectid = 73,
+  nextlayerid = 10,
+  nextobjectid = 86,
   properties = {
     ["name"] = "Test Map - Room 1"
   },
@@ -20,6 +20,11 @@ return {
       firstgid = 1,
       filename = "../tilesets/castle.tsx",
       exportfilename = "../tilesets/castle.lua"
+    },
+    {
+      name = "mistylake",
+      firstgid = 41,
+      filename = "../tilesets/mistylake.tsx"
     }
   },
   layers = {
@@ -44,9 +49,9 @@ return {
         0, 22, 13, 23, 23, 13, 23, 23, 23, 13, 23, 23, 13, 24, 0, 0, 0, 0, 0, 0,
         0, 22, 23, 23, 23, 23, 23, 21, 23, 23, 23, 23, 23, 24, 0, 0, 0, 0, 0, 0,
         0, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 0, 0, 0, 0, 0, 0,
-        0, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 0, 0, 0, 0, 0, 0,
-        0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 0, 0, 0, 0, 0, 0,
-        0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 7, 7, 7, 7, 7, 7,
+        0, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 21, 17, 21, 0, 0, 0, 0, 0, 0,
+        0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 17, 21, 17, 0, 0, 0, 0, 0, 0,
+        0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 21, 17, 21, 7, 7, 7, 7, 7, 7,
         0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 15, 15, 15, 15, 15, 15,
         0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 0, 0, 0, 0, 0, 0,
         0, 14, 15, 15, 11, 11, 11, 11, 11, 11, 11, 15, 15, 16, 0, 0, 0, 0, 0, 0,
@@ -93,6 +98,50 @@ return {
         0, 0, 0, 0, 0, 0, 30, 31, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 34, 35, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 38, 39, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 24,
+      id = 8,
+      name = "bg",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -452,7 +501,7 @@ return {
     {
       type = "objectgroup",
       draworder = "topdown",
-      id = 6,
+      id = 9,
       name = "objects",
       class = "",
       visible = true,
@@ -464,7 +513,7 @@ return {
       properties = {},
       objects = {
         {
-          id = 44,
+          id = 75,
           name = "npc",
           type = "",
           shape = "rectangle",
@@ -476,13 +525,13 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "starwalker",
+            ["actor"] = "kogasa",
             ["text1"] = "* These [color:yellow]stairs[color:reset] are [color:yellow]Pissing[color:reset] me\noff...",
             ["text2"] = "* I'm the original   [color:yellow]Starwalker[color:reset]"
           }
         },
         {
-          id = 39,
+          id = 76,
           name = "savepoint",
           type = "",
           shape = "rectangle",
@@ -499,7 +548,7 @@ return {
           }
         },
         {
-          id = 40,
+          id = 77,
           name = "squeak",
           type = "",
           shape = "rectangle",
@@ -513,7 +562,7 @@ return {
           properties = {}
         },
         {
-          id = 41,
+          id = 78,
           name = "transition",
           type = "",
           shape = "rectangle",
@@ -530,7 +579,7 @@ return {
           }
         },
         {
-          id = 42,
+          id = 79,
           name = "interactable",
           type = "",
           shape = "rectangle",
@@ -547,7 +596,7 @@ return {
           }
         },
         {
-          id = 43,
+          id = 80,
           name = "npc",
           type = "",
           shape = "point",
@@ -565,7 +614,7 @@ return {
           }
         },
         {
-          id = 45,
+          id = 81,
           name = "transition",
           type = "",
           shape = "rectangle",
@@ -583,24 +632,7 @@ return {
           }
         },
         {
-          id = 69,
-          name = "npc",
-          type = "",
-          shape = "rectangle",
-          x = 480,
-          y = 160,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "starwalker",
-            ["cutscene"] = "debug_seija.set"
-          }
-        },
-        {
-          id = 70,
+          id = 82,
           name = "transition",
           type = "",
           shape = "rectangle",
@@ -612,25 +644,59 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room_dw_flandre",
+            ["map"] = "room_girl",
             ["marker"] = "entry"
           }
         },
         {
-          id = 71,
+          id = 83,
           name = "script",
           type = "",
           shape = "rectangle",
           x = 640,
           y = 640,
           width = 120,
-          height = 80,
+          height = 40,
           rotation = 0,
           opacity = 1,
           visible = true,
           properties = {
             ["once"] = false,
             ["script"] = "room_girl"
+          }
+        },
+        {
+          id = 84,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 280,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "starwalker",
+            ["cutscene"] = "debug_seija.set"
+          }
+        },
+        {
+          id = 85,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 160,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "seija",
+            ["cutscene"] = "debug_seija.anim"
           }
         }
       }

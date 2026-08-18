@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="27" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="14">
+ <editorsettings>
+  <export target="rm_myhallway.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="name" value="Scarlet Manor - Basement"/>
+ </properties>
+ <imagelayer id="3" name="background">
+  <image source="../../../assets/sprites/backgrounds/bg_myhallway.png" width="1080" height="480"/>
+ </imagelayer>
+ <objectgroup color="#0000ff" id="2" name="collision">
+  <object id="1" x="80" y="240" width="40" height="80"/>
+  <object id="2" x="960" y="240" width="40" height="80"/>
+  <object id="3" x="120" y="320" width="840" height="40"/>
+  <object id="4" x="240" y="200" width="480" height="40"/>
+  <object id="5" x="920" y="200" width="40" height="40"/>
+  <object id="6" x="120" y="200" width="40" height="40"/>
+  <object id="8" x="760" y="200" width="80" height="40"/>
+ </objectgroup>
+ <objectgroup color="#ff00ff" id="4" name="objects">
+  <object id="9" name="savepoint" x="720" y="200" width="40" height="40"/>
+  <object id="13" name="interactable" x="160" y="200" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="flandre.outside"/>
+    <property name="solid" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#7f00ff" id="5" name="markers">
+  <object id="10" name="spawn" x="740" y="280">
+   <point/>
+  </object>
+  <object id="11" name="entry_room" x="200" y="280">
+   <point/>
+  </object>
+  <object id="12" name="entry" x="880" y="280">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

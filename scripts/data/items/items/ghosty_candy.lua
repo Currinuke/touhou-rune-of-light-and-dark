@@ -61,7 +61,7 @@ end
 function item:onWorldUse(target)
     local consumed = super.onWorldUse(self, target)
 
-    -- Heal Kris too when used on Noelle
+    -- Heal Kogasa too when used on others
     if target.id ~= "kogasa" and Game:hasPartyMember("kogasa") then
         Game.world:heal("kogasa", self.heal_amount)
     end

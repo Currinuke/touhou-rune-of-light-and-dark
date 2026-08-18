@@ -9,11 +9,11 @@ function actor:init(style)
     self.name = "Seija"
 
     -- Width and height for this actor, used to determine its center
-    self.width = 25
+    self.width = 22
     self.height = 43
 
     -- Hitbox for this actor in the overworld (optional, uses width and height by default)
-    self.hitbox = {3, 31, 19, 14}
+    self.hitbox = {2, 29, 18, 14}
 
     -- A table that defines where the Soul should be placed on this actor if they are a player.
     -- First value is x, second value is y.
@@ -89,7 +89,7 @@ function actor:init(style)
         ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false}
     }
 
-    if susie_style == 1 then
+    if false and susie_style == 1 then
         self.animations["battle/transition"] = {"bangs_wall_right", 0, true}
         self.animations["battle/transition_out"] = {"battle/transition_out_bangs", 1/15, false}
     end
@@ -146,11 +146,11 @@ function actor:init(style)
         ["slide"] = {-5, -12},
 
         -- Battle offsets
-        ["battle/idle"] = {-22, -1},
+        ["battle/idle"] = {-12, -12},
 
-        ["battle/attack"] = {-26, -25},
+        ["battle/attack"] = {-23, 2},
         ["battle/attackready"] = {-26, -25},
-        ["battle/act"] = {-24, -25},
+        ["battle/act"] = {-4, -5},
         ["battle/actend"] = {-24, -25},
         ["battle/actready"] = {-24, -25},
         ["battle/spell"] = {-22, -30},
@@ -163,15 +163,15 @@ function actor:init(style)
         ["battle/defeat"] = {-22, -1},
         ["battle/hurt"] = {-22, -1},
 
-        ["battle/victory"] = {-28, -7},
+        ["battle/victory"] = {-18, -7},
 
-        ["battle/rudebuster"] = {-44, -33},
+        ["battle/ruleburster"] = {-34, -23},
 
         -- Cutscene offsets
         ["pose"] = {-1, -1},
 
         ["fall"] = {0, -4},
-        ["ball"] = {1, 7},
+        ["ball"] = {-3, 7},
         ["landed"] = {-5, -2},
 
         ["shock_left"] = {0, -4},

@@ -18,10 +18,10 @@ function actor:initChapter1()
 
     -- Width and height for this actor, used to determine its center
     self.width = 23
-    self.height = 43
+    self.height = 42
 
     -- Hitbox for this actor in the overworld (optional, uses width and height by default)
-    self.hitbox = {2, 31, 19, 14}
+    self.hitbox = {3, 28, 17, 14}
 
     -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {0, 1, 0}
@@ -106,8 +106,8 @@ function actor:initChapter1()
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
+        ["walk/left"] = {3, 1},
+        ["walk/right"] = {3, 1},
         ["walk/up"] = {0, 0},
 
         ["walk_blush/down"] = {0, 0},
