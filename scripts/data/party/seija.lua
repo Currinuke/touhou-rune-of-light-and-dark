@@ -138,14 +138,14 @@ function character:init()
 
     -- Equipment (saved to the save file)
     if Game.chapter <= 2 then
-        self:setWeapon("mane_ax")
+        self:setWeapon("rusty_wristlet")
         if Game.chapter == 2 then
-            self:setArmor(1, "amber_card")
-            self:setArmor(2, "amber_card")
+            self:setArmor(1, "faded_ribbon")
+            self:setArmor(2, "faded_ribbon")
         end
     elseif Game.chapter == 3 then
         self:setWeapon("autoaxe")
-        self:setArmor(1, "amber_card")
+        self:setArmor(1, "faded_ribbon")
         self:setArmor(2, "glowwrist")
     elseif Game.chapter >= 4 then
         self:setWeapon("toxicaxe")

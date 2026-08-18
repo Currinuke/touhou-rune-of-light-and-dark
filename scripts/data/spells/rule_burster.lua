@@ -29,7 +29,7 @@ end
 
 function spell:getTPCost(chara)
     local cost = super.getTPCost(self, chara)
-    if chara and chara:checkWeapon("devilsknife") then
+    if chara and chara:checkWeapon("s_shaped_stick") then
         cost = cost - 10
     end
     return cost
@@ -44,7 +44,7 @@ function spell:onCast(user, target)
             Game.battle:finishAction()
         end
     end
-    if not user:setAnimation("battle/rude_buster", finishAnim) then
+    if not user:setAnimation("battle/rule_burster", finishAnim) then
         anim_finished = false
         user:setAnimation("battle/attack", finishAnim)
     end

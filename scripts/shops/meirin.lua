@@ -25,7 +25,7 @@ function Meirin:init()
 
     self:registerItem("tanghulu", {stock = 14})
     self:registerItem("omelette_roll", {stock = 10})
-    self:registerItem("halloween_umbrella_sleeve", {name = "Halloween Sleeve", stock = 4})
+    self:registerItem("halloween_sleeve", {name = "Halloween Sleeve", stock = 4})
     self:registerItem("bat_pendant", {stock = 8})
 
     self:registerTalk("About Yourself")
@@ -84,6 +84,5 @@ function Meirin:onSellMenuState(old)
         "[emote:left]* Sorry, but here\'s no scrapyard.\n[wait:5]* I\'m trying to make a living by stuff-selling,\nnot junk-buying."
     })
 end
-
 
 return Meirin

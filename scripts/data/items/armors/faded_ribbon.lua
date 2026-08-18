@@ -1,25 +1,25 @@
-local item, super = Class(Item, "halloween_umbrella_sleeve")
+local item, super = Class(Item, "faded_ribbon")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "H. U. Sleeve"
+    self.name = "Faded Ribbon"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "weapon"
+    self.type = "armor"
     -- Item icon (for equipment)
-    self.icon = "ui/menu/icon/sword"
+    self.icon = "ui/menu/icon/armor"
 
     -- Battle description
     self.effect = ""
     -- Shop description
-    self.shop = "Umbrella\nsleeve"
+    self.shop = "Defensive\ncharm"
     -- Menu description
-    self.description = "A mischievous blade. Attacks with this\nweapon are easier to make critical."
+    self.description = "A thin square charm that sticks\nto you, increasing defense."
 
     -- Default shop price (sell price is halved)
-    self.price = 1000
+    self.price = 100
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -34,27 +34,21 @@ function item:init()
 
     -- Equip bonuses (for weapons and armor)
     self.bonuses = {
-        attack = 2
+        defense = 1,
     }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = "Spookiness UP"
-    self.bonus_icon = "ui/menu/icon/up"
+    self.bonus_name = nil
+    self.bonus_icon = nil
 
     -- Equippable characters (default true for armors, false for weapons)
-    self.can_equip = {
-        kogasa = true
-    }
+    self.can_equip = {}
 
     -- Character reactions
     self.reactions = {
-        seija = "Too small. Kris-size.",
-        rin = "Umm, I might hurt myself...",
-        rensei = "That\'s, um, nostalgic."
+        susie = "... better than nothing.",
+        ralsei = "It's sticky, huh, Kris...",
+        noelle = "It's like a name-tag!",
     }
-end
-
-function item:convertToLightEquip(chara)
-    return "light/halloween_pencil"
 end
 
 return item

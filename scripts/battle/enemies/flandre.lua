@@ -24,15 +24,7 @@ function Flandre:init()
     -- self.exit_on_defeat = false
     self.disable_mercy = true
     -- List of possible wave ids, randomly picked each turn
-    self.waves = {
-        "basic",
-        "aiming",
-        "aiming_old",
-        "movingarena",
-        --"rumia_1",
-        "rumia_2"--,
-        --"rumia_showcase"
-    }
+    self.waves = {}
 
     -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
@@ -111,9 +103,18 @@ function Flandre:onAct(battler, name)
         return "* Everyone hypnotized!"
     end
 
-    -- If the act is none of the above, run the base onAct function
-    -- (this handles the Check act)
     return super.onAct(self, battler, name)
+end
+
+function Flandre:onTurnStart()
+    local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
+
+    if turn > 1 then
+        turn = "final"
+    end
+
+    self.wave_override = "flandre/flandre_" .. tostring(turn)
+    -- self.defense = self.defense - 1
 end
 
 return Flandre

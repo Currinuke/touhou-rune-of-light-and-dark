@@ -41,8 +41,8 @@ function character:init()
     self.xact_name = "R-Action"
 
     -- Spells
-    self:addSpell("pacify")
-    self:addSpell("heal_prayer")
+    self:addSpell("wind_sign_sleepy_wind")
+    self:addSpell("flower_sign_petal_therapy")
     if Game.chapter >= 5 then
         self:addSpell("revivesong")
     end
@@ -134,14 +134,14 @@ function character:init()
 
     -- Equipment (saved to the save file)
     if Game.chapter <= 2 then
-        self:setWeapon("red_scarf")
+        self:setWeapon("redflower")
         if Game.chapter == 2 then
-            self:setArmor(1, "amber_card")
+            self:setArmor(1, "faded_ribbon")
             self:setArmor(2, "white_ribbon")
         end
     elseif Game.chapter == 3 then
         self:setWeapon("fiberscarf")
-        self:setArmor(1, "amber_card")
+        self:setArmor(1, "faded_ribbon")
         self:setArmor(2, "glowwrist")
     elseif Game.chapter == 4 then
         self:setWeapon("flexscarf")

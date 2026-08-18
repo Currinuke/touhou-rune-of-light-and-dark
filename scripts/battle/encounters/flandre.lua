@@ -10,6 +10,7 @@ function Flandre:init()
         local enemy = self:addEnemy("flandre")
         local div = " "
         enemy.name = enemy.name .. div .. value
+        -- enemy:setActor("flandre_" .. string.lower(value))
         if value == "A" then
             enemy.selectable = false
         end

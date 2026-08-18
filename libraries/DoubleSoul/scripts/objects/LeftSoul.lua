@@ -13,44 +13,9 @@ function LeftSoul:init(x, y, color)
     self.mask_sprite.inherit_color = false
     self:addChild(self.mask_sprite)
 
-    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInv")
-
-    self.onSwap = function(swapped)
-        self.mask_sprite:setColor(1, 1, 1, 0)
-
-        if swapped then
-            self.color = {1, 0, 0}
-            self.sprite:setSprite("player/heart_dodge_right")
-            self.mask_sprite:setSprite("player/heart_dodge_left")
-        else
-            self.color = {0, 1, 1}
-            self.sprite:setSprite("player/heart_dodge_left")
-            self.mask_sprite:setSprite("player/heart_dodge_right")
-        end
-    end
+    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInv") or true
+    self.can_damage = "left"
 end
---[[
-function LeftSoul:move(x, y, speed)
-    local movex, movey = x * (speed or 1), y * (speed or 1)
-
-    local mxa, mxb = self:moveX(movex, movey)
-    local mya, myb = self:moveY(movey, movex)
-
-    local moved = (mxa and not mxb) or (mya and not myb)
-    local collided = (not mxa and not mxb) or (not mya and not myb)
-
-    return moved, collided
-end
-
-function LeftSoul:onRemove(parent)
-    super.onRemove(self, parent)
-
-    if parent == Game.battle and Game.battle.soul.double_left == self then
-        Game.battle.soul.double_left = nil
-    end
-end--]]
-
-function LeftSoul:doMovement() end
 
 function LeftSoul:onDamage(bullet, amount)
     super.onDamage(self, bullet, amount)
@@ -58,64 +23,110 @@ function LeftSoul:onDamage(bullet, amount)
         Game.battle.soul.double_right.inv_timer = self.inv_timer
     end
 end
---[[
-function LeftSoul:draw()
-    super.draw(self)
-    
-    if self.effect_timer >= 0 then
-        self.effect_timer = self.effect_timer + DTMULT
-        self.effect_sprite:draw(1, 1, 1, 1 - (self.effect_timer / self.effect_timer_max))
-        if self.effect_timer >= self.effect_timer_max then
-            self.effect_timer = -1
-        end
-    else
-        self.effect_sprite:draw(1, 1, 1, 0)
-    end
 
-    if DEBUG_RENDER then
-        self.collider:draw(0, 1, 0)
-        self.graze_collider:draw(1, 1, 1, 0.33)
-    end
-end]]
-
---[[
-    local soul = Game.battle.soul.double_right
-    local speed = self.speed
-
-    -- Do speed calculations here if required.
-
-    if self.allow_focus then
-        if Input.down("cancel") then speed = speed / 2 end -- Focus mode.
-    end
-
-    local move_x, move_y = 0, 0
-
-    -- Keyboard input:
-    if Input.down("left") then move_x = move_x - 1 end
-    if Input.down("right") then move_x = move_x + 1 end
-    if Input.down("up") then move_y = move_y - 1 end
-    if Input.down("down") then move_y = move_y + 1 end
-
-    self.moving_x = move_x
-    self.moving_y = move_y
-
-    local allow_move = true
-    if soul then
-        if soul.last_collided_x == 0 and soul.last_collided_y == 0 then
-            allow_move = true
+function Soul:update()
+    if self.transitioning then
+        if self.timer >= 7 then
+            Input.clear("cancel")
+            self.timer = 0
+            if self.transition_destroy then
+                Game.battle:addChild(HeartBurst(self.target_x, self.target_y, { Game:getSoulColor() }))
+                self:remove()
+            else
+                self.transitioning = false
+                self:setExactPosition(self.target_x, self.target_y)
+            end
         else
-            allow_move = false
+            self:setExactPosition(
+                MathUtils.lerp(self.original_x, self.target_x, MathUtils.clamp(self.timer / 7, 0, 1)),
+                MathUtils.lerp(self.original_y, self.target_y, MathUtils.clamp(self.timer / 7, 0, 1))
+            )
+            self.alpha = MathUtils.lerp(0, self.target_alpha or 1, MathUtils.clamp(self.timer / 3, 0, 1))
+            self.sprite:setColor(self.color[1], self.color[2], self.color[3], self.alpha)
+            self.timer = self.timer + (1 * DTMULT)
         end
+        return
     end
 
-    if allow_move then
-        if move_x ~= 0 or move_y ~= 0 then
-            if not self:move(move_x, move_y, speed * DTMULT) then
-                self.moving_x = 0
-                self.moving_y = 0
+    -- Input movement
+    if self.can_move then
+        self:doMovement()
+    end
+
+    -- Bullet collision !!! Yay
+    if self.inv_timer > 0 then
+        self.inv_timer = MathUtils.approach(self.inv_timer, 0, DT)
+    end
+
+    local collided_bullets = {}
+    Object.startCache()
+    for _, bullet in ipairs(Game.stage:getObjects(Bullet)) do
+        if bullet:collidesWith(self.collider) then
+            -- Store collided bullets to a table before calling onCollide
+            -- to avoid issues with cacheing inside onCollide
+            table.insert(collided_bullets, bullet)
+        end
+        if self.inv_timer == 0 then
+            if bullet:canGraze(self) and bullet:collidesWith(self.graze_collider) then
+                local old_graze = bullet.grazed_left
+                if bullet.grazed_left then
+                    Game:giveTension(bullet:getGrazeTension() * DT * self.graze_tp_factor)
+                    if Game.battle.wave_timer < Game.battle.wave_length - (1 / 3) then
+                        Game.battle.wave_timer = Game.battle.wave_timer + (bullet.time_bonus * (DT / 30) * self.graze_time_factor)
+                    end
+                    if self.graze_sprite.timer < 0.1 then
+                        self.graze_sprite.timer = 0.1
+                    end
+                    bullet:onGraze(false)
+                else
+                    Assets.playSound("graze")
+                    Game:giveTension(bullet:getGrazeTension() * self.graze_tp_factor)
+                    if Game.battle.wave_timer < Game.battle.wave_length - (1 / 3) then
+                        Game.battle.wave_timer = Game.battle.wave_timer + ((bullet.time_bonus / 30) * self.graze_time_factor)
+                    end
+                    self.graze_sprite.timer = 1 / 3
+                    bullet.grazed_left = true
+                    bullet:onGraze(true)
+                end
+                self:onGraze(bullet, old_graze)
             end
         end
     end
-end]]
+    Object.endCache()
+    for _, bullet in ipairs(collided_bullets) do
+        self:onCollide(bullet)
+    end
+
+    if self.inv_timer > 0 then
+        self.inv_flash_timer = self.inv_flash_timer + DT
+        local amt = math.floor(self.inv_flash_timer / (4 / 30))
+        if (amt % 2) == 1 then
+            self.sprite:setColor(0.5, 0.5, 0.5)
+        else
+            self.sprite:setColor(1, 1, 1)
+        end
+    else
+        self.inv_flash_timer = 0
+        self.sprite:setColor(1, 1, 1)
+    end
+
+    super.super.update(self)
+end
+
+function LeftSoul:onSwap(swapped)
+    self.mask_sprite:setColor(1, 1, 1, 0)
+    
+    if swapped then
+        self.color = {1, 0, 0}
+        self.sprite:setSprite("player/heart_dodge_right")
+        self.mask_sprite:setSprite("player/heart_dodge_left")
+        self.can_damage = "right"
+    else
+        self.color = {0, 1, 1}
+        self.sprite:setSprite("player/heart_dodge_left")
+        self.mask_sprite:setSprite("player/heart_dodge_right")
+        self.can_damage = "left"
+    end
+end
 
 return LeftSoul

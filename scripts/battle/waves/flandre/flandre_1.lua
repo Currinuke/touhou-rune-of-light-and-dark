@@ -21,7 +21,7 @@ function Flandre:onArenaEnter()
 end
 
 function Flandre:onStart()
-    self.time = 20
+    self.time = 10
     Game.battle.arena.color = {0, 0.75, 0, 0}
     Game.battle.arena.alpha = 0
     Game.battle.arena:setBackgroundColor(0, 0, 0, 0)
@@ -38,7 +38,7 @@ function Flandre:onStart()
         for i = 1, rep do
             local x = SCREEN_WIDTH + 20
             local y = MathUtils.random(0, SCREEN_HEIGHT)
-            local bullet = self:spawnBullet("remilia/scarletbat1", x, y, "left", 8, 5)
+            local bullet = self:spawnBullet("flandre/scarletbat1", x, y, "left", 8, 4)
             bullet.remove_offscreen = false
         end
     end)
