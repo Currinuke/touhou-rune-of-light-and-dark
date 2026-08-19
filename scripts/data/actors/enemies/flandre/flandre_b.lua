@@ -1,13 +1,13 @@
-local actor, super = Class(Actor, "flandre_a")
+local actor, super = Class(Actor, "flandre_b")
 
 function actor:init()
     super.init(self)
 
     -- Display name (optional)
-    self.name = "Flandre Scarlet A"
+    self.name = "Flandre Scarlet B"
 
-    self.width = 45
-    self.height = 48
+    self.width = 46
+    self.height = 47
 
     -- self.hitbox = {0, 25, 19, 14}
 
@@ -18,7 +18,7 @@ function actor:init()
     self.flip = nil
 
     -- Path to this actor's sprites (defaults to "")
-    self.path = "enemies/flandre_a"
+    self.path = "enemies/flandre_b"
     -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "battle/idle"
 
@@ -37,14 +37,18 @@ function actor:init()
 
     -- Table of sprite animations
     self.animations = {
-        ["battle/idle"] = {"battle/idle", 0.2, true},
-        ["battle/attack"] = {"battle/attack", 0.2, true}
+        ["battle/idle"] = {"battle/idle", 0.1, true},
+        ["battle/hurt"] = {"battle/hurt", 0.1, true},
+        ["battle/tired"] = {"battle/tired", 0.1, true},
+        ["battle/teleport"] = {"battle/teleport", 0.1, true}
     }
 
     -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
         ["battle/idle"] = {0, 0},
-        ["battle/attack"] = {-1, 0}
+        ["battle/hurt"] = {0, 0},
+        ["battle/tired"] = {0, -4},
+        ["battle/teleport"] = {0, 0}
     }
 end
 

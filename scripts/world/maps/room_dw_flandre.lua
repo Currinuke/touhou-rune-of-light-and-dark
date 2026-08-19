@@ -52,14 +52,14 @@ return {
           type = "",
           shape = "rectangle",
           x = 400,
-          y = 80,
+          y = 120,
           width = 40,
           height = 40,
           rotation = 0,
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "dummy",
+            ["actor"] = "flandre_a",
             ["encounter"] = "flandre"
           }
         }

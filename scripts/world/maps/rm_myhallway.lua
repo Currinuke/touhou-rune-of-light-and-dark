@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 14,
+  nextobjectid = 15,
   properties = {
     ["name"] = "Scarlet Manor - Basement"
   },
@@ -189,6 +189,23 @@ return {
           properties = {
             ["cutscene"] = "flandre.outside",
             ["solid"] = true
+          }
+        },
+        {
+          id = 14,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 840,
+          y = 200,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["map"] = "room1",
+            ["marker"] = "shop_exit"
           }
         }
       }

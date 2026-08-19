@@ -2,21 +2,14 @@ local Flandre, super = Class(EnemyBattler)
 
 function Flandre:init()
     super.init(self)
-    self.is_flandre = true
 
-    -- Enemy name
     self.name = "Flandre Scarlet"
-    -- Sets the actor, which handles the enemy's sprites (see scripts/data/actors/dummy",")
-    self:setActor("dummy")
+    self:setActor("flandre_a")
 
-    -- Enemy health
     self.max_health = 3000
     self.health = 3000
-    -- Enemy attack (determines bullet damage)
     self.attack = 12
-    -- Enemy defense (usually 0)
     self.defense = 5
-    -- Enemy reward
     self.money = 0
 
     -- Mercy given when sparing this enemy before its spareable (20% for basic enemies)
@@ -28,7 +21,10 @@ function Flandre:init()
 
     -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
-        "..."
+        "OHhhahdiahfoas",
+        "OHewrahdiahfaef-hdiahfoas",
+        "Oaweagiahfoas",
+        "OHhhaasdfashfoas"
     }
 
     -- Check text (automatically has "ENEMY NAME - " at the start)
@@ -45,7 +41,7 @@ function Flandre:init()
     self.low_health_text = "* Is it because her HP too low,\nor have Flandres finally become tried?"
 
     self:registerAct("UMB. Spin", "Unstable\nResult")
-    self:registerAct("Group Hypnotize", "Hypnotize\nFlandres\n... a bit.", {"seija", "rin"})
+    self:registerAct("Group Hypnotize", "Hypnotize\nFlandre\n... a bit.", {"seija", "rin"})
 end
 
 function Flandre:onAct(battler, name)
@@ -115,6 +111,16 @@ function Flandre:onTurnStart()
 
     self.wave_override = "flandre/flandre_" .. tostring(turn)
     -- self.defense = self.defense - 1
+end
+
+function Flandre:onHurt(damage, battler)
+    for _, enemy in ipairs(Game.battle.enemies) do
+        if enemy ~= self then
+            enemy.health = enemy.health - damage
+        end
+    end
+
+    super.onHurt(self, damage, battler)
 end
 
 return Flandre

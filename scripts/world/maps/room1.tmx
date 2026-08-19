@@ -168,7 +168,7 @@ no-good wall slammers.</property>
   </object>
   <object id="82" name="transition" x="440" y="680" width="80" height="40">
    <properties>
-    <property name="map" value="room_girl"/>
+    <property name="map" value="rm_myhallway"/>
     <property name="marker" value="entry"/>
    </properties>
   </object>
@@ -186,7 +186,7 @@ no-good wall slammers.</property>
   </object>
   <object id="85" name="npc" x="480" y="160" width="40" height="40">
    <properties>
-    <property name="actor" value="seija"/>
+    <property name="actor" value="starwalker"/>
     <property name="cutscene" value="debug_seija.anim"/>
    </properties>
   </object>

@@ -644,7 +644,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room_girl",
+            ["map"] = "rm_myhallway",
             ["marker"] = "entry"
           }
         },
@@ -695,7 +695,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "seija",
+            ["actor"] = "starwalker",
             ["cutscene"] = "debug_seija.anim"
           }
         }

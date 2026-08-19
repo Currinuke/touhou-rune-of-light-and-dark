@@ -10,9 +10,9 @@
   <image source="../../../assets/sprites/backgrounds/dark/flandre.png" width="640" height="480"/>
  </imagelayer>
  <objectgroup color="#ff00ff" id="3" name="objects">
-  <object id="1" name="enemy" x="400" y="80" width="40" height="40">
+  <object id="1" name="enemy" x="400" y="120" width="40" height="40">
    <properties>
-    <property name="actor" value="dummy"/>
+    <property name="actor" value="flandre_a"/>
     <property name="encounter" value="flandre"/>
    </properties>
   </object>

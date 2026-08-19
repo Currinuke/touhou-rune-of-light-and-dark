@@ -20,6 +20,27 @@
             "width": 1040,
             "x": 880,
             "y": 0
+        },
+        {
+            "fileName": "maps/rm_myhallway.tmx",
+            "height": 480,
+            "width": 1080,
+            "x": -1080,
+            "y": 480
+        },
+        {
+            "fileName": "maps/room_dw_flandre.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -1080,
+            "y": 0
+        },
+        {
+            "fileName": "maps/room_girl.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 520,
+            "y": -480
         }
     ],
     "onlyShowAdjacentMaps": false,
