@@ -3,18 +3,14 @@ local character, super = Class(PartyMember, "kogasa")
 function character:init()
     super.init(self)
 
-    -- Display name
     self.name = "Kogasa"
-    -- self.name = "小伞"
 
-    -- Actor (handles overworld/battle sprites)
     self:setActor("kogasa")
     self:setLightActor("kogasa_lw")
     self:setDarkTransitionActor("kris_dark_transition")
 
-    -- Display level (saved to the save file)
     self.level = Game.chapter
-    -- Default title / class (saved to the save file)
+
     if Game.chapter == 1 then
         self.title = "Leader\nCommands the party\nwith various ACTs."
     elseif Game.chapter == 2 then

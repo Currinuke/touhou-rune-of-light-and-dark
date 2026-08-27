@@ -4,7 +4,7 @@ function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Bat Pendant"
+    self.name = "BatPendant"
 
     -- Item type (item, key, weapon, armor)
     self.type = "armor"

@@ -1,4 +1,4 @@
-local item, super = Class(HealItem, "ff_s_biscuit")
+local item, super = Class(HealItem, "flower_filled_sandwich_biscuit")
 
 function item:init()
     super.init(self)

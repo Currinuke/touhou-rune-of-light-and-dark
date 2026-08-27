@@ -49,7 +49,7 @@ end
 
 function item:onWorldUse()
     Assets.playSound("egg")
-    Game.world:showText("* (You used the Bad Apple.)")
+    Game.world:showText("{item_bad_apple_use}")
 end
 
 --[[

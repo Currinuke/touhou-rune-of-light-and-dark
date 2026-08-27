@@ -1,10 +1,10 @@
-local item, super = Class(Item, "sliver_bracetlet")
+local item, super = Class(Item, "ag_bracelet")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "S. Bracetlet"
+    self.name = "AgBracelet"
 
     -- Item type (item, key, weapon, armor)
     self.type = "weapon"

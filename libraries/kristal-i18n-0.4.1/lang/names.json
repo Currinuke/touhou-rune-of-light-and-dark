@@ -1,4 +1,58 @@
 {
+    "kogasa": {
+        "en": "Kogasa",
+        "zh_hans": "小伞"
+    },
+    "tatara_kogasa": {
+        "en": "Tatara Kogasa",
+        "zh_hans": "多多良小伞"
+    },
+    "seija": {
+        "en": "Seija",
+        "zh_hans": "正邪"
+    },
+    "kijin_seija": {
+        "en": "Kijin Seija",
+        "zh_hans": "鬼人正邪"
+    },
+    "rin": {
+        "en": "Rin",
+        "zh_hans": "麟"
+    },
+    "satsuki_rin": {
+        "en": "Satsuki Rin",
+        "zh_hans": "冴月麟"
+    },
+    "reisen": {
+        "en": "Reisen",
+        "zh_hans": "铃仙"
+    },
+    "koakuma": {
+        "en": "Koakuma",
+        "zh_hans": "小恶魔"
+    },
+    "rumia": {
+        "en": "Rumia",
+        "zh_hans": "露米娅"
+    },
+    "remilia": {
+        "en": "Remilia",
+        "zh_hans": "蕾米莉亚"
+    },
+    "remilia_scarlet": {
+        "en": "Remilia Scarlet",
+        "zh_hans": "蕾米莉亚·斯卡蕾特"
+    },
+    "flandre": {
+        "en": "Flandre",
+        "zh_hans": "芙兰朵露"
+    },
+    "flandre_scarlet": {
+        "en": "Flandre Scarlet",
+        "zh_hans": "芙兰朵露·斯卡蕾特"
+    },
+    
+    // 以下为原i18n库自带
     "kris": {
         "en": "Kris",
         "zh_hans": "克里斯"
@@ -18,25 +72,5 @@
     "starwalker": {
         "en": "Starwalker",
         "zh_hans": "星之行者"
-    },
-    "kogasa": {
-        "en": "Kogasa",
-        "zh_hans": "小伞"
-    },
-    "seija": {
-        "en": "Seija",
-        "zh_hans": "正邪"
-    },
-    "rin": {
-        "en": "Rin",
-        "zh_hans": "麟"
-    },
-    "reisen": {
-        "en": "Reisen",
-        "zh_hans": "铃仙"
-    },
-    "koakuma": {
-        "en": "Koakuma",
-        "zh_hans": "小恶魔"
     }
 }

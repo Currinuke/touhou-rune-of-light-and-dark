@@ -1,0 +1,12 @@
+
+ "item__name": "",
+ "item__effect": "",
+ "item__shopName": "",
+ "item__shopDesc": "[var:typeName]\n[var:shopName]",
+ "item__description": "",
+ "item__kogasaReaction": "",
+ "item__seija/seijaReaction": "",
+ "item__seija/rinReaction": "",
+ "item__rinReaction": "",
+ "item__reisenReaction": "",
+ 

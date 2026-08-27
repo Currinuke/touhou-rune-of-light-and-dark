@@ -4,7 +4,7 @@ function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Faded Ribbon"
+    self.name = "FadedRibbon"
 
     -- Item type (item, key, weapon, armor)
     self.type = "armor"
