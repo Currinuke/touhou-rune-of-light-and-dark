@@ -3,28 +3,22 @@ local spell, super = Class(Spell, "scare_burster")
 function spell:init()
     super.init(self)
 
-    -- Display name
     self.name = "Scare Burster"
-    -- Name displayed when cast (optional)
     self.cast_name = self.name
 
-    -- Battle description
     if Game.chapter <= 3 then
         self.effect = "Red\nDamage"
     else
         self.effect = "Red\ndamage"
     end
-    -- Menu description
+    
     self.description = "Deals large Red-elemental damage to\none foe. Depends on Attack & Magic."
 
-    -- TP cost
     self.cost = 60
 
-    -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "enemy"
 
-    -- Tags that apply to this spell
-    self.tags = {"rude", "damage"}
+    self.tags = {"rude", "rule", "damage"}
 end
 
 function spell:getCastMessage(user, target)

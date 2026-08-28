@@ -174,7 +174,7 @@ function character:init()
     -- Path to head icons used in battle
     self.head_icons = "party/seija/icon"
     -- Name sprite (optional)
-    -- self.name_sprite = "party/susie/name"
+    self.name_sprite = "party/seija/name"
 
     -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/mash"

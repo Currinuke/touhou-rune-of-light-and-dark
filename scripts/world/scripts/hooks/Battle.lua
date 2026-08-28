@@ -78,7 +78,7 @@ function Battle:nextTurn()
         for _, box in ipairs(self.battle_ui.action_boxes) do
             box.selected_button = 1
             -- 好像这个才是呢
-            if box.battler.chara.name == "Seija" then box.selected_button = #box:getSelectableButtons() end
+            if box.battler.chara.id == "seija" then box.selected_button = #box:getSelectableButtons() end
             --box:setHeadIcon("head")
             box:resetHeadIcon()
         end

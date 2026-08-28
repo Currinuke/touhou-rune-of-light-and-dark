@@ -4,8 +4,8 @@
     "version": "0.4.1", // x-release-please-version
     "engineVer": "v0.10.0",
     "config": {
-        "defaultLanguage": "en",
-        "defaultNameLanguage": "en",
+        "defaultLanguage": "zh_hans",
+        "defaultNameLanguage": "zh_hans",
         "languages": ["en", "zh_hans"],
         "languageNames": {
             "en": "English",

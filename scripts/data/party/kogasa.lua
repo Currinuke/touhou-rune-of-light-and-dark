@@ -171,7 +171,7 @@ function character:init()
     -- Path to head icons used in battle
     self.head_icons = "party/kogasa/icon"
     -- Name sprite
-    -- self.name_sprite = "party/kris/name"
+    self.name_sprite = "party/kogasa/name"
 
     -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/cut"

@@ -3,23 +3,16 @@ local spell, super = Class(Spell, "wind_sign_sleepy_wind")
 function spell:init()
     super.init(self)
 
-    -- Display name
     self.name = "W.S.[S.W.]"
-    -- Name displayed when cast (optional)
     self.cast_name = "Wind Sign [Sleepy Wind]"
 
-    -- Battle description
     self.effect = "Spare\nTIRED foe"
-    -- Menu description
     self.description = "SPARE a tired enemy by putting them to sleep."
 
-    -- TP cost
     self.cost = 16
 
-    -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "enemy"
 
-    -- Tags that apply to this spell
     self.tags = {"spare_tired"}
 end
 

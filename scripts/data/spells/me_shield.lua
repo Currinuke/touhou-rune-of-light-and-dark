@@ -3,22 +3,16 @@ local spell, super = Class(Spell, "me_shield")
 function spell:init()
     super.init(self)
 
-    -- Display name
     self.name = "Me Shield"
-    -- Name displayed when cast (optional)
     self.cast_name = self.name
 
     self.effect = ""
-    -- Menu description
     self.description = "Deals large Red-elemental damage to\none foe. Depends on Attack & Magic."
 
-    -- TP cost
     self.cost = 8
 
-    -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "party"
 
-    -- Tags that apply to this spell
     self.tags = {}
 end
 

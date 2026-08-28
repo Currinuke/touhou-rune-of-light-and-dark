@@ -32,6 +32,7 @@ function item:init()
     }
 
     self.reactions = {
+        kogasa = "",
         seija = "Too small. Kris-size.",
         rin = "Umm, I might hurt myself...",
         rensei = "That\'s, um, nostalgic."

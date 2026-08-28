@@ -45,6 +45,7 @@ function item:init()
     }
 
     self.reactions = {
+        kogasa = "",
         seija = "What's this!? A CHOPSTICK?",
         rin = "That's yours, Kris...",
         reisen = "(It has bite marks...)"

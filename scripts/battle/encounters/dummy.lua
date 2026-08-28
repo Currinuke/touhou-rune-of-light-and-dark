@@ -5,7 +5,7 @@ function Dummy:init()
 
     self.text = "* The tutorial begins...?"
 
-    self.music = "rule_burster"
+    self.music = "battle"
     self.background = true
 
     self:addEnemy("dummy")
@@ -33,13 +33,14 @@ function Dummy:createSoul(x, y, color, index)
         Game.battle.soul_right.target_alpha = Game.battle.soul_right.alpha
         Game.battle.soul_right.alpha = 0
         Game.battle:addChild(Game.battle.soul_right)
-    end]]
+    end--]]--[[
     if index == 1 then
         return LeftSoul(x, y, color)
     elseif index == 2 then
         return RightSoul(x, y, color)
-    end
-    return DoubleSoul(x, y, color)
+    end--]]
+    --return DoubleSoul(x, y, color)
+    return Soul(x, y, color)
 end
 
 return Dummy

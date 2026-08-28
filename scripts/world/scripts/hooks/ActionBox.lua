@@ -16,7 +16,7 @@ function ActionBox:init(x, y, index, battler)
         local bar_x = 212
         local bar_y = 44
 
-        -- bar_x - 原数字 - 贴图横像素数 = 新数字
+        -- bar_x - 原数字 - 贴图横像素数 = 新数字 （不考虑offset）
 
         super.super.init(self, x, y)
 
@@ -50,8 +50,10 @@ function ActionBox:init(x, y, index, battler)
 
         if battler.chara:getNameSprite() then
             -- self.name_sprite = Sprite(battler.chara:getNameSprite(), 51, 14)
-            -- 48*15 51 + 24 36 = 14 + 15 + 7
-            self.name_sprite = Sprite(battler.chara:getNameSprite(), 113, 15)
+            -- 48*15
+            -- 212 = 51 + 48 + 113 
+            -- 44 = 14 + 15 + 15
+            self.name_sprite = Sprite(battler.chara:getNameSprite(), 113, 14)
             self.box:addChild(self.name_sprite)
         end
 

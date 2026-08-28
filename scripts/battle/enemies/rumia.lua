@@ -50,7 +50,7 @@ function Rumia:init()
 
     self:registerAct("Scare-ya", "Tire a\nenemy", nil, 32)
     self:registerAct("Strong Wind", "Remove\ndarkness", {"rin"}, 50)
-    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 0)--102)
+    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 102)
 end
 
 function Rumia:onAct(battler, name)
@@ -61,7 +61,7 @@ function Rumia:onAct(battler, name)
         Game.battle:startActCutscene("rumia", "act_wind")
         return
     elseif name == "Seija\'s Idea" then -- cheater's choice
-        error("聪明。但是 Currinuke 拒绝了你的尝试。（原作者没做啊）")
+        error("Yeah i just wanna crash the battle :)")
         return
     end
 

@@ -33,9 +33,10 @@ function item:init()
 
     -- Character reactions
     self.reactions = {
-        susie = "Well, if I have to.",
-        ralsei = "It's a bit too heavy...",
-        noelle = "(W-wow, what presence...)"
+        kogasa = "",
+        seija = "Well, if I have to.",
+        rin = "It's a bit too heavy...",
+        reisen = "(W-wow, what presence...)"
     }
 end
 
