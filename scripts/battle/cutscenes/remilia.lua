@@ -30,16 +30,13 @@ return {
         cutscene:text("* Satsuki Rin\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]Wind Flower [Data Falsifier][color:reset]!")
     end,
     kogasa_act = function(cutscene, battler, enemy)
-        Game.battle:powerAct("me_shield", battler, "kogasa", Game.battle.party)
         cutscene:text("* Your SOUL shined its power on\nTatara Kogasa!")
         cutscene:text("* Kogasa will take all damage for her teammates before DOWN!")
     end,
     seija_act = function(cutscene, battler, enemy)
-        Game.battle:powerAct("scare_burster", battler, "seija", enemy)
         cutscene:text("* Your SOUL shined its power on\nKijin Seija!")
     end,
     rin_act = function(cutscene, battler, enemy)
-        Game.battle:powerAct("wind_flower_data_falsifier", battler, "rin", Game.battle.party)
         cutscene:text("* Your SOUL shined its power on\nSatsuki Rin!")
     end
 }

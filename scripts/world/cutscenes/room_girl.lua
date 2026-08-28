@@ -31,7 +31,7 @@ return {
                 Game:setFlag("got_apple", true)
                 Game.inventory:tryGiveItem("bad_apple")
                 Assets.playSound("egg")
-                cutscene:text("* You got the [color:yellow]Bad Apple[color:reset].")
+                cutscene:text("* You recieved the [color:yellow]Bad Apple[color:reset].")
             else
                 cutscene:text("* What girl?") -- 原作没有呢
             end

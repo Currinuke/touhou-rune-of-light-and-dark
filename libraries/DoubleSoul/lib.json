@@ -1,6 +1,7 @@
 {
     "id": "throld-doublesoul",
     "version": "0.2.0",
+    "engineVer": "v0.10.0",
     "config": {
         "defaultOffset": 100,
         "sameInv": true

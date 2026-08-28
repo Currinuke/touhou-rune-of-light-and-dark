@@ -47,6 +47,8 @@
  "spell_flower_sign_petal_therapy_effect": "治疗\n同伴",
  "spell_flower_sign_petal_therapy_description": "治疗一名队友。",
  
+ "battle_powerAct": "* 你的【灵魂】之力照耀着[var:userName]！",
+
  "spell_me_shield_name": "庇护",
  "spell_me_shield_castName": "庇护",
  "spell_me_shield_effect": "替队友\n承受伤害",
@@ -159,7 +161,7 @@
  "item_book_page_effect": "[name:koakuma]的\n自画像",
  "item_book_page_shopName": "",
  "item_book_page_shopDesc": "[var:typeName]\n[var:shopName]",
- "item_book_page_description": "上面有小恶魔的自画像。",
+ "item_book_page_description": "上面有[name:koakuma]的自画像。",
  "item_book_page_kogasaReaction": "额...",
  "item_book_page_seijaReaction": "也行。",
  "item_book_page_rinReaction": "（不适）",

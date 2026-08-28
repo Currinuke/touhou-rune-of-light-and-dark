@@ -3,19 +3,13 @@ local actor, super = Class(Actor, "remilia")
 function actor:init(style)
     super.init(self)
 
-
-    -- Display name (optional)
     self.name = "Remilia Scarlet"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 25
     self.height = 43
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {3, 31, 19, 14}
 
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
     self.soul_offset = {12.5, 24}
 
     -- Color for this actor used in outline areas (optional, defaults to red)

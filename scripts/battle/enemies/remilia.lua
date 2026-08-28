@@ -2,31 +2,23 @@ local Remilia, super = Class(EnemyBattler)
 
 function Remilia:init()
     super.init(self)
-    -- self.is_remilia = true
 
-    -- Enemy name
-    self.name = "Remilia Scarlet"
-    -- Sets the actor, which handles the enemy's sprites (see scripts/data/actors/dummy",")
+    -- self.name = "Remilia Scarlet"
+    self:applyLocalization()
+    
     self:setActor("remilia")
 
-    -- Enemy health
     self.max_health = 3000
     self.health = 3000
-    -- Enemy attack (determines bullet damage)
     self.attack = 10
-    -- Enemy defense (usually 0)
     self.defense = 0
-    -- Enemy reward
     self.money = 0
 
-    -- Mercy given when sparing this enemy before its spareable (20% for basic enemies)
     self.spare_points = 0
     self.disable_mercy = true
 
-    -- List of possible wave ids, randomly picked each turn
     self.waves = {}
 
-    -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
         "1225, 1997...",
         "...",
@@ -35,13 +27,11 @@ function Remilia:init()
 
     self.exit_on_defeat = true
 
-    -- Check text (automatically has "ENEMY NAME - " at the start)
     self.check = {
         "A baojun.",
         "If aaaaaaaaaaa."
     }
 
-    -- Text randomly displayed at the bottom of the screen each turn
     self.text = {
         "* It would be an awful night.",
         "* It would be a joyful night.",
@@ -61,6 +51,49 @@ function Remilia:init()
     self:registerAct("R-Talk", "", {"rin"})
 end
 
+function Remilia:applyLocalization(update_acts)
+    local old_check = self.act_check
+    local old_talk = self.act_talk
+    local old_tell_story = self.act_tell_story
+
+    self.name = Game:locText("[name:remilia_scarlet]")
+    
+    self.dialogue = {
+        Game:loc("enemy_dummy_dialogue")
+    }
+    
+    self.check = Game:loc("enemy_dummy_check")
+
+    
+    self.text = {
+        Game:loc("enemy_dummy_turn_1"),
+        Game:loc("enemy_dummy_turn_2"),
+        Game:loc("enemy_dummy_turn_3"),
+    }
+    
+    self.low_health_text = Game:loc("enemy_dummy_low_health")
+
+    self.act_check = Game:loc("act_check")
+    self.act_smile = Game:loc("act_dummy_smile")
+    self.act_tell_story = Game:loc("act_dummy_tell_story")
+
+    if self.acts and self.acts[1] then
+        self.acts[1].name = self.act_check
+    end
+
+    if update_acts then
+        for _, act in ipairs(self.acts or {}) do
+            if act.name == old_check then
+                act.name = self.act_check
+            elseif act.name == old_talk then
+                act.name = self.act_talk
+            elseif act.name == old_tell_story then
+                act.name = self.act_tell_story
+            end
+        end
+    end
+end
+
 function Remilia:onAct(battler, name)
     if name == "Talk" then
         self:registerActIndex(2, "Me Shield", "Take hit\nfor party", nil, 8)
@@ -75,14 +108,11 @@ function Remilia:onAct(battler, name)
         Game.battle:startActCutscene("remilia", "rin_talk")
         return
     elseif name == "Me Shield" then
-        Game.battle:startActCutscene("remilia", "kogasa_act")
-        return
+        return Game.battle:powerAct("me_shield", battler, "kogasa", Game.battle.party)
     elseif name == "Scare Burster" then
-        Game.battle:startActCutscene("remilia", "seija_act")
-        return
+        return Game.battle:powerAct("scare_burster", battler, "seija", self)
     elseif name == "W.F.[D.F.]" then
-        Game.battle:startActCutscene("remilia", "rin_act")
-        return
+        return Game.battle:powerAct("wind_flower_data_falsifier", battler, "rin", Game.battle.party)
     end
 
     return super.onAct(self, battler, name)

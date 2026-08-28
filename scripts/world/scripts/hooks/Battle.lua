@@ -1,25 +1,75 @@
 local Battle, super = HookSystem.hookScript(Battle)
 
---[[
 function Battle:updateIntro()
-    if false then -- 哈哈直接禁用
-        super.updateIntro(self)
-    else
-        self.intro_timer = self.intro_timer + 1 * DTMULT
-        if self.intro_timer >= 26 then
-            for _, v in ipairs(self.party) do
-                v:setAnimation("battle/idle")
-            end
-            self:setState("ACTIONSELECT", "INTRO")
-            -- self:nextTurn()
-        end
-    end
-end--]]
-
-function Battle:updateIntro()
-    -- 保证小伞的battle/intro动画不会被打断
+    -- 等同于将入场时间延长一倍，来保证小伞的入场动画正常播放完毕
     self.intro_timer = self.intro_timer - 0.5 * DTMULT
     super.updateIntro(self)
+end
+
+function Battle:powerAct(spell, battler, user, target)
+
+    local user_battler = self:getPartyBattler(user)
+    local user_index = self:getPartyIndex(user)
+
+    if user_battler == nil then
+        Kristal.Console:error("Invalid power act user: " .. tostring(user))
+        return
+    end
+
+    if type(spell) == "string" then
+        spell = Registry.createSpell(spell)
+    end
+
+    local menu_item = {
+        data = spell,
+        tp = 0
+    }
+
+    if target == nil then
+        if spell:getTarget() == "ally" then
+            target = user_battler
+        elseif spell:getTarget() == "party" then
+            target = self.party
+        elseif spell:getTarget() == "enemy" then
+            target = self:getActiveEnemies()[1]
+        elseif spell:getTarget() == "enemies" then
+            target = self:getActiveEnemies()
+        end
+    end
+
+    local name = user_battler.chara:getName():upper()
+    if name == "SUSIE" then
+        -- deltarune inconsistency lol
+        name = "Susie"
+    end
+
+    -- 替换为角色的全名
+    if user_battler.chara.id == "kogasa" then
+        name = Game:locText("[name:tatara_kogasa]"):upper()
+    elseif user_battler.chara.id == "seija" then
+        name = Game:locText("[name:kijin_seija]"):upper()
+    elseif user_battler.chara.id == "rin" then
+        name = Game:locText("[name:satsuki_rin]"):upper()
+    end
+
+    self:setActText(Game:loc("battle_powerAct", {userName = name}), true)
+
+    self.timer:after(7 / 30, function()
+        Assets.playSound("boost")
+        battler:flash()
+        user_battler:flash()
+        local bx, by = self:getSoulLocation()
+        local soul = Sprite("effects/soulshine", bx + 5.5, by)
+        soul:play(1 / 30, false, function() soul:remove() end)
+        soul:setOrigin(0.5)
+        soul:setScale(2, 2)
+        self:addChild(soul)
+    end)
+
+    self.timer:after(24 / 30, function()
+        self:pushAction("SPELL", target, menu_item, user_index)
+        self:markAsFinished(nil, { user })
+    end)
 end
 
 function Battle:nextTurn()

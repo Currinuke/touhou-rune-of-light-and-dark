@@ -16,10 +16,12 @@ function spell:init()
     self.tags = {}
 end
 
---[[
 function spell:getCastMessage(user, target)
-    return "* "..user.chara:getName().." used "..self:getCastName().."!"
-end]]
+    return Game:loc("spell_" .. self.id .. "_castMessage", {
+        userName = user.chara:getName(),
+        castName = self:getCastName()
+    })
+end
 
 function spell:onCast(user, target)
     local base_heal = user.chara:getStat("magic") * (Game:getConfig("oldDualHealFormula") and 4 or 5.5)
