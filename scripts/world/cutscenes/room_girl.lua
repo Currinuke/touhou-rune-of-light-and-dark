@@ -33,7 +33,7 @@ return {
                 Assets.playSound("egg")
                 cutscene:text("* You got the [color:yellow]Bad Apple[color:reset].")
             else
-                cutscene:text("* You rejected her kindness.") -- 原作没有呢
+                cutscene:text("* What girl?") -- 原作没有呢
             end
         end
     end

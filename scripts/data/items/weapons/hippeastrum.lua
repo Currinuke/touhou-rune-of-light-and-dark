@@ -1,9 +1,9 @@
-local item, super = Class(Item, "safflower")
+local item, super = Class(Item, "hippeastrum")
 
 function item:init()
     super.init(self)
 
-    self.name = "Safflower"
+    self.name = "Hippeastrum"
 
     self.type = "weapon"
     self.icon = "ui/menu/icon/scarf"
@@ -21,10 +21,10 @@ function item:init()
     self.instant = false
 
     self.bonuses = {
-        attack = 2
+        magic = 2
     }
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "{bonus_poisonousness}"
+    self.bonus_icon = "ui/menu/icon/up"
 
     self.can_equip = {
         rin = true

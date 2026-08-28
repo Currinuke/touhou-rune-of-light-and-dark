@@ -20,15 +20,15 @@
     "equipment": {
         "kogasa": {
             "weapon": "old_sleeve",
-            "armor": ["faded_ribbon", "faded_ribbon"]
+            "armor": []
         },
         "seija": {
             "weapon": "rusty_wrist",
-            "armor": ["faded_ribbon", "faded_ribbon"]
+            "armor": []
         },
         "rin": {
             "weapon": "redflower",
-            "armor": ["faded_ribbon", "faded_ribbon"]
+            "armor": []
         }
     },
 

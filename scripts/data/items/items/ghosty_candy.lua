@@ -32,21 +32,14 @@ function item:init()
         ["reisen"] = 60
     }
 
-    -- Default shop price (sell price is halved)
     self.price = 450
-    -- Whether the item can be sold
     self.can_sell = true
 
-    -- Consumable target mode (ally, party, enemy, enemies, or none)
     self.target = "ally"
-    -- Where this item can be used (world, battle, all, or none/nil)
     self.usable_in = "all"
-    -- Item this item will get turned into when consumed
     self.result_item = nil
-    -- Will this item be instantly consumed in battles?
     self.instant = false
 
-    -- Character reactions (key = party member id)
     self.reactions = {
         kogasa = "Ah! You scared me!",
         seija = "What the heck?!",

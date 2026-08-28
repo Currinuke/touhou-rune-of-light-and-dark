@@ -27,22 +27,50 @@ function item:init()
         kogasa = "One for each of us, perfect!",
         seija = "Why not split it sideways?",
         rin = "So cold!",
-        reisen = "Here\'s my extra share, Kogasa."
+        reisen = {
+            reisen = "Here\'s my extra share, Kogasa.",
+            kogasa = "Thanks!"
+        }
     }
+end
+
+--[[我废了这段代码是因为暂时不想动i18n库的代码
+所以就改原文了
+function item:getReaction(user_id, reactor_id)
+    if user
+    local reactions = self:getReactions()
+    if reactions[user_id] then
+        if type(reactions[user_id]) == "string" then
+            if reactor_id == user_id then
+                return reactions[user_id]
+            else
+                return nil
+            end
+        else
+            return reactions[user_id][reactor_id]
+        end
+    end
+end
+
+function item:getReactions()
+    local reactions = super.getReactions(self)
+
+    if Game:hasPartyMember("reisen") then
+        reactions.kogasa = "Thanks!"
+    elseif #Game.party >= 3 then
+        reactions.kogasa = "One for each of us, perfect!"
+    else
+        reactions.kogasa = "I\'m full! Full of joy!"
+        reactions.kogasa = "{item_3x_ice_cream_kogasaReaction_alt}"
+    end
+    
+    return reactions
 end
 
 function item:onWorldUse(target)
     local consumed = super.onWorldUse(self, target)
-
-    if Game:hasPartyMember("reisen") then
-        self.reactions.kogasa = "Thanks!"
-    elseif #Game.party >= 3 then
-        self.reactions.kogasa = "One for each of us, perfect!"
-    else
-        self.reactions.kogasa = "I\'m full! Full of joy!"
-    end
-
     return consumed
-end
+end]]
+
 
 return item

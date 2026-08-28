@@ -1,9 +1,9 @@
-local item, super = Class(Item, "bat_pendant")
+local item, super = Class(Item, "philosophers_stone")
 
 function item:init()
     super.init(self)
 
-    self.name = "BatPendant"
+    self.name = "phil.sStone"
 
     self.type = "armor"
     self.icon = "ui/menu/icon/armor"
@@ -21,7 +21,7 @@ function item:init()
     self.instant = false
 
     self.bonuses = {
-        defense = 1
+        magic = 6
     }
     self.bonus_name = nil
     self.bonus_icon = nil

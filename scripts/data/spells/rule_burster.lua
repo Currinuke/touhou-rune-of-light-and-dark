@@ -3,36 +3,21 @@ local spell, super = Class(Spell, "rule_burster")
 function spell:init()
     super.init(self)
 
-    -- Display name
     self.name = "Rule Burster"
-    -- Name displayed when cast (optional)
     self.cast_name = self.name
 
-    -- Battle description
     self.effect = "Reverse\ndamage"
-    -- Menu description
     self.description = "Deals moderate Rude-elemental damage to\none foe. Depends on Attack & Magic."
 
-    -- TP cost
     self.cost = 50
 
-    -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "enemy"
 
-    -- Tags that apply to this spell
-    self.tags = {"rude", "damage"}
+    self.tags = {"rude", "rule", "damage"}
 end
 
 function spell:getCastMessage(user, target)
     return "* "..user.chara:getName().." used "..self:getCastName().."!"
-end
-
-function spell:getTPCost(chara)
-    local cost = super.getTPCost(self, chara)
-    if chara and chara:checkWeapon("s_shaped_stick") then
-        cost = cost - 10
-    end
-    return cost
 end
 
 function spell:onCast(user, target)
@@ -77,6 +62,11 @@ function spell:getDamage(user, target, damage_bonus)
     local attack_part = user.chara:getStat("attack") * (11 + yellowhat_count)
 
     local damage = math.ceil(magic_part + attack_part - (target.defense * 3)) + damage_bonus
+
+    if user.chara:checkWeapon("s_shaped_stick") then
+        damage = damage + 66
+    end
+
     return damage
 end
 
