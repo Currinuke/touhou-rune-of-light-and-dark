@@ -343,5 +343,7 @@
  "item_philosophers_stone_kogasaReaction": "这会很惊人的！",
  "item_philosophers_stone_seijaReaction": "我充满了力量！",
  "item_philosophers_stone_rinReaction": "真漂亮啊...",
- "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。"
+ "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。",
+
+ "storage_nothing": "(Nothing)"
 }

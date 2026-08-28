@@ -93,7 +93,7 @@
  "item_omelette_roll_name": "煎蛋卷饼",
  "item_omelette_roll_useName": "煎蛋卷饼",
  "item_omelette_roll_effect": "回复\n70HP",
- "item_omelette_roll_shopName": "回复70HP",
+ "item_omelette_roll_shopName": "红师傅的\n拿手好戏\n回复70HP",
  "item_omelette_roll_shopDesc": "[var:typeName]\n[var:shopName]",
  "item_omelette_roll_description": "用一个巨大的煎蛋将烤面饼卷起来，再加上特制酱料...",
  "item_omelette_roll_kogasaReaction": "好大的煎蛋！",
@@ -309,7 +309,7 @@
  
  "item_bat_pendant_name": "蝙蝠挂饰",
  "item_bat_pendant_useName": "蝙蝠挂饰",
- "item_bat_pendant_shopName": "防御型\n能保护你的护符",
+ "item_bat_pendant_shopName": "防御型\n保护用护符",
  "item_bat_pendant_shopDesc": "[var:typeName]\n[var:shopName]",
  "item_bat_pendant_description": "不知道是谁的能力卡牌，\n能召唤蝙蝠保护你。",
  "item_bat_pendant_kogasaReaction": "棒蝠大笑！听懂了吗？",
@@ -345,5 +345,7 @@
  "item_philosophers_stone_kogasaReaction": "这会很惊人的！",
  "item_philosophers_stone_seijaReaction": "我充满了力量！",
  "item_philosophers_stone_rinReaction": "真漂亮啊...",
- "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。"
+ "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。",
+
+ "storage_nothing": "（空）"
 }

@@ -436,7 +436,7 @@ return {
           name = "camera",
           type = "",
           shape = "point",
-          x = 640,
+          x = 720,
           y = 240,
           width = 0,
           height = 0,

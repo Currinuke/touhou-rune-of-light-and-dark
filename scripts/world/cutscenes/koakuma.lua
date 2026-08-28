@@ -12,8 +12,10 @@ return {
         
             local x = event.x + event.width / 2 + 10
             local y = event.y + event.height * 0.75
+            local cx, cy, data = cutscene:getMarker("camera")
 
             cutscene:detachFollowers()
+            cutscene:detachCamera()
             cutscene:walkTo(kogasa, x + 80, y + 12, 1, "up")
             cutscene:walkTo(seija, x + 20, y + 12, 1, "up")
             cutscene:walkTo(rin, x - 40, y + 12, 1, "up")
@@ -27,13 +29,11 @@ return {
             cutscene:text("* I\'m so scared that I can\'t even go back to the Scarlet Mansion!", "neutral")
             cutscene:text("* Wh... [wait:5]What the heck is that!", "neutral", "seija")
 
-            cutscene:detachCamera()
             cutscene:walkTo(kogasa, x + 240, y - 20, 2, "right")
             cutscene:walkTo(seija, x + 180, y - 20, 2, "right")
             cutscene:walkTo(rin, x + 120, y - 20, 2, "right")
-            local cx, cy, data = cutscene:getMarker("camera")
             cutscene:panToSpeed(cx, cy)
-            cutscene:wait(3)
+            cutscene:wait(4)
 
             cutscene:text("* Oh hey, little guy!", "smile", "rin")
             cutscene:text("* You\'re afraid of this thing?", "neutral", "seija")
@@ -122,7 +122,7 @@ return {
             Game:removeFollower("seija")
             seija:remove()
 
-            cutscene:wait(cutscene:walkTo(rin, rx - 160, rin.y, 1, "left"))
+            cutscene:wait(cutscene:walkTo(rin, rx - 320, rin.y, 2, "left"))
             cutscene:setSpeaker("rin")
             cutscene:text("* Kogasa...", "sad")
             cutscene:text("* Maybe I shouldn\'t have been so strict with her just now.", "sad")

@@ -25,15 +25,14 @@ function Meirin:init()
 
     self:registerItem("tanghulu", {stock = 14})
     self:registerItem("omelette_roll", {stock = 10})
-    self:registerItem("halloween_sleeve", {name = "Halloween Sleeve", stock = 4})
+    self:registerItem("halloween_sleeve", {stock = 4})
     self:registerItem("bat_pendant", {stock = 8})
 
     self:registerTalk("About Yourself")
     self:registerTalk("Scarlet Devil Mansion")
     self:registerTalk("Bandage on the head...")
-    self:registerTalk("We are the chosen ones")
-
     self:registerTalkAfter("Why not hate her?", 3)
+    self:registerTalk("We are the chosen ones")
 end
 
 function Meirin:postInit()

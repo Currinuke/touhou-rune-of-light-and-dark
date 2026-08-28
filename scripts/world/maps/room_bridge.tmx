@@ -124,7 +124,7 @@
   <object id="24" name="entry_right" x="1000" y="240">
    <point/>
   </object>
-  <object id="27" name="camera" x="640" y="240">
+  <object id="27" name="camera" x="720" y="240">
    <point/>
   </object>
  </objectgroup>
