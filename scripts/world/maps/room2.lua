@@ -217,7 +217,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room_bridge",
+            ["map"] = "rm_lake_bridge",
             ["marker"] = "entry_right"
           }
         },

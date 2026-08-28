@@ -8,7 +8,7 @@
 
     "chapter": 1,
     "transition": false,
-    "map": "room_bridge",
+    "map": "rm_lake_bridge",
 
     "party": ["kogasa", "seija", "rin"],
 

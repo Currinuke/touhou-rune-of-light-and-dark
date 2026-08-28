@@ -26,6 +26,8 @@
  "chara_reisen_title_frostmancer": "寒霜法师\n冻结敌人。",
  "chara_reisen_xactName": "R-行动",
 
+ "act_check": "Check",
+
  "spell__scare_ya_name": "Scare-ya",
  "spell__scare_ya_description": "使一名敌人进入疲惫状态。",
 
@@ -345,5 +347,6 @@
  "item_philosophers_stone_rinReaction": "真漂亮啊...",
  "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。",
 
- "storage_nothing": "(Nothing)"
+ "storage_nothing": "(Nothing)",
+ "map_rm_lake_bridge_name": "雾之湖 - 木桥"
 }

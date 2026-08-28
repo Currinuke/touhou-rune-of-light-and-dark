@@ -92,17 +92,6 @@ function DoubleSoul:getExactPosition(x, y, target) --没用的代码
     return super.getExactPosition(self, x, y)
 end
 
---- Sets the soul's exact position (including a fractional part)
----@param x number
----@param y number
---[[
-function DoubleSoul:setExactPosition(x, y)
-    self.x = math.floor(x)
-    self.partial_x = x - self.x
-    self.y = math.floor(y)
-    self.partial_y = y - self.y
-end--]]
-
 --- *(Override)* Called when the soul takes damage
 ---@param bullet Bullet
 ---@param amount integer
@@ -166,7 +155,9 @@ function DoubleSoul:doMovement()
                 Assets.playSound(self.finished_name)
 
                 local bx, by = Game.battle:getSoulLocation()
-                 -- self:addChild(DoubleSwapEffect(bx - self.double_offset, by))
+                DoubleSwapEffect(bx - self.double_offset, by)
+                DoubleSwapEffect(bx + self.double_offset, by)
+                -- self:addChild(DoubleSwapEffect(bx - self.double_offset, by))
                 -- self:addChild(DoubleSwapEffect(bx + self.double_offset, by))
                 DoubleSwapEffect(bx - self.double_offset, by)
                 DoubleSwapEffect(bx + self.double_offset, by)

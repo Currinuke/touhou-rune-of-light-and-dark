@@ -55,7 +55,7 @@
   </object>
   <object id="9" name="transition" x="-40" y="320" width="40" height="80">
    <properties>
-    <property name="map" value="room_bridge"/>
+    <property name="map" value="rm_lake_bridge"/>
     <property name="marker" value="entry_right"/>
    </properties>
   </object>

@@ -2,6 +2,7 @@ local Meirin, super = Class(Shop, "meirin")
 
 function Meirin:init()
     super.init(self)
+    
     self.encounter_text = "* Welcome to Master Hong\'s Grocery.\n[wait:5]* How can I help you?"
     self.shop_text = "* Thanks for visiting my little old place."
     self.shop_music = "shop1"

@@ -12,7 +12,8 @@ return {
   nextlayerid = 16,
   nextobjectid = 34,
   properties = {
-    ["name"] = "Misty Lake - Bridge"
+    ["name"] = "Misty Lake - Bridge",
+    ["name_id"] = "map_rm_lake_bridge_name"
   },
   tilesets = {
     {
@@ -352,7 +353,7 @@ return {
           visible = true,
           properties = {
             ["cutscene"] = "koakuma.bridge",
-            ["once"] = true
+            ["once"] = false
           }
         },
         {

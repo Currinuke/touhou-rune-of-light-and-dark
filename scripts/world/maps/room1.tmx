@@ -139,7 +139,7 @@ you.</property>
   <object id="77" name="squeak" x="680" y="600" width="40" height="40"/>
   <object id="78" name="transition" x="800" y="200" width="40" height="80">
    <properties>
-    <property name="map" value="room_bridge"/>
+    <property name="map" value="rm_lake_bridge"/>
     <property name="marker" value="entry_left"/>
    </properties>
   </object>

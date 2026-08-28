@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="26" height="15" tilewidth="40" tileheight="40" infinite="0" nextlayerid="16" nextobjectid="34">
  <editorsettings>
-  <export target="room_bridge.lua" format="lua"/>
+  <export target="rm_lake_bridge.lua" format="lua"/>
  </editorsettings>
  <properties>
   <property name="name" value="Misty Lake - Bridge"/>
+  <property name="name_id" value="map_rm_lake_bridge_name"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/mistylake.tsx"/>
  <layer id="1" name="tiles_lake" width="26" height="15">
@@ -103,7 +104,7 @@
   <object id="25" name="script" x="280" y="200" width="40" height="80">
    <properties>
     <property name="cutscene" value="koakuma.bridge"/>
-    <property name="once" type="bool" value="true"/>
+    <property name="once" type="bool" value="false"/>
    </properties>
   </object>
   <object id="30" name="npc" x="920" y="200" width="40" height="40">

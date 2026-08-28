@@ -1,7 +1,7 @@
 local Lib = {}
 
 function Lib:init()
-    --print("DoubleSoul Library loaded.")
+    DoubleSwapEffect = libRequire("throld-doublesoul", "scripts.effects.doubleswapeffect")
 end
 
 return Lib

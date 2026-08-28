@@ -116,7 +116,7 @@ return {
             cutscene:walkTo(seija, seija.x + 300, seija.y, 1)
             Assets.playSound("ominous")
             cutscene:wait(2)
-            koakuma:setFlag("used_once", true)
+            koakuma:setFlag("dont_load", true)
             koakuma:remove()
             Game:removePartyMember("seija")
             Game:removeFollower("seija")

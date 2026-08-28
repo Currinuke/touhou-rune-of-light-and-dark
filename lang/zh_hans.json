@@ -5,28 +5,30 @@
  // 我承认一个个写键名很难，尤其是在原作者更新了CH1和CH2的所有武器之后，我得给部分文件更正注册名
  // 而且测试这些文本很麻烦
 
- "chara_kogasa_title_chapter_1": "队长\n用各种【行动】\n指挥着队伍。",
- "chara_kogasa_title_chapter_2": "战术家\n用各种【行动】\n指挥着队伍。偶尔吧。",
- "chara_kogasa_title_chapter_3": "战术家\n用各种【行动】\n指挥着队伍。",
- "chara_kogasa_title_chapter_4": "黑暗英雄\n以利刃\n践行命运。",
+ "chara_kogasa_title_chapter_1": "付丧神\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_2": "付丧神\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_3": "付丧神\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_4": "付丧神\n被遗忘的唐伞妖怪。",
  "chara_kogasa_xactName": "K-行动",
 
- "chara_seija_title_chapter_1": "黑暗骑士\n使用黑暗能量\n造成伤害。",
- "chara_seija_title_chapter_2": "黑暗骑士\n使用黑暗能量\n造成伤害。",
- "chara_seija_title_chapter_3": "黑暗骑士\n使用黑暗能量\n造成伤害。",
- "chara_seija_title_chapter_4": "黑暗英雄\n以利刃\n践行命运。",
+ "chara_seija_title_chapter_1": "天邪鬼\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_2": "天邪鬼\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_3": "天邪鬼\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_4": "天邪鬼\n自诩孤高的天邪鬼。",
  "chara_seija_xactName": "S-行动",
 
- "chara_rin_title_chapter_1": "孤独王子\n暗世界的生物。\n没有臣民。",
- "chara_rin_title_chapter_2": "黑暗王子\n黑暗世界生物。\n现在他有朋友了。",
- "chara_rin_title_chapter_3": "黑暗王子\n暗世界生物。\n他有朋友。",
- "chara_rin_title_chapter_4": "黑暗英雄\n记录并\n直面命运。",
+ "chara_rin_title_chapter_1": "人类\n未曾存在过的人类。",
+ "chara_rin_title_chapter_2": "人类\n未曾存在过的人类。",
+ "chara_rin_title_chapter_3": "人类\n未曾存在过的人类。",
+ "chara_rin_title_chapter_4": "人类\n未曾存在过的人类。",
  "chara_rin_xactName": "R-行动",
  
  "chara_reisen_title": "雪花术士\n也许能使出一些\n很“酷”的招式。",
  "chara_reisen_title_ice_trancer": "冰封梦魇\n接受痛苦\n以变得更强。",
  "chara_reisen_title_frostmancer": "寒霜法师\n冻结敌人。",
  "chara_reisen_xactName": "R-行动",
+
+ "act_check": "Check",
 
  "spell__scare_ya_name": "吓你一跳",
  "spell__scare_ya_description": "使一名敌人进入疲惫状态。",
@@ -347,5 +349,6 @@
  "item_philosophers_stone_rinReaction": "真漂亮啊...",
  "item_philosophers_stone_reisenReaction": "我得，呃，小心中毒。",
 
- "storage_nothing": "（空）"
+ "storage_nothing": "（空）",
+ "map_rm_lake_bridge_name": "Misty Lake - Bridge"
 }

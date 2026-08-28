@@ -1,33 +1,37 @@
----@class DoubleSwapEffect : Sprite
----@overload fun(...) : DoubleSwapEffect
 local DoubleSwapEffect, super = Class(Sprite)
 
 function DoubleSwapEffect:init(x, y)
     super.init(self, "player/heart_dodge_full", x, y)
     self:setOrigin(0.5, 0.5)
-    -- self.layer = BATTLE_LAYERS["soul"] - 1
+    self.alpha = 1
+    self.layer = BATTLE_LAYERS["soul"] + 1
     self.timer = 0
+    Kristal.Console:push("created")
 end
 
 function DoubleSwapEffect:update()
     self.timer = self.timer + DTMULT
-    
+
     if self.timer >= 0 then
         self.alpha = self.alpha - 0.05 * DTMULT
-        self:setScale(1 + 0.1 * DTMULT)
+        self:setScale(1 + 0.15 * self.timer),
+        Kristal.Console:push("timer: " .. tostring(self.timer))
     end
 
     if self.alpha <= 0 then
+
         self:remove()
+
+        Kristal.Console:push("remove")
     end
 
     super.update(self)
 end
 
-return DoubleSwapEffect
 
---[[
+
 function DoubleSwapEffect:draw()
+    --[[
     -- 15 -> 0.5s
     local r, g, b, a = self:getDrawColor()
     -- Draw.setColor(r, g, b, a * (0.8 - (self.burst / 6)))
@@ -39,11 +43,13 @@ function DoubleSwapEffect:draw()
     -- self:drawHeartOutline(xscale * 4, yscale * 4, (1 - (self.burst / 6)))
 
     xscale, yscale = (0.2 + (self.burst / 2.5)), (0.2 + (self.burst / 5))
-    -- self:drawHeartOutline(xscale * 4, yscale * 4, (1.2 - (self.burst / 6)))
+    -- self:drawHeartOutline(xscale * 4, yscale * 4, (1.2 - (self.burst / 6)))]]
 
     super.draw(self)
 
     if self.burst > 100 then
         self:remove()
     end
-end--]]
+end
+
+return DoubleSwapEffect

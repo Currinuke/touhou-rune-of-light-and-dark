@@ -5,35 +5,26 @@ function actor:init(style)
 
     self.name = "Remilia Scarlet"
 
-    self.width = 25
-    self.height = 43
+    self.width = 34
+    self.height = 44
 
     self.hitbox = {3, 31, 19, 14}
 
-    self.soul_offset = {12.5, 24}
-
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {1, 0, 1}
 
-    -- Path to this actor's sprites (defaults to "")
-    self.path = "party/susie/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
-    self.default = "walk_bangs"
+    self.path = "enemies/remilia"
+    self.default = "battle/idle"
 
     self.voice = "remilia"
     self.portrait_path = "face/remilia"
     self.portrait_offset = {-22, -14}
-
-    -- Whether this actor as a follower will blush when close to the player
-    self.can_blush = false
-
-    -- Table of sprite animations
+    
     self.animations = {
         -- Movement animations
         ["slide"]               = {"slide", 4/30, true},
 
         -- Battle animations
-        ["battle/idle"]         = {"battle/idle", 1/6, true},
+        ["battle/idle"]         = {"battle/idle", 1/9, true},
 
         ["battle/attack"]       = {"battle/attack", 1/15, false},
         ["battle/act"]          = {"battle/act", 1/15, false},
@@ -126,7 +117,7 @@ function actor:init(style)
         ["slide"] = {-5, -12},
 
         -- Battle offsets
-        ["battle/idle"] = {-22, -1},
+        ["battle/idle"] = {-2, -1},
 
         ["battle/attack"] = {-26, -25},
         ["battle/attackready"] = {-26, -25},

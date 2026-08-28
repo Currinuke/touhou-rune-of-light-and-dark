@@ -125,7 +125,7 @@ function Remilia:onTurnStart()
         turn = 7
     end
 
-    self.wave_override = "remilia/remilia_" .. tostring(turn)
+    self.wave_override = "remilia_" .. tostring(turn)
     -- self.defense = self.defense - 1
 end
 

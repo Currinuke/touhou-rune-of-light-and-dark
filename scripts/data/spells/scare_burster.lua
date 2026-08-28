@@ -22,7 +22,10 @@ function spell:init()
 end
 
 function spell:getCastMessage(user, target)
-    return "* "..user.chara:getName().." used "..self:getCastName().."!"
+    return Game:loc("spell_" .. self.id .. "_castMessage", {
+        userName = user.chara:getName(),
+        castName = self:getCastName()
+    })
 end
 
 function spell:onCast(user, target)
