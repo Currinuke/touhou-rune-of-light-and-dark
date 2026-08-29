@@ -1,16 +1,15 @@
-local item, super = Class(Item, "bamboo_of_life")
+local item, super = Class(Item, "ax010_pendant")
 
 function item:init()
     super.init(self)
-
-    self.name = "BambooOfLife"
+    self.name = "Ax010Pendant"
 
     self.type = "armor"
     self.icon = "ui/menu/icon/armor"
 
     self.effect = ""
-    self.shop = "Unknown\nSpell Card"
-    self.description = "A spell card of unknown origin that summons protective bats."
+    self.shop = "Defensive\nCute accessories"
+    self.description = "Cute decorations. Looks like that the original animals have been forcibly changed into Yuyuko."
 
     self.price = 800
     self.can_sell = true
@@ -21,7 +20,8 @@ function item:init()
     self.instant = false
 
     self.bonuses = {
-        defense = 2
+        defense = 2,
+        magic = 1
     }
     self.bonus_name = nil
     self.bonus_icon = nil
@@ -29,10 +29,10 @@ function item:init()
     self.can_equip = {}
 
     self.reactions = {
-        kogasa = "",
-        seija = "Money, that's what I need.",
-        rin = "Do they take credit?",
-        reisen = "It goes with my watch!"
+        kogasa = "It is so cute!",
+        seija = "Six braids?",
+        rin = "Looks strange.",
+        reisen = "Kinda funny."
     }
 end
 

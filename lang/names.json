@@ -63,5 +63,23 @@
     "scarlet": {
         "en": "Scarlet",
         "zh_hans": "斯卡蕾特"
+    },
+
+    "prismriver": {
+        "en": "Prismriver",
+        "zh_hans": "普莉兹姆利巴"
+    },
+
+    "yuyuko": {
+        "en": "Yuyuko",
+        "zh_hans": "幽幽子"
+    },
+    "saigyouji": {
+        "en": "Saigyouji",
+        "zh_hans": "西行寺"
+    },
+    "saigyouji_yuyuko": {
+        "en": "Saigyouji Yuyuko",
+        "zh_hans": "西行寺幽幽子"
     }
 }

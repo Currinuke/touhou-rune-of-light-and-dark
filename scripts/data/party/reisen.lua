@@ -29,7 +29,6 @@ function character:init()
     self:addSpell("mind_shaker")
     self:addSpell("evil_undulation")
     self:addSpell("lunatic_gun")
-    self:addSpell("lunatic_shot")
 
     self.health = 170
 

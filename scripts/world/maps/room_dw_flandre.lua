@@ -48,7 +48,7 @@ return {
       objects = {
         {
           id = 1,
-          name = "enemy",
+          name = "npc",
           type = "",
           shape = "rectangle",
           x = 400,

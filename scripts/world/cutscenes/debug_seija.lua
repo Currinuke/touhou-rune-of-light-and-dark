@@ -90,6 +90,9 @@ return {
                     cutscene:text("* ... As you wish.")
                     reisen:setFlag("weird", true)
                     Assets.playSound("ominous")
+                    if not reisen:hasSpell("lunatic_shot") then
+                        reisen:addSpell("lunatic_shot")
+                    end
                 else
                     cutscene:text("* ... Nevermind.")
                 end
@@ -103,6 +106,7 @@ return {
                     cutscene:text("* Fine...\n[wait:5]See you later, miss.")
                     Assets.playSound("ominous_cancel")
                     reisen:setFlag("weird", false)
+                    -- reisen:removeSpell()
                 end
             end
         else

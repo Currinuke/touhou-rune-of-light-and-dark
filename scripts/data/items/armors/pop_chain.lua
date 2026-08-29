@@ -1,16 +1,15 @@
-local item, super = Class(Item, "bamboo_of_life")
+local item, super = Class(Item, "pop_chain")
 
 function item:init()
     super.init(self)
-
-    self.name = "BambooOfLife"
+    self.name = "PopChain"
 
     self.type = "armor"
     self.icon = "ui/menu/icon/armor"
 
     self.effect = ""
-    self.shop = "Unknown\nSpell Card"
-    self.description = "A spell card of unknown origin that summons protective bats."
+    self.shop = ""
+    self.description = "Armor that enhances defense through popularity. Vote for Yuyuko in toho-vote or it'll lose its defensive rating."
 
     self.price = 800
     self.can_sell = true
@@ -21,7 +20,7 @@ function item:init()
     self.instant = false
 
     self.bonuses = {
-        defense = 2
+        defense = 3
     }
     self.bonus_name = nil
     self.bonus_icon = nil
@@ -29,10 +28,10 @@ function item:init()
     self.can_equip = {}
 
     self.reactions = {
-        kogasa = "",
-        seija = "Money, that's what I need.",
-        rin = "Do they take credit?",
-        reisen = "It goes with my watch!"
+        kogasa = "Vote for Kogasa, too!",
+        seija = "Don't vote for her anyway.",
+        rin = "Hum.",
+        reisen = "Isn't this breaking the rules?"
     }
 end
 

@@ -33,7 +33,7 @@ function item:init()
         kogasa = "",
         seija = "Money, that's what I need.",
         rin = "Do they take credit?",
-        reisen = "It goes with my watch!",
+        reisen = "It goes with my watch!"
     }
 end
 

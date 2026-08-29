@@ -10,8 +10,8 @@ return {
         cutscene:detachCamera()
         cutscene:detachFollowers()
         cutscene:walkTo(kogasa, x, y + 60, 1, "up")
-        cutscene:walkTo(seija, x - 40, y + 80, 1, "up")
-        cutscene:walkTo(rin, x + 40, y + 80, 1, "up")
+        if seija then cutscene:walkTo(seija, x - 40, y + 80, 1, "up") end
+        if rin then cutscene:walkTo(rin, x + 40, y + 80, 1, "up") end
         cutscene:wait(1)
 
         -- 没写钥匙之类的其它东西，所以默认拿到钥匙了

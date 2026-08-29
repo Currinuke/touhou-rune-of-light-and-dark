@@ -32,7 +32,7 @@ function item:init()
         kogasa = "",
         seija = "... better than nothing.",
         rin = "It's sticky, huh, Kris...",
-        reisen = "It's like a name-tag!",
+        reisen = "It's like a name-tag!"
     }
 end
 

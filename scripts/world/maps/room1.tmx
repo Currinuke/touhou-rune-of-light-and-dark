@@ -118,13 +118,13 @@
   <object id="72" x="520" y="680" width="80" height="40"/>
  </objectgroup>
  <objectgroup color="#ff00ff" id="9" name="objects">
-  <object id="75" name="npc" x="480" y="840" width="40" height="40">
+  <object id="75" name="npc" x="80" y="280" width="40" height="40">
    <properties>
     <property name="actor" value="kogasa"/>
     <property name="cutscene" value="debug_seija.set_weird"/>
    </properties>
   </object>
-  <object id="76" name="savepoint" x="80" y="210" width="40" height="40">
+  <object id="76" name="savepoint" x="80" y="160" width="40" height="40">
    <properties>
     <property name="text1">* Silence echoes in the darkness
 of this familiar-yet-different
