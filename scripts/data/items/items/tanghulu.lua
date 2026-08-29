@@ -4,10 +4,9 @@ function item:init()
     super.init(self)
 
     self.name = "Tanghulu"
-    self.use_name = self.name
+    self.use_name = "TANGHULU"
 
     self.type = "item"
-    self.icon = nil
 
     self.heal_amount = 40
 
@@ -20,14 +19,6 @@ function item:init()
 
     self.target = "ally"
     self.usable_in = "all"
-    self.result_item = nil
-    self.instant = false
-
-    self.bonuses = {}
-    self.bonus_name = nil
-    self.bonus_icon = nil
-
-    self.can_equip = {}
 
     self.reactions = {
         kogasa = "Sweet... and sour!",

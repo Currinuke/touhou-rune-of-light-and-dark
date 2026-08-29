@@ -7,7 +7,6 @@ function spell:init()
     self.cast_name = nil
 
     self.effect = "Mixed\ndamage"
-    
     self.description = "Deals large Red-elemental damage to\none foe. Depends on Attack & Magic."
 
     self.cost = 60

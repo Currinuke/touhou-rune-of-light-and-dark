@@ -107,7 +107,7 @@
  
  "item_tanghulu_name": "冰糖葫芦",
  "item_tanghulu_useName": "冰糖葫芦",
- "item_tanghulu_effect": "回复\n25HP",
+ "item_tanghulu_effect": "回复\n40HP",
  "item_tanghulu_shopName": "红师傅的\n家乡特产\n美味至极\n回复40HP",
  "item_tanghulu_shopDesc": "[var:typeName]\n[var:shopName]",
  "item_tanghulu_description": "制作方法来自红师傅的家乡，但这是用樱桃做的！+40HP",
@@ -136,6 +136,10 @@
  "item_blast_box_description": "这个绿色的盒子一旦打开就会爆炸，为战斗提供紧张感。\n在战斗中使用以获得35%TP。",
 
  "item_broken_onigiri_name": "坏掉的饭团",
+ "item_broken_onigiri_useName": "坏掉的饭团",
+ "item_broken_onigiri_effect": "味道\n不好",
+ "item_broken_onigiri_shopName": "",
+ "item_broken_onigiri_shopDesc": "[var:typeName]\n[var:shopName]",
  "item_broken_onigiri_description": "它缺少了月光草的力量，变得平平无奇。如果你能找到一个工作台，说不定就能将它修好。",
 
  "item_miracle_onigiri_name": "奇迹饭团",

@@ -4,9 +4,9 @@ function spell:init()
     super.init(self)
 
     self.name = "D.Falsifier"
-    self.cast_name = "Wind Flower [Data Falsifier]"
+    self.cast_name = "W.F.「DATA FALSIFIER」"
 
-    self.effect = "Change\nHP stats"
+    self.effect = "Falsify\nHP stats"
     self.description = ""
 
     self.cost = 50

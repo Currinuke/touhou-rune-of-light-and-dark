@@ -6,13 +6,11 @@ function spell:init()
     self.name = "Me Shield"
     self.cast_name = self.name
 
-    self.effect = ""
+    self.effect = "Take hit\nfor party"
     self.description = "Deals large Red-elemental damage to\none foe. Depends on Attack & Magic."
 
     self.cost = 8
-
     self.target = "party"
-
     self.tags = {}
 end
 

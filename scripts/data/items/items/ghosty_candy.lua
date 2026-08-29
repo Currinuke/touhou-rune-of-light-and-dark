@@ -56,7 +56,11 @@ function item:onWorldUse(target)
 
     -- Heal Kogasa too when used on others
     if target.id ~= "kogasa" and Game:hasPartyMember("kogasa") then
-        Game.world:heal("kogasa", self.heal_amount)
+        if target.id == "reisen" then
+            Game.world:heal("kogasa", self.heal_amount * 3)
+        else
+            Game.world:heal("kogasa", self.heal_amount)
+        end
     end
 
     return consumed

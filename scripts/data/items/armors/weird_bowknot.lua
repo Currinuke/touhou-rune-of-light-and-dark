@@ -3,11 +3,11 @@ local item, super = Class(Item, "weird_bowknot")
 function item:init()
     super.init(self)
     self.name = "WeirdBowknot"
+    self.use_name = "WEIRDBOWKNOT"
 
     self.type = "armor"
     self.icon = "ui/menu/icon/armor"
 
-    self.effect = ""
     self.shop = ""
     self.description = "Infinite shaped bowknot. Greatly increase Attack, Defense, and Magic, and...?"
 

@@ -100,18 +100,18 @@ function Remilia:onAct(battler, name)
         Game.battle:startActCutscene("remilia", "kogasa_talk")
         return
     elseif name == "S-Talk" then
-        self:registerActIndex(3, "Scare Burster", "Scare\ndamage", {"seija"}, 60)
+        self:registerActIndex(3, "Scare Burster", "Mixed\ndamage", {"seija"}, 60)
         Game.battle:startActCutscene("remilia", "seija_talk")
         return
     elseif name == "R-Talk" then
-        self:registerActIndex(4, "W.F.[D.F.]", "Falsify\nHP data", {"rin"}, 50)
+        self:registerActIndex(4, "D.Falsifier", "Falsify\nnHP stats", {"rin"}, 50)
         Game.battle:startActCutscene("remilia", "rin_talk")
         return
     elseif name == "Me Shield" then
         return Game.battle:powerAct("me_shield", battler, "kogasa", Game.battle.party)
     elseif name == "Scare Burster" then
         return Game.battle:powerAct("scare_burster", battler, "seija", self)
-    elseif name == "W.F.[D.F.]" then
+    elseif name == "D.Falsifier" then
         return Game.battle:powerAct("wind_flower_data_falsifier", battler, "rin", Game.battle.party)
     end
 

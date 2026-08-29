@@ -31,6 +31,18 @@
         "zh_hans": "铃仙"
     },
     
+    "meirin": {
+        "en": "Meirin",
+        "zh_hans": "美铃"
+    },
+    "hong": {
+        "en": "Hong",
+        "zh_hans": "红"
+    },
+    "hong_meirin": {
+        "en": "Hong Meirin",
+        "zh_hans": "红美铃"
+    },
     "koakuma": {
         "en": "Koakuma",
         "zh_hans": "小恶魔"

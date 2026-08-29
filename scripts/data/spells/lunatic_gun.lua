@@ -3,7 +3,7 @@ local spell, super = Class(Spell, "lunatic_gun")
 function spell:init()
     super.init(self)
 
-    self.name = "MindShaker"
+    self.name = "LunaticGun"
     self.cast_name = nil
 
     self.effect = "Heal\nally"
