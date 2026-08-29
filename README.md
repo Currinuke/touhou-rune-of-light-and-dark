@@ -5,5 +5,5 @@
 该项目使用了以下 Kristal 库：
 | 资源                                                    | 作者/组织                                               | 备注                                              |
 | ------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
-| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | [Bli-AIk](https://github.com/Bli-AIk)                  | 使用的发布版本为 0.4.1 ，遵守 MIT License 开源许可证 |
+| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | [Bli-AIk](https://github.com/Bli-AIk)                  | 基于 v0.4.1 有少量修改，遵守 MIT License 开源许可证 |
 | DoubleSoul（双魂库）                                     | [是加里也是咖喱](https://space.bilibili.com/1026361503) | 随本项目更新而更新                                  |
