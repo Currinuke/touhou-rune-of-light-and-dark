@@ -3,65 +3,54 @@ local character, super = Class(PartyMember, "reisen")
 function character:init()
     super.init(self)
 
-    -- Display name
     self.name = "Reisen"
 
-    -- Actor (handles sprites)
-    self:setActor("noelle")
+    self:setActor("reisen")
     self:setLightActor("noelle_lw")
 
-    -- Display level (saved to the save file)
     self.level = Game.chapter
-    -- Default title / class (saved to the save file)
+
     if Game.chapter <= 4 then
         self.title = "Snowcaster\nMight be able to\nuse some cool moves."
     elseif Game.chapter >= 5 then
         self.title = "Mistletoe\nThings got\nserious today."
     end
 
-    -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 1
-    -- The color of this character's soul (optional, defaults to red)
     self.soul_color = {1, 0, 0}
 
-    -- Whether the party member can act / use spells
     self.has_act = false
     self.has_spells = true
 
-    -- Whether the party member can use their X-Action
     self.has_xact = true
-    -- X-Action name (displayed in this character's spell menu)
-    self.xact_name = "N-Action"
+    self.xact_name = "U-Action"
 
-    -- Spells
-    self:addSpell("heal_prayer")
-    self:addSpell("sleep_mist")
-    self:addSpell("ice_shock")
+    self:addSpell("peerless_patriots_elixir")
+    self:addSpell("mind_shaker")
+    self:addSpell("evil_undulation")
+    self:addSpell("lunatic_gun")
+    self:addSpell("lunatic_shot")
 
-    -- Current health (saved to the save file)
-    self.health = 90
+    self.health = 170
 
-    -- Base stats (saved to the save file)
     self.stats = {
-        health = 90,
-        attack = 3,
-        defense = 1,
-        magic = 11
+        health = 170,
+        attack = 8,
+        defense = 0,
+        magic = 12
     }
 
-    -- Max stats from level-ups
     self.max_stats = {
-        health = 999
+        health = 250,
+        attack = 13,
+        magic = 17
     }
 
-    -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
     self.stronger_absent = {}
 
-    -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/ring"
 
-    -- Equipment (saved to the save file)
-    self:setWeapon("snowring")
+    self:setWeapon("old_ocular")
     self:setArmor(1, "silver_watch")
     if Game.chapter >= 2 then
         self:setArmor(2, "royalpin")
@@ -108,17 +97,17 @@ function character:init()
 
     -- Character flags (saved to the save file)
     self.flags = {
-        ["iceshocks_used"] = 0,
+        ["lunaticguns_used"] = 0,
         ["boldness"] = (Game.chapter >= 2 and 100 or -12),
         ["weird"] = false
     }
 end
 
 function character:getTitle()
-    if self:checkWeapon("thornring") then
-        return "LV" .. self:getLevel() .. " Ice Trancer\nReceives pain to\nbecome stronger."
-    elseif self:getFlag("iceshocks_used", 0) > 0 then
-        return "LV" .. self:getLevel() .. " Frostmancer\nFreezes the enemy."
+    if self:checkWeapon("lunatic_ocular") then
+        return "LV" .. self:getLevel() .. " " .. "{chara_reisen_title_lunatic}"
+    elseif self:getFlag("lunaticguns_used", 0) > 0 then
+        return "LV" .. self:getLevel() .. " " .. "{chara_reisen_title_purified}"
     else
         return super.getTitle(self)
     end
@@ -136,8 +125,9 @@ function character:drawPowerStat(index, x, y, menu)
     if index == 1 then
         local icon = Assets.getTexture("ui/menu/icon/snow")
         Draw.draw(icon, x-26, y+6, 0, 2, 2)
-        love.graphics.print("Coldness", x, y)
-        local coldness = MathUtils.clamp(47 + (self:getFlag("iceshocks_used", 0) * 7), 47, 100)
+        love.graphics.print("Purified:", x, y)
+        local coldness = MathUtils.clamp(47 + (self:getFlag("lunaticguns_used", 0) * 7), 47, 100)
+        coldness = self:getFlag("lunaticguns_used", 0)
         love.graphics.print(coldness, x+130, y)
         return true
     elseif index == 2 then

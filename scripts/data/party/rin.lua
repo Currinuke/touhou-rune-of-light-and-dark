@@ -134,7 +134,7 @@ function character:init()
 
     -- Equipment (saved to the save file)
     if Game.chapter <= 2 then
-        self:setWeapon("redflower")
+        self:setWeapon("red_flower")
         if Game.chapter == 2 then
             self:setArmor(1, "faded_ribbon")
             self:setArmor(2, "white_ribbon")

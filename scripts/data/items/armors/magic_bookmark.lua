@@ -30,9 +30,10 @@ function item:init()
     self.can_equip = {}
 
     self.reactions = {
-        susie = "Money, that's what I need.",
-        ralsei = "Do they take credit?",
-        noelle = "It goes with my watch!",
+        kogasa = "",
+        seija = "Money, that's what I need.",
+        rin = "Do they take credit?",
+        reisen = "It goes with my watch!",
     }
 end
 

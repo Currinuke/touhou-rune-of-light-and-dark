@@ -29,9 +29,10 @@ function item:init()
     self.can_equip = {}
 
     self.reactions = {
-        susie = "... better than nothing.",
-        ralsei = "It's sticky, huh, Kris...",
-        noelle = "It's like a name-tag!",
+        kogasa = "",
+        seija = "... better than nothing.",
+        rin = "It's sticky, huh, Kris...",
+        reisen = "It's like a name-tag!",
     }
 end
 

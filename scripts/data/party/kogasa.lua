@@ -23,18 +23,13 @@ function character:init()
         self.title = "Blue Rose\nQuiet, yet\nflirtatious."
     end
 
-    -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 2
-    -- The color of this character's soul (optional, defaults to red)
     self.soul_color = {1, 0, 0}
 
-    -- Whether the party member can act / use spells
     self.has_act = true
     self.has_spells = false
 
-    -- Whether the party member can use their X-Action
     self.has_xact = false
-    -- X-Action name (displayed in this character's spell menu)
     self.xact_name = "K-Action"
 
     self:addSpell("_scare_ya")
@@ -116,7 +111,7 @@ function character:init()
     end
 
     -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
-    -- self.stronger_absent = {"kris","susie","ralsei"}
+    self.stronger_absent = {"kogasa","seija","rin"}
 
     -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/sword"

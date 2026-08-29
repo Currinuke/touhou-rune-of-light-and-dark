@@ -171,6 +171,7 @@ function Battle:nextTurn()
 end
 
 
+--[[
 --- Spawns the soul and sets up its transition from the source character to its starting position
 ---@param x? number
 ---@param y? number
@@ -197,7 +198,7 @@ function Battle:spawnSoul(x, y)
     if self.state == "DEFENDINGBEGIN" or self.state == "DEFENDING" then
         self.soul:onWaveStart()
     end
-end
+end--]]
 
 --[[
 function Battle:returnSoul(dont_destroy)

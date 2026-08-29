@@ -4,9 +4,9 @@ function spell:init()
     super.init(self)
 
     self.name = "Rule Burster"
-    self.cast_name = self.name
+    self.cast_name = nil
 
-    self.effect = "Reverse\ndamage"
+    self.effect = "Rule\ndamage"
     self.description = "Deals moderate Rude-elemental damage to\none foe. Depends on Attack & Magic."
 
     self.cost = 50
@@ -17,8 +17,9 @@ function spell:init()
 end
 
 function spell:getCastMessage(user, target)
+    -- 是特意设置的特殊使用文本，还是经典的“细节不连贯”问题？
     return Game:loc("spell_" .. self.id .. "_castMessage", {
-        userName = user.chara:getName(),
+        userName = user.chara:getName():upper(),
         castName = self:getCastName()
     })
 end

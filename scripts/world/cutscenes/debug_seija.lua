@@ -76,5 +76,38 @@ return {
         else
             event.sprite:setAnimation({anim, 0.1, true})
         end
+    end,
+    set_weird = function(cutscene, event)
+        local has_reisen = cutscene:getCharacter("reisen")
+        if has_reisen then
+            cutscene:text("* Hey,[wait:5] I\'m Currinuke.")
+            local reisen = Game:getPartyMember("reisen")
+            if not reisen:getFlag("weird", false) then
+                cutscene:text("* I\'ve heard about that youkai...")
+                cutscene:text("* So, [wait:5]how do you like the ocular?")
+                local option = cutscene:choicer({"What youkai", "Proceed"})
+                if option == 2 then
+                    cutscene:text("* ... As you wish.")
+                    reisen:setFlag("weird", true)
+                    Assets.playSound("ominous")
+                else
+                    cutscene:text("* ... Nevermind.")
+                end
+            else
+                cutscene:text("* Something weird is happening...")
+                cutscene:text("* Do you feel it?")
+                local option = cutscene:choicer({"No idea", "Proceed"})
+                if option == 2 then
+                    cutscene:text("* ...")
+                else
+                    cutscene:text("* Fine...\n[wait:5]See you later, miss.")
+                    Assets.playSound("ominous_cancel")
+                    reisen:setFlag("weird", false)
+                end
+            end
+        else
+            cutscene:text("* (He\'s just standing here.)")
+            cutscene:text("* (Hope [color:yellow]Reisen[color:reset] won\'t be here...)")
+        end
     end
 }

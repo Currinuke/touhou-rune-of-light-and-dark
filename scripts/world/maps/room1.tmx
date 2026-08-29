@@ -121,9 +121,7 @@
   <object id="75" name="npc" x="480" y="840" width="40" height="40">
    <properties>
     <property name="actor" value="kogasa"/>
-    <property name="text1">* These [color:yellow]stairs[color:reset] are [color:yellow]Pissing[color:reset] me
-off...</property>
-    <property name="text2" value="* I'm the original   [color:yellow]Starwalker[color:reset]"/>
+    <property name="cutscene" value="debug_seija.set_weird"/>
    </properties>
   </object>
   <object id="76" name="savepoint" x="80" y="210" width="40" height="40">

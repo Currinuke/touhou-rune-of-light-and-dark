@@ -1,17 +1,25 @@
-local spell, super = Class(Spell, "flower_sign_petal_therapy")
+local spell, super = Class(Spell, "peerless_patriots_elixir")
 
 function spell:init()
     super.init(self)
 
-    self.name = "PetalTherapy"
-    self.cast_name = "Flower Sign [Petal Therapy]"
+    self.name = "P.P.Elixir"
+    self.cast_name = "Peerless Patriot's Elixir"
 
     self.effect = "Heal\nally"
     self.description = "Heavenly light restores a little HP to\none party member. Depends on Magic."
 
-    self.cost = 32
+    self.cost = 84
     self.target = "ally"
     self.tags = {"heal"}
+end
+
+function spell:getTPCost(chara)
+    local cost = super.getTPCost(self, chara)
+    if chara and chara:checkWeapon("lunatic_ocular") then
+        cost = MathUtils.round(cost / 2)
+    end
+    return cost
 end
 
 function spell:onCast(user, target)

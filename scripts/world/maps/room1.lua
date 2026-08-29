@@ -526,8 +526,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "kogasa",
-            ["text1"] = "* These [color:yellow]stairs[color:reset] are [color:yellow]Pissing[color:reset] me\noff...",
-            ["text2"] = "* I'm the original   [color:yellow]Starwalker[color:reset]"
+            ["cutscene"] = "debug_seija.set_weird"
           }
         },
         {

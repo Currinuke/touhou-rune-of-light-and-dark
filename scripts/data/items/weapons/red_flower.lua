@@ -1,4 +1,4 @@
-local item, super = Class(Item, "redflower")
+local item, super = Class(Item, "red_flower")
 
 function item:init()
     super.init(self)

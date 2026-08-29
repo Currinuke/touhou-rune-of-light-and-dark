@@ -4,13 +4,9 @@ function spell:init()
     super.init(self)
 
     self.name = "Scare Burster"
-    self.cast_name = self.name
+    self.cast_name = nil
 
-    if Game.chapter <= 3 then
-        self.effect = "Red\nDamage"
-    else
-        self.effect = "Red\ndamage"
-    end
+    self.effect = "Mixed\ndamage"
     
     self.description = "Deals large Red-elemental damage to\none foe. Depends on Attack & Magic."
 
@@ -23,7 +19,7 @@ end
 
 function spell:getCastMessage(user, target)
     return Game:loc("spell_" .. self.id .. "_castMessage", {
-        userName = user.chara:getName(),
+        userName = user.chara:getName():upper(),
         castName = self:getCastName()
     })
 end
@@ -66,6 +62,9 @@ end
 
 function spell:getDamage(user, target, damage_bonus)
     local damage = math.ceil((user.chara:getStat("magic") * 6) + (user.chara:getStat("attack") * 13) - (target.defense * 6)) + 90 + damage_bonus
+    if user.chara:checkWeapon("s_shaped_stick") then
+        damage = damage + 66
+    end
     return damage
 end
 

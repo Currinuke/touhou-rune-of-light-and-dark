@@ -150,7 +150,7 @@ return function(cutscene)
     cutscene:removeText()
 
     Game.legend.music:stop()
-    cutscene:text("就连现在站在你们面前的我...\n[wait:15]其实甚至都...", "far_left")
+    cutscene:text("就连现在站在你们面前的我...\n[wait:15][speed:0.125]其实甚至都...", "far_left")
     cutscene:wait(4)
     cutscene:removeText()
 

@@ -3,16 +3,14 @@ local spell, super = Class(Spell, "wind_sign_sleepy_wind")
 function spell:init()
     super.init(self)
 
-    self.name = "W.S.[S.W.]"
+    self.name = "SleepyWind"
     self.cast_name = "Wind Sign [Sleepy Wind]"
 
     self.effect = "Spare\nTIRED foe"
     self.description = "SPARE a tired enemy by putting them to sleep."
 
     self.cost = 16
-
     self.target = "enemy"
-
     self.tags = {"spare_tired"}
 end
 

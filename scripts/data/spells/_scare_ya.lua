@@ -11,7 +11,6 @@ function spell:init()
     self.description = "Scare one enemy just for a living.\nAlso make them TIRED."
     self.cost = 32
 
-    -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "enemy"
     self.tags = {"spare_tired"}
 end
