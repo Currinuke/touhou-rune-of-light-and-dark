@@ -30,10 +30,14 @@ function item:init()
 
     self.reactions = {
         kogasa = "Do I look cute?",
-        seija = "",
-        rin = "You should return it to her...",
-        reisen = "(Th-this was mine...)"
+        seija = Game.chapter == 1 and "STOP PUTTING GARBAGE ON MY HEAD!" or "No, I said NO!",
+        rin = Game.chapter == 1 and "Double ribbon!" or "Ribbons all over my head!",
+        reisen = "It won't bleed onto my hair, right?"
     }
+
+    if Game.chapter >= 5 then
+        self.reactions.seija = "Fine. On my arm."
+    end
 end
 
 return item

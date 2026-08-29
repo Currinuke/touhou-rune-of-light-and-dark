@@ -29,11 +29,15 @@ function item:init()
     self.can_equip = {}
 
     self.reactions = {
-        kogasa = "",
-        seija = "... better than nothing.",
-        rin = "It's sticky, huh, Kris...",
-        reisen = "It's like a name-tag!"
+        kogasa = "Do I look cute?",
+        seija = Game.chapter == 1 and "STOP PUTTING GARBAGE ON MY HEAD!" or "No, I said NO!",
+        rin = Game.chapter == 1 and "Double ribbon!" or "Ribbons all over my head!",
+        reisen = "It won't bleed onto my hair, right?"
     }
+
+    if Game.chapter >= 5 then
+        self.reactions.seija = "Sure, whatever. Happy now?"
+    end
 end
 
 return item

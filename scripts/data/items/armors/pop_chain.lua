@@ -3,6 +3,7 @@ local item, super = Class(Item, "pop_chain")
 function item:init()
     super.init(self)
     self.name = "PopChain"
+    self.use_name = "POPCHAIN"
 
     self.type = "armor"
     self.icon = "ui/menu/icon/armor"

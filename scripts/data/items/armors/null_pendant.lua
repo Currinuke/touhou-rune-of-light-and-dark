@@ -27,7 +27,9 @@ function item:init()
     self.bonus_name = nil
     self.bonus_icon = nil
 
-    self.can_equip = {}
+    self.can_equip = {
+        seija = false
+    }
 
     self.reactions = {
         kogasa = "Doesn't seem as good as she said...",
