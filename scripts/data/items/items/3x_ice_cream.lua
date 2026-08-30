@@ -7,7 +7,6 @@ function item:init()
     self.use_name = self.name
 
     self.type = "item"
-    self.icon = nil
 
     self.effect = "Heals\nteam\n99HP"
     self.shop = ""
@@ -20,11 +19,9 @@ function item:init()
 
     self.target = "party"
     self.usable_in = "all"
-    self.result_item = nil
-    self.instant = false
 
     self.reactions = {
-        kogasa = "One for each of us, perfect!",
+        kogasa = #Game.party >= 3 and "One for each of us, perfect!" or "I\'m full! Full of joy!",
         seija = "Why not split it sideways?",
         rin = "So cold!",
         reisen = {

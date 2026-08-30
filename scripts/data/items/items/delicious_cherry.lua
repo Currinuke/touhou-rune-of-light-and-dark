@@ -7,7 +7,6 @@ function item:init()
     self.use_name = "DELICIOUS CHERRY"
 
     self.type = "item"
-    self.icon = nil
 
     self.heal_amount = 25
 
@@ -20,14 +19,6 @@ function item:init()
 
     self.target = "ally"
     self.usable_in = "all"
-    self.result_item = nil
-    self.instant = false
-
-    self.bonuses = {}
-    self.bonus_name = nil
-    self.bonus_icon = nil
-
-    self.can_equip = {}
 
     self.reactions = {
         kogasa = "Whoa! This cherry is sour!",

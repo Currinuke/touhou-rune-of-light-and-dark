@@ -1,19 +1,16 @@
-local item, super = Class(HealItem, "all_melette")
+local item, super = Class(HealItem, "scarlixer")
 
 function item:init()
     super.init(self)
 
-    self.name = "All-melette"
-    self.use_name = "ALL-MELETTE"
+    self.name = "Scarlixer"
+    self.use_name = "SCARLIXER"
 
     self.type = "item"
 
-    self.heal_amount = 80
-    self.heal_amounts = {
-        ["reisen"] = 20
-    }
+    self.heal_amount = 180
 
-    self.effect = "Heals\n80HP"
+    self.effect = "Heals\n180HP"
     self.shop = ""
     self.description = "用一个超巨大的煎蛋将煎蛋卷饼卷起来,再在上面加上更多特制酱料..."
 

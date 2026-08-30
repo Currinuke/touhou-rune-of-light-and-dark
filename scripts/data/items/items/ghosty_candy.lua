@@ -6,27 +6,22 @@ function item:init()
     self.name = "Ghosty Candy"
     self.use_name = self.name
 
-    -- Item type (item, key, weapon, armor)
     self.type = "item"
 
-    -- Battle description
     self.effect = "Healing\nvaries"
-    -- Shop description
     self.shop = "Sick\njuice that\nheals 160HP"
-    -- Menu description
     self.description = "A peculiar candy that lets out a scream when swallowed."
 
-    -- Amount healed (HealItem variable)
     self.heal_amount = 15
-
-    self.world_heal_amounts = {
+    self.heal_amounts = {
         ["kogasa"] = 95,
+    }
+    self.world_heal_amounts = {
         ["seija"] = 30,
         ["rin"] = 30,
         ["reisen"] = 50
     }
     self.battle_heal_amounts = {
-        ["kogasa"] = 95,
         ["seija"] = 40,
         ["rin"] = 40,
         ["reisen"] = 60
@@ -37,8 +32,6 @@ function item:init()
 
     self.target = "ally"
     self.usable_in = "all"
-    self.result_item = nil
-    self.instant = false
 
     self.reactions = {
         kogasa = "Ah! You scared me!",
@@ -57,6 +50,7 @@ function item:onWorldUse(target)
     -- Heal Kogasa too when used on others
     if target.id ~= "kogasa" and Game:hasPartyMember("kogasa") then
         if target.id == "reisen" then
+            -- Heal Kogasa triple when used on Reisen
             Game.world:heal("kogasa", self.heal_amount * 3)
         else
             Game.world:heal("kogasa", self.heal_amount)

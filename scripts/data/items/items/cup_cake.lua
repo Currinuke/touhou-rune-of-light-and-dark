@@ -1,18 +1,18 @@
-local item, super = Class(HealItem, "special_onigiri")
+local item, super = Class(HealItem, "cup_cake")
 
 function item:init()
     super.init(self)
 
-    self.name = "Spec. Onigiri"
-    self.use_name = "Special Onigiri"
+    self.name = "Cup Cake"
+    self.use_name = "CUP CAKE"
 
     self.type = "item"
 
-    self.effect = "Heals\nteam\n120HP"
+    self.effect = "Heals\nteam\n50HP"
     self.shop = ""
-    self.description = "An onigiri with extra ingredients. Heals 120 HP to the team."
+    self.description = "一些手工制作的小蛋糕，可供全队享用。"
 
-    self.heal_amount = 120
+    self.heal_amount = 50
 
     self.price = 100
     self.can_sell = true

@@ -26,7 +26,7 @@ function Meirin:init()
 
     self:registerItem("tanghulu", {stock = 14})
     self:registerItem("omelette_roll", {stock = 10})
-    self:registerItem("halloween_sleeve", {stock = 4})
+    self:registerItem("halloween_sleeve", {name = Game:loc("{item_halloween_sleeve_useName}"), stock = 4})
     self:registerItem("bat_pendant", {stock = 8})
 
     self:registerTalk("About Yourself")

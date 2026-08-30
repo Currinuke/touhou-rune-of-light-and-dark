@@ -1,40 +1,23 @@
-local item, super = Class(Item, "ex_life")
+local item, super = Class(Item, "extra_life")
 
 function item:init()
     super.init(self)
 
-    -- Display name
     self.name = "Ex-Life"
-    -- Name displayed when used in battle (optional)
-    self.use_name = self.name
+    self.use_name = "EXTRA LIFE"
 
-    -- Item type (item, key, weapon, armor)
     self.type = "item"
-    -- Item icon (for equipment)
-    self.icon = nil
 
-    -- Battle description
     self.effect = "Heal\nDowned\nAlly"
-    -- Shop description
     self.shop = ""
-    -- Menu description
     self.description = "Heals a fallen ally to MAX HP.\nA heart-shaped crystal with an indescribable taste."
 
-    -- Default shop price (sell price is halved)
     self.price = 400
-    -- Whether the item can be sold
     self.can_sell = true
 
-    -- Consumable target mode (ally, party, enemy, enemies, or none)
     self.target = "ally"
-    -- Where this item can be used (world, battle, all, or none)
     self.usable_in = "all"
-    -- Item this item will get turned into when consumed
-    self.result_item = nil
-    -- Will this item be instantly consumed in battles?
-    self.instant = false
 
-    -- Character reactions
     self.reactions = {
         kogasa = {
             kogasa = "I\'m full!!!",

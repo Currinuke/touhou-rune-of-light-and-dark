@@ -1,21 +1,19 @@
-local item, super = Class(HealItem, "all_melette")
+local item, super = Class(HealItem, "jvav_cawfee")
 
 function item:init()
     super.init(self)
 
-    self.name = "All-melette"
-    self.use_name = "ALL-MELETTE"
+    -- 注：刻意的拼写错误
+    self.name = "Jvav Cawfee"
+    self.use_name = "JVAV CAWFEE"
 
     self.type = "item"
 
-    self.heal_amount = 80
-    self.heal_amounts = {
-        ["reisen"] = 20
-    }
+    self.heal_amount = 140
 
-    self.effect = "Heals\n80HP"
+    self.effect = "Heals\n140HP"
     self.shop = ""
-    self.description = "用一个超巨大的煎蛋将煎蛋卷饼卷起来,再在上面加上更多特制酱料..."
+    self.description = "某种“进口”的高级咖啡,热腾腾的。"
 
     self.price = 400
     self.can_sell = true

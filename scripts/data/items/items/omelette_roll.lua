@@ -10,7 +10,7 @@ function item:init()
 
     self.heal_amount = 70
     self.heal_amounts = {
-        reisen = 20
+        ["reisen"] = 20
     }
 
     self.effect = "Heals\n70HP"
