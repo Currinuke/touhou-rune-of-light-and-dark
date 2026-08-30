@@ -35,6 +35,11 @@
     "hardReset": false,
     "hidden": false,
     "setWindowTitleAndIcon": true,
+    "libs": {
+        "touhou-rune-of-light-and-dark-data": "", 
+        "throld-doublesoul": "",
+        "kristalI18n": ""
+    },
     "config": {
         "kristal": {
             "smallSaveMenu": false,
@@ -42,6 +47,15 @@
             "mercyBar": true,
             "enemyBarPercentages": true,
             "checkActDescription": false
+        },
+        "kristalI18n": {
+            "defaultLanguage": "auto",
+            "defaultNameLanguage": "auto",
+            "languages": ["en", "zh_hans"],
+            "languageNames": {
+                "en": "English",
+                "zh_hans": "简体中文"
+            }
         }
     },
 

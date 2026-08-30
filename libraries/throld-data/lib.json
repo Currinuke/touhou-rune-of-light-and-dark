@@ -1,6 +1,7 @@
 {
-    "id": "touhou-rune-of-light-and-dark",
+    "id": "touhou-rune-of-light-and-dark-data",
     "version": "0.1.0",
     "engineVer": "v0.10.0",
+    "dependencies": ["kristalI18n"],
     "config": {}
 }
