@@ -3,16 +3,16 @@
  "name": "English",
 
  // to do: re-translate below all from zh_hans.json or just copy-paste old translations from scripts/data
- "chara_kogasa_title_chapter_1": "付丧神\n被遗忘的唐伞妖怪。",
- "chara_kogasa_title_chapter_2": "付丧神\n被遗忘的唐伞妖怪。",
- "chara_kogasa_title_chapter_3": "付丧神\n被遗忘的唐伞妖怪。",
- "chara_kogasa_title_chapter_4": "付丧神\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_1": "Tsukumogami\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_2": "Tsukumogami\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_3": "Tsukumogami\n被遗忘的唐伞妖怪。",
+ "chara_kogasa_title_chapter_4": "Tsukumogami\n被遗忘的唐伞妖怪。",
  "chara_kogasa_xactName": "K-Action",
 
- "chara_seija_title_chapter_1": "天邪鬼\n自诩孤高的天邪鬼。",
- "chara_seija_title_chapter_2": "天邪鬼\n自诩孤高的天邪鬼。",
- "chara_seija_title_chapter_3": "天邪鬼\n自诩孤高的天邪鬼。",
- "chara_seija_title_chapter_4": "天邪鬼\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_1": "Amanojaku\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_2": "Amanojaku\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_3": "Amanojaku\n自诩孤高的天邪鬼。",
+ "chara_seija_title_chapter_4": "Amanojaku\n自诩孤高的天邪鬼。",
  "chara_seija_xactName": "S-Action",
 
  "chara_rin_title_chapter_1": "Human\n未曾存在过的人类。",
@@ -25,8 +25,6 @@
  "chara_reisen_title_purified": "月兔\n净化敌人的月兔。",
  "chara_reisen_title_lunatic": "月兔\n痛苦而强大的月兔。",
  "chara_reisen_xactName": "U-Action",
-
- "act_check": "Check",
 
  "spell__scare_ya_name": "Scare-ya",
  "spell__scare_ya_description": "Scare one enemy to make them TIRED.\nAlso for a living.",
@@ -409,8 +407,8 @@
  "item_scarlixer_rinReaction": "甜甜的，樱桃汁！",
  "item_scarlixer_reisenReaction": "（让我想起那瓶标签写错的药剂...）",
  
- "item_baking_soda_name": "苏打？",
- "item_baking_soda_useName": "苏打",
+ "item_baking_soda_name": "Baking Soda?",
+ "item_baking_soda_useName": "BAKING SODA",
  "item_baking_soda_effect": "伤害\n我方队员",
  "item_baking_soda_shopName": "",
  "item_baking_soda_shopDesc": "[var:typeName]\n[var:shopName]",
@@ -706,6 +704,7 @@
  "item_weird_bowknot_reisenReaction": "I think I've seen this before...",
 
  "storage_nothing": "(Nothing)",
+ "act_check": "Check",
  "map_rm_lake_bridge_name": "Misty Lake - Bridge",
  "map_rm_manor_basement_name": "Scarlet Manor - Basement"
 }

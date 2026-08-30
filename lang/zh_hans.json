@@ -26,8 +26,6 @@
  "chara_reisen_title_lunatic": "月兔\n痛苦而强大的月兔。",
  "chara_reisen_xactName": "U-行动",
 
- "act_check": "Check",
-
  "spell__scare_ya_name": "吓你一跳",
  "spell__scare_ya_description": "惊吓目标敌人使其【疲惫】。\n顺带填饱肚子。",
 
@@ -706,6 +704,7 @@
  "item_weird_bowknot_reisenReaction": "我觉得我见过这个...",
 
  "storage_nothing": "（空）",
+ "act_check": "Check",
  "map_rm_lake_bridge_name": "雾之湖 - 木桥",
  "map_rm_manor_basement_name": "红魔馆 - 地下室"
 }

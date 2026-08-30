@@ -50,10 +50,11 @@ function character:init()
     self.weapon_icon = "ui/menu/equip/ring"
 
     self:setWeapon("old_ocular")
-    self:setArmor(1, "silver_watch")
+    self:setArmor(1, "moon_pin")
+    --[[
     if Game.chapter >= 2 then
         self:setArmor(2, "royalpin")
-    end
+    end--]]
 
     -- Default light world equipment item IDs (saves current equipment)
     self.lw_weapon_default = "light/pencil"
@@ -74,7 +75,6 @@ function character:init()
     self.menu_icon = "party/noelle/head"
     -- Path to head icons used in battle
     self.head_icons = "party/noelle/icon"
-    -- Name sprite (optional)
     self.name_sprite = "party/reisen/name"
 
     -- Effect shown above enemy after attacking it
