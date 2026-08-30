@@ -178,13 +178,13 @@ no-good wall slammers.</property>
   </object>
   <object id="84" name="npc" x="480" y="280" width="40" height="40">
    <properties>
-    <property name="actor" value="starwalker"/>
+    <property name="actor" value="kogasa"/>
     <property name="cutscene" value="debug_seija.set"/>
    </properties>
   </object>
   <object id="85" name="npc" x="480" y="160" width="40" height="40">
    <properties>
-    <property name="actor" value="starwalker"/>
+    <property name="actor" value="kogasa"/>
     <property name="cutscene" value="debug_seija.anim"/>
    </properties>
   </object>

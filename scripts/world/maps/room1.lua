@@ -677,7 +677,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "starwalker",
+            ["actor"] = "kogasa",
             ["cutscene"] = "debug_seija.set"
           }
         },
@@ -694,7 +694,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "starwalker",
+            ["actor"] = "kogasa",
             ["cutscene"] = "debug_seija.anim"
           }
         }
