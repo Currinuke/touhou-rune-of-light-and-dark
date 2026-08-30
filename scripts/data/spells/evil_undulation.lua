@@ -11,7 +11,7 @@ function spell:init()
 
     self.cost = 50
     self.target = "ally"
-    self.tags = {"heal"}
+    self.tags = {}
 end
 
 function spell:getTPCost(chara)
@@ -23,18 +23,15 @@ function spell:getTPCost(chara)
 end
 
 function spell:onCast(user, target)
-    local base_heal = user.chara:getStat("magic") * 5
-    local heal_amount = Game.battle:applyHealBonuses(base_heal, user.chara)
-
-    target:heal(heal_amount)
-end
-
-function spell:hasWorldUsage(chara)
-    return true
-end
-
-function spell:onWorldCast(chara)
-    Game.world:heal(chara, 100)
+    target.chara:addFlag("evilundulations_have", 1)
+    local background = SnowglobeEffect(0, 0, false)
+    local foreground = SnowglobeEffect(0, 0, true)
+    target.sprite.parent:addChild(background)
+    target.sprite.parent:addChild(foreground)
+    background.layer = target.sprite.layer - 1
+    foreground.layer = target.sprite.layer + 1
+    background:setScale(0.5)
+    foreground:setScale(0.5)
 end
 
 return spell

@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 7,
-  nextobjectid = 22,
+  nextobjectid = 23,
   properties = {
     ["name"] = "Bridge"
   },
@@ -253,7 +253,24 @@ return {
           properties = {
             ["actor"] = "dummy",
             ["encounter"] = "dummy",
-            ["once"] = true
+            ["once"] = false
+          }
+        },
+        {
+          id = 22,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 200,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "dummy",
+            ["encounter"] = "dummy"
           }
         }
       }

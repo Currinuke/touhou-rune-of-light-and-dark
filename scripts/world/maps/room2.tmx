@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="22">
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="23">
  <editorsettings>
   <export target="room2.lua" format="lua"/>
  </editorsettings>
@@ -73,7 +73,13 @@ you.</property>
    <properties>
     <property name="actor" value="dummy"/>
     <property name="encounter" value="dummy"/>
-    <property name="once" type="bool" value="true"/>
+    <property name="once" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="22" name="enemy" x="200" y="200" width="40" height="40">
+   <properties>
+    <property name="actor" value="dummy"/>
+    <property name="encounter" value="dummy"/>
    </properties>
   </object>
  </objectgroup>
