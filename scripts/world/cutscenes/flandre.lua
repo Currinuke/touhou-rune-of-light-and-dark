@@ -23,7 +23,7 @@ return {
         cutscene:wait(0.5)
         cutscene:text("* Come in... [wait:10]and play a little game with me.")
 
-        cutscene:mapTransition("room_dw_flandre", "entry", "up", function()end)
+        cutscene:mapTransition("rm_flandre", "entry", "up", function()end)
         cutscene:wait(1)
         cutscene:startEncounter("flandre", true, nil, {on_start = function()
             -- rumia:setFlag("dont_load", true)

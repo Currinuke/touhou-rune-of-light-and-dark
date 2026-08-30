@@ -12,8 +12,7 @@ return {
   nextlayerid = 16,
   nextobjectid = 34,
   properties = {
-    ["name"] = "Misty Lake - Bridge",
-    ["name_id"] = "map_rm_lake_bridge_name"
+    ["name"] = "Misty Lake - Bridge"
   },
   tilesets = {
     {

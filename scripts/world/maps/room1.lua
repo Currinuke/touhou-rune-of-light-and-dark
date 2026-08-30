@@ -643,7 +643,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "rm_myhallway",
+            ["map"] = "rm_manor_basement",
             ["marker"] = "entry"
           }
         },

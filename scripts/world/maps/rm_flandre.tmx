@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="7">
  <editorsettings>
-  <export target="room_dw_flandre.lua" format="lua"/>
+  <export target="rm_flandre.lua" format="lua"/>
  </editorsettings>
  <properties>
   <property name="name" value="Basement - Flandre's Room"/>
