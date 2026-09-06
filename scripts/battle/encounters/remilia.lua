@@ -3,7 +3,7 @@ local Remilia, super = Class(Encounter)
 function Remilia:init()
     super.init(self)
 
-    self.text = "* The Scarlet Devil blocked your\nway!"
+    self.text = "* The Scarlet Devil blocked the\nway!"
     self.music = "kingboss"
     self.background = false
 

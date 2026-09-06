@@ -59,23 +59,27 @@ function Remilia:applyLocalization(update_acts)
     self.name = Game:locText("[name:remilia_scarlet]")
     
     self.dialogue = {
-        Game:loc("enemy_dummy_dialogue")
+        Game:loc("enemy_remilia_dialogue")
     }
     
-    self.check = Game:loc("enemy_dummy_check")
+    self.check = Game:loc("enemy_remilia_check")
 
     
     self.text = {
-        Game:loc("enemy_dummy_turn_1"),
-        Game:loc("enemy_dummy_turn_2"),
-        Game:loc("enemy_dummy_turn_3"),
+        Game:loc("enemy_remilia_turn_1"),
+        Game:loc("enemy_remilia_turn_2"),
+        Game:loc("enemy_remilia_turn_3"),
     }
     
-    self.low_health_text = Game:loc("enemy_dummy_low_health")
+    self.low_health_text = Game:loc("enemy_remilia_low_health")
 
     self.act_check = Game:loc("act_check")
-    self.act_smile = Game:loc("act_dummy_smile")
-    self.act_tell_story = Game:loc("act_dummy_tell_story")
+    self.act_talk = Game:loc("act_remilia_talk")
+    self.act_seija_talk = Game:loc("act_remilia_seija_talk")
+    self.act_rin_talk = Game:loc("act_remilia_rin_talk")
+    self.act_me_shield = Game:loc("act_remilia_me_shield")
+    self.act_scare_burster = Game:loc("act_remilia_scare_burster")
+    self.act_data_falsifier = Game:loc("act_remildata_falsifierier")
 
     if self.acts and self.acts[1] then
         self.acts[1].name = self.act_check
@@ -104,7 +108,7 @@ function Remilia:onAct(battler, name)
         Game.battle:startActCutscene("remilia", "seija_talk")
         return
     elseif name == "R-Talk" then
-        self:registerActIndex(4, "D.Falsifier", "Falsify\nnHP stats", {"rin"}, 50)
+        self:registerActIndex(4, "D.Falsifier", "Falsify\nHP stats", {"rin"}, 50)
         Game.battle:startActCutscene("remilia", "rin_talk")
         return
     elseif name == "Me Shield" then

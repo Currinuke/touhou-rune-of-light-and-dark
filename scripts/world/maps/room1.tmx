@@ -161,7 +161,7 @@ no-good wall slammers.</property>
    <properties>
     <property name="facing" value="down"/>
     <property name="marker" type="object" value="46"/>
-    <property name="shop" value="meirin"/>
+    <property name="shop" value="meirinshop"/>
    </properties>
   </object>
   <object id="82" name="transition" x="440" y="680" width="80" height="40">

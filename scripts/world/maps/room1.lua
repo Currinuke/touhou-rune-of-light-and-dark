@@ -627,7 +627,7 @@ return {
           properties = {
             ["facing"] = "down",
             ["marker"] = { id = 46 },
-            ["shop"] = "meirin"
+            ["shop"] = "meirinshop"
           }
         },
         {

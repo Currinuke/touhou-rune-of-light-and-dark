@@ -9,7 +9,7 @@ return {
 
         cutscene:detachCamera()
         cutscene:detachFollowers()
-        cutscene:walkTo(kogasa, x, y + 60, 1, "up")
+        if kogasa then cutscene:walkTo(kogasa, x, y + 60, 1, "up") end
         if seija then cutscene:walkTo(seija, x - 40, y + 80, 1, "up") end
         if rin then cutscene:walkTo(rin, x + 40, y + 80, 1, "up") end
         cutscene:wait(1)

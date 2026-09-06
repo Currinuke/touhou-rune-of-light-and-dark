@@ -1,6 +1,6 @@
 --- Public entry: wires up the kristal-i18n implementation modules.
 --[[
-local kristalI18n = {"kristalI18n", "touhou-rune-of-light-and-dark-data"}
+local kristalI18n = {"kristalI18n", "throld-data"}
 
 local constants = {
     DEFAULT_LANGUAGE = "en",

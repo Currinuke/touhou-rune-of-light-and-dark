@@ -3,7 +3,7 @@
     "name": "Touhou: Rune of Light and Dark",
     "subtitle": "TH: RoLD - Chapter 1",
 
-    "version": "v0.4.0.1",
+    "version": "v0.4.0",
     "engineVer": "v0.10.0",
 
     "chapter": 1,
@@ -36,7 +36,7 @@
     "hidden": false,
     "setWindowTitleAndIcon": true,
     "libs": {
-        "touhou-rune-of-light-and-dark-data": "", 
+        "throld-data": "", 
         "throld-doublesoul": "",
         "kristalI18n": ""
     },

@@ -986,6 +986,16 @@ return function(ctx)
         if library.info and library.info.path then
             table.insert(bases, library.info.path)
         end
+        
+        -- 此处移植了新版代码，从所有已加载的库中读取语言文件。
+        if Kristal and Kristal.iterLibraries then
+            for _, lib in Kristal.iterLibraries() do
+                if lib.info and lib.info.path and lib.info.path ~= (library.info and library.info.path) then
+                    table.insert(bases, lib.info.path)
+                end
+            end
+        end
+
         if Mod and Mod.info and Mod.info.path then
             table.insert(bases, Mod.info.path)
         end
