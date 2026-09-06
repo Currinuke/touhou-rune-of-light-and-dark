@@ -33,7 +33,7 @@ function EnemyBattler:registerActIndex(index, name, description, party, tp, high
 end
 
 function EnemyBattler:onAct(battler, name)
-    if name == Game:loc("act_check") then
+    if name == Game:loc("act_check") or name == "Check" then
         self:onCheck(battler)
         local _text = self:getCheckText(battler)
         -- 还原原动画“小伞查看了敌人！”

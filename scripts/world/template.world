@@ -8,9 +8,9 @@
             "y": 0
         },
         {
-            "fileName": "maps/room2.tmx",
+            "fileName": "maps/rm_manor_topbattle.tmx",
             "height": 480,
-            "width": 800,
+            "width": 1280,
             "x": 2000,
             "y": -120
         },

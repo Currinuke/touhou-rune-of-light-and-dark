@@ -26,6 +26,9 @@
  "chara_reisen_title_lunatic": "月兔\n痛苦而强大的月兔。",
  "chara_reisen_xactName": "U-Action",
 
+ "act_check": "Check",
+ "act_check_message": "* [var:charaName] checked the enemy!",
+
  "spell__scare_ya_name": "Scare-ya",
  "spell__scare_ya_description": "Scare one enemy to make them TIRED.\nAlso for a living.",
 

@@ -26,6 +26,9 @@
  "chara_reisen_title_lunatic": "月兔\n痛苦而强大的月兔。",
  "chara_reisen_xactName": "U-行动",
 
+ "act_check": "检查",
+ "act_check_message": "* [var:charaName]检查了敌人！",
+ 
  "spell__scare_ya_name": "吓你一跳",
  "spell__scare_ya_description": "惊吓目标敌人使其【疲惫】。\n顺带填饱肚子。",
 

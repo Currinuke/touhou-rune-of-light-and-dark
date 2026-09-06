@@ -121,8 +121,8 @@ function actor:init(style)
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
+        ["walk/left"] = {0, -1},
+        ["walk/right"] = {0, -1},
         ["walk/up"] = {0, 0},
 
         ["walk_bangs/down"] = {0, -2},
@@ -226,7 +226,7 @@ function actor:init(style)
     }
 
     -- The x and y offsets of the ReviveSong spotlight
-    self.spotlight_offset = { 0, -7 }
+    self.spotlight_offset = {0, -7}
 end
 
 return actor

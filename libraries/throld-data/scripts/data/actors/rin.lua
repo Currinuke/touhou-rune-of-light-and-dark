@@ -106,8 +106,8 @@ function actor:initChapter1()
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {3, 1},
-        ["walk/right"] = {3, 1},
+        ["walk/left"] = {3, 0},
+        ["walk/right"] = {3, 0},
         ["walk/up"] = {0, 0},
 
         ["walk_blush/down"] = {0, 0},
@@ -255,8 +255,8 @@ function actor:initChapter2()
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
+        ["walk/left"] = {0, -1},
+        ["walk/right"] = {0, -1},
         ["walk/up"] = {0, 0},
 
         ["walk_blush/down"] = {0, 0},

@@ -318,7 +318,7 @@ return {
           properties = {
             ["actor"] = "bridge_chest",
             ["solid"] = true,
-            ["text"] = "* An empty chest."
+            ["text"] = "{world_rm_lake_bridge_chest_1}"
           }
         },
         {
@@ -334,7 +334,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "room2",
+            ["map"] = "rm_manor_topbattle",
             ["marker"] = "entry"
           }
         },

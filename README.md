@@ -2,8 +2,7 @@
 
 本项目为对《东方光暗符》相关正典内容的非官方游戏化项目，由[是加里也是咖喱](https://space.bilibili.com/1026361503)（即 [Currinuke](https://www.youtube.com/@Currinuke-BiliBili) ）创建，基于 [Kristal](https://github.com/KristalTeam/Kristal) 引擎制作。
 
-该项目使用了以下 Kristal 库：
-| 资源                                                    | 作者/组织                                               | 备注                                              |
+该项目使用了以下外部 Kristal 库：
+| 库                                                      | 作者/组织                                               | 备注                                              |
 | ------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
 | [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | [Bli-AIk](https://github.com/Bli-AIk)                  | 基于 v0.4.1 有少量修改，遵守 MIT License 开源许可证 |
-| DoubleSoul（双魂库）                                     | [是加里也是咖喱](https://space.bilibili.com/1026361503) | 随本项目更新而更新                                  |

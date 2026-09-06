@@ -91,12 +91,12 @@
    <properties>
     <property name="actor" value="bridge_chest"/>
     <property name="solid" type="bool" value="true"/>
-    <property name="text" value="* An empty chest."/>
+    <property name="text" value="{world_rm_lake_bridge_chest_1}"/>
    </properties>
   </object>
   <object id="23" name="transition" x="1040" y="120" width="40" height="240">
    <properties>
-    <property name="map" value="room2"/>
+    <property name="map" value="rm_manor_topbattle"/>
     <property name="marker" value="entry"/>
    </properties>
   </object>

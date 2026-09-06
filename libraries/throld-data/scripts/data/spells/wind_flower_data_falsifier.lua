@@ -15,16 +15,15 @@ function spell:init()
 end
 
 function spell:onCast(user, target)
+    local magic = user.chara:getStat("magic")
     local heal = {}
     local percentage = 1
     local per_changed = false
 
-    local magic = user.chara:getStat("magic")
-    local max_health = battler.chara:getStat("health") + magic * 10
-    local health = battler.chara:getHealth()
-
     for index, battler in ipairs(target) do
         -- 获取各队员的剩余HP百分比
+        local max_health = battler.chara:getStat("health") + magic * 10
+        local health = battler.chara:getHealth()
         local _per = health / max_health
         heal[index] = _per
         if _per < percentage then
@@ -47,6 +46,8 @@ function spell:onCast(user, target)
 
     if #real_target > 0 then
         local battler = real_target[MathUtils.randomInt(1, #real_target)]
+        local max_health = battler.chara:getStat("health") + magic * 10
+        local health = battler.chara:getHealth()
         battler.chara:setHealth(math.max(health, max_health))
         battler:checkHealth(false)
         battler:flash()

@@ -3,7 +3,7 @@
     "name": "Touhou: Rune of Light and Dark",
     "subtitle": "TH: RoLD - Chapter 1",
 
-    "version": "v0.4.0",
+    "version": "v0.4.1",
     "engineVer": "v0.10.0",
 
     "chapter": 1,
@@ -55,7 +55,8 @@
             "languageNames": {
                 "en": "English",
                 "zh_hans": "简体中文"
-            }
+            },
+            "cjkTypewriterSpeedMultiplier": 0.85
         }
     },
 

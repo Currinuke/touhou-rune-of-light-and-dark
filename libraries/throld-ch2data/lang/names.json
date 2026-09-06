@@ -1,0 +1,40 @@
+{
+    "alice": {
+        "ec": "Alice",
+        "zh_hans": "爱丽丝"
+    },
+    "margatroid": {
+        "ec": "Margatroid",
+        "zh_hans": "玛格特洛依德"
+    },
+    "alice_margatroid": {
+        "ec": "Alice Margatroid",
+        "zh_hans": "爱丽丝·玛格特洛依德"
+    },
+
+    "sakuya": {
+        "en": "Sakuya",
+        "zh_hans": "咲夜"
+    },
+    "izayoi": {
+        "en": "Izayoi",
+        "zh_hans": "十六夜"
+    },
+    "izayoi_sakuya": {
+        "en": "Izayoi Sakuya",
+        "zh_hans": "十六夜咲夜"
+    },
+
+    "yachie": {
+        "en": "Yachie",
+        "zh_hans": "八千慧"
+    },
+    "kitcho": {
+        "en": "Kitcho",
+        "zh_hans": "吉吊"
+    },
+    "kitcho_yachie": {
+        "en": "Kitcho Yachie",
+        "zh_hans": "吉吊八千慧"
+    }
+}
