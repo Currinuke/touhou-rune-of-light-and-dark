@@ -1,8 +1,8 @@
 local Battle, super = HookSystem.hookScript(Battle)
 
 function Battle:updateIntro()
-    -- 等同于将入场时间延长一倍，来保证小伞的入场动画正常播放完毕
-    self.intro_timer = self.intro_timer - 0.5 * DTMULT
+    -- 等效于将入场时间延长约一倍，来保证小伞的入场动画正常播放完毕
+    self.intro_timer = self.intro_timer - 0.45 * DTMULT
     super.updateIntro(self)
 end
 
