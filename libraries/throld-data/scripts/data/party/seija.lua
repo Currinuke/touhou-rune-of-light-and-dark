@@ -169,11 +169,8 @@ function character:init()
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {1, 0.5, 1}
 
-    -- Head icon in the equip / power menu
     self.menu_icon = "party/seija/head"
-    -- Path to head icons used in battle
     self.head_icons = "party/seija/icon"
-    -- Name sprite (optional)
     self.name_sprite = "party/seija/name"
 
     -- Effect shown above enemy after attacking it
@@ -184,7 +181,7 @@ function character:init()
     self.attack_pitch = 0.9
 
     -- Battle position offset (optional)
-    self.battle_offset = {3, 1}
+    self.battle_offset = {3, -5}
     -- Head icon position offset (optional)
     self.head_icon_offset = nil
     -- Menu icon position offset (optional)
@@ -193,19 +190,10 @@ function character:init()
     -- Message shown on gameover (optional)
     self.gameover_message = nil -- Handled by getGameOverMessage for Susie
 
-    -- Character flags (saved to the save file)
     self.flags = {
         ["auto_attack"] = true,
         ["can_wear_ribbons"] = false
     }
-end
-
-function character:getTitle()
-    if self:getFlag("auto_attack", false) then
-        return "LV" .. self:getLevel() .. " Mean Girl\nWon\'t do anything\nbut fight."
-    else
-        return super.getTitle(self)
-    end
 end
 
 function character:onTurnStart(battler)
@@ -239,6 +227,7 @@ function character:getGameOverMessage(main)
     }
 end
 
+
 function character:canEquip(item, slot_type, slot_index)
     if item then
         return super.canEquip(self, item, slot_type, slot_index)
@@ -251,10 +240,11 @@ function character:canEquip(item, slot_type, slot_index)
         else
             return true
         end
-        return false
+        return (not self:getFlag("auto_attack", false))
     end
 end
 
+--[[
 function character:getReaction(item, user)
     if item or user.id ~= self.id then
         return super.getReaction(self, item, user)
@@ -305,6 +295,6 @@ function character:drawPowerStat(index, x, y, menu)
         end
         return true
     end
-end
+end--]]
 
 return character

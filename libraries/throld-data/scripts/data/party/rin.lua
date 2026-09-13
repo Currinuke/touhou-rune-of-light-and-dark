@@ -176,9 +176,7 @@ function character:init()
     end
 
     self.menu_icon = "party/rin/head_ch1"
-    -- Path to head icons used in battle
     self.head_icons = "party/rin/icon"
-    -- Name sprite (optional)
     self.name_sprite = "party/rin/name"
 
     -- Effect shown above enemy after attacking it
@@ -189,7 +187,7 @@ function character:init()
     self.attack_pitch = 1.15
 
     -- Battle position offset (optional)
-    self.battle_offset = {2, 6}
+    self.battle_offset = {2, -6}
     -- Head icon position offset (optional)
     self.head_icon_offset = nil
     -- Menu icon position offset (optional)
@@ -221,6 +219,7 @@ function character:onLevelUp(level)
     end
 end
 
+--[[
 function character:onPowerSelect(menu)
     if MathUtils.random() < 0.02 then
         menu.ralsei_dog = true
@@ -275,6 +274,6 @@ function character:drawPowerStat(index, x, y, menu)
         end
         return true
     end
-end
+end--]]
 
 return character

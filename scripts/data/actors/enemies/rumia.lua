@@ -15,7 +15,7 @@ function actor:init()
     self.flip = nil
 
     self.path = "enemies/rumia"
-    self.default = "idle"
+    self.default = "battle/idle"
 
     self.talk_sprites = {}
 
@@ -33,7 +33,7 @@ function actor:init()
         ["obtain_axe"] = {0, 0},
         
         ["battle/idle"] = {0, 0},
-        ["battle/attack"] = {0, 0},
+        ["battle/attack"] = {-12, 0},
         ["battle/shock"] = {0, 0}
     }
 end

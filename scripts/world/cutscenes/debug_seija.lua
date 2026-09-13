@@ -40,8 +40,10 @@ return {
             event:addChild(event.sprite_fade)
             --event.sprite
         end]]
-        local actor = "kogasa"
+        local actor = "rin"-- "kogasa"
         event:setActor(actor)
+        event.sprite:setScale(4, 4)
+        -- event.sprite_back = Sprite(event.sprite.name, event.sprite.x, event.sprite.y)
         local kogasa = cutscene:getCharacter(actor)
         if not kogasa then
             Kristal.Console:push("No Kogasa")

@@ -3,64 +3,87 @@ local Rumia, super = Class(EnemyBattler)
 function Rumia:init()
     super.init(self)
 
-    -- Enemy name
-    self.name = "Rumia"
-    -- Sets the actor, which handles the enemy's sprites (see scripts/data/actors/dummy.lua)
+    self:applyLocalization()
     self:setActor("rumia")
 
-    -- Enemy health
     self.max_health = 320
     self.health = 320
-    -- Enemy attack (determines bullet damage)
     self.attack = 9
-    -- Enemy defense (usually 0)
     self.defense = 2
-    -- Enemy reward
     self.money = 0
 
-    -- Mercy given when sparing this enemy before its spareable (20% for basic enemies)
     self.spare_points = 0
 
-    -- List of possible wave ids, randomly picked each turn
     self.waves = {
         "rumia_1",
         "rumia_2",
         "rumia_showcase"
     }
 
-    -- Dialogue randomly displayed in the enemy's speech bubble
-    self.dialogue = {
-        "Is that so?\n[wait:5]Is that so?"
-    }
-
     -- self.exit_on_defeat = false
-    
-    self.check = {
-        "AT 9 DF 2\n[wait:5]* Her headpiece could be a decoration, [wait:5]but it\'s actually a fire axe!",
-        "If that axe got removed, [wait:5]she\'ll likely become harmless again."
-    
-    }
-
-    self.text = {
-        "* Rumia cannot suppress her desire\nto swing the axe."
-    }
-    
     self.tired_percentage = -math.huge
     self.low_health_percentage = 0
 
-    self:registerAct("Scare-ya", "Tire a\nenemy", nil, 32)
-    self:registerAct("Strong Wind", "Remove\ndarkness", {"rin"}, 50)
-    self:registerAct("Seija\'s Idea", "Need\nteam up", {"seija", "rin"}, 102)
+    self:registerAct(self.act_scare_ya, Game:loc("act_rumia_scare_ya_description"), nil, 32)
+    self:registerAct(self.act_strong_wind, Game:loc("act_rumia_strong_wind_description"), {"rin"}, 50)
+    self:registerAct(self.act_seijas_idea, Game:loc("act_rumia_seijas_idea_description"), {"seija", "rin"}, 102)
+end
+
+function Rumia:applyLocalization(update_acts)
+    local old_check = self.act_check
+    local old_scare_ya = self.act_scare_ya
+    local old_strong_wind = self.act_strong_wind
+    local old_seijas_idea = self.act_seijas_idea
+
+    self.name = Game:locText("[name:rumia]")
+    self.dialogue = {
+        Game:loc("enemy_rumia_dialogue")
+    }
+    self.check = {
+        Game:loc("enemy_rumia_check_1"),
+        Game:loc("enemy_rumia_check_2")
+    }
+
+    self.text = {
+        Game:loc("enemy_rumia_turn_1"),
+        Game:loc("enemy_rumia_turn_2", {mercy = self.mercy}),
+        Game:loc("enemy_rumia_turn_3"),
+    }
+
+    self.act_check = Game:loc("act_check")
+    self.act_scare_ya = Game:loc("spell__scare_ya_name") -- Game:loc("act_rumia_scare_ya")
+    self.act_strong_wind = Game:loc("act_rumia_strong_wind")
+    self.act_seijas_idea = Game:loc("act_rumia_seijas_idea")
+
+    if self.acts and self.acts[1] then
+        self.acts[1].name = self.act_check
+    end
+
+    if update_acts then
+        for _, act in ipairs(self.acts or {}) do
+            if act.name == old_check then
+                act.name = self.act_check
+            elseif act.name == old_scare_ya then
+                act.name = self.act_scare_ya
+            elseif act.name == old_strong_wind then
+                act.name = self.act_strong_wind
+            elseif act.name == old_seijas_idea then
+                act.name = self.act_seijas_idea
+            end
+        end
+    end
 end
 
 function Rumia:onAct(battler, name)
-    if name == "Scare-ya" then
+    if name == self.act_check then
+        return super.onAct(self, battler, "Check")
+    elseif name == self.act_scare_ya then
         self:addMercy(40)
-        return "* Kogasa scared Rumia!\n[wait:5]* Rumia\'s attention wavered a little."
-    elseif name == "Strong Wind" then
+        return Game:loc("act_rumia_scare_ya_text")
+    elseif name == self.act_strong_wind then
         Game.battle:startActCutscene("rumia", "act_wind")
         return
-    elseif name == "Seija\'s Idea" then -- cheater's choice
+    elseif name == self.act_seijas_idea then -- cheater's choice
         error("Yeah i just wanna crash the battle :)")
         return
     end
@@ -78,7 +101,16 @@ function Rumia:onHurt(damage, battler)
 end--]]
 
 
-function Rumia:onDefeat(damage, battler)
+function Rumia:onTurnEnd()
+    self.text[2] = Game:loc("enemy_rumia_turn_2", {mercy = self.mercy})
+end
+
+function EnemyBattler:onDefeat(damage, battler)
+    if self.exit_on_defeat then
+        -- self:onDefeatRun(damage, battler)
+    elseif self.sprite then
+        -- self.sprite:setAnimation("defeat")
+    end
 end
 
 return Rumia

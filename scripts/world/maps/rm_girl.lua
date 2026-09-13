@@ -204,7 +204,7 @@ return {
           visible = true,
           properties = {
             ["map"] = "room1",
-            ["marker"] = "entry"
+            ["marker"] = "exit"
           }
         },
         {
@@ -221,7 +221,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "apple_tree",
-            ["cutscene"] = "room_girl.tree"
+            ["cutscene"] = "rm_girl.tree"
           }
         },
         {
@@ -237,7 +237,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["cutscene"] = "room_girl.girl"
+            ["cutscene"] = "rm_girl.girl"
           }
         }
       }

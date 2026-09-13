@@ -30,6 +30,7 @@
  "act_check_message": "* [var:charaName]检查了敌人！",
  
  "spell__scare_ya_name": "吓你一跳",
+ "spell__scare_ya_effect": "使敌人\n疲惫",
  "spell__scare_ya_description": "惊吓目标敌人使其【疲惫】。\n顺带填饱肚子。",
 
  "spell_rule_burster_name": "反则突袭",

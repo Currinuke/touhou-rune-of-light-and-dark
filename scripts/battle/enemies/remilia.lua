@@ -39,7 +39,7 @@ function Remilia:init()
         "* Scarlet gazes at all of you.",
         "* Smells like a vampire bat.",
         "* Moonlight shines through the red mist upon the battlefield.",
-        "* Moonlight shines through the red mist upon the battlefield.\n[wait:5]* Moonlight is scarlet."
+        "* Moonlight shines through the red mist upon the battlefield.\n[wait:10]* Moonlight is scarlet."
     }
 
     self.tired_percentage = 0

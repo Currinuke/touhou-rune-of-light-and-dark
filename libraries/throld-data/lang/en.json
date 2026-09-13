@@ -30,6 +30,7 @@
  "act_check_message": "* [var:charaName] checked the enemy!",
 
  "spell__scare_ya_name": "Scare-ya",
+ "spell__scare_ya_effect": "Tire a\nenemy",
  "spell__scare_ya_description": "Scare one enemy to make them TIRED.\nAlso for a living.",
 
  "spell_rule_burster_name": "Rule Burster",

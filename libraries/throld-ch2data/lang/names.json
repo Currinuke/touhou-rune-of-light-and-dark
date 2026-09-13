@@ -1,14 +1,14 @@
 {
     "alice": {
-        "ec": "Alice",
+        "en": "Alice",
         "zh_hans": "爱丽丝"
     },
     "margatroid": {
-        "ec": "Margatroid",
+        "en": "Margatroid",
         "zh_hans": "玛格特洛依德"
     },
     "alice_margatroid": {
-        "ec": "Alice Margatroid",
+        "en": "Alice Margatroid",
         "zh_hans": "爱丽丝·玛格特洛依德"
     },
 

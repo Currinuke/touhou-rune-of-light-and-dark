@@ -173,7 +173,7 @@ function character:init()
     self.attack_pitch = 1
 
     -- Battle position offset (optional)
-    self.battle_offset = {2, 1}
+    self.battle_offset = {3, 1}
     -- Head icon position offset (optional)
     self.head_icon_offset = nil
     -- Menu icon position offset (optional)
@@ -190,6 +190,7 @@ function character:onLevelUp(level)
     end
 end
 
+--[[
 function character:onPowerSelect(menu)
     if MathUtils.random() < ((Game.chapter == 1) and 0.02 or 0.04) then
         menu.kris_dog = true
@@ -225,6 +226,6 @@ function character:drawPowerStat(index, x, y, menu)
         end
         return true
     end
-end
+end--]]
 
 return character

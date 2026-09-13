@@ -205,7 +205,7 @@ return {
           visible = true,
           properties = {
             ["map"] = "room1",
-            ["marker"] = "shop_exit"
+            ["marker"] = "exit"
           }
         }
       }

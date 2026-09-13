@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 10,
-  nextobjectid = 86,
+  nextobjectid = 87,
   properties = {
     ["name"] = "Test Map - Room 1"
   },
@@ -636,7 +636,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 440,
-          y = 680,
+          y = 640,
           width = 80,
           height = 40,
           rotation = 0,
@@ -652,16 +652,16 @@ return {
           name = "script",
           type = "",
           shape = "rectangle",
-          x = 640,
-          y = 640,
-          width = 120,
+          x = 440,
+          y = 680,
+          width = 80,
           height = 40,
           rotation = 0,
           opacity = 1,
           visible = true,
           properties = {
             ["once"] = false,
-            ["script"] = "room_girl"
+            ["script"] = "rm_girl"
           }
         },
         {
@@ -748,6 +748,20 @@ return {
           type = "",
           shape = "point",
           x = 120,
+          y = 760,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 86,
+          name = "exit",
+          type = "",
+          shape = "point",
+          x = 480,
           y = 760,
           width = 0,
           height = 0,

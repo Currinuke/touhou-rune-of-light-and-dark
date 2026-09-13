@@ -72,8 +72,8 @@ function actor:init()
         -- 向左上为减，右下为加
         -- Movement offsets
         ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
-        ["walk/up"] = {0, 0},
+        ["walk/right"] = {1, 1},
+        ["walk/up"] = {0, 1},
         ["walk/down"] = {0, 0},
 
         ["walk_blush/down"] = {0, 0},
@@ -83,22 +83,22 @@ function actor:init()
         ["slide_new"] = {-5, -2},
 
         -- Battle offsets
-        ["battle/idle"] = {-11, -1},
+        ["battle/idle"] = {-10, -1},
 
-        ["battle/attack"] = {-16, -3},
-        ["battle/attackready"] = {-3, -1},
-        ["battle/act"] = {-11, -1},
-        ["battle/actend"] = {-6, -6},
-        ["battle/actready"] = {-11, 1},
-        ["battle/item"] = {-11, -6},
-        ["battle/itemready"] = {-11, 0},
-        ["battle/defend"] = {-11, 0},
+        ["battle/attack"] = {-15, -3},
+        ["battle/attackready"] = {-2, -1},
+        ["battle/act"] = {-10, -1},
+        ["battle/actend"] = {-5, -6},
+        ["battle/actready"] = {-10, 1},
+        ["battle/item"] = {-10, -6},
+        ["battle/itemready"] = {-10, 0},
+        ["battle/defend"] = {-10, 0},
 
         ["battle/defeat"] = {0, 8},
-        ["battle/hurt"] = {-14, -1},
+        ["battle/hurt"] = {-13, -1},
 
-        ["battle/intro"] = {-16, 0},
-        ["battle/victory"] = {-14, 0},
+        ["battle/intro"] = {-15, 0},
+        ["battle/victory"] = {-13, 0},
 
         -- Climb offsets
         ["climb/climbing"] = {-5, -15},

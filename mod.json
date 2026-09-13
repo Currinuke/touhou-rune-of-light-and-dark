@@ -10,7 +10,7 @@
     "transition": false,
     "map": "rm_lake_bridge",
 
-    "party": ["kogasa", "seija", "rin"],
+    "party": ["kogasa", "rin", "seija"],
 
     "inventory": {
         "items": [],
@@ -35,11 +35,6 @@
     "hardReset": false,
     "hidden": false,
     "setWindowTitleAndIcon": true,
-    "libs": {
-        "throld-data": "", 
-        "throld-doublesoul": "",
-        "kristalI18n": ""
-    },
     "config": {
         "kristal": {
             "smallSaveMenu": false,

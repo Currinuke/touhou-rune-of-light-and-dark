@@ -18,9 +18,8 @@ function MeirinShop:init()
     self.talk_text = "{shop_meirin_talk_menu}"
 
     self.background = "ui/shop/bg_meirin"
-    self.background_speed = 5/30
 
-    self.shopkeeper:setActor("shopkeepers/amelia")
+    self.shopkeeper:setActor("shopkeepers/meirin")
     self.shopkeeper.sprite:setPosition(0, 8)
     self.shopkeeper.slide = true
 

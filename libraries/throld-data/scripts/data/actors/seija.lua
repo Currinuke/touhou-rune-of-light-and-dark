@@ -5,26 +5,18 @@ function actor:init(style)
 
     local susie_style = style or Game:getConfig("susieStyle")
 
-    -- Display name (optional)
     self.name = "Seija"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 22
-    self.height = 43
+    self.height = 42
+    self.hitbox = {2, 28, 18, 14}
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
-    self.hitbox = {2, 29, 18, 14}
-
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
-    self.soul_offset = {12.5, 24}
+    self.soul_offset = {11, 24}
 
     -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {1, 0, 1}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/seija/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     if susie_style == 1 then
         self.default = "walk_bangs"
     else
@@ -32,19 +24,13 @@ function actor:init(style)
     end
 
     self.default = "walk"
-
-    -- Sound to play when this actor speaks (optional)
     self.voice = "susie"
-    -- Path to this actor's portrait for dialogue (optional)
     if susie_style == 1 then
         self.portrait_path = "face/seija/bangs"
     else
         self.portrait_path = "face/seija"
     end
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-22, -14}
-
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = false
 
     -- Table of sprite animations
@@ -146,26 +132,26 @@ function actor:init(style)
         ["slide"] = {-5, -12},
 
         -- Battle offsets
-        ["battle/idle"] = {-12, -12},
+        ["battle/idle"] = {3, -8},
 
-        ["battle/attack"] = {-23, 2},
-        ["battle/attackready"] = {-26, -25},
-        ["battle/act"] = {-4, -5},
+        ["battle/attack"] = {-24, 2},
+        ["battle/attackready"] = {-24, 2},
+        ["battle/act"] = {5, 10},
         ["battle/actend"] = {-24, -25},
-        ["battle/actready"] = {-24, -25},
-        ["battle/spell"] = {-22, -30},
+        ["battle/actready"] = {5, 10},
+        ["battle/spell"] = {-22, -28},
         ["battle/spellready"] = {-22, -15},
         ["battle/item"] = {-22, -1},
         ["battle/itemready"] = {-22, -1},
         ["battle/defend"] = {-20, -23},
         ["battle/swooned"] = {0, 0},
 
-        ["battle/defeat"] = {-22, -1},
-        ["battle/hurt"] = {-22, -1},
+        ["battle/defeat"] = {0, 13},
+        ["battle/hurt"] = {-18, 4},
 
-        ["battle/victory"] = {-18, -7},
+        ["battle/victory"] = {-18, -6},
 
-        ["battle/ruleburster"] = {-34, -23},
+        ["battle/ruleburster"] = {-34, -22},
 
         -- Cutscene offsets
         ["pose"] = {-1, -1},

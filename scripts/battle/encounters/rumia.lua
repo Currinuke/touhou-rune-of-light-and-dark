@@ -2,7 +2,7 @@ local Rumia, super = Class(Encounter)
 
 function Rumia:init()
     super.init(self)
-    self.text = "* The night youkai axe-identally strikes over."
+    self.text = Game:loc("encounter_rumia_start")
     self.music = "checkers"
     self.background = true -- false
     self.hide_world = true

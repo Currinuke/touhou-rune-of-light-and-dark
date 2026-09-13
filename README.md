@@ -5,4 +5,4 @@
 该项目使用了以下外部 Kristal 库：
 | 库                                                      | 作者/组织                                               | 备注                                              |
 | ------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
-| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | [Bli-AIk](https://github.com/Bli-AIk)                  | 基于 v0.4.1 有少量修改，遵守 MIT License 开源许可证 |
+| [kristal-i18n](https://github.com/Bli-AIk/kristal-i18n) | [Bli-AIk](https://github.com/Bli-AIk)                  | 基于 v0.4.1 有部分修改，遵守 MIT License 开源许可证 |

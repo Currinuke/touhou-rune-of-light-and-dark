@@ -29,7 +29,7 @@
   <object id="14" name="transition" x="840" y="200" width="80" height="40">
    <properties>
     <property name="map" value="room1"/>
-    <property name="marker" value="shop_exit"/>
+    <property name="marker" value="exit"/>
    </properties>
   </object>
  </objectgroup>

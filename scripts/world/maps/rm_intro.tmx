@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="10" nextobjectid="25">
+ <editorsettings>
+  <export target="rm_intro.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="name" value="Intro"/>
+ </properties>
+ <objectgroup color="#0000ff" id="2" name="collision">
+  <object id="1" x="640" y="0" width="40" height="480"/>
+  <object id="2" x="-40" y="0" width="40" height="480"/>
+  <object id="3" x="0" y="-40" width="640" height="40"/>
+  <object id="4" x="0" y="480" width="640" height="40"/>
+ </objectgroup>
+ <objectgroup color="#ff00ff" id="3" name="objects">
+  <object id="24" name="npc" x="80" y="80" width="40" height="40">
+   <properties>
+    <property name="actor" value="rin"/>
+    <property name="cutscene" value="debug_seija.anim"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#7f00ff" id="4" name="markers">
+  <object id="10" name="spawn" x="320" y="240">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

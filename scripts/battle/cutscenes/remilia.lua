@@ -7,7 +7,7 @@ return {
         cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
         cutscene:text("* Kogasa...? [wait:10]Are you okay?", "blush_pleased", "ralsei")
         cutscene:text("* ...", "starwalker")
-        cutscene:text("* Tatara Kogasa\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]ME SHIELD[color:reset]!")
+        cutscene:text("* Tatara Kogasa\'s will is changing...\n[wait:10]* [color:yellow]TALK[color:reset] became [color:yellow]ME SHIELD[color:reset]!")
     end,
     seija_talk = function(cutscene, battler, enemy)
         cutscene:text("* Kijin Seija attempts to talk...")
@@ -17,7 +17,7 @@ return {
         cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
         cutscene:text("* Kogasa...? [wait:10]Are you okay?", "starwalker")
         cutscene:text("* ...", "starwalker")
-        cutscene:text("* Kijin Seija\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]SCARE BURSTER[color:reset]!")
+        cutscene:text("* Kijin Seija\'s will is changing...\n[wait:10]* [color:yellow]TALK[color:reset] became [color:yellow]SCARE BURSTER[color:reset]!")
     end,
     rin_talk = function(cutscene, battler, enemy)
         cutscene:text("* Satsuki Rin attempts to talk...")
@@ -27,6 +27,6 @@ return {
         cutscene:text("* Huh...? [wait:5]Huh? [wait:10]How... [wait:5]how could this be? [wait:10]Am I really just a useless tool...?", "starwalker")
         cutscene:text("* Kogasa...? [wait:10]Are you okay?", "blush_pleased", "ralsei")
         cutscene:text("* ...", "starwalker")
-        cutscene:text("* Satsuki Rin\'s will is changing...\n[wait:5]* [color:yellow]TALK[color:reset] became [color:yellow]Wind Flower [Data Falsifier][color:reset]!")
+        cutscene:text("* Satsuki Rin\'s will is changing...\n[wait:10]* [color:yellow]TALK[color:reset] became [color:yellow]Wind Flower [Data Falsifier][color:reset]!")
     end
 }
