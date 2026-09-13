@@ -161,11 +161,8 @@ function character:init()
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {0.5, 1, 1}
 
-    -- Head icon in the equip / power menu
-    self.menu_icon = "party/kris/head"
-    -- Path to head icons used in battle
+    self.menu_icon = "party/kogasa/head"
     self.head_icons = "party/kogasa/icon"
-    -- Name sprite
     self.name_sprite = "party/kogasa/name"
 
     -- Effect shown above enemy after attacking it

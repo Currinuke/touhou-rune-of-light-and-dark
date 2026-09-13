@@ -5,8 +5,8 @@ function BattleBackground:update()
 
     self.position = self.position + self.move_speed * DTMULT
 
-    if self.position >= 36 then
-        self.position = self.position - 36
+    if self.position >= 40 then
+        self.position = self.position - 40
     end
 
     if not self.fading_out then
@@ -24,17 +24,11 @@ function BattleBackground:drawBackground()
     Draw.setColor(0, 0, 0, self.alpha)
     love.graphics.rectangle("fill", -10, -10, SCREEN_WIDTH + 20, SCREEN_HEIGHT + 20)
 
-    local background1 = Assets.getTexture("ui/battle/background1")
+    local background_up = Assets.getTexture("ui/battle/background_up")
+    local background_down = Assets.getTexture("ui/battle/background_down")
     Draw.setColor(1, 1, 1, self.alpha)
-    Draw.drawWrapped(background1, true, true)
-
-    local background2 = Assets.getTexture("ui/battle/background2")
-    Draw.setColor(1, 1, 1, self.alpha)
-    Draw.drawWrapped(background2, true, true, 0, MathUtils.round(-36 + self.position))
-
-    local background3 = Assets.getTexture("ui/battle/background3")
-    Draw.setColor(1, 1, 1, self.alpha)
-    Draw.drawWrapped(background3, true, true, 0, MathUtils.round(-36 - self.position))
+    Draw.drawWrapped(background_up, true, true, 0, MathUtils.round(-40 - self.position))
+    Draw.drawWrapped(background_down, true, true, 0, MathUtils.round(-40 + self.position))
 end
 
 return BattleBackground

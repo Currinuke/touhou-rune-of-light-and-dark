@@ -170,10 +170,12 @@ function character:init()
 
     -- Head icon in the equip / power menu
     if ralsei_style == 1 then
-        self.menu_icon = "party/ralsei/head_ch1"
+        self.menu_icon = "party/rin/head_ch1"
     else
-        self.menu_icon = "party/ralsei/head"
+        self.menu_icon = "party/rin/head"
     end
+
+    self.menu_icon = "party/rin/head_ch1"
     -- Path to head icons used in battle
     self.head_icons = "party/rin/icon"
     -- Name sprite (optional)

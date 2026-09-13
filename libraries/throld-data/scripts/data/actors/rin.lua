@@ -8,38 +8,29 @@ function actor:init(style)
     if ralsei_style == 1 then
         self:initChapter1()
     else
-        self:initChapter2()
+        self:initChapter1()-- self:initChapter2()
     end
 end
 
 function actor:initChapter1()
-    -- Display name (optional)
     self.name = "Rin"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 23
     self.height = 42
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {3, 28, 17, 14}
 
     -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {0, 1, 0}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/rin/dark_ch1"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "walk"
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = "ralsei"
-    -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = "face/rin"
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-22, -14}
 
-    -- Whether this actor as a follower will blush when close to the player
-    self.can_blush = true
+    self.can_blush = false
 
     -- Table of sprite animations
     self.animations = {
