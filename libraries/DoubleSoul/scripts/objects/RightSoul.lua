@@ -13,7 +13,7 @@ function RightSoul:init(x, y, color)
     self.mask_sprite.inherit_color = false
     self:addChild(self.mask_sprite)
     
-    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInv") or true
+    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInvuln") or true
     self.can_damage = "right"
 end
 

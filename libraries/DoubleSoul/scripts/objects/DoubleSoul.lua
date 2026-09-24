@@ -10,20 +10,31 @@ function DoubleSoul:init(x, y, color)
 
     self.transition_sfx = Assets.getSound("doublesoul/transition")
     --self.transition_sfx:setLooping(true)
-    self.finished_name = "noise"
+    self.transition_finished = "noise"
+
+    local offsets = Kristal.getLibConfig("throld-doublesoul", "defaultOffsets")
+    local left = offsets["leftSoul"]
+    local right = offsets["rightSoul"]
+
+    self.double = {
+        left = LeftSoul(left[1], left[2], color),
+        right = RightSoul(right[1], right[2], color)
+    }
 
     self.default_offset = Kristal.getLibConfig("throld-doublesoul", "defaultOffset") or 100
     self.double_offset = self.default_offset
-    self.double_left = LeftSoul(x - self.double_offset, y, color)
-    self.double_right = RightSoul(x + self.double_offset, y, color)
+    -- self.double_left = LeftSoul(x - self.double_offset, y, color)
+    -- self.double_right = RightSoul(x + self.double_offset, y, color)
+    self.double_left = LeftSoul(left[1], left[2], color)
+    self.double_right = RightSoul(right[1], right[2], color)
 
     self.collider = ColliderGroup(self, {
-        CircleCollider(self, -self.double_offset, 0, 8),
-        CircleCollider(self, self.double_offset, 0, 8)
+        CircleCollider(self, left[1], left[2], 8),
+        CircleCollider(self, right[1], right[2], 8)
     })
 end
 
---[[
+
 function DoubleSoul:onRemove(parent)
     if self.transition_sfx then
         --if self.transition_sfx:isPlaying() then
@@ -31,9 +42,8 @@ function DoubleSoul:onRemove(parent)
         --end
         
     end
-
-    super.super.onRemove(self, parent)
-end--]]
+    super.onRemove(self, parent)
+end
 
 --[[
 --- *(Override)* Called when waves are started
@@ -152,7 +162,7 @@ function DoubleSoul:doMovement()
                 self.swap_timer = 0
 
                 self.transition_sfx:stop()
-                Assets.playSound(self.finished_name)
+                Assets.playSound(self.transition_finished)
 
                 local bx, by = Game.battle:getSoulLocation()
                 DoubleSwapEffect(bx - self.double_offset, by)

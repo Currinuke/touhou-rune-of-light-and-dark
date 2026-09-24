@@ -3,7 +3,11 @@
     "version": "0.2.0",
     "engineVer": "v0.10.0",
     "config": {
-        "defaultOffset": 100,
-        "sameInv": true
+        "defaultOffset": 80,
+        "defaultOffsets": {
+            "leftSoul": [-80, 0],
+            "rightSoul": [80, 0]
+        },
+        "sameInvuln": true
     }
 }

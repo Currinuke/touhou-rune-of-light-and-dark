@@ -13,7 +13,7 @@ function LeftSoul:init(x, y, color)
     self.mask_sprite.inherit_color = false
     self:addChild(self.mask_sprite)
 
-    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInv") or true
+    self.sync_inv = Kristal.getLibConfig("throld-doublesoul", "sameInvuln") or true
     self.can_damage = "left"
 end
 
@@ -22,6 +22,10 @@ function LeftSoul:onDamage(bullet, amount)
     if self.sync_inv then
         Game.battle.soul.double_right.inv_timer = self.inv_timer
     end
+end
+
+function LeftSoul:doMovement(x, y)
+    self.x, self.y = self.x + (x or super.x or 0), self.y + (y or super.y or 0)
 end
 
 function Soul:update()
