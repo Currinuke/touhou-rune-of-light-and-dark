@@ -7,7 +7,9 @@ function Remilia:init()
     self.music = "kingboss"
     self.background = false
 
-    self:addEnemy("remilia")
+    self.remilia=self:addEnemy("remilia")
+
+    self.remilia:setAnimation('battle/intro',function()self.remilia:resetSprite()end)
     
     self.no_end_message = true
 end
@@ -21,6 +23,16 @@ function Remilia:onMenuSelect(state_reason, item, can_select)
             return false
         end
     end
+end
+
+function Remilia:getNextWaves()
+	local waves=super.getNextWaves(self)
+	if Game.battle.turn_count==1 then
+		waves[1]='remilia/wave1'
+	elseif Game.battle.turn_count==2 then
+		waves[1]='remilia/wave2'
+	end
+	return waves
 end
 
 --[[
