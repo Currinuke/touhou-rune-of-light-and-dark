@@ -1,41 +1,41 @@
 local actor, super = Class(Actor, "rumia")
 
 function actor:init()
-    super.init(self)
+	super.init(self)
 
-    self.name = "Rumia"
+	self.name = "Rumia"
 
-    self.width = 40
-    self.height = 49
+	self.width = 40
+	self.height = 49
 
-    self.hitbox = {12, 34, 19, 14}
+	self.hitbox = {12, 34, 19, 14}
 
-    self.color = {1, 0, 0}
+	self.color = {1, 0, 0}
 
-    self.flip = nil
+	self.flip = nil
 
-    self.path = "enemies/rumia"
-    self.default = "idle"
+	self.path = "enemies/rumia"
+	self.default = "idle"
 
-    self.talk_sprites = {}
+	self.talk_sprites = {}
 
-    self.animations = {
-        ["idle"] = {"idle", 1/10, true},
-        ["obtain_axe"] = {"obtain_axe", 1/10, false},
+	self.animations = {
+		["idle"] = {"idle", 1/10, true},
+		["obtain_axe"] = {"obtain_axe", 1/10, false},
 
-        ["battle/idle"] = {"battle/idle", 1/10, true},
-        ["battle/attack"] = {"battle/att", 1/15, false},
-        ["hurt"] = {"battle/hurt", 1/10, false}
-    }
+		["battle/idle"] = {"battle/idle", 1/10, true},
+		["battle/attack"] = {"battle/att", 1/15, false},
+		["hurt"] = {"battle/hurt", 1/10, false}
+	}
 
-    self.offsets = {
-        ["idle"] = {0, 0},
-        ["obtain_axe"] = {0, 0},
-        
-        ["battle/idle"] = {-45,-35},
-        ["battle/attack"] = {-45,-35},
-        ["hurt"] = {0, 0}
-    }
+	self.offsets = {
+		["idle"] = {0, 0},
+		["obtain_axe"] = {0, 0},
+		
+		["battle/idle"] = {-45,-35},
+		["battle/attack"] = {-45,-35},
+		["hurt"] = {0, 0}
+	}
 end
 
 return actor

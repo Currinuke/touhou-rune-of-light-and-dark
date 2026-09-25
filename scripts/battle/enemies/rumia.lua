@@ -24,7 +24,8 @@ function Rumia:init()
 
     -- List of possible wave ids, randomly picked each turn
     self.waves = {
-
+        'rumia/wave1',
+        'rumia/wave2'
     }
 
     -- Dialogue randomly displayed in the enemy's speech bubble
