@@ -17,7 +17,10 @@ function Rumia:init()
 
     self.spare_points = 0
 
-    self.waves = {}
+    self.waves = {
+        'rumia/wave1',
+        'rumia/wave2'
+    }
 
     self.dialogue_offset = {45, 35}
 

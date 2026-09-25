@@ -1,16 +1,10 @@
 local Basic, super = Class(Wave)
 
 function Basic:getAttackers()
-	--[[for i=1,#Game.battle.enemies do
-		if Game.battle.enemies[i].id=='starsapphire' then
-			return {Game.battle.enemies[i]}
-		end
-	end]]
 	return {Game.battle.enemies[1]}
 end
 
 function Basic:onStart()
-	--DEBUG_RENDER=true
 	local bulletcount=0
 	self.timer:every(1,function()
 		bulletcount=bulletcount+1
@@ -24,6 +18,8 @@ function Basic:onStart()
 				bullet.physics.speed=6*i
 			end
 		end
+		local bullet=self:spawnBullet("rumia/wobblebullet",x,y,0,0)
+		self.timer:tween(0.3,bullet,{scale_x=6,scale_y=6,alpha=0.1},nil,function()bullet:remove()end)
 		Assets.playSound('heavyswing')
 		self.timer:after(0.2,function()
 			if bulletcount==1 then
@@ -46,6 +42,8 @@ function Basic:onStart()
 			bullet.physics.match_rotation=true
 			bullet.physics.speed=12
 		end
+		local bullet=self:spawnBullet("rumia/wobblebullet",x,y,0,0)
+		self.timer:tween(0.3,bullet,{scale_x=6,scale_y=6,alpha=0.1},nil,function()bullet:remove()end)
 		Assets.playSound('heavyswing')
 	end)
 	self.timer:after(4.5,function()
