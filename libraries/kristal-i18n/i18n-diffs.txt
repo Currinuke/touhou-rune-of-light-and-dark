@@ -1,0 +1,3 @@
+将 DarkConfigMenu.lua 回退为 v0.4.1 以保证本地化库能够在 Kristal v0.10.0 正常加载
+在 data.lua 中增加了一段文本检测
+为 en.json 和 zh_hans.json 添加了 storage_nothing 本地化键名

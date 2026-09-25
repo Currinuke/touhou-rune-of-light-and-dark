@@ -3,7 +3,7 @@
  "map_rm_manor_basement_name": "红魔馆 - 地下室",
  "map_rm_manor_topbattle_name": "红魔馆 - 顶层",
 
- "encounter_rumia_start": "* 宵夜妖怪意外地挥斧前来。",
+ "encounter_rumia_start": "* 已挥斧的宵夜妖怪意外到来。",
  "enemy_rumia_dialogue": "是这样吗？\n[wait:5]是这样吗？",
  "enemy_rumia_check_1": "攻击 9 防御 2\n[wait:10]* 她头上的装饰很好看，[wait:5]但那其实是一把斧头！",
  "enemy_rumia_check_2": "如果能把斧头拿掉，\n[wait:5]她大概就会恢复无害的样子了。",
@@ -71,7 +71,7 @@
  "world_rm_lake_bridge_cutscene_14": "* 这个嘛... [wait:5]通常来说...",
  "world_rm_lake_bridge_cutscene_15": "* 它会让拿着它的人\n无法抑制住自己杀戮的欲望？",
  "world_rm_lake_bridge_cutscene_16": "* 我们... [wait:10]我们成功了！？",
- "world_rm_lake_bridge_cutscene_17": "* 哇塞！！[wait:5]没想到你们真的\n把她给解决了！！",
+ "world_rm_lake_bridge_cutscene_17": "* 哇哦！！[wait:5]没想到你们真的\n把她给解决了！！",
  "world_rm_lake_bridge_cutscene_18": "* 你们真是英雄！！",
  "world_rm_lake_bridge_cutscene_19": "* 不用花20分钟的时间\n绕路回红魔馆了！！",
  "world_rm_lake_bridge_cutscene_20": "* 对，[wait:5]对，[wait:5]我知道我干得挺不错，\n对吧...？",

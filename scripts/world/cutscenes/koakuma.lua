@@ -6,7 +6,7 @@ return {
 		local rumia = cutscene:getCharacter("rumia")
 		local rin = cutscene:getCharacter("rin")
 
-		if kogasa and seija and koakuma and rumia then
+		if kogasa and seija and koakuma and rumia and rin then
 			cutscene:setSpeaker("koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_1}", "smile_left")
 		
@@ -17,8 +17,8 @@ return {
 			cutscene:detachFollowers()
 			cutscene:detachCamera()
 			cutscene:walkTo(kogasa, x + 80, y + 12, 1, "up")
-			cutscene:walkTo(seija, x + 20, y + 12, 1, "up")
-			cutscene:walkTo(rin, x - 40, y + 12, 1, "up")
+			cutscene:walkTo(rin, x + 20, y + 12, 1, "up")
+			cutscene:walkTo(seija, x - 40, y + 12, 1, "up")
 			cutscene:wait(1.2)
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_2}", "smile_right")
@@ -30,8 +30,8 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_8}", "spr_face_seija_alt_13", "seija")
 
 			cutscene:walkTo(kogasa, x + 280, y - 20, 2, "right")
-			cutscene:walkTo(seija, x + 220, y - 20, 2, "right")
-			cutscene:walkTo(rin, x + 160, y - 20, 2, "right")
+			cutscene:walkTo(rin, x + 220, y - 20, 2, "right")
+			cutscene:walkTo(seija, x + 160, y - 20, 2, "right")
 			cutscene:panToSpeed(cx, cy)
 			cutscene:wait(4)
 
@@ -67,7 +67,7 @@ return {
 				rumia:setFlag("dont_load", true)
 				rumia:remove()
 			end})
-		
+
 			cutscene:text("{world_rm_lake_bridge_cutscene_16}", "surprise_b", "seija")
 
 			cutscene:wait(cutscene:walkTo(koakuma, rx - 120, koakuma.y, 1))
@@ -80,7 +80,7 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_21}", "sad")
 
 			cutscene:look(kogasa, "left")
-			cutscene:look(seija, "left")
+			cutscene:look(rin, "left")
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_22}", "sad")
 			cutscene:text("{world_rm_lake_bridge_cutscene_23}", "sad")
@@ -93,7 +93,7 @@ return {
 
 			cutscene:look(rin, "down")
 			cutscene:wait(1)
-			cutscene:look(rin, "right")
+			cutscene:look(rin, "left")
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_30}", "suspicious")
 			cutscene:text("{world_rm_lake_bridge_cutscene_31}", "spr_face_seija_alt_9", "seija")
@@ -101,13 +101,13 @@ return {
 			
 			cutscene:look(rin, "down")
 			cutscene:wait(1)
-			cutscene:look(rin, "right")
+			cutscene:look(rin, "left")
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_33}", "spr_face_rin_alt_fixed_20")
 
 			cutscene:look(seija, "down")
 			cutscene:wait(1)
-			cutscene:look(seija, "left")
+			cutscene:look(seija, "right")
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_34}", "spr_face_seija_alt_8", "seija")
 			cutscene:text("{world_rm_lake_bridge_cutscene_35}", "nervous")
@@ -118,20 +118,29 @@ return {
 
 			cutscene:look(seija, "down")
 			cutscene:wait(1)
-			cutscene:look(seija, "left")
+			cutscene:look(seija, "right")
 			cutscene:setSpeaker("seija")
 			cutscene:text("{world_rm_lake_bridge_cutscene_40}", "spr_face_seija_alt_2")
 			cutscene:text("{world_rm_lake_bridge_cutscene_41}", "neutral")
 			cutscene:text("{world_rm_lake_bridge_cutscene_42}", "smile")
 
+			Game.world.timer:after(0.2, function()
+				cutscene:look(rin, "down")
+			end)
 			local seija_y = seija.y + 20
 			cutscene:walkTo(seija, seija.x, seija.y + 20, 1, "up", true)
 			cutscene:text("{world_rm_lake_bridge_cutscene_43}", "smile")
-
-			cutscene:look(kogasa, "down")
 			cutscene:wait(function() return seija_y == seija.y end)
-			cutscene:wait(cutscene:walkTo(seija, seija.x + 400, seija.y, 1, "left"))
-			cutscene:look(kogasa, "right")
+			Game.world.timer:after(0.2, function()
+				cutscene:look(rin, "right")
+					cutscene:look(kogasa, "down")
+				Game.world.timer:after(0.2, function()
+					cutscene:look(kogasa, "right")
+				end)
+			end)
+			cutscene:wait(cutscene:walkTo(seija, seija.x + 460, seija.y, 1.8, "left"))
+			--cutscene:look(kogasa, "right")
+			--cutscene:look(rin, "right")
 
 			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "spr_face_seija_alt_11")
 			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "spr_face_seija_alt_11")
@@ -160,7 +169,7 @@ return {
 			Game:removeFollower("seija")
 			seija:remove()
 
-			cutscene:wait(cutscene:walkTo(rin, rx - 280, rin.y, 2, "left"))
+			cutscene:wait(cutscene:walkTo(rin, rx - 280, rin.y, 1.8, "left"))
 			cutscene:setSpeaker("rin")
 			cutscene:text("{world_rm_lake_bridge_cutscene_60}", "sad_cry")
 			cutscene:text("{world_rm_lake_bridge_cutscene_61}", "fixed_20_cry")
