@@ -1,3 +1,11 @@
+---@class DoubleSoul : Object
+---
+---
+---@field allow_swap        boolean         Whether the child souls are allowed to swap themselves
+---@field swapped           boolean         *(Used internally)* Whether the child souls has swapped potitions
+---@field can_swap          boolean         *(Used internally)* Whether the soul is currently in a transition
+---@field timer_swap        number          *(Used internally)* A timer for the soul swapping
+
 local DoubleSoul, super = Class(Soul)
 
 function DoubleSoul:init(x, y, color)
@@ -5,17 +13,18 @@ function DoubleSoul:init(x, y, color)
     self.alpha = 0
     self.swapped = false
     self.can_swap = true
-    self.swap_timer = 0
-    self.swap_timer_max = 30
+    self.timer_swap = 0
+    self.timer_swap_max = 30
 
-    self.transition_sfx = Assets.getSound("doublesoul/transition")
-    --self.transition_sfx:setLooping(true)
-    self.transition_finished = "noise"
+    self.swap_sfx = Assets.getSound("doublesoul/transition")
+    --self.swap_sfx:setLooping(true)
+    self.swap_sfx_finished = "noise"
 
     local offsets = Kristal.getLibConfig("throld-doublesoul", "defaultOffsets")
-    local left = offsets["leftSoul"]
-    local right = offsets["rightSoul"]
+    local left = offsets.leftSoul
+    local right = offsets.rightSoul
 
+    Kristal.Console:push(left[1])
     self.double = {
         left = LeftSoul(left[1], left[2], color),
         right = RightSoul(right[1], right[2], color)
@@ -36,9 +45,9 @@ end
 
 
 function DoubleSoul:onRemove(parent)
-    if self.transition_sfx then
-        --if self.transition_sfx:isPlaying() then
-            self.transition_sfx:stop()
+    if self.swap_sfx then
+        --if self.swap_sfx:isPlaying() then
+            self.swap_sfx:stop()
         --end
         
     end
@@ -120,7 +129,7 @@ end--]]
 --- By default, this function is responsible for calling the bullet's collision check, [`Bullet:onCollide()`](lua://Bullet.onCollide)
 ---@param bullet Bullet
 function DoubleSoul:onCollide(bullet)
-    self.transition_sfx:stop()
+    self.swap_sfx:stop()
     -- Handles damage
     bullet:onCollide(self)
 end
@@ -152,17 +161,17 @@ function DoubleSoul:doMovement()
     -- 转换灵魂
     if not self.transitioning and Input.down("confirm") then
         if self.can_swap then
-            self.swap_timer = self.swap_timer + DTMULT
+            self.timer_swap = (self.timer_swap or 0) + DTMULT
 
-            if self.swap_timer >= 30 then
+            if self.timer_swap >= 30 then
                 self.can_swap = false
                 self.swapped = not self.swapped
                 self.double_left:onSwap(self.swapped)
                 self.double_right:onSwap(self.swapped)
-                self.swap_timer = 0
+                self.timer_swap = 0
 
-                self.transition_sfx:stop()
-                Assets.playSound(self.transition_finished)
+                self.swap_sfx:stop()
+                Assets.playSound(self.swap_sfx_finished)
 
                 local bx, by = Game.battle:getSoulLocation()
                 DoubleSwapEffect(bx - self.double_offset, by)
@@ -175,22 +184,22 @@ function DoubleSoul:doMovement()
                 -- HeartBurst(bx - self.double_offset, by, {1, 1, 1, 1})
                 -- HeartBurst(bx + self.double_offset, by, {1, 1, 1, 1})
             else
-                self.transition_sfx:setVolume(MathUtils.clamp(self.swap_timer/15, 0, 1))
-                if not self.transition_sfx:isPlaying() then
-                    self.transition_sfx:play()
+                self.swap_sfx:setVolume(MathUtils.clamp(self.timer_swap/15, 0, 1))
+                if not self.swap_sfx:isPlaying() then
+                    self.swap_sfx:play()
                 end
             end
         end
     else
-        self.swap_timer = 0
+        self.timer_swap = 0
         self.can_swap = true
-        self.transition_sfx:stop()
+        self.swap_sfx:stop()
     end
 
     self.double_left.x, self.double_left.y = self.x - self.double_offset, self.y
     self.double_right.x, self.double_right.y = self.x + self.double_offset, self.y
-    self.double_left.mask_sprite:setColor(1, 1, 1, self.swap_timer / 30)
-    self.double_right.mask_sprite:setColor(1, 1, 1, self.swap_timer / 30)
+    self.double_left.mask_sprite:setColor(1, 1, 1, self.timer_swap / 30)
+    self.double_right.mask_sprite:setColor(1, 1, 1, self.timer_swap / 30)
 end
 
 function DoubleSoul:update()
@@ -198,8 +207,8 @@ function DoubleSoul:update()
         self.double_left.mask_sprite:setColor(1, 1, 1, 0)
         self.double_right.mask_sprite:setColor(1, 1, 1, 0)
 
-        if self.transition_sfx then
-            self.transition_sfx:stop()
+        if self.swap_sfx then
+            self.swap_sfx:stop()
         end
 
         if self.transition_destroy then

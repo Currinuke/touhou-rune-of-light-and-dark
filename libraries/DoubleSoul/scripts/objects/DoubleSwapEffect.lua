@@ -6,7 +6,7 @@ function DoubleSwapEffect:init(x, y)
     self.alpha = 1
     self.layer = BATTLE_LAYERS["soul"] + 1
     self.timer = 0
-    Kristal.Console:push("created")
+    -- Kristal.Console:push("created")
 end
 
 function DoubleSwapEffect:update()
