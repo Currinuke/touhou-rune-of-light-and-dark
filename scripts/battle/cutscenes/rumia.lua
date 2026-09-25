@@ -33,7 +33,7 @@ return {
 	act_wind = function(cutscene, battler, enemy)
 		cutscene:text("* Kogasa orders Rin to create\na strong wind.")
 		cutscene:text("* Press [bind:confirm] to summon!")
-		
+	
 		enemy:setTired(true)
 		enemy:addMercy(50)
 		enemy:addMercy(40)

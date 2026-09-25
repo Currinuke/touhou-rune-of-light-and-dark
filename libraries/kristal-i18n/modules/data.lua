@@ -81,6 +81,7 @@ return function(ctx)
         ["CTRL+B - kill party"] = "debug_battle_kill_party",
         ["CTRL+K - fill tension"] = "debug_battle_fill_tension",
         ["CTRL+N - toggle noclip"] = "debug_battle_toggle_noclip",
+        ["CTRL+I - toggle invincibility"] = "debug_battle_toggle_invincibility",
         ["~ OBJECT SELECTION ~"] = "debug_object_selection_title",
         ["Hotswap"] = "debug_hotswap",
         ["Swap out code from the files. Might be unstable."] = "debug_hotswap_description",
@@ -93,6 +94,8 @@ return function(ctx)
         ["Reload the engine."] = "debug_reload_engine",
         ["Noclip"] = "debug_noclip",
         ["Toggle interaction with solids."] = "debug_noclip_description",
+        ["Invincibility"] = "debug_invincibility",
+        ["Toggle invincibility."] = "debug_toggle_invincibility",
         ["Give an item."] = "debug_give_item_description",
         ["Give Money"] = "debug_give_money",
         ["Give an amount of money."] = "debug_give_money_description",
@@ -252,6 +255,7 @@ return function(ctx)
         ["[noskip][speed:0.5][spacing:8][voice:none] THEN THE WORLD[wait:30] \n WAS COVERED[wait:30] \n IN DARKNESS."] = "gameover_darkness",
         ["Useless\nanalysis"] = "act_check_useless_analysis",
         ['Whether the "Check" act in battle says "Useless analysis" or not'] = "mod_config_check_act_description_description",
+        -- Currinuke 自改部分
         ["(Nothing)"] = "storage_nothing"
     }
 

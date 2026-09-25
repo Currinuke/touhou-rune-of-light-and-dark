@@ -35,6 +35,7 @@ return function(ctx)
     local isClassInstance = text.isClassInstance
     local isColorTable = text.isColorTable
     local isTextDescriptor = text.isTextDescriptor
+    local getItemTextLocalizationKey = text.getItemTextLocalizationKey
     local localizeStaticTextValue = text.localizeStaticTextValue
     local localizeDynamicStaticTextValue = text.localizeDynamicStaticTextValue
     local resolveTextInput = text.resolveTextInput
@@ -78,6 +79,18 @@ return function(ctx)
     local resolveShopItemOptions = hooks.resolveShopItemOptions
     local resolveFileNamerOptions = hooks.resolveFileNamerOptions
     local resolveListMenuValues = hooks.resolveListMenuValues
+
+    -- Expose the CJK module to the optional hook scripts (the dark config
+    -- menu bakes label spacing at setText time and needs the same settings).
+    _G.kristalI18nCjk = cjk
+
+    --- Finds the localization key for a raw registered item field.
+    --- `field` is normally "name" or "description". Item `use_name` values
+    --- are aliases for "name". Returns `key, item_id`, or nil when no loaded
+    --- localization entry matches. `preferred_id` disambiguates shared text.
+    function kristalI18n:getItemTextLocalizationKey(value, field, preferred_id)
+        return getItemTextLocalizationKey(value, field, preferred_id)
+    end
 
     -- Searches the currently loaded language tables, then every other available
     -- language table, for a key whose value matches the stored room name. This
@@ -209,12 +222,25 @@ return function(ctx)
         ensureLanguageGlobals()
         Game:loadLang(Game.lang)
 
-        Game.hasXtraConfig = (Utils.getAnyCase(Mod.libs, "xtractrl") and true) or false
-
         migrateSaveFileRoomNames()
 
         HookSystem.hook(Assets, "getFont", function(orig, path, size)
-            local lang_path = "lang/" .. (Game.lang or FALLBACK_LANGUAGE) .. "/" .. path
+            -- Names can use a different language from the UI. Prefer the
+            -- Chinese font whenever either active language is Chinese, so
+            -- mixed-language menus do not fall through to ja_main.
+            if type(path) ~= "string" or path:sub(1, 5) == "lang/" then
+                return orig(path, size)
+            end
+
+            local text_language = Game.lang or FALLBACK_LANGUAGE
+            if text_language == "zh_hans" or Game.langNameLanguage == "zh_hans" then
+                local chinese_font = orig("lang/zh_hans/" .. path, size)
+                if chinese_font then
+                    return chinese_font
+                end
+            end
+
+            local lang_path = "lang/" .. text_language .. "/" .. path
             return orig(lang_path, size) or orig(path, size)
         end)
 
@@ -504,6 +530,68 @@ return function(ctx)
                 cjk.settings.cjkFixedTextSpacing = cjk.settings.cjkTitleTextSpacing
                 local ok, result = xpcall(function()
                     love.graphics.print(party:getTitle(), 238, -7)
+                end, debug.traceback)
+                cjk.settings.cjkFixedTextSpacing = saved
+                if not ok then
+                    error(result)
+                end
+                return result
+            end)
+
+            -- The stat labels (Attack/Defense/Magic) and the power stats below
+            -- them use half the regular CJK spacing, matching the title.
+            HookSystem.hook(DarkPowerMenu, "drawStats", function(orig, self, ...)
+                local saved = cjk.settings.cjkFixedTextSpacing
+                cjk.settings.cjkFixedTextSpacing = cjk.settings.cjkTitleTextSpacing
+                local ok, result = xpcall(function()
+                    return orig(self)
+                end, debug.traceback)
+                cjk.settings.cjkFixedTextSpacing = saved
+                if not ok then
+                    error(result)
+                end
+                return result
+            end)
+
+            -- The spell list (ACT and spell names) uses half the regular CJK
+            -- spacing as well.
+            HookSystem.hook(DarkPowerMenu, "drawSpells", function(orig, self, ...)
+                local saved = cjk.settings.cjkFixedTextSpacing
+                cjk.settings.cjkFixedTextSpacing = cjk.settings.cjkTitleTextSpacing
+                local ok, result = xpcall(function()
+                    return orig(self)
+                end, debug.traceback)
+                cjk.settings.cjkFixedTextSpacing = saved
+                if not ok then
+                    error(result)
+                end
+                return result
+            end)
+        end
+
+        if DarkEquipMenu then
+            -- The equip menu shows the same stat labels; keep them at half the
+            -- regular CJK spacing too.
+            HookSystem.hook(DarkEquipMenu, "drawStats", function(orig, self, ...)
+                local saved = cjk.settings.cjkFixedTextSpacing
+                cjk.settings.cjkFixedTextSpacing = cjk.settings.cjkTitleTextSpacing
+                local ok, result = xpcall(function()
+                    return orig(self)
+                end, debug.traceback)
+                cjk.settings.cjkFixedTextSpacing = saved
+                if not ok then
+                    error(result)
+                end
+                return result
+            end)
+
+            -- The equipped slots (weapon + two armors) also draw item names
+            -- with CJK spacing; halve it as well.
+            HookSystem.hook(DarkEquipMenu, "drawEquipped", function(orig, self, ...)
+                local saved = cjk.settings.cjkFixedTextSpacing
+                cjk.settings.cjkFixedTextSpacing = cjk.settings.cjkTitleTextSpacing
+                local ok, result = xpcall(function()
+                    return orig(self)
                 end, debug.traceback)
                 cjk.settings.cjkFixedTextSpacing = saved
                 if not ok then
@@ -898,6 +986,14 @@ return function(ctx)
         if refresh_assets ~= false then
             refreshLocalizedAssets()
         end
+
+        -- Debug menu option names are baked in when the menus are (re)built;
+        -- the engine only rebuilds them on game load, so rebuild them here too
+        -- or they would stay in the previous language.
+        if Kristal and Kristal.DebugSystem then
+            Kristal.DebugSystem:refresh()
+        end
+
         return true
     end
 

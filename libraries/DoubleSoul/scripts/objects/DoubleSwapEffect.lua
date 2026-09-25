@@ -1,4 +1,4 @@
-local DoubleSwapEffect, super = Class(Sprite)
+local DoubleSwapEffect, super = Class(Object)
 
 function DoubleSwapEffect:init(x, y)
     super.init(self, "player/heart_dodge_full", x, y)
