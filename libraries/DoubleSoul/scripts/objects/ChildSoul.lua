@@ -1,6 +1,6 @@
-local LeftSoul, super = Class(Soul)
+local ChildSoul, super = Class(Soul)
 
-function LeftSoul:init(x, y, color)
+function ChildSoul:init(x, y, color)
     super.init(self, x, y, color)
     self.color = {0, 1, 1}
 
@@ -17,18 +17,18 @@ function LeftSoul:init(x, y, color)
     self.can_damage = "left"
 end
 
-function LeftSoul:onDamage(bullet, amount)
+function ChildSoul:onDamage(bullet, amount)
     super.onDamage(self, bullet, amount)
     if self.sync_inv then
         Game.battle.soul.double_right.inv_timer = self.inv_timer
     end
 end
 
-function LeftSoul:doMovement(x, y)
+function ChildSoul:doMovement(x, y)
     self.x, self.y = self.x + (x or super.x or 0), self.y + (y or super.y or 0)
 end
 
-function LeftSoul:update()
+function ChildSoul:update()
     if self.transitioning then
         if self.timer >= 7 then
             Input.clear("cancel")
@@ -117,7 +117,7 @@ function LeftSoul:update()
     super.super.update(self)
 end
 
-function LeftSoul:onSwap(swapped)
+function ChildSoul:onSwap(swapped)
     self.mask_sprite:setColor(1, 1, 1, 0)
     
     if swapped then
@@ -133,4 +133,4 @@ function LeftSoul:onSwap(swapped)
     end
 end
 
-return LeftSoul
+return ChildSoul

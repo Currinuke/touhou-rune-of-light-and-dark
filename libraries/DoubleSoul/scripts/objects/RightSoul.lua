@@ -24,7 +24,7 @@ function RightSoul:onDamage(bullet, amount)
     end
 end
 
-function Soul:update()
+function RightSoul:update()
     if self.transitioning then
         if self.timer >= 7 then
             Input.clear("cancel")
