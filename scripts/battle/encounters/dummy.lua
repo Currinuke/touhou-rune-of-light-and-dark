@@ -1,15 +1,13 @@
-local Dummy, super = Class(Encounter)
+local MetalDummy, super = Class(Encounter)
 
-function Dummy:init()
-    super.init(self)
+function MetalDummy:init()
+	super.init(self)
 
-    self.text = "* The tutorial begins...?"
-    self.music = "battle"
-    self.background = true
+	self.text = Game:loc("encounter_metal_dummy_start")
+	self.music = "battle"
+	self.background = false
 
-    for i = 1, 2 do
-        self:addEnemy("dummy", math.random(400, 600), math.random(20, 260))
-    end
+	self:addEnemy("dummy")
 end
 
-return Dummy
+return MetalDummy

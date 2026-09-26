@@ -89,7 +89,7 @@
  "spell_scare_burster_castMessage": "* [var:userName] used [var:castName]!",
 
  "spell_wind_flower_data_falsifier_name": "D.Falsifier",
- "spell_wind_flower_data_falsifier_castName": "W.F.「DATA FALSIFIER」",
+ "spell_wind_flower_data_falsifier_castName": "W.F.「Data Falsifier」",
  "spell_wind_flower_data_falsifier_effect": "Falsify\nHP stats",
  "spell_wind_flower_data_falsifier_description": "",
 

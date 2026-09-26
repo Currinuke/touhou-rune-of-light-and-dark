@@ -23,14 +23,14 @@ function Remilia:init()
 	self.tired_percentage = 0
 	self.low_health_percentage = 0.1
 
-	self:registerIndexAct(self.act_talk, 2)
+	self:registerIndexAct(self.act_kogasa_talk, 2)
 	self:registerIndexAct(self.act_seija_talk, 3, nil, {"seija"})
 	self:registerIndexAct(self.act_rin_talk, 4, nil, {"rin"})
 end
 
 function Remilia:applyLocalization(update_acts)
 	local old_check = self.act_check
-	local old_talk = self.act_talk
+	local old_talk = self.act_kogasa_talk
 	local old_seija_talk = self.act_seija_talk
 	local old_rin_talk = self.act_rin_talk
 	local old_me_shield = self.act_me_shield
@@ -60,12 +60,12 @@ function Remilia:applyLocalization(update_acts)
 	self.low_health_text = Game:loc("enemy_remilia_low_health")
 
 	self.act_check = Game:loc("act_check")
-	self.act_talk = Game:loc("act_remilia_talk")
+	self.act_kogasa_talk = Game:loc("act_remilia_kogasa_talk")
 	self.act_seija_talk = Game:loc("act_remilia_seija_talk")
 	self.act_rin_talk = Game:loc("act_remilia_rin_talk")
 	self.act_me_shield = Game:loc("act_remilia_me_shield")
 	self.act_scare_burster = Game:loc("act_remilia_scare_burster")
-	self.act_data_falsifier = Game:loc("act_remildata_falsifierier")
+	self.act_data_falsifier = Game:loc("act_remilia_data_falsifier")
 
 	if self.acts and self.acts[1] then
 		self.acts[1].name = self.act_check
@@ -76,7 +76,7 @@ function Remilia:applyLocalization(update_acts)
 			if act.name == old_check then
 				act.name = self.act_check
 			elseif act.name == old_talk then
-				act.name = self.act_talk
+				act.name = self.act_kogasa_talk
 			elseif act.name == old_seija_talk then
 				act.name = self.act_seija_talk
             elseif act.name == old_rin_talk then
@@ -92,8 +92,33 @@ function Remilia:applyLocalization(update_acts)
 	end
 end
 
+function Remilia:onActStart(battler, name, index)
+    if name == self.act_check then
+        return super.onAct(self, battler, "Check")
+	elseif name == self.act_kogasa_talk or name == self.act_seija_talk or name == self.act_rin_talk then
+		if index == 2 then
+			battler:setAnimation("battle/act")
+		else
+    		local action = Game.battle:getCurrentAction()
+    		if action.party then
+    		    for _, party_id in ipairs(action.party) do
+    		        Game.battle:getPartyBattler(party_id):setAnimation("battle/act")
+    		    end
+    		end
+		end
+	else
+		battler:setAnimation("battle/idle")
+    	local action = Game.battle:getCurrentAction()
+    	if action.party then
+    	    for _, party_id in ipairs(action.party) do
+    	        Game.battle:getPartyBattler(party_id):setAnimation("battle/idle")
+    	    end
+    	end
+	end
+end
+
 function Remilia:onAct(battler, name, index)
-	if name == self.act_talk or name == self.act_seija_talk or name == self.act_rin_talk then
+	if name == self.act_kogasa_talk or name == self.act_seija_talk or name == self.act_rin_talk then
 		if index == 2 then
 			self:registerIndexAct(self.act_me_shield, 2, Game:loc("spell_me_shield_effect"), nil, 8)
 			Game.battle:startActCutscene("remilia", "kogasa_talk")
@@ -114,6 +139,10 @@ function Remilia:onAct(battler, name, index)
 	end
 
 	return super.onAct(self, battler, name, index)
+end
+
+function Remilia:getTarget()
+	return "ALL"
 end
 
 function Remilia:onTurnStart()

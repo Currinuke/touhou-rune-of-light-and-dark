@@ -6,6 +6,12 @@ function Battle:updateIntro()
 	super.updateIntro(self)
 end
 
+--- Turns a party member's turn from an ACT into a SPELL cast \
+--- *Should be called from inside [`EnemyBattler:onAct()`](lua://EnemyBattler.onAct)*
+---@param spell     string|Spell        The name of the spell that should be casted by `user`
+---@param battler   Battler             The battler that initiates the ACT
+---@param user      string              The id of the battler that should cast the spell
+---@param target?   Battler[]|Battler   An optional list of battlers that
 function Battle:powerAct(spell, battler, user, target)
 	local user_battler = self:getPartyBattler(user)
 	local user_index = self:getPartyIndex(user)

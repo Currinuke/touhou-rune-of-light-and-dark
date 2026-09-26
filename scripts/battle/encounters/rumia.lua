@@ -2,12 +2,10 @@ local Rumia, super = Class(Encounter)
 
 function Rumia:init()
 	super.init(self)
-    self.text = Game:loc("encounter_rumia_start")
-    self.music = "checkers"
-    self.background = true -- false
-    self.hide_world = true
-    self:addEnemy("rumia")
-    self.no_end_message = false
+	self.text = Game:loc("encounter_rumia_start")
+	self.music = "checkers"
+	self.hide_world = true
+	self:addEnemy("rumia")
 end
 
 function Rumia:onActionsEnd()

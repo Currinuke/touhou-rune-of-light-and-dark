@@ -328,6 +328,21 @@ function EnemyBattler:registerShortIndexActFor(char, name, index, description, p
     self.acts[index] = act
 end
 
+--- *(Override)* Called when an ACT on this enemy starts \
+--- *By default, sets the sprties of all battlers involved in the act to `"battle/act"`
+---@param battler PartyBattler  The battler using this act - if it is a multi-act, this only specifies the one who used the command
+---@param name string           The name of the act used
+---@param index number          The index of the act used
+function EnemyBattler:onActStart(battler, name, index)
+    battler:setAnimation("battle/act")
+    local action = Game.battle:getCurrentAction()
+    if action.party then
+        for _, party_id in ipairs(action.party) do
+            Game.battle:getPartyBattler(party_id):setAnimation("battle/act")
+        end
+    end
+end
+
 --- *(Override)* Called when an ACT (including X-Acts, excluding short acts, see [`EnemyBattler:onShortAct()`](lua://EnemyBattler.onShortAct)) is used on this enemy - This function should be overriden to define behaviour for every act \
 --- *By default, manages the `"Check"` act - call `super.onAct(self, battler, name, index)` in any override to ensure Check is still handled* \
 --- *Acts will **softlock** Kristal if a string value or table is not returned by this function when they are used*
