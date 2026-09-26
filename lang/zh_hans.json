@@ -117,7 +117,7 @@
  "world_rm_lake_bridge_cutscene_14": "* 这个嘛... [wait:5]通常来说...",
  "world_rm_lake_bridge_cutscene_15": "* 它会让拿着它的人\n无法抑制住自己杀戮的欲望？",
  "world_rm_lake_bridge_cutscene_16": "* 我们... [wait:10]我们成功了！？",
- "world_rm_lake_bridge_cutscene_17": "* 哇哦！！[wait:5]没想到你们真的\n把她给解决了！！",
+ "world_rm_lake_bridge_cutscene_17": "* 哇哦！！[wait:5]没想到你们真的\n把她解决了！！",
  "world_rm_lake_bridge_cutscene_18": "* 你们真是英雄！！",
  "world_rm_lake_bridge_cutscene_19": "* 不用花20分钟的时间\n绕路回红魔馆了！！",
  "world_rm_lake_bridge_cutscene_20": "* 对，[wait:5]对，[wait:5]我知道我干得挺不错，\n对吧...？",
@@ -219,8 +219,8 @@
  "legend_dark_world_truth_34": "也都不再是真实的了。",
  "legend_dark_world_truth_35": "就连现在站在你们面前的我...\n[wait:15][speed:0.125]其实甚至都...",
 
- "shop_meirin_encounter": "* 欢迎光临[name:hong]师傅杂货铺。\n[wait:10]* 有什么需要的吗？",
- "shop_meirin_main": "* 慢慢来，[wait:5]放轻松...\n[wait:5]不必着急...",
+ "shop_meirin_encounter": "[emote:idle]* 欢迎光临\n[name:hong]师傅杂货铺。\n[wait:10]* 有什么需要的吗？",
+ "shop_meirin_main": "[emote:idle]* 慢慢来，[wait:5]放轻松...\n[wait:5]不必着急...",
  "shop_meirin_leaving": "* 一路顺风！",
 
  "shop_meirin_buy_menu": "有什么想买的\n尽管说。",
@@ -230,36 +230,36 @@
  "shop_meirin_buy_too_expensive": "抱歉，\n不打折。",
  "shop_meirin_buy_no_space": "你拿的东西\n太多了。",
 
- "shop_meirin_sell_dialogue_1": "[emote:idle]* 哈？\n[wait:5]你有东西要卖给我？",
- "shop_meirin_sell_dialogue_2": "[emote:left]* 抱歉[wait:5]，我这里可不是废品回收站。\n[wait:10]* 我要卖东西维持生计，[wait:5]不是买垃圾放着看戏。",
+ "shop_meirin_sell_dialogue_1": "* 哈？\n[wait:5]你有东西要卖给我？",
+ "shop_meirin_sell_dialogue_2": "* 抱歉，[wait:5]我这里可不是废品回收站。\n[wait:10]* 我要卖东西维持生计，[wait:5]不是买垃圾放着看戏。",
  
  "shop_meirin_talk_menu": "有什么想聊的\n尽管说。",
 
  "shop_meirin_talk_about": "关于你自己",
- "shop_meirin_about_1": "[emote:idle]* 我？[wait:5]我的名字是[name:hong_meirin]，\n[wait:5]红魔馆的门卫。",
- "shop_meirin_about_2": "[emote:left]* 至少曾经是。\n[wait:10]* 现在我只是个开杂货铺的普通妖怪罢了。",
+ "shop_meirin_about_1": "* 我？[wait:5]我的名字是[name:hong_meirin]，\n[wait:5]红魔馆的门卫。",
+ "shop_meirin_about_2": "* 至少之前是。\n[wait:10]* 现在我只是个开杂货铺的普通妖怪罢了。",
 
  "shop_meirin_talk_mansion": "红魔馆",
- "shop_meirin_mansion_1": "[emote:idle]* 红魔馆是[name:remilia_scarlet]大小姐的府邸。\n[wait:10]* 也是我曾经工作的地方。",
- "shop_meirin_mansion_2": "[emote:idle]* 如今它已变成了一座戒备森严的城堡，\n[wait:5]危险程度比之前高了大约七成。",
- "shop_meirin_mansion_3": "[emote:idle]* 作为红魔馆的前任门卫，\n[wait:5]我对此深感惋惜。\n[wait:10]* 毕竟，[wait:5]再也看不到那些妖精\n在红魔馆门口玩耍了。",
+ "shop_meirin_mansion_1": "* 红魔馆是[name:remilia_scarlet]大小姐的府邸。\n[wait:10]* 也是我曾经工作的地方。",
+ "shop_meirin_mansion_2": "* 如今它已变成了一座戒备森严的城堡，\n[wait:5]危险程度比之前高了大约七成。",
+ "shop_meirin_mansion_3": "* 作为红魔馆的前任门卫，\n[wait:5]我对此深感惋惜。\n[wait:10]* 毕竟，[wait:5]再也看不到那些妖精\n在红魔馆门口玩耍了。",
 
  "shop_meirin_talk_bandage": "头上的绷带...",
- "shop_meirin_bandage_1": "[emote:left]* 我头上缠的绷带？\n[wait:10]* 那是[name:remilia_scarlet]大小姐亲自刺穿的。",
- "shop_meirin_bandage_2": "[emote:idle]* 要不是我命硬，[wait:5]我当时就死透了。",
- "shop_meirin_bandage_3": "[emote:idle]* 不过就算这样，\n[wait:5]我也不会恨[name:remilia]大小姐就是了。",
+ "shop_meirin_bandage_1": "* 我头上缠的绷带？\n[wait:10]* 那是[name:remilia_scarlet]大小姐亲自刺穿的。",
+ "shop_meirin_bandage_2": "* 要不是我命硬，[wait:5]我当时就死透了。",
+ "shop_meirin_bandage_3": "* 不过就算这样，\n[wait:5]我也不会恨[name:remilia]大小姐就是了。",
 
  "shop_meirin_talk_why": "为什么不恨她？",
- "shop_meirin_why_1": "[emote:left]* 要说一点都没有那肯定是骗人的。\n[wait:5]但我知道大小姐并非一直如此。\n[wait:10]* 这当然也不是她的错。",
- "shop_meirin_why_2": "[emote:left]* 不久前，[wait:5]馆内突然发生了异变...\n[wait:10]* 一个黑暗喷泉出现了。",
- "shop_meirin_why_3": "* [name:patchouli]大人被它吸引，[wait:5]决定把它留下来研究。",
+ "shop_meirin_why_1": "* 要说一点都没有那肯定是骗人的。\n[wait:5]但我知道大小姐并非向来如此。\n[wait:10]* 这当然也不是她的错。",
+ "shop_meirin_why_2": "* 不久前，[wait:5]馆内突然发生了异变...\n[wait:10]* 一个黑暗喷泉出现了。",
+ "shop_meirin_why_3": "* [name:patchouli]大人被它吸引，\n[wait:5]决定把它留下来研究。",
  "shop_meirin_why_4": "* 但随着时间的推移，\n[wait:5]馆里的大家都变得越来越古怪。\n[wait:10]* 就连平时待在馆外的我也受到了些许影响。",
- "shop_meirin_why_5": "* 正当我去大图书馆请[name:patchouli]大人停止研究，\n[wait:5]向她解释影响时，[wait:5]大小姐拦住了我。",
- "shop_meirin_why_6": "* 一番争执后，[wait:5]大小姐召唤出冈格尼尔，\n[wait:5]把我的头刺了个对穿...\n[wait:10][emote:idle]* 抱歉，[wait:5]我有点跑题了，是吧？",
+ "shop_meirin_why_5": "* 正当我要去大图书馆\n向[name:patchouli]大人解释影响，\n[wait:5]请她停止研究的时侯，[wait:5]大小姐拦住了我。",
+ "shop_meirin_why_6": "* 一番争执后，[wait:5]大小姐召唤出冈格尼尔，\n[wait:5]把我的头刺了个对穿...\n[wait:10]* 抱歉，[wait:5]我有点跑题了，是吧？",
  "shop_meirin_why_7": "* 总之，[wait:5]大小姐本性并不坏。\n[wait:10]* 她只是受那个所谓的黑暗喷泉影响\n才变成这样的。",
 
  "shop_meirin_talk_legendary": "我们就是传说之人",
- "shop_meirin_legendary_1": "[emote:happy]* 看来那个传言是真的，是吧？\n[wait:10]* 你们看起来确实有点英雄气概。",
- "shop_meirin_legendary_2": "[emote:idle]* 抱歉，我能帮上忙的也只有\n卖给你们一些可能有用的小玩意儿了。",
+ "shop_meirin_legendary_1": "* 看来那个传言是真的，[wait:5]是吧？\n[wait:10]* 你们看起来确实有点英雄气概。",
+ "shop_meirin_legendary_2": "* 抱歉，[wait:5]我能帮上忙的也只有\n卖给你们一些可能有用的小玩意儿了。",
  "shop_meirin_legendary_3": "* 而且我也没法给你们打折。\n[wait:10]* 我也得养活我自己啊，你懂吧？"
 }

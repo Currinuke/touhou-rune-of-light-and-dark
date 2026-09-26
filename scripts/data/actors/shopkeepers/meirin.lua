@@ -1,69 +1,79 @@
 local actor, super = Class(Actor, "shopkeepers/meirin")
 
 function actor:init()
-    super.init(self)
+	super.init(self)
 
-    self.name = "Meiling"
+	self.name = "Meiling"
 
-    self.width = 96
-    self.height = 114
+	self.width = 98
+	self.height = 112
 
-    self.path = "shopkeepers/meirin"
-    self.default = "idle"
+	self.path = "shopkeepers/meirin"
+	self.default = "idle"
 
-    self.animations = {
-        ["idle"] = {"talk", function(sprite, wait)
-            while true do
-                sprite:setFrame(1)
-                wait(2)
-                sprite:setFrame(2)
-                wait(3/30)
-                sprite:setFrame(1)
-                wait(3/30)
-                sprite:setFrame(2)
-                wait(3/30)
-            end
-        end}
-    }
+	self.animations = {
+		["idle"] = {"idle", function(sprite, wait)
+			while true do
+				sprite:setFrame(1)
+				wait(MathUtils.random(2.6, 4.4))
+				sprite:setFrame(2)
+				wait(0.1)
+				sprite:setFrame(3)
+				wait(0.1)
+				sprite:setFrame(4)
+				wait(0.1)
+				sprite:setFrame(3)
+				wait(0.1)
+				sprite:setFrame(2)
+				wait(0.1)
+			end
+		end},
+		["show"] = {"show", function(sprite, wait)
+			while true do
+				sprite:setFrame(1)
+				wait(MathUtils.random(2.6, 4.4))
+				sprite:setFrame(2)
+				wait(0.1)
+				sprite:setFrame(3)
+				wait(0.1)
+				sprite:setFrame(4)
+				wait(0.1)
+				sprite:setFrame(3)
+				wait(0.1)
+				sprite:setFrame(2)
+				wait(0.1)
+			end
+		end}
+	}
 
-    self.talk_sprites = {
-        ["talk"] = 0.125,
-        ["explaining_talk"] = 0.125,
-        ["left_talk"] = 0.125,
-        ["happy_talk"] = 0.125
-    }
+	self.talk_sprites = {
+		["talk"] = 0.125,
+		["show_talk"] = 0.125
+	}
 
-    self.offsets = {
-        ["talk"] = {-80, -60},
-        ["left"] = {-80, -60},
-        ["left_talk"] = {-80, -60},
-        ["explaining"] = {-80, -60},
-        ["explaining_talk"] = {-80, -60}
-    }
+	self.offsets = {
+		["idle"] = {0, 0},
+		["show"] = {0, 0},
+
+		["talk"] = {0, 0},
+        ["show_talk"] = {0, 0}
+	}
 end
 
 function actor:onTalkStart(text, sprite)
-    if sprite.sprite == "idle" then
-        sprite:setSprite("talk")
-    elseif sprite.sprite == "left" then
-        sprite:setSprite("left_talk")
-    elseif sprite.sprite == "explaining" then
-        sprite:setSprite("explaining_talk")
-    elseif sprite.sprite == "happy" then
-        sprite:setSprite("happy_talk")
-    end
+	if sprite.sprite == "idle" then
+		sprite:setSprite("talk")
+	elseif sprite.sprite == "show" then
+		sprite:setSprite("show_talk")
+	end
 end
 
 function actor:onTalkEnd(text, sprite)
-    if sprite.sprite == "talk" then
-        sprite:setAnimation("idle")
-    elseif sprite.sprite == "left_talk" then
-        sprite:setSprite("left")
-    elseif sprite.sprite == "explaining_talk" then
-        sprite:setSprite("explaining")
-    elseif sprite.sprite == "happy_talk" then
-        sprite:setSprite("happy")
-    end
+	if sprite.sprite == "talk" then
+		sprite:setAnimation("idle")
+	elseif sprite.sprite == "show_talk" then
+		sprite:setSprite("show")
+	end
 end
 
 return actor

@@ -43,15 +43,12 @@ function DoubleSoul:init(x, y, color)
     })
 end
 
-
-function DoubleSoul:onRemove(parent)
+function DoubleSoul:onRemoveFromStage(stage)
+    super.onRemove(self, stage)
     if self.swap_sfx then
-        --if self.swap_sfx:isPlaying() then
-            self.swap_sfx:stop()
-        --end
-        
+        self.swap_sfx:stop()
+        self.swap_sfx = nil
     end
-    super.onRemove(self, parent)
 end
 
 --[[

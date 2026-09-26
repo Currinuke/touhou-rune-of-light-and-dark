@@ -7,7 +7,7 @@ return function(cutscene)
     slide.x = (SCREEN_WIDTH - slide.width * slide.scale_x) / 2
     slide.y = 160
 
-    cutscene:setSpeed(0.25)
+    cutscene:setSpeed(0.5)
     local duration = Game.legend.music.source:getDuration()
     for i = 1, 34 do
         cutscene:text("{legend_dark_world_truth_" .. i .. "}", "far_left").state.typing_sound = "ralsei"

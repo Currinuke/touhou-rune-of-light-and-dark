@@ -219,9 +219,9 @@
  "legend_dark_world_truth_34": "也都不再是真实的了。",
  "legend_dark_world_truth_35": "就连现在站在你们面前的我...\n[wait:15][speed:0.125]其实甚至都...",
 
- "shop_meirin_encounter": "* Welcome to Master [name:hong]'s Grocery.\n[wait:10]* How can I help you?",
- "shop_meirin_main": "* Thanks for visiting my little old place.",
- "shop_meirin_leaving": "* Come back any time!",
+ "shop_meirin_encounter": "[emote:idle]* Welcome to Master [name:hong]'s Grocery.\n[wait:10]* How can I help you?",
+ "shop_meirin_main": "[emote:idle]* Thanks for visiting my little old place.",
+ "shop_meirin_leaving": "[emote:idle]* Come back any time!",
 
  "shop_meirin_buy_menu": "Just buy anything you want.",
  "shop_meirin_buy_confirmation": "Buy it for\n%s ?",
@@ -231,13 +231,13 @@
  "shop_meirin_buy_no_space": "You're\ncarrying\ntoo much.",
 
  "shop_meirin_sell_dialogue_1": "[emote:idle]* Huh?\n[wait:5]You have something to sell me?",
- "shop_meirin_sell_dialogue_2": "[emote:left]* Sorry, but here's no scrapyard.\n[wait:10]* I'm trying to make a living by stuff-selling,\nnot junk-buying.",
+ "shop_meirin_sell_dialogue_2": "[emote:idle]* Sorry, but here's no scrapyard.\n[wait:10]* I'm trying to make a living by stuff-selling,\nnot junk-buying.",
  
  "shop_meirin_talk_menu": "Feel free to ask anything.",
 
  "shop_meirin_talk_about": "About yourself",
  "shop_meirin_about_1": "[emote:idle]* Me?[wait:5] My name's [name:hong_meirin],\n[wait:5]the gatekeeper at\nScarlet Devil Mansion.",
- "shop_meirin_about_2": "[emote:left]* At least I was one.\n[wait:10]* Now I'm just a nameless youkai running a small shop.",
+ "shop_meirin_about_2": "[emote:idle]* At least I was one.\n[wait:10]* Now I'm just a nameless youkai running a small shop.",
 
  "shop_meirin_talk_mansion": "Scarlet Devil Mansion",
  "shop_meirin_mansion_1": "[emote:idle]* The Scarlet Devil Mansion, the residence of Lady [name:remilia_scarlet].\n[wait:10]* It's also where I used to work.",
@@ -245,13 +245,13 @@
  "shop_meirin_mansion_3": "[emote:idle]* As the former gatekeeper,\n[wait:5]I feel deeply sorry about that.\n[wait:10]* After all, you'll never see those fairies playing at the Mansion's gate again.",
 
  "shop_meirin_talk_bandage": "Bandage on the head...",
- "shop_meirin_bandage_1": "[emote:left]* Are you talking about the bandages wrapped around my head?\n[wait:10]* Those were pierced through by Ladyress [name:remilia_scarlet] herself.",
+ "shop_meirin_bandage_1": "[emote:idle]* Are you talking about the bandages wrapped around my head?\n[wait:10]* Those were pierced through by Ladyress [name:remilia_scarlet] herself.",
  "shop_meirin_bandage_2": "[emote:idle]* If I weren't so resilient, I'd have been dead for good.",
  "shop_meirin_bandage_3": "[emote:idle]* But even so, I won't hate Lady [name:remilia] anyway.",
 
  "shop_meirin_talk_why": "Why not hate her?",
- "shop_meirin_why_1": "[emote:left]* To say there's none at all would be a lie. But I know Lady Remilia wasn't always like that.\n[wait:10]* And this is certainly not her fault.",
- "shop_meirin_why_2": "[emote:left]* A while ago, [wait:5]something unusual suddenly occurred inside the Mansion...\n[wait:10]* A dark fountain appeared.",
+ "shop_meirin_why_1": "[emote:idle]* To say there's none at all would be a lie. But I know Lady Remilia wasn't always like that.\n[wait:10]* And this is certainly not her fault.",
+ "shop_meirin_why_2": "[emote:idle]* A while ago, [wait:5]something unusual suddenly occurred inside the Mansion...\n[wait:10]* A dark fountain appeared.",
  "shop_meirin_why_3": "* Lady Patchouli was drawn to it and decided to keep it for study.",
  "shop_meirin_why_4": "* But as time went on, [wait:5]everyone in the Mansion started acting strangely.\n[wait:10]* Even I, who usually live outside, was somewhat affected.",
  "shop_meirin_why_5": "* Just as I was heading to the grand library to ask Lady Patchouli to stop her research and explain the effecMistLady Remilia stopped me.",
@@ -259,7 +259,7 @@
  "shop_meirin_why_7": "* Anyway, [wait:5]Lady Remilia isn't bad by nature.\n[wait:10]* She only became this way because of the influence of that so-called dark fountain.",
 
  "shop_meirin_talk_legendary": "We're legendary",
- "shop_meirin_legendary_1": "[emote:happy]* So that rumor is true, huh?\n[wait:10]* You guys do seem to have some heroic streak.",
+ "shop_meirin_legendary_1": "[emote:idle]* So that rumor is true, huh?\n[wait:10]* You guys do seem to have some heroic streak.",
  "shop_meirin_legendary_2": "[emote:idle]* Sorry, but the only help I can offer is to sell you some stuff that could be useful.",
  "shop_meirin_legendary_3": "* And I can't give you a discount either.\n[wait:10]* I've got to make a living myself, you know?"
 }

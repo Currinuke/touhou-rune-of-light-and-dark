@@ -1,61 +1,65 @@
 {
-    "id": "touhou-rune-of-light-and-dark",
-    "name": "Touhou: Rune of Light and Dark",
-    "subtitle": "TH: RoLD - Chapter 1",
+	"id": "touhou-rune-of-light-and-dark",
+	"name": "Touhou: Rune of Light and Dark",
+	"subtitle": "TH: RoLD - Chapter 1",
 
-    "version": "v0.4.1",
-    "engineVer": "v0.10.0",
+	"version": "v0.4.1",
+	"engineVer": "v0.10.0",
 
-    "chapter": 1,
-    "transition": false,
-    "map": "rm_lake_bridge",
+	"chapter": 1,
+	"transition": false,
+	"map": "rm_lake_bridge",
 
-    "party": ["kogasa", "rin", "seija"],
+	"party": ["kogasa", "rin", "seija"],
 
-    "inventory": {
-        "items": [],
-        "key_items": []
-    },
+	"inventory": {
+		"items": [],
+		"key_items": []
+	},
 
-    "equipment": {
-        "kogasa": {
-            "weapon": "old_sleeve",
-            "armor": []
-        },
-        "seija": {
-            "weapon": "rusty_wrist",
-            "armor": []
-        },
-        "rin": {
-            "weapon": "red_flower",
-            "armor": []
-        }
-    },
+	"equipment": {
+		"kogasa": {
+			"weapon": "old_sleeve",
+			"armor": []
+		},
+		"seija": {
+			"weapon": "rusty_wrist",
+			"armor": []
+		},
+		"rin": {
+			"weapon": "red_flower",
+			"armor": []
+		}
+	},
 
-    "hardReset": false,
-    "hidden": false,
-    "setWindowTitleAndIcon": true,
-    "config": {
-        "kristal": {
-            "smallSaveMenu": false,
-            "mercyMessages": true,
-            "mercyBar": true,
-            "enemyBarPercentages": true,
-            "checkActDescription": true,
-            "soulInvBetweenWaves": false
-        },
-        "kristalI18n": {
-            "defaultLanguage": "auto",
-            "defaultNameLanguage": "auto",
-            "languages": ["en", "zh_hans"],
-            "languageNames": {
-                "en": "English",
-                "zh_hans": "简体中文"
-            },
-            "cjkDialogueYOffset": 0,
-            "cjkTypewriterSpeedMultiplier": 0.7
-        }
-    },
+	"hardReset": false,
+	"hidden": false,
+	"setWindowTitleAndIcon": true,
+	"config": {
+		"kristal": {
+			"smallSaveMenu": false,
+			"mercyMessages": true,
+			"mercyBar": true,
+			"enemyBarPercentages": true,
+			"checkActDescription": true,
+			"soulInvBetweenWaves": false,
+		    "darkCurrency": "Yen",
+	        "darkCurrencyShort": "¥",
+	        "lightCurrency": "Yen",
+	        "lightCurrencyShort": "¥"
+		},
+		"kristalI18n": {
+			"defaultLanguage": "auto",
+			"defaultNameLanguage": "auto",
+			"languages": ["en", "zh_hans"],
+			"languageNames": {
+				"en": "English",
+				"zh_hans": "简体中文"
+			},
+			"cjkDialogueYOffset": 0,
+			"cjkTypewriterSpeedMultiplier": 0.7
+		}
+	},
 
-    "dev": true
+	"dev": true
 }
