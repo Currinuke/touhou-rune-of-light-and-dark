@@ -27,7 +27,7 @@ function DarkStorageMenu:drawStorage(list)
 
     Draw.setColor(self.list == list and PALETTE["world_light_gray"] or PALETTE["world_dark_gray"])
     local storage_name = storage.id == "items"
-        and Game:loc("pocket_sotrage")
+        and Game:loc("pocket_storage")
         or (Game:hasStr("storage_" .. tostring(storage.id))
             and Game:loc("storage_" .. tostring(storage.id))
             or Game:locText(storage.name))

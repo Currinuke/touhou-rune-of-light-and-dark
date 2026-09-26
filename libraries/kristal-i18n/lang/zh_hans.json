@@ -19,7 +19,7 @@
  "light_stat_armor": "防具：[var:value]",
  "light_stat_money": "金钱：[var:value]",
  "no_item_storage": "---",
- "pocket_sotrage": "口袋",
+ "pocket_storage": "口袋",
  "page_storage": "页数 ",
  "storage_items": "物品",
  "storage_key_items": "重要物品",
@@ -1344,5 +1344,7 @@
  "bonus_scythe_tp_down": "梦魇之镰TP-",
  "bonus_inv_time_up": "无敌时间+",
  "bonus_cat_defend": "猫抗性",
- "bonus_skill_20_percent": "法术效果＋20%"
+ "bonus_skill_20_percent": "法术效果＋20%",
+
+ "storage_nothing": "（无）"
 }

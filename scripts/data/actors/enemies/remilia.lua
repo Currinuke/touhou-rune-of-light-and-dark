@@ -26,7 +26,7 @@ function actor:init(style)
         ["battle/attack"]       = {"battle/attack", 1/15, false},
 
         ["battle/transition"]   = {self.default.."/right_1", 1/15, false},
-        ["battle/intro"]        = {"battle/intro", 1/15, false},
+        ["battle/intro"]        = {"battle/intro", 1/15, false, next = "battle/idle"},
         ["battle/transition_out"] = {"battle/transition_out", 1/15, false},
     }
 
@@ -39,10 +39,10 @@ function actor:init(style)
         ["walk/up"] = {0, 0},
 
         -- Battle offsets
-        ["battle/idle"] = {5,4},
-        ["battle/intro"] = {0,0},
+        ["battle/idle"] = {5, 4},
+        ["battle/intro"] = {0, 0},
 
-        ["battle/attack"] = {0,0},
+        ["battle/attack"] = {0, 0},
     }
 end
 

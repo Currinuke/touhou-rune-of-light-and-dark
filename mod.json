@@ -41,7 +41,8 @@
             "mercyMessages": true,
             "mercyBar": true,
             "enemyBarPercentages": true,
-            "checkActDescription": false
+            "checkActDescription": true,
+            "soulInvBetweenWaves": false
         },
         "kristalI18n": {
             "defaultLanguage": "auto",
@@ -51,6 +52,7 @@
                 "en": "English",
                 "zh_hans": "简体中文"
             },
+            "cjkDialogueYOffset": 0,
             "cjkTypewriterSpeedMultiplier": 0.7
         }
     },

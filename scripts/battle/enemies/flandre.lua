@@ -22,7 +22,7 @@ function Flandre:init()
     -- Dialogue randomly displayed in the enemy's speech bubble
     self.dialogue = {
         "OHhhahdiahfoas",
-        "OHewrahdiahfaef-hdiahfoas",
+        "OHewra",
         "Oaweagiahfoas",
         "OHhhaasdfashfoas"
     }

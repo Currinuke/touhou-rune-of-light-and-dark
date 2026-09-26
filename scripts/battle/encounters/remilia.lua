@@ -3,13 +3,11 @@ local Remilia, super = Class(Encounter)
 function Remilia:init()
     super.init(self)
 
-    self.text = "* The Scarlet Devil blocked the\nway!"
+    self.text = Game:loc("encounter_remilia_start")
     self.music = "kingboss"
     self.background = false
 
-    self.remilia=self:addEnemy("remilia")
-
-    self.remilia:setAnimation('battle/intro',function()self.remilia:resetSprite()end)
+    self:addEnemy("remilia"):setAnimation("battle/intro")
     
     self.no_end_message = true
 end
@@ -26,11 +24,11 @@ function Remilia:onMenuSelect(state_reason, item, can_select)
 end
 
 function Remilia:getNextWaves()
-	local waves=super.getNextWaves(self)
-	if Game.battle.turn_count==1 then
-		waves[1]='remilia/wave1'
-	elseif Game.battle.turn_count==2 then
-		waves[1]='remilia/wave2'
+	local waves = super.getNextWaves(self)
+	if Game.battle.turn_count == 1 then
+		waves[1] = 'remilia/wave1'
+	elseif Game.battle.turn_count == 2 then
+		waves[1] = 'remilia/wave2'
 	end
 	return waves
 end

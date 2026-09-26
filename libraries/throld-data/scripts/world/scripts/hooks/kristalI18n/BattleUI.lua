@@ -17,7 +17,7 @@ local function hasCjkText(text)
 	end
 	return false
 end
-		
+
 local function hasMultipleCodepoints(text)
 	local count = 0
 	for _ in utf8.codes(text) do
@@ -34,7 +34,7 @@ local function shouldPrintWithCjkSpacing(text)
 		and Game.lang == "zh_hans"
 		and hasCjkText(text)
 		and hasMultipleCodepoints(text)
-	end
+end
 
 local function getCjkPrintedTextWidth(font, text)
 	local width = 0
@@ -65,7 +65,9 @@ local function getPrintedTextWidth(font, text)
 end
 
 function BattleUI:drawState()
-	if Game.battle.state == "ENEMYSELECT" then
+	if Game.battle.state ~= "ENEMYSELECT" then
+		super.drawState(self) -- 应用原函数
+	else
 		local enemies = Game.battle.enemies_index
 
 		local page = math.ceil(Game.battle.current_menu_y / 3) - 1
@@ -267,8 +269,6 @@ function BattleUI:drawState()
 		if arrow_up then
 			Draw.draw(self.arrow_sprite, 20, 70 - (math.sin(Kristal.getTime() * 6) * 2), 0, 1, -1)
 		end
-	else
-		super.drawState(self)
 	end
 end
 

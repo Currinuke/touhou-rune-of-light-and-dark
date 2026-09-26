@@ -1,15 +1,10 @@
 local DarkPowerMenu, super = HookSystem.hookScript(DarkPowerMenu)
 
-function DarkPowerMenu:getSpells()
-    local spells = {}
-    local party = self.party:getSelected()
-    if party:hasAct() then
-        table.insert(spells, Registry.createSpell("_act"))
-    end
-    for _,spell in ipairs(party:getSpells()) do
-        table.insert(spells, spell)
-    end
-    return spells
+function DarkPowerMenu:drawChar()
+	local party = self.party:getSelected()
+	Draw.setColor(PALETTE["world_text"])
+	love.graphics.printf(party:getName(), -235, -7, 640, "center")
+	love.graphics.print(party:getTitle(), 238, -7)
 end
 
 return DarkPowerMenu

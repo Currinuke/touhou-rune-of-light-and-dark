@@ -19,7 +19,7 @@
  "light_stat_armor": "ARMOR: [var:value]",
  "light_stat_money": "MONEY: [var:value]",
  "no_item_storage": "---",
- "pocket_sotrage": "POCKET",
+ "pocket_storage": "POCKET",
  "page_storage": "Page",
  "storage_items": "ITEMs",
  "storage_key_items": "KEY ITEMs",
@@ -1475,5 +1475,7 @@
  "bonus_scythe_tp_down": "ScytheTP-",
  "bonus_inv_time_up": "InvTime+",
  "bonus_cat_defend": "CatDefend",
- "bonus_skill_20_percent": "Skill20%"
+ "bonus_skill_20_percent": "Skill20%",
+
+ "storage_nothing": "(Nothing)"
 }
