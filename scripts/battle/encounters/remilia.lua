@@ -26,6 +26,8 @@ function Remilia:getNextWaves()
 		waves[1] = 'remilia/wave1'
 	elseif Game.battle.turn_count == 2 then
 		waves[1] = 'remilia/wave2'
+	elseif Game.battle.turn_count == 3 then
+		waves[1] = 'remilia/wave3'
 	end
 	return waves
 end
