@@ -237,10 +237,11 @@ function character:canEquip(item, slot_type, slot_index)
             item = self:getWeapon()
         elseif slot_type == "armor" then
             item = self:getArmor(slot_index)
+            return (not self:getFlag("auto_attack", false))
         else
             return true
         end
-        return (not self:getFlag("auto_attack", false))
+        return false
     end
 end
 
