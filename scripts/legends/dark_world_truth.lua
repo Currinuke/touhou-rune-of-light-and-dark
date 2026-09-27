@@ -3,7 +3,7 @@ return function(cutscene)
     Game.legend.music:play("flashback_excerpt")
     
     local slide = cutscene:slide("legends/dont_forget")
-    slide:setScale(0)
+    slide:setScale(2)
     slide.x = (SCREEN_WIDTH - slide.width * slide.scale_x) / 2
     slide.y = 160
 
