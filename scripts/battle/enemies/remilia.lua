@@ -146,11 +146,11 @@ function Remilia:getTarget()
 end
 
 function Remilia:onTurnStart()
-	local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
+	--[[local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
 
 	if turn > 1 then
 		turn = 7
-	end
+	end]]
 
 	-- self.wave_override = "remilia_" .. tostring(turn)
 	-- self.defense = self.defense - 1

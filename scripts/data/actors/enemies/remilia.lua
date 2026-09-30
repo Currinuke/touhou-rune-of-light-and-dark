@@ -42,7 +42,7 @@ function actor:init(style)
         ["battle/idle"] = {5, 4},
         ["battle/intro"] = {0, 0},
 
-        ["battle/attack"] = {0, 0},
+        ["battle/attack"] = {-6,4},
     }
 end
 
