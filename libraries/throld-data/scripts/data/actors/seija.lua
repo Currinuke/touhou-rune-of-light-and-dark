@@ -107,8 +107,8 @@ function actor:init(style)
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, -1},
-        ["walk/right"] = {0, -1},
+        ["walk/left"] = {0, -2},
+        ["walk/right"] = {0, -2},
         ["walk/up"] = {0, 0},
 
         ["walk_bangs/down"] = {0, -2},
@@ -132,26 +132,26 @@ function actor:init(style)
         ["slide"] = {-5, -12},
 
         -- Battle offsets
-        ["battle/idle"] = {3, -8},
+        ["battle/idle"] = {3, -9},
 
-        ["battle/attack"] = {-24, 2},
-        ["battle/attackready"] = {-24, 2},
-        ["battle/act"] = {5, 10},
-        ["battle/actend"] = {-24, -25},
-        ["battle/actready"] = {5, 10},
-        ["battle/spell"] = {-22, -28},
-        ["battle/spellready"] = {-22, -15},
-        ["battle/item"] = {-22, -1},
-        ["battle/itemready"] = {-22, -1},
-        ["battle/defend"] = {-20, -23},
+        ["battle/attack"] = {-24, 1},
+        ["battle/attackready"] = {-10, 1},
+        ["battle/act"] = {5, 11},
+        ["battle/actend"] = {-24, -26},
+        ["battle/actready"] = {5, 9},
+        ["battle/spell"] = {-22, -29},
+        ["battle/spellready"] = {-22, -16},
+        ["battle/item"] = {-22, -2},
+        ["battle/itemready"] = {-22, -2},
+        ["battle/defend"] = {-20, -24},
         ["battle/swooned"] = {0, 0},
 
-        ["battle/defeat"] = {0, 13},
-        ["battle/hurt"] = {-18, 4},
+        ["battle/defeat"] = {0, 12},
+        ["battle/hurt"] = {-18, 3},
 
-        ["battle/victory"] = {-18, -6},
+        ["battle/victory"] = {-18, -7},
 
-        ["battle/ruleburster"] = {-34, -22},
+        ["battle/ruleburster"] = {-34, -23},
 
         -- Cutscene offsets
         ["pose"] = {-1, -1},

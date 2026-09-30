@@ -156,4 +156,12 @@ function Remilia:onTurnStart()
 	-- self.defense = self.defense - 1
 end
 
+function Remilia:onHurt(damage, battler)
+    self:toggleOverlay(true)
+    if not self:getActiveSprite():setAnimation("hurt") then
+        self:toggleOverlay(false)
+    end
+    self:getActiveSprite():shake(9 / 4, 0, 0.5, 2 / 30)
+end
+
 return Remilia

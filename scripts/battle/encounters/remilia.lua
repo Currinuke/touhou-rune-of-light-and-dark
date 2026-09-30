@@ -10,7 +10,7 @@ function Remilia:init()
 	self.no_end_message = true
 end
 
-
+--[[
 function Remilia:onMenuSelect(state_reason, item, can_select)
 	if state_reason == "ACT" then
 		if item.name == "W.F.[D.F.]" then
@@ -19,7 +19,7 @@ function Remilia:onMenuSelect(state_reason, item, can_select)
 			return false
 		end
 	end
-end
+end--]]
 
 function Remilia:getNextWaves()
 	local waves = super.getNextWaves(self)

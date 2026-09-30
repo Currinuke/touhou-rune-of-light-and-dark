@@ -19,12 +19,14 @@ function Rumia:onActionsEnd()
 end
 
 function Rumia:getNextWaves()
-	local waves=super.getNextWaves(self)
-	if Game.battle.turn_count==1 then
-		waves[1]='rumia/wave1'
-	elseif Game.battle.turn_count==2 then
-		waves[1]='rumia/wave2'
+	local waves = super.getNextWaves(self)
+
+	if Game.battle.turn_count == 1 then
+		waves[1] = "rumia/wave1"
+	elseif Game.battle.turn_count == 2 then
+		waves[1] = "rumia/wave2"
 	end
+	
 	return waves
 end
 
