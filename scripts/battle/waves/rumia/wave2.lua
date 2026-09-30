@@ -39,10 +39,10 @@ function Basic:onStart()
 		self.timer:after(0.5,function()
 			for i=1,2 do
 				warnlinetable[i]:remove()
-				local bullet=self:spawnBullet("rumia/laser",x,y+55,0,0)
-				bullet:setOrigin(0,0)
+				local bullet=self:spawnBullet("rumia/laser",x,y+10,0,0)
+				bullet:setOrigin(0,0.5)
 				bullet.rotation=math.rad(180-135+i*90)
-				self.timer:tween(0.5,bullet,{rotation=math.rad(180-30+i*20)})
+				self.timer:tween(0.5,bullet,{rotation=math.rad(180-12+(i-1)*24)})
 				self.timer:after(0.3,function()self.timer:tween(0.3,bullet,{alpha=0.2},nil,function()bullet:remove()end)end)
 			end
 			Assets.playSound('laz_c',0.7,0.5)
