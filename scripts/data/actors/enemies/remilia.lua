@@ -1,49 +1,54 @@
 local actor, super = Class(Actor, "remilia")
 
 function actor:init(style)
-    super.init(self)
+	super.init(self)
 
-    self.name = "Remilia Scarlet"
+	self.name = "Remilia Scarlet"
 
-    self.width = 34
-    self.height = 44
+	self.width = 18
+	self.height = 37
 
-    self.hitbox = {3, 31, 19, 14}
+	self.hitbox = {0, 23, 18, 14}
 
-    self.color = {1, 0, 1}
+	self.color = {1, 0, 1}
 
-    self.path = "enemies/remilia"
-    self.default = "battle/idle"
+	self.path = "enemies/remilia"
+	self.default = "wait"
 
-    self.voice = "remilia"
-    self.portrait_path = "face/remilia"
-    self.portrait_offset = {-22, -14}
-    
-    self.animations = {
-        -- Battle animations
-        ["battle/idle"]         = {"battle/idle", 1/9, true},
+	self.voice = "remilia"
+	self.portrait_path = "face/remilia"
+	self.portrait_offset = {-22, -14}
 
-        ["battle/attack"]       = {"battle/attack", 1/15, false},
+	self.animations = {
+		["battle/idle"] = {"battle/idle", 1/9, true},
+		["battle/idle_handup"] = {"battle/idle_handup", 1/9, true},
 
-        ["battle/transition"]   = {self.default.."/right_1", 1/15, false},
-        ["battle/intro"]        = {"battle/intro", 1/15, false, next = "battle/idle"},
-        ["battle/transition_out"] = {"battle/transition_out", 1/15, false},
-    }
+		["battle/attack"] = {"battle/attack", 1/15, false},
 
-    -- Table of sprite offsets (indexed by sprite name)
-    self.offsets = {
-        -- Movement offsets
-        ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
-        ["walk/up"] = {0, 0},
+		["battle/intro"] = {"battle/intro", 1/15, false, next = "battle/idle"},
 
-        -- Battle offsets
-        ["battle/idle"] = {5, 4},
-        ["battle/intro"] = {0, 0},
+		["wait"] = {"wait", 0, false},
+		["walk/left"] = {"walk/left", 1/10, true},
+		["walk/right"] = {"walk/right", 1/10, true},
+		["freezed"] = {"freezed", 0, false},
+        ["wet"] = {"wet", 1/9, true},
+	}
 
-        ["battle/attack"] = {-6,4},
-    }
+	self.offsets = {
+		-- 96*96 --> {-39, -27}
+        -- offset = trim (usually positive) + (-39 or -27)
+		["wait"] = {0, 0},
+		["walk/left"] = {1, 0},
+		["walk/right"] = {-4, 0},
+		["freezed"] = {-9, 0},
+        ["wet"] = {-32, -11},
+
+		["battle/idle"] = {-3, -5},
+		["battle/idle_handup"] = {-9, -5},
+		["battle/intro"] = {-8, -9},
+
+		["battle/attack"] = {-14, -5}
+	}
 end
 
 return actor

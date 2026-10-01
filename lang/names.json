@@ -1,1 +1,14 @@
-{}
+{
+	"patchouli": {
+		"en": "Patchouli",
+		"zh_hans": "帕秋莉"
+	},
+	"knowledge": {
+		"en": "Knowledge",
+		"zh_hans": "诺蕾姬"
+	},
+	"patchouli_knowledge": {
+		"en": "Patchouli Knowledge",
+		"zh_hans": "帕秋莉·诺蕾姬"
+	}
+}

@@ -10,9 +10,9 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 33,
+  nextobjectid = 57,
   properties = {
-    ["name"] = "Bridge"
+    ["name"] = "Scarlet Manor - The Top"
   },
   tilesets = {
     {
@@ -54,20 +54,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 680,
-          y = 60,
-          width = 40,
-          height = 80,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 2,
           name = "",
           type = "",
@@ -96,20 +82,6 @@ return {
           properties = {}
         },
         {
-          id = 4,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 760,
-          y = 60,
-          width = 400,
-          height = 20,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 7,
           name = "",
           type = "",
@@ -118,20 +90,6 @@ return {
           y = 120,
           width = 680,
           height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 23,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1200,
-          y = 60,
-          width = 40,
-          height = 80,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -152,45 +110,49 @@ return {
           properties = {}
         },
         {
-          id = 26,
+          id = 48,
           name = "",
           type = "",
-          shape = "rectangle",
+          shape = "polygon",
           x = 680,
-          y = 340,
-          width = 560,
-          height = 20,
+          y = 320,
+          width = 0,
+          height = 0,
           rotation = 0,
           opacity = 1,
           visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 0, y = 40 },
+            { x = 560, y = 40 },
+            { x = 560, y = 0 },
+            { x = 520, y = 20 },
+            { x = 40, y = 20 }
+          },
           properties = {}
         },
         {
-          id = 30,
+          id = 54,
           name = "",
           type = "",
-          shape = "rectangle",
-          x = 720,
-          y = 60,
-          width = 40,
-          height = 40,
+          shape = "polygon",
+          x = 680,
+          y = 160,
+          width = 0,
+          height = 0,
           rotation = 0,
           opacity = 1,
           visible = true,
-          properties = {}
-        },
-        {
-          id = 31,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1160,
-          y = 60,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 40, y = -53.3333 },
+            { x = 80, y = -80 },
+            { x = 480, y = -80 },
+            { x = 520, y = -53.3333 },
+            { x = 560, y = 0 },
+            { x = 560, y = -120 },
+            { x = 0, y = -120 }
+          },
           properties = {}
         }
       }
@@ -211,10 +173,10 @@ return {
       objects = {
         {
           id = 6,
-          name = "enemy",
+          name = "npc",
           type = "",
           shape = "rectangle",
-          x = 1120,
+          x = 1160,
           y = 200,
           width = 40,
           height = 40,
@@ -222,8 +184,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "remilia",
-            ["encounter"] = "remilia"
+            ["actor"] = "remilia"
           }
         },
         {
@@ -248,51 +209,16 @@ return {
           name = "savepoint",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 160,
+          x = 120,
+          y = 120,
           width = 40,
           height = 40,
           rotation = 0,
           opacity = 1,
           visible = true,
           properties = {
-            ["text1"] = "* Silence echoes in the darkness\nof this familiar-yet-different\nscenery.",
-            ["text2"] = "* The power of avoiding copying\nofficial music shines within\nyou."
-          }
-        },
-        {
-          id = 20,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 240,
-          y = 160,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "dummy",
-            ["once"] = false
-          }
-        },
-        {
-          id = 22,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 160,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "dummy"
+            ["text1"] = "* ",
+            ["text2"] = "* "
           }
         },
         {
@@ -308,8 +234,41 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["map"] = "rm_lake_bridge",
-            ["marker"] = "entry_right"
+            ["map"] = "rm_intro",
+            ["marker"] = "spawn"
+          }
+        },
+        {
+          id = 55,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 160,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["cutscene"] = "rm_manor_topbattle.before",
+            ["once"] = false
+          }
+        },
+        {
+          id = 56,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 720,
+          y = 200,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "koakuma"
           }
         }
       }
@@ -361,7 +320,7 @@ return {
           name = "spawn",
           type = "",
           shape = "point",
-          x = 120,
+          x = 140,
           y = 240,
           width = 0,
           height = 0,

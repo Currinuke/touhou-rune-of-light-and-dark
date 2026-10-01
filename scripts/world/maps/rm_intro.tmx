@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="10" nextobjectid="25">
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="10" nextobjectid="28">
  <editorsettings>
   <export target="rm_intro.lua" format="lua"/>
  </editorsettings>
@@ -17,6 +17,25 @@
    <properties>
     <property name="actor" value="rin"/>
     <property name="cutscene" value="debug_seija.anim"/>
+   </properties>
+  </object>
+  <object id="25" name="transition" x="600" y="0" width="40" height="480">
+   <properties>
+    <property name="map" value="rm_manor_topbattle"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="26" name="enemy" x="360" y="80" width="40" height="40">
+   <properties>
+    <property name="actor" value="dummy"/>
+    <property name="encounter" value="dummy"/>
+    <property name="once" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="27" name="enemy" x="200" y="80" width="40" height="40">
+   <properties>
+    <property name="actor" value="dummy"/>
+    <property name="encounter" value="dummy"/>
    </properties>
   </object>
  </objectgroup>

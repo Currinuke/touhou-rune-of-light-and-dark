@@ -1,10 +1,10 @@
-local item, super = Class(Item, "extra_life")
+local item, super = Class(Item, "extend_life")
 
 function item:init()
     super.init(self)
 
     self.name = "Ex-Life"
-    self.use_name = "EXTRA LIFE"
+    self.use_name = "EXTEND LIFE"
 
     self.type = "item"
 

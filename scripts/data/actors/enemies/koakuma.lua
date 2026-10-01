@@ -14,7 +14,7 @@ function actor:init()
 
     self.flip = nil
 
-    self.path = "npcs/koakuma"
+    self.path = "enemies/koakuma"
     self.default = "idle/right"
 
     self.voice = "koakuma"
@@ -27,7 +27,7 @@ function actor:init()
         ["idle/right"] = {"idle/right", 1/10, true},
         ["idle/left"] = {"idle/left", 1/10, true},
 
-        ["poke"] = {"poke", 1/10, true},
+        ["poke"] = {"poke", 1/5, true},
         ["scared"] = {"scared", 1/10, false},
         ["tremble"] = {"tremble", 1/10, true}
     }

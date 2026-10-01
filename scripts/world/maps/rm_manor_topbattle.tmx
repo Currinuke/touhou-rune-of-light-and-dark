@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="33">
+<map version="1.11" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="57">
  <editorsettings>
   <export target="rm_manor_topbattle.lua" format="lua"/>
  </editorsettings>
  <properties>
-  <property name="name" value="Bridge"/>
+  <property name="name" value="Scarlet Manor - The Top"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/castle.tsx"/>
  <imagelayer id="7" name="background">
   <image source="../../../assets/sprites/backgrounds/bg_battletop.png" width="1280" height="480"/>
  </imagelayer>
  <objectgroup color="#0000ff" id="3" name="collision" opacity="0.5">
-  <object id="1" x="680" y="60" width="40" height="80"/>
   <object id="2" x="0" y="320" width="680" height="40"/>
   <object id="3" x="1240" y="320" width="40" height="40"/>
-  <object id="4" x="760" y="60" width="400" height="20"/>
   <object id="7" x="0" y="120" width="680" height="40"/>
-  <object id="23" x="1200" y="60" width="40" height="80"/>
   <object id="24" x="1240" y="120" width="40" height="40"/>
-  <object id="26" x="680" y="340" width="560" height="20"/>
-  <object id="30" x="720" y="60" width="40" height="40"/>
-  <object id="31" x="1160" y="60" width="40" height="40"/>
+  <object id="48" x="680" y="320">
+   <polygon points="0,0 0,40 560,40 560,0 520,20 40,20"/>
+  </object>
+  <object id="54" x="680" y="160">
+   <polygon points="0,0 40,-53.3333 80,-80 480,-80 520,-53.3333 560,0 560,-120 0,-120"/>
+  </object>
  </objectgroup>
  <objectgroup color="#ff00ff" id="5" name="objects">
-  <object id="6" name="enemy" x="1120" y="200" width="40" height="40">
+  <object id="6" name="npc" x="1160" y="200" width="40" height="40">
    <properties>
     <property name="actor" value="remilia"/>
-    <property name="encounter" value="remilia"/>
    </properties>
   </object>
   <object id="9" name="transition" x="-40" y="160" width="40" height="160">
@@ -35,33 +34,27 @@
     <property name="marker" value="entry_right"/>
    </properties>
   </object>
-  <object id="14" name="savepoint" x="160" y="160" width="40" height="40">
+  <object id="14" name="savepoint" x="120" y="120" width="40" height="40">
    <properties>
-    <property name="text1">* Silence echoes in the darkness
-of this familiar-yet-different
-scenery.</property>
-    <property name="text2">* The power of avoiding copying
-official music shines within
-you.</property>
-   </properties>
-  </object>
-  <object id="20" name="enemy" x="240" y="160" width="40" height="40">
-   <properties>
-    <property name="actor" value="dummy"/>
-    <property name="encounter" value="dummy"/>
-    <property name="once" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="22" name="enemy" x="80" y="160" width="40" height="40">
-   <properties>
-    <property name="actor" value="dummy"/>
-    <property name="encounter" value="dummy"/>
+    <property name="text1" value="* "/>
+    <property name="text2" value="* "/>
    </properties>
   </object>
   <object id="32" name="transition" x="1280" y="160" width="40" height="160">
    <properties>
-    <property name="map" value="rm_lake_bridge"/>
-    <property name="marker" value="entry_right"/>
+    <property name="map" value="rm_intro"/>
+    <property name="marker" value="spawn"/>
+   </properties>
+  </object>
+  <object id="55" name="script" x="280" y="160" width="40" height="160">
+   <properties>
+    <property name="cutscene" value="rm_manor_topbattle.before"/>
+    <property name="once" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="56" name="npc" x="720" y="200" width="40" height="40">
+   <properties>
+    <property name="actor" value="koakuma"/>
    </properties>
   </object>
  </objectgroup>
@@ -72,7 +65,7 @@ you.</property>
   <object id="8" name="entry" x="40" y="240">
    <point/>
   </object>
-  <object id="28" name="spawn" x="120" y="240">
+  <object id="28" name="spawn" x="140" y="240">
    <point/>
   </object>
  </objectgroup>

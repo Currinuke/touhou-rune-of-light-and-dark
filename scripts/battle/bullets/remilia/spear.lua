@@ -3,8 +3,8 @@ local spear, super = Class(Bullet)
 function spear:init(x, y, dir, speed)
 	super.init(self, x, y, "bullets/remilia/spear")
 	self:setScale(1)
-	self.damage=9961
-	self.solidcollider=Hitbox(self,self.width/4-20,self.height/4,self.width/2-10,self.height/2)
+	self.damage = 9961
+	self.solidcollider = Hitbox(self, self.width / 4 - 20, self.height / 4, self.width / 2 - 10, self.height / 2)
 
 	self.physics.direction = dir
 	self.physics.speed = speed
@@ -34,8 +34,8 @@ function spear:update()
 end
 
 function spear:onDamage(soul)
-	super.onDamage(self,soul)
-	Assets.playSound('playermiss',0.3)
+	Assets.playSound("playermiss", 0.3)
+	super.onDamage(self, soul)
 end
 
 return spear

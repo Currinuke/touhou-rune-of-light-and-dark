@@ -5,7 +5,7 @@
  </editorsettings>
  <properties>
   <property name="music" value="man"/>
-  <property name="name" value="Apple Tree"/>
+  <property name="name" value="???"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/castle.tsx"/>
  <tileset firstgid="41" source="../tilesets/bg_neoruins.tsx"/>

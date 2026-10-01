@@ -13,7 +13,7 @@ return {
   nextobjectid = 23,
   properties = {
     ["music"] = "man",
-    ["name"] = "Apple Tree"
+    ["name"] = "???"
   },
   tilesets = {
     {

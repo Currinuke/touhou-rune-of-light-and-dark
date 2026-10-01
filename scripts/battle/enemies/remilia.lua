@@ -18,10 +18,8 @@ function Remilia:init()
 
 	self.waves = {}
 
-	self.exit_on_defeat = true
-
 	self.tired_percentage = 0
-	self.low_health_percentage = 0.1
+	self.low_health_percentage = 0.15
 
 	self:registerIndexAct(self.act_kogasa_talk, 2)
 	self:registerIndexAct(self.act_seija_talk, 3, nil, {"seija"})
@@ -142,7 +140,11 @@ function Remilia:onAct(battler, name, index)
 end
 
 function Remilia:getTarget()
-	return "ALL"
+	if Game.battle.turn_count == 1 then
+		return "ALL"
+	else
+		return super.getTarget(self)
+	end
 end
 
 function Remilia:onTurnStart()
@@ -162,6 +164,12 @@ function Remilia:onHurt(damage, battler)
         self:toggleOverlay(false)
     end
     self:getActiveSprite():shake(9 / 4, 0, 0.5, 2 / 30)
+end
+
+function Remilia:onDefeatRun(damage, battler)
+    self.hurt_timer = -1
+    self.defeated = true
+    self:defeat("VIOLENCED", true)
 end
 
 return Remilia

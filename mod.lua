@@ -1,3 +1,5 @@
+function Mod:preInit()
+end
+
 function Mod:init()
-    --print("Loaded " .. self.info.name .. "!")
 end

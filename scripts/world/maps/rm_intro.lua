@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 10,
-  nextobjectid = 25,
+  nextobjectid = 28,
   properties = {
     ["name"] = "Intro"
   },
@@ -117,6 +117,58 @@ return {
           properties = {
             ["actor"] = "rin",
             ["cutscene"] = "debug_seija.anim"
+          }
+        },
+        {
+          id = 25,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 600,
+          y = 0,
+          width = 40,
+          height = 480,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["map"] = "rm_manor_topbattle",
+            ["marker"] = "entry"
+          }
+        },
+        {
+          id = 26,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 80,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "dummy",
+            ["encounter"] = "dummy",
+            ["once"] = false
+          }
+        },
+        {
+          id = 27,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 80,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "dummy",
+            ["encounter"] = "dummy"
           }
         }
       }
