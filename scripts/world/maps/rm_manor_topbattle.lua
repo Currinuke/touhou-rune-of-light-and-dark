@@ -9,8 +9,8 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 8,
-  nextobjectid = 57,
+  nextlayerid = 9,
+  nextobjectid = 58,
   properties = {
     ["name"] = "Scarlet Manor - The Top"
   },
@@ -23,6 +23,22 @@ return {
     }
   },
   layers = {
+    {
+      type = "imagelayer",
+      image = "../../../assets/sprites/backgrounds/manor/bg_sky.png",
+      id = 8,
+      name = "background",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 0,
+      parallaxy = 0,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
+    },
     {
       type = "imagelayer",
       image = "../../../assets/sprites/backgrounds/bg_battletop.png",
@@ -209,7 +225,7 @@ return {
           name = "savepoint",
           type = "",
           shape = "rectangle",
-          x = 120,
+          x = 80,
           y = 120,
           width = 40,
           height = 40,
@@ -320,7 +336,7 @@ return {
           name = "spawn",
           type = "",
           shape = "point",
-          x = 140,
+          x = 100,
           y = 240,
           width = 0,
           height = 0,

@@ -16,6 +16,8 @@ function actor:init(style)
 	self.default = "wait"
 
 	self.voice = "remilia"
+    -- self.font = "main_mono"
+    -- self.speech_bubble_font_size = 16
 	self.portrait_path = "face/remilia"
 	self.portrait_offset = {-22, -14}
 

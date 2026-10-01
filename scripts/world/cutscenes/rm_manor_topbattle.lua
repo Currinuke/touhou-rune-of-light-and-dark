@@ -6,9 +6,9 @@ return {
 
 		local kogasa = Game.world.player
 		local seija = cutscene:getCharacter("seija")
+		local rin = cutscene:getCharacter("rin")
 		local koakuma = cutscene:getCharacter("koakuma")
 		local remilia = cutscene:getCharacter("remilia")
-		local rin = cutscene:getCharacter("rin")
 
 		cutscene:setSpeaker("remilia")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_1}", "angry", "rin")
@@ -31,7 +31,7 @@ return {
 		cutscene:text("{world_rm_manor_topbattle_cutscene_5}", "smile_left")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_6}", "smile_right")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_7}", "neutral")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_8}", "spr_face_seija_alt_13", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_8}")
 
 		local cx, cy, data = cutscene:getMarker("camera")
 
@@ -40,7 +40,7 @@ return {
 		cutscene:walkTo(seija, cx - 200, cy, 2, "right")
 		cutscene:walkTo(rin, cx - 220, cy + 60, 2, "right")
 
-		cutscene:text("{world_rm_manor_topbattle_cutscene_9}", "smile", "rin")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_9}")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_10}", "spr_face_seija_alt_7", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_11}", "excited")
 
@@ -49,44 +49,31 @@ return {
 		cutscene:text("{world_rm_manor_topbattle_cutscene_13}", "spr_face_seija_alt_11", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_14}", "afraid")
 
-		--[[
-			local rx = remilia.x
-			cutscene:walkTo(remilia, rx - 75, remilia.y, 1)
-			cutscene:wait(1.5)
-			Assets.playSound('boarditemget')
-			cutscene:setAnimation(remilia, "obtain_axe")
-			remilia.x=remilia.x+12
-			remilia.y=remilia.y+7
-			cutscene:wait(1)
-			local slashsound=Game.stage.timer:every(0.2,function()
-				Assets.playSound('laz_c',0.4)
-				cutscene:setAnimation(remilia,"battle/attack")
-			end)--]]
 		cutscene:walkTo(koakuma, koakuma.x - 960, koakuma.y, 2)
-			cutscene:wait(0.5)
-			cutscene:text("{world_rm_manor_topbattle_cutscene_15}", "explain")
-			cutscene:startEncounter("remilia", true, remilia)
+		cutscene:wait(0.5)
+		cutscene:text("{world_rm_manor_topbattle_cutscene_15}", "explain")
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_16}", "surprise_b", "seija")
+
+		cutscene:wait(cutscene:walkTo(koakuma, remilia.x - 120, koakuma.y, 1))
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_17}", "smile_left")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_18}", "smile_right")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_19}", "smile_right")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "smile", "seija")
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "sad")
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "sad")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_23}", "sad")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_24}", "sad")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_25}", "smile_b")
+
 		Game.world.music:play("none")
+		cutscene:wait(cutscene:setAnimation(remilia, "battle/intro"))
+		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "smile_b")
+		cutscene:startEncounter("remilia", true, remilia)
 
-			cutscene:text("{world_rm_manor_topbattle_cutscene_16}", "surprise_b", "seija")
-
-			cutscene:wait(cutscene:walkTo(koakuma, remilia.x - 120, koakuma.y, 1))
-			cutscene:text("{world_rm_manor_topbattle_cutscene_17}", "smile_left")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_18}", "smile_right")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_19}", "smile_right")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "smile", "seija")
-
-			cutscene:setSpeaker("rin")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "sad")
-
-			cutscene:look(kogasa, "left")
-			cutscene:look(rin, "left")
-
-			cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "sad")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_23}", "sad")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_24}", "sad")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_25}", "smile_b")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "smile_b")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "neutral", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_28}", "neutral", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_29}", "neutral", "seija")

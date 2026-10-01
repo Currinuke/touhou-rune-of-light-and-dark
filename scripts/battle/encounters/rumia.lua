@@ -5,16 +5,14 @@ function Rumia:init()
 	self.text = Game:loc("encounter_rumia_start")
 	self.music = "checkers"
 	self.hide_world = true
-	self:addEnemy("rumia")
+	self.rumia = self:addEnemy("rumia")
 end
 
 function Rumia:onActionsEnd()
-	for _, enemy in ipairs(Game.battle.enemies) do
-		if enemy.name == Game:locText("[name:rumia]") and enemy.health <= enemy.max_health / 5 then
-			Game.battle:startCutscene("rumia", "heal", self, enemy)
-			-- Game.battle:setState("DEFENDINGEND", "WAVEENDED")
-			return true
-		end
+	if self.rumia.health <= self.rumia.max_health / 5 then
+		Game.battle:startCutscene("rumia", "heal", self, self.rumia)
+		-- Game.battle:setState("DEFENDINGEND", "WAVEENDED")
+		return true
 	end
 end
 
