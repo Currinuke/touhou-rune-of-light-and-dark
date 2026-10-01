@@ -3,42 +3,30 @@ local actor, super = Class(Actor, "seija")
 function actor:init(style)
     super.init(self)
 
-    local susie_style = style or Game:getConfig("susieStyle")
-
     self.name = "Seija"
 
     self.width = 22
-    self.height = 42
-    self.hitbox = {2, 28, 18, 14}
+    self.height = 43
+    self.hitbox = {2, 29, 18, 14}
 
     self.soul_offset = {11, 24}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {1, 0, 1}
 
     self.path = "party/seija/dark"
-    if susie_style == 1 then
-        self.default = "walk_bangs"
-    else
-        self.default = "walk"
-    end
 
     self.default = "walk"
     self.voice = "susie"
-    if susie_style == 1 then
-        self.portrait_path = "face/seija/bangs"
-    else
+    self.portrait_path = "face/seija/bangs"
+    if false then
         self.portrait_path = "face/seija"
     end
     self.portrait_offset = {-22, -14}
     self.can_blush = false
 
-    -- Table of sprite animations
     self.animations = {
-        -- Movement animations
         ["slide"]               = {"slide", 4/30, true},
 
-        -- Battle animations
         ["battle/idle"]         = {"battle/idle", 1/6, true},
 
         ["battle/attack"]       = {"battle/attack", 1/15, false},
@@ -51,7 +39,7 @@ function actor:init(style)
         ["battle/act_ready"]    = {"battle/actready", 0.2, true},
         ["battle/spell_ready"]  = {"battle/spellready", 0.2, true},
         ["battle/item_ready"]   = {"battle/itemready", 0.2, true},
-        ["battle/defend_ready"] = {"battle/defend", 1/15, false},
+        ["battle/defend_ready"] = {"battle/defendready", 1/15, false, next = "battle/defend"},
 
         ["battle/act_end"]      = {"battle/actend", 1/15, false, next="battle/idle"},
 
@@ -64,9 +52,8 @@ function actor:init(style)
         ["battle/victory"]      = {"battle/victory", 1/10, false},
         ["battle/transition_out"] = {"battle/transition_out", 1/15, false},
 
-        ["battle/rule_burster"]  = {"battle/ruleburster", 1/15, false, next="battle/idle"},
-
-        -- Cutscene animations
+        ["battle/rule_burster"]  = {"battle/ruleburster", 1/15, false, next = "battle/idle"},
+        
         ["jump_fall"]           = {"fall", 1/5, true},
         ["jump_ball"]           = {"ball", 1/15, true},
         ["jump_ball_slow"]      = {"ball", 4/30, true},
@@ -75,85 +62,46 @@ function actor:init(style)
         ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false}
     }
 
-    if false and susie_style == 1 then
-        self.animations["battle/transition"] = {"bangs_wall_right", 0, true}
-        self.animations["battle/transition_out"] = {"battle/transition_out_bangs", 1/15, false}
-    end
-
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
         ["walk/left"] = "walk/left",
-        ["walk/right"] = "walk/right",
-
-        ["walk_unhappy/down"] = "walk_unhappy/up",
-        ["walk_unhappy/up"] = "walk_unhappy/down",
-        ["walk_unhappy/left"] = "walk_unhappy/left",
-        ["walk_unhappy/right"] = "walk_unhappy/right",
-
-        ["walk_bangs/down"] = "walk_bangs/up",
-        ["walk_bangs/up"] = "walk_bangs/down",
-        ["walk_bangs/left"] = "walk_bangs/left",
-        ["walk_bangs/right"] = "walk_bangs/right",
-
-        ["walk_bangs_unhappy/down"] = "walk_bangs_unhappy/up",
-        ["walk_bangs_unhappy/up"] = "walk_bangs_unhappy/down",
-        ["walk_bangs_unhappy/left"] = "walk_bangs_unhappy/left",
-        ["walk_bangs_unhappy/right"] = "walk_bangs_unhappy/right",
+        ["walk/right"] = "walk/right"
     }
 
-    -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
-        -- Movement offsets
+		-- 120*100 --> {-49, -38}
+        -- offset = trim (usually positive) + (-49 or -38)
         ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, -2},
-        ["walk/right"] = {0, -2},
-        ["walk/up"] = {0, 0},
-
-        ["walk_bangs/down"] = {0, -2},
-        ["walk_bangs/left"] = {0, -2},
-        ["walk_bangs/right"] = {0, -2},
-        ["walk_bangs/up"] = {0, -2},
-
-        ["walk_bangs_unhappy/down"] = {0, -2},
-        ["walk_bangs_unhappy/left"] = {0, -2},
-        ["walk_bangs_unhappy/right"] = {0, -2},
-        ["walk_bangs_unhappy/up"] = {0, -2},
-
-        ["walk_unhappy/down"] = {0, 0},
-        ["walk_unhappy/left"] = {0, 0},
-        ["walk_unhappy/right"] = {0, 0},
-        ["walk_unhappy/up"] = {0, -2},
-
-        ["walk_back_arm/left"] = {-3, -2},
-        ["walk_back_arm/right"] = {0, -2},
+        ["walk/left"] = {-1, -1},
+        ["walk/right"] = {-2, -1},
+        ["walk/up"] = {1, 0},
 
         ["slide"] = {-5, -12},
 
         -- Battle offsets
         ["battle/idle"] = {3, -9},
 
-        ["battle/attack"] = {-24, 1},
-        ["battle/attackready"] = {-10, 1},
+        ["battle/attack"] = {-26, 1},
+        ["battle/attackready"] = {-12, 1},
         ["battle/act"] = {5, 11},
         ["battle/actend"] = {-24, -26},
         ["battle/actready"] = {5, 9},
         ["battle/spell"] = {-22, -29},
-        ["battle/spellready"] = {-22, -16},
+        ["battle/spellready"] = {-5, -18},
         ["battle/item"] = {-22, -2},
         ["battle/itemready"] = {-22, -2},
-        ["battle/defend"] = {-20, -24},
+        ["battle/defend"] = {-2, -1},
+        ["battle/defendready"] = {-2, -18},
         ["battle/swooned"] = {0, 0},
 
-        ["battle/defeat"] = {0, 12},
-        ["battle/hurt"] = {-18, 3},
+        ["battle/defeat"] = {1, 12},
+        ["battle/hurt"] = {-15, 3},
 
         ["battle/victory"] = {-18, -7},
 
-        ["battle/ruleburster"] = {-34, -23},
+        ["battle/ruleburster"] = {-21, -14},
 
-        -- Cutscene offsets
         ["pose"] = {-1, -1},
 
         ["fall"] = {0, -4},
@@ -211,7 +159,6 @@ function actor:init(style)
         ["diagonal_kick_left"] = {-3, -1},
     }
 
-    -- The x and y offsets of the ReviveSong spotlight
     self.spotlight_offset = {0, -7}
 end
 

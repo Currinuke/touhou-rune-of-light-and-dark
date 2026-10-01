@@ -168,14 +168,7 @@ function character:init()
     -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {0.5, 1, 0.5}
 
-    -- Head icon in the equip / power menu
-    if ralsei_style == 1 then
-        self.menu_icon = "party/rin/head_ch1"
-    else
-        self.menu_icon = "party/rin/head"
-    end
-
-    self.menu_icon = "party/rin/head_ch1"
+    self.menu_icon = "party/rin/head"
     self.head_icons = "party/rin/icon"
     self.name_sprite = "party/rin/name"
 
