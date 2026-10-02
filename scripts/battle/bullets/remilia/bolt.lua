@@ -4,9 +4,9 @@ function bolt:init(x,fixedpos)
 	if fixedpos then
 		x=278+(fixedpos-1)*28.4
 	end
-	super.init(self,x,152,"bullets/remilia/bolt")
+	super.init(self,x,102,"bullets/remilia/bolt")
 	self.sprite:play(1/15,true)
-	self:setScale(0.25)
+	self:setScale(0.25,0.4)
 	self.collider=Hitbox(self,410,350,28.4*2,500)
 	self.destroy_on_hit=false
 	self.damage=99.61
@@ -24,6 +24,15 @@ function bolt:onDamage(soul)
 	local damage = self:getDamage()
     if damage > 0 then
         local target = MathUtils.randomInt(1,4)
+		if Game.party[target].health<0 then
+			target=1
+		end
+		if Game.party[1].health<0 then
+			target=2
+		end
+		if Game.party[2].health<0 then
+			target=3
+		end
 		if Game.party[target].health<=99.61 then
 			Assets.playSound('playermiss',0.3)
 		end

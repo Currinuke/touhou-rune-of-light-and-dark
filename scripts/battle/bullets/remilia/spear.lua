@@ -4,6 +4,8 @@ function spear:init(x, y, dir, speed)
 	super.init(self, x, y, "bullets/remilia/spear")
 	self:setScale(1)
 	self.damage = 9961
+	self.destroy_on_hit=false
+	self.remove_offscreen=false
 	self.solidcollider = Hitbox(self, self.width / 4 - 20, self.height / 4, self.width / 2 - 10, self.height / 2)
 
 	self.physics.direction = dir

@@ -80,7 +80,7 @@ function Basic:update()
 	super.update(self)
 	self.current_time=self.current_time+DTMULT/30
 	for _,bullet in ipairs(self.bullets) do
-		if bullet:collidesWith(Game.battle.arena) and not bullet.remove_offscreen then
+		if bullet.x>=0 and bullet.x<=640 and bullet.y>=0 and bullet.y<=480 and not bullet.remove_offscreen then
 			bullet.remove_offscreen=true
 		end
 	end

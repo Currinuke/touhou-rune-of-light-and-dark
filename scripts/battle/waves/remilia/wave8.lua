@@ -87,7 +87,7 @@ function Basic:onStart()--因为播放声音直接写在函数里会导致音量
 			end
 		end)
 	end)
-	self.time=21
+	self.time=20.5
 	self.current_time=0
 end
 
@@ -115,7 +115,7 @@ function Basic:createBolt(x,fixedpos)
 		if fixedpos then
 			local bullet=self:spawnBullet("remilia/bolt",0,fixedpos)
 		else
-			local bullet=self:spawnBullet("remilia/bolt",x)
+			local bullet=self:spawnBullet("remilia/bolt",x+Game.battle.soul.width/2)--呃呃这个。因为追踪灵魂的生成位置有偏移所以就在这改了。
 		end
 	end)
 end
