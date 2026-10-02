@@ -1,10 +1,8 @@
----@class YinYangOrb : Sprite
----@overload fun(...) : YinYangOrb
 local YinYangOrb, super = Class(Sprite)
 
 function YinYangOrb:init(red, x, y, tx, ty, after)
 	super.init(self, "effects/ruleburster/yinyangorb", x, y)
-	
+
 	self:setOrigin(0.5, 0.5)
 	self:setScale(2)
 

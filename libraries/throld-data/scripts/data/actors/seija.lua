@@ -17,12 +17,7 @@ function actor:init()
 
     self.default = "walk"
     self.voice = "susie"
-
-    if Game.chapter == 1 then
-        self.portrait_path = "face/seija/bangs"
-    else
-        self.portrait_path = "face/seija"
-    end
+    self.portrait_path = "face/seija"
 
     self.portrait_offset = {-22, -14}
     self.can_blush = false

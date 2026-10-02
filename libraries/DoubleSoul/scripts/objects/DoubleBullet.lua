@@ -1,14 +1,14 @@
 local DoubleBullet, super = Class(Bullet)
 
----@param x         number
----@param y         number
+---@param x   number
+---@param y   number
 ---@param texture?  string|love.Image
 ---@param no_damage? "left"|"right"|"none" if the bullet cannot damage the left soul, right soul, or none. Defaults to "none".
 function DoubleBullet:init(x, y, texture, no_damage)
     super.init(self, x, y, texture)
 
     self.no_damage = no_damage or "none"
-    
+        
     if self.no_damage == "none" then
         self.color = {1, 1, 1}
     elseif self.no_damage == "left" then
@@ -17,8 +17,10 @@ function DoubleBullet:init(x, y, texture, no_damage)
         self.color = {1, 0, 0}
     end
 
-    self.grazed_left = false
-    self.grazed_right = false
+    self.grazed = {
+        left = false,
+        right = false
+    }
 end
 
 ---@param soul Soul yep, the soul
@@ -26,8 +28,12 @@ function DoubleBullet:canGraze(soul)
     if not soul then
         soul = Game.battle.soul
     end
-    
+ 
     return self.can_graze and (self.no_damage == "none" or self.no_damage ~= soul.can_damage)
+end
+
+function DoubleBullet:getGrazed(type)
+    return self.grazed[type] or false
 end
 
 ---@return string
@@ -49,10 +55,10 @@ end
 ---@param wave Wave
 function DoubleBullet:onWaveSpawn(wave) end
 
----@param texture?      string|love.Image   The new texture or path to the texture to set on the sprite (Removes the bullet's sprite if undefined)
----@param speed?        number              The time between frames of the sprite, in seconds (Defaults to 1/30th second)
----@param loop?         boolean             Whether the sprite should continuously loop. (Defaults to `true`)
----@param on_finished?  fun(Sprite)         A function that is called when the animation finishes.
+---@param texture?    string|love.Image   The new texture or path to the texture to set on the sprite (Removes the bullet's sprite if undefined)
+---@param speed?        number        The time between frames of the sprite, in seconds (Defaults to 1/30th second)
+---@param loop?   boolean    Whether the sprite should continuously loop. (Defaults to `true`)
+---@param on_finished?  fun(Sprite)   A function that is called when the animation finishes.
 ---@return Sprite?
 function DoubleBullet:setSprite(texture, speed, loop, on_finished)
     if self.sprite then
@@ -82,7 +88,7 @@ function DoubleBullet:isBullet(id)
 end
 
 --- *(Override)* Called when the soul grazes a bullet.
----@param first     boolean     Whether the bullet has been grazed before or not.
+---@param first  boolean  Whether the bullet has been grazed before or not.
 function DoubleBullet:onGraze(first) end
 
 return DoubleBullet

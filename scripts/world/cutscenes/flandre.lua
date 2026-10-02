@@ -16,7 +16,7 @@ return {
 
         -- 没写钥匙之类的其它东西，所以默认拿到钥匙了
         cutscene:text("* We bring the key.", "smile", "kogasa")
-        cutscene:text("* So?\n[wait:5]Are you coming out or what?", "smile", "seija")
+        cutscene:text("* So?\n[wait:5]Are you coming out or what?", "bangs/smile", "seija")
         cutscene:wait(0.5)
         cutscene:text("* Out...? [wait:5]Aren't you misunderstanding something?")
         cutscene:text("* It's not about me going out.\n[wait:5]It's about you coming in.")
