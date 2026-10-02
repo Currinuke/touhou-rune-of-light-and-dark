@@ -125,4 +125,12 @@ function actor:init()
     self.spotlight_offset = {0, -7}
 end
 
+function actor:onSetAnimation(sprite, anim, keep_anim)
+    if anim[1] == "battle/victory" then
+        local victory = SeijaVictory(0, 0)
+        sprite.parent:addChild(victory)
+        victory.layer = sprite.layer + 1
+    end
+end
+
 return actor

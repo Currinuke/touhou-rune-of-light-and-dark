@@ -28,7 +28,7 @@ function actor:init()
         ["idle/left"] = {"idle/left", 1/10, true},
 
         ["poke"] = {"poke", 1/5, true},
-        ["scared"] = {"scared", 1/10, false},
+        ["scared"] = {"scared", 1/10, false, next = "tremble"},
         ["tremble"] = {"tremble", 1/10, true}
     }
 
@@ -38,7 +38,7 @@ function actor:init()
         
         ["poke"] = {0, -1},
         ["scared"] = {-14, 0},
-        ["tremble"] = {0, -12}
+        ["tremble"] = {-14, 12}
     }
 end
 

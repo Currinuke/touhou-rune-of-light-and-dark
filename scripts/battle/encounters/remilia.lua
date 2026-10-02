@@ -2,12 +2,22 @@ local Remilia, super = Class(Encounter)
 
 function Remilia:init()
 	super.init(self)
+
 	self.text = Game:loc("encounter_remilia_start")
 	self.music = "kingboss"
 	self.background = false
 	self.remilia = self:addEnemy("remilia")
 	self.remilia:setAnimation("battle/idle")
 	self.no_end_message = true
+end
+
+function Remilia:onStateChange(old, new)
+	if Game.battle.turn_count ~= 1 then
+		if new == "ACTIONSELECT" then
+			Game.battle.battle_ui.current_encounter_text = {text = self.remilia.text}
+			Game.battle.battle_ui.encounter_text.text:setText(self.remilia.text)
+		end
+	end
 end
 
 function Remilia:onReturnToWorld(events)
@@ -59,12 +69,11 @@ function Remilia:getNextWaves()
 	return waves
 end
 
-function Remilia:onStateChange(old, new)
-	if Game.battle.turn_count ~= 1 then
-		if new == "ACTIONSELECT" then
-			Game.battle.battle_ui.current_encounter_text = {text = self.remilia.text}
-			Game.battle.battle_ui.encounter_text.text:setText(self.remilia.text)
-		end
+function Remilia:onWavesDone()
+	if Game.battle.turn_count >= 9 then
+		Game.battle:startCutscene("remilia", "battle_end", self, self.remilia)
+	else
+		super.onWavesDone(self)
 	end
 end
 

@@ -201,7 +201,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "remilia",
-            ["turn"] = true
+            ["enemy"] = "remilia"
           }
         },
         {
