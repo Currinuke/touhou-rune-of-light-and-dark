@@ -65,9 +65,128 @@ local function getPrintedTextWidth(font, text)
 end
 
 function BattleUI:drawState()
-	if Game.battle.state ~= "ENEMYSELECT" then
-		super.drawState(self) -- 应用原函数
-	else
+	if Game.battle.state == "MENUSELECT" then
+		local page = math.ceil(Game.battle.current_menu_y / 3) - 1
+		local max_page = math.ceil(#Game.battle.menu_items / 6) - 1
+
+		local x = 0
+		local y = 0
+		Draw.setColor(Game.battle.encounter:getSoulColor())
+		Draw.draw(self.heart_sprite, 5 + ((Game.battle.current_menu_x - 1) * 230), 30 + ((Game.battle.current_menu_y - (page * 3)) * 30))
+
+		local font = Assets.getFont("main")
+		love.graphics.setFont(font)
+
+		local page_offset = page * 6
+		for i = page_offset + 1, math.min(page_offset + 6, #Game.battle.menu_items) do
+			local item = Game.battle.menu_items[i]
+
+			Draw.setColor(1, 1, 1, 1)
+			local text_offset = 0
+			-- Are we able to select this?
+			local able = Game.battle:canSelectMenuItem(item)
+			if item.party then
+				if not able then
+					-- We're not able to select this, so make the heads gray.
+					Draw.setColor(COLORS.gray)
+				end
+
+				for index, party_id in ipairs(item.party) do
+					local chara = Game:getPartyMember(party_id)
+
+					-- Draw head only if it isn't the currently selected character
+					if Game.battle:getPartyIndex(party_id) ~= Game.battle.current_selecting then
+						local ox, oy = chara:getHeadIconOffset()
+						Draw.draw(Assets.getTexture(chara:getHeadIcons() .. "/head"), text_offset + 30 + (x * 230) + ox, 55 + (y * 30) + oy)
+						text_offset = text_offset + 30
+					end
+				end
+			end
+
+			if item.icons then
+				if not able then
+					-- We're not able to select this, so make the heads gray.
+					Draw.setColor(COLORS.gray)
+				end
+
+				for _, icon in ipairs(item.icons) do
+					if type(icon) == "string" then
+						icon = { icon, false, 0, 0, nil }
+					end
+					if not icon[2] then
+						local texture = Assets.getTexture(icon[1])
+						Draw.draw(texture, text_offset + 30 + (x * 230) + (icon[3] or 0), 55 + (y * 30) + (icon[4] or 0))
+						text_offset = text_offset + (icon[5] or texture:getWidth())
+					end
+				end
+			end
+
+			if able then
+				-- Using color like a function feels wrong... should this be called getColor?
+				Draw.setColor(item:color() or { 1, 1, 1, 1 })
+			else
+				Draw.setColor(COLORS.gray)
+			end
+			love.graphics.print(item.name, text_offset + 30 + (x * 230), 50 + (y * 30))
+			text_offset = text_offset + font:getWidth(item.name)
+
+			if item.icons then
+				if able then
+					Draw.setColor(1, 1, 1)
+				end
+
+				for _, icon in ipairs(item.icons) do
+					if type(icon) == "string" then
+						icon = { icon, false, 0, 0, nil }
+					end
+					if icon[2] then
+						local texture = Assets.getTexture(icon[1])
+						Draw.draw(texture, text_offset + 30 + (x * 230) + (icon[3] or 0), 50 + (y * 30) + (icon[4] or 0))
+						text_offset = text_offset + (icon[5] or texture:getWidth())
+					end
+				end
+			end
+
+			if x == 0 then
+				x = 1
+			else
+				x = 0
+				y = y + 1
+			end
+		end
+
+		-- Print information about currently selected item
+		local current_item = Game.battle.menu_items[Game.battle:getItemIndex()]
+		if current_item then
+			local tp_offset, _ = 0, nil --initialize placeholdder variable so it doenst go in global scope
+			if current_item.description then
+				Draw.setColor(COLORS.gray)
+				love.graphics.print(current_item.description, 260 + 240, 50)
+				Draw.setColor(1, 1, 1, 1)
+				_, tp_offset = current_item.description:gsub('\n', '\n')
+				tp_offset = tp_offset + 1
+			end
+
+			if current_item.tp and current_item.tp ~= 0 then
+				Draw.setColor(Game.battle and Game.battle:hasReducedTension() and PALETTE["tension_desc_reduced"] or PALETTE["tension_desc"])
+				love.graphics.print(
+					math.floor((current_item.tp / Game:getMaxTension()) * 100) .. "% " .. Game:getConfig("tpName"), 260 + 240, 50 + (tp_offset * 32)
+				)
+				Game:setTensionPreview(current_item.tp)
+			else
+				Game:setTensionPreview(0)
+			end
+		end
+
+		Draw.setColor(1, 1, 1, 1)
+		if page < max_page then
+			Draw.draw(self.arrow_sprite, 470, 120 + (math.sin(Kristal.getTime() * 6) * 2))
+		end
+		if page > 0 then
+			Draw.draw(self.arrow_sprite, 470, 70 - (math.sin(Kristal.getTime() * 6) * 2), 0, 1, -1)
+		end
+
+	elseif Game.battle.state == "ENEMYSELECT" then
 		local enemies = Game.battle.enemies_index
 
 		local page = math.ceil(Game.battle.current_menu_y / 3) - 1
@@ -269,6 +388,9 @@ function BattleUI:drawState()
 		if arrow_up then
 			Draw.draw(self.arrow_sprite, 20, 70 - (math.sin(Kristal.getTime() * 6) * 2), 0, 1, -1)
 		end
+	else
+		-- 应用原函数
+		super.drawState(self)
 	end
 end
 

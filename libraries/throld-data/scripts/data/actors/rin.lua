@@ -1,6 +1,8 @@
 local actor, super = Class(Actor, "rin")
 
 function actor:init()
+	super.init(self)
+
 	self.name = "Rin"
 
 	self.width = 23
@@ -9,7 +11,6 @@ function actor:init()
 
 	self.color = {0, 1, 0}
 
-	self.flip = nil
 	self.path = "party/rin/dark"
 	self.default = "walk"
 
@@ -46,10 +47,6 @@ function actor:init()
 		["battle/victory"] = {"battle/victory", 1/10, false},
 		["battle/transition_out"] = {"battle/transition_out", 1/15, false}
 	}
-
-	self.flip_sprites = {}
-	
-	self.talk_sprites = {}
 	
 	self.mirror_sprites = {
 		["walk/down"] = "walk/up",
