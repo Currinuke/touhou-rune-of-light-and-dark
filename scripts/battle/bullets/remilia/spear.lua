@@ -34,8 +34,16 @@ function spear:update()
 end
 
 function spear:onDamage(soul)
-	Assets.playSound("playermiss", 0.3)
-	super.onDamage(self, soul)
+	Assets.playSound('playermiss',0.3)
+	local damage = self:getDamage()
+    if damage > 0 then
+        local target = 'ANY'
+        local battlers = Game.battle:hurt(damage, false, target, self:shouldSwoon(damage, target, soul))
+        soul.inv_timer = self:getInvulnTime()
+        soul:onDamage(self, damage)
+        return battlers
+    end
+	return {}
 end
 
 return spear

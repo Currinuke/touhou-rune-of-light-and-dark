@@ -11,10 +11,32 @@ function Basic:onArenaEnter()
 end
 
 function Basic:onStart()
-	--[[local bullet=self:spawnBullet("remilia/bat",0,0)
-	bullet:setSprite('bullets/remilia/bat',1/10,true)
-	bullet.remove_offscreen=false
-	bullet:setParent(Game.battle.arena)]]
+	local rectw=Rectangle(190-5,40-5,260+10,260+10)
+	rectw:setColor(1,1,1)
+	rectw.layer=BATTLE_LAYERS['above_battlers']
+	self:spawnObject(rectw)
+	local rectb=Rectangle(190+2-5,40+2-5,260-4+10,260-4+10)
+	rectb:setColor(0,0,0)
+	rectb.layer=BATTLE_LAYERS['above_battlers']
+	self:spawnObject(rectb)
+	for i=1,20 do
+		local bullet
+		if i<=6 then--左
+			bullet=self:spawnBullet("remilia/bat",0,(i-1)*24.4)
+		elseif i<=12 then--右
+			bullet=self:spawnBullet("remilia/bat",Game.battle.arena.width,(i-7)*24.4)
+		elseif i<=16 then--上
+			bullet=self:spawnBullet("remilia/bat",(i-12)*25,0)
+		elseif i<=20 then--下
+			bullet=self:spawnBullet("remilia/bat",(i-16)*25,Game.battle.arena.height)
+		end
+
+		bullet:setSprite('bullets/remilia/bat',1/10,true)
+		bullet.rotation=math.rad(-90)
+		bullet.destroy_on_hit=false
+		bullet.remove_offscreen=false
+		bullet:setParent(Game.battle.arena)
+	end
 	local randomarena=MathUtils.randomInt(1,5)
 
 	local randomarenadir=math.rad(45+randomarena*90+MathUtils.random(-10,10))
@@ -26,7 +48,7 @@ function Basic:onStart()
 			Game.battle.arena.physics.speed_y=Game.battle.arena.physics.speed_y+math.sin(arenadir)*0.0015
 		end)
 	end)
-	self.time=16
+	self.time=20
 	self.current_time=0
 end
 
