@@ -33,8 +33,6 @@ function Basic:onStart()
 		self.timer:after(0.8,function()
 			warnline:remove()
 			local bullet=self:spawnBullet("remilia/spear",self:getAttackers()[1].x,self:getAttackers()[1].y-28,math.rad(180),50)
-			bullet.destroy_on_hit=false
-			bullet.remove_offscreen=false
 			bullet.rotation=math.rad(180)
 			self.timer:after(0.06,function()
 				Game.battle.arena.physics.direction=math.rad(180)

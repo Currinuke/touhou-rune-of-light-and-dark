@@ -27,6 +27,8 @@ function actor:init(style)
 
 		["battle/attack"] = {"battle/attack", 1/15, false},
 
+		["battle/back"] = {"battle/back", 1/15, false,next = "battle/idle"},
+
 		["battle/intro"] = {"battle/intro", 1/15, false, next = "battle/idle"},
 
 		["wait"] = {"wait", 0, false},
@@ -49,7 +51,8 @@ function actor:init(style)
 		["battle/idle_handup"] = {-9, -5},
 		["battle/intro"] = {-8, -9},
 
-		["battle/attack"] = {-14, -5}
+		["battle/attack"] = {-14, -5},
+		["battle/back"] = {-8, -9},
 	}
 end
 

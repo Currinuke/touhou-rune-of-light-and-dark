@@ -5,8 +5,8 @@ function Basic:getAttackers()
 end
 
 function Basic:onStart()
-	self.timer:every(0.7,function()
-		self.timer:after(love.math.random()/1.5,function()
+	self.timer:every(0.5,function()--相较于第三回合，生成间隔由0.7s改为0.5s
+		self.timer:after(love.math.random()/2,function()--相较于第三回合，随机延迟由0s~0.67s改为0s~0.5s
 			Assets.playSound('ui_move')
 			local randomside=MathUtils.randomInt(1,5)
 			local randomposx

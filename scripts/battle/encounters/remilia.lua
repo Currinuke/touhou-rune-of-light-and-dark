@@ -28,13 +28,33 @@ function Remilia:getNextWaves()
 		self.remilia.text = Game:loc("enemy_remilia_turn_3")
 		waves[1] = "remilia/wave3"
 	elseif Game.battle.turn_count == 4 then
-		self.remilia.dialogue_override = Game:loc("enemy_remilia_dialogue_5")
-		self.remilia.text = Game:loc("enemy_remilia_turn_4")
-		waves[1] = "remilia/wave4"
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_5")
+		self.remilia.text=Game:loc("enemy_remilia_turn_4")
+		waves[1] = 'remilia/wave4'
+	elseif Game.battle.turn_count==5 then
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_6")
+		self.remilia.text=Game:loc("enemy_remilia_turn_5")
+		waves[1] = 'remilia/wave5'
+	elseif Game.battle.turn_count==6 then
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_7")
+		self.remilia.text=Game:loc("enemy_remilia_turn_6")
+		waves[1] = 'remilia/wave6'
+	elseif Game.battle.turn_count==7 then
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_8")
+		self.remilia.text=Game:loc("enemy_remilia_turn_7")
+		waves[1] = 'remilia/wave7'
+	elseif Game.battle.turn_count==8 then
+		self.remilia.dialogue_override={Game:loc("enemy_remilia_dialogue_9_1"),Game:loc("enemy_remilia_dialogue_9_2")}
+		self.remilia.text=Game:loc("enemy_remilia_turn_8")
+		waves[1] = 'remilia/wave8'
+	elseif Game.battle.turn_count==9 then
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_10")
+		self.remilia.text=Game:loc("enemy_remilia_turn_9")
+		waves[1] = 'remilia/wave9'
 	else
-		self.remilia.dialogue_override = Game:loc("enemy_remilia_dialogue_6")
-		self.remilia.text = Game:loc("enemy_remilia_turn_5")
-		waves[1] = "remilia/wave4"
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_11")
+		self.remilia.text=Game:loc("enemy_remilia_turn_10")
+		waves[1] = 'remilia/wave9'
 	end
 	return waves
 end
