@@ -7,7 +7,7 @@ return {
 		local rin = cutscene:getCharacter("rin")
 
 		if kogasa and seija and koakuma and rumia and rin then
-			cutscene:setSpeaker("koakuma")
+			cutscene:setSpeaker(koakuma)
 			cutscene:text("{world_rm_lake_bridge_cutscene_1}", "smile_left")
 		
 			local x = event.x + event.width / 2 + 10
@@ -76,7 +76,7 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_19}", "smile_right")
 			cutscene:text("{world_rm_lake_bridge_cutscene_20}", "bangs/smile", "seija")
 
-			cutscene:setSpeaker("rin")
+			cutscene:setSpeaker(rin)
 			cutscene:text("{world_rm_lake_bridge_cutscene_21}", "sad")
 
 			cutscene:look(kogasa, "left")
@@ -119,7 +119,7 @@ return {
 			cutscene:look(seija, "down")
 			cutscene:wait(1)
 			cutscene:look(seija, "right")
-			cutscene:setSpeaker("seija")
+			cutscene:setSpeaker(seija)
 			cutscene:text("{world_rm_lake_bridge_cutscene_40}", "upset")
 			cutscene:text("{world_rm_lake_bridge_cutscene_41}", "neutral")
 			cutscene:text("{world_rm_lake_bridge_cutscene_42}", "smile")
@@ -170,7 +170,7 @@ return {
 			seija:remove()
 
 			cutscene:wait(cutscene:walkTo(rin, rx - 280, rin.y, 1.8, "left"))
-			cutscene:setSpeaker("rin")
+			cutscene:setSpeaker(rin)
 			cutscene:text("{world_rm_lake_bridge_cutscene_60}", "sad_cry")
 			cutscene:text("{world_rm_lake_bridge_cutscene_61}", "fixed_20_cry")
 			cutscene:text("{world_rm_lake_bridge_cutscene_62}", "sad_cry")

@@ -29,7 +29,9 @@
   <object id="6" name="npc" x="1160" y="200" width="40" height="40">
    <properties>
     <property name="actor" value="remilia"/>
+    <property name="encounter" value="remilia"/>
     <property name="enemy" value="remilia"/>
+    <property name="turn" type="bool" value="true"/>
    </properties>
   </object>
   <object id="9" name="transition" x="-40" y="160" width="40" height="160">

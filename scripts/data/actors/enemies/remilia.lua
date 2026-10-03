@@ -3,7 +3,7 @@ local actor, super = Class(Actor, "remilia")
 function actor:init()
 	super.init(self)
 
-	self.name = "Remilia Scarlet"
+	self.name = "Remilia"
 
 	self.width = 18
 	self.height = 37

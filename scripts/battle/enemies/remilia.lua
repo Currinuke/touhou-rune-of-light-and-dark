@@ -7,13 +7,14 @@ function Remilia:init()
 	
 	self:setActor("remilia")
 
-	self.max_health = 3000
-	self.health = 3000
+	self.max_health = 3500
+	self.health = 3500
 	self.attack = 10
 	self.defense = 0
 	self.money = 0
 
 	self.spare_points = 0
+    self.exit_on_defeat = false
 	self.disable_mercy = true
 
 	self.waves = {}

@@ -6,10 +6,10 @@ function Remilia:init()
 	self.text = Game:loc("encounter_remilia_start")
 	self.music = "kingboss"
 	self.background = false
-	self.remilia = self:addEnemy("remilia")
+	self.remilia = self:addEnemy("remilia", 540, 220)
 	self.remilia:setAnimation("battle/idle")
 	self.no_end_message = true
-	self:setFlag('pacifist',true)
+	self:setFlag('pacifist', true)
 end
 
 function Remilia:onStateChange(old, new)
@@ -22,6 +22,12 @@ function Remilia:onStateChange(old, new)
 end
 
 function Remilia:onReturnToWorld(events)
+	for _, enemy in ipairs(events) do
+		enemy.sprite.alpha = 1
+		for key, value in pairs(enemy) do
+			-- Kristal.Console:push(tostring(key) .. ": " .. tostring(value))
+		end
+	end
 end
 
 function Remilia:getNextWaves()
@@ -75,6 +81,21 @@ function Remilia:getNextWaves()
 		self.remilia.text=''
 	end
 	return waves
+end
+
+function Remilia:getPartyPosition(index)
+	-- 这一堆东西可以阻止角色位置改变
+	-- 其实是让角色移动到原地罢了
+	-- 也就是就地作战
+	local battler = Game.battle.party[index]
+	local chara = Game.world:getCharacter(battler.chara.id)
+	local cx, cy = Game.world.camera:getPosition()
+	local x, y = chara.x - cx + 320, chara.y - cy + 240
+    -- local ox, oy = battler.chara:getBattleOffset()
+    -- x = x + (battler.actor:getWidth() / 2 + ox) * 2
+    -- y = y + (battler.actor:getHeight() + oy) * 2
+	-- x, y = x + ox, y + oy
+	return x, y
 end
 
 function Remilia:onStateChange(old, new)
