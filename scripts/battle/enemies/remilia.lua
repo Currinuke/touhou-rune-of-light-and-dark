@@ -148,6 +148,11 @@ function Remilia:getTarget()
 end
 
 function Remilia:onTurnStart()
+	if Game.battle.turn_count >= 13 then -- and new == 'ACTIONSELECT' then
+		-- Game.battle:setState("VICTORY")
+	else
+
+	end
 	--[[local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
 
 	if turn > 1 then

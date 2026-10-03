@@ -77,16 +77,21 @@ function Remilia:getNextWaves()
 	return waves
 end
 
-function Remilia:onWavesDone()
-	if Game.battle.turn_count >= 9 then
-		Game.battle:startCutscene("remilia", "battle_end", self, self.remilia)
-	else
-		super.onWavesDone(self)
+function Remilia:onStateChange(old, new)
+	if Game.battle.turn_count ~= 1 then
+		if new == "ACTIONSELECT" then
+			Game.battle.battle_ui.current_encounter_text = {text = self.remilia.text}
+			Game.battle.battle_ui.encounter_text.text:setText(self.remilia.text)
+		end
 	end
-	if self.remilia.health<=800 then
-		self:setFlag('pacifist',false)
+	
+	if self.remilia.health <= 800 then
+		self:setFlag('pacifist', false)
 	end
-	if Game.battle.turn_count==13 and new=='ACTIONSELECT' then
+
+	if Game.battle.turn_count == 13 and new == "ACTIONSELECT" then
+		Game.battle.battle_ui.current_encounter_text = ""
+		Game.battle.battle_ui.encounter_text.text:setText("")
 		Game.battle:setState("VICTORY")
 	end
 end

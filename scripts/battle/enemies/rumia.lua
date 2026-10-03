@@ -91,7 +91,8 @@ function Rumia:onAct(battler, name)
 		self:addMercy(40)
 		return Game:loc("act_rumia_scare_ya_text")
 	elseif name == self.act_strong_wind then
-		return Game.battle:startActCutscene("rumia", "act_wind")
+		Game.battle:startActCutscene("rumia", "act_wind")
+		return
 	elseif name == self.act_seijas_idea then -- cheater's choice
 		return error("Yeah i just wanna crash the battle :)")
 	end

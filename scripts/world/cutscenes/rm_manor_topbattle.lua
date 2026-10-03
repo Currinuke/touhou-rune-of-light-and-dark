@@ -83,6 +83,7 @@ return {
 
 		Game.world.music:play("none")
 		cutscene:wait(cutscene:setAnimation(remilia, "battle/intro"))
+		cutscene:wait(cutscene:playSound("bolt"))
 		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "bangs/laugh")
 		remilia.sprite.alpha = 0
 		cutscene:startEncounter("remilia", true, remilia, {on_start = function ()
@@ -90,10 +91,12 @@ return {
 		end})
 		-- remilia.sprite.alpha = 1
 
+		-- cutscene:gotoCutscene("rm_manor_topbattle.pacifist", cutscene, event)
+	-- end,
 
+	-- pacifist = function(cutscene, event)
 
-
-			cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "bangs/neutral", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "bangs/neutral", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_28}", "bangs/neutral", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_29}", "bangs/neutral", "seija")
 
