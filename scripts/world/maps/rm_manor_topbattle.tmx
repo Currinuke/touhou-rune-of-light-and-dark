@@ -47,7 +47,7 @@
   </object>
   <object id="55" name="script" x="280" y="160" width="40" height="160">
    <properties>
-    <property name="cutscene" value="rm_manor_topbattle.before"/>
+    <property name="cutscene" value="rm_manor_topbattle.encounter"/>
     <property name="once" type="bool" value="false"/>
    </properties>
   </object>

@@ -265,7 +265,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["cutscene"] = "rm_manor_topbattle.before",
+            ["cutscene"] = "rm_manor_topbattle.encounter",
             ["once"] = false
           }
         },

@@ -9,6 +9,7 @@ function Remilia:init()
 	self.remilia = self:addEnemy("remilia")
 	self.remilia:setAnimation("battle/idle")
 	self.no_end_message = true
+	self:setFlag('pacifist',true)
 end
 
 function Remilia:onStateChange(old, new)
@@ -61,10 +62,17 @@ function Remilia:getNextWaves()
 		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_10")
 		self.remilia.text=Game:loc("enemy_remilia_turn_9")
 		waves[1] = 'remilia/wave9'
-	else
+	elseif Game.battle.turn_count==10 then
 		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_11")
 		self.remilia.text=Game:loc("enemy_remilia_turn_10")
-		waves[1] = 'remilia/wave9'
+		waves[1] = 'remilia/wave10'
+	elseif Game.battle.turn_count==11 then
+		self.remilia.dialogue_override=Game:loc("enemy_remilia_dialogue_12")
+		self.remilia.text=Game:loc("enemy_remilia_turn_11")
+		waves[1] = 'remilia/wave11'
+	elseif Game.battle.turn_count==12 then
+		waves[1] = 'remilia/wave12'
+		self.remilia.text=''
 	end
 	return waves
 end
@@ -74,6 +82,12 @@ function Remilia:onWavesDone()
 		Game.battle:startCutscene("remilia", "battle_end", self, self.remilia)
 	else
 		super.onWavesDone(self)
+	end
+	if self.remilia.health<=800 then
+		self:setFlag('pacifist',false)
+	end
+	if Game.battle.turn_count==13 and new=='ACTIONSELECT' then
+		Game.battle:setState("VICTORY")
 	end
 end
 
