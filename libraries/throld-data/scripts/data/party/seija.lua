@@ -3,17 +3,14 @@ local character, super = Class(PartyMember, "seija")
 function character:init()
     super.init(self)
 
-    -- Display name
     self.name = "Seija"
 
-    -- Actor (handles sprites)
     self:setActor("seija")
     self:setLightActor("susie_lw")
     self:setDarkTransitionActor("susie_dark_transition")
 
-    -- Display level (saved to the save file)
     self.level = Game.chapter
-    -- Default title / class (saved to the save file)
+    
     if Game.chapter <= 3 then
         self.title = "Dark Knight\nDoes damage using\ndark energy."
     elseif Game.chapter == 4 then
@@ -22,21 +19,15 @@ function character:init()
         self.title = "Violent Violet\nFor that special\nsomeone."
     end
 
-    -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 1
-    -- The color of this character's soul (optional, defaults to red)
     self.soul_color = {1, 0, 0}
 
-    -- Whether the party member can act / use spells
     self.has_act = false
     self.has_spells = true
 
-    -- Whether the party member can use their X-Action
     self.has_xact = false
-    -- X-Action name (displayed in this character's spell menu)
     self.xact_name = "S-Action"
 
-    -- Spells
     self:addSpell("rule_burster")
     if Game.chapter == 2 then
         self:addSpell("ultimate_heal")
@@ -173,11 +164,8 @@ function character:init()
     self.head_icons = "party/seija/icon"
     self.name_sprite = "party/seija/name"
 
-    -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/mash"
-    -- Sound played when this character attacks
     self.attack_sound = "laz_c"
-    -- Pitch of the attack sound
     self.attack_pitch = 0.9
 
     -- Battle position offset (optional)

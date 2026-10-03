@@ -1,6 +1,6 @@
 local actor, super = Class(Actor, "remilia")
 
-function actor:init(style)
+function actor:init()
 	super.init(self)
 
 	self.name = "Remilia Scarlet"
@@ -13,7 +13,7 @@ function actor:init(style)
 	self.color = {1, 0, 1}
 
 	self.path = "enemies/remilia"
-	self.default = "wait"
+	self.default = "walk"
 
 	self.voice = "remilia"
     -- self.font = "main_mono"
@@ -27,13 +27,10 @@ function actor:init(style)
 
 		["battle/attack"] = {"battle/attack", 1/15, false},
 
-		["battle/back"] = {"battle/back", 1/15, false,next = "battle/idle"},
+		["battle/back"] = {"battle/back", 1/15, false, next = "battle/idle"},
 
 		["battle/intro"] = {"battle/intro", 1/15, false, next = "battle/idle"},
 
-		["wait"] = {"wait", 0, false},
-		["walk/left"] = {"walk/left", 1/10, true},
-		["walk/right"] = {"walk/right", 1/10, true},
 		["freezed"] = {"freezed", 0, false},
         ["wet"] = {"wet", 1/9, true},
 	}
@@ -41,9 +38,11 @@ function actor:init(style)
 	self.offsets = {
 		-- 96*96 --> {-39, -27}
         -- offset = trim (usually positive) + (-39 or -27)
-		["wait"] = {0, 0},
+
+		["walk/down"] = {0, 0},
 		["walk/left"] = {1, 0},
 		["walk/right"] = {-4, 0},
+
 		["freezed"] = {-9, 0},
         ["wet"] = {-32, -11},
 

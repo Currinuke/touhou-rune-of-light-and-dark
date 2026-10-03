@@ -9,8 +9,8 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 8,
-  nextobjectid = 40,
+  nextlayerid = 9,
+  nextobjectid = 41,
   properties = {
     ["name"] = "Scarlet Manor - The Top"
   },
@@ -41,7 +41,7 @@ return {
     },
     {
       type = "imagelayer",
-      image = "../../../assets/sprites/backgrounds/bg_battletop.png",
+      image = "../../../assets/sprites/backgrounds/manor/bg_battletop.png",
       id = 7,
       name = "background",
       class = "",
@@ -126,7 +126,7 @@ return {
           properties = {}
         },
         {
-          id = 48,
+          id = 25,
           name = "",
           type = "",
           shape = "polygon",
@@ -148,138 +148,26 @@ return {
           properties = {}
         },
         {
-          id = 36,
+          id = 26,
           name = "",
           type = "",
-          shape = "polyline",
-          x = 710.667,
-          y = 339.333,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -14, y = -2.66667 },
-            { x = -18.6667, y = -7.33333 },
-            { x = -22.6667, y = -9.33333 },
-            { x = -24.6667, y = -10.6667 },
-            { x = -27.3333, y = -12.6667 },
-            { x = -29.3333, y = -14.6667 },
-            { x = -30, y = -17.3333 },
-            { x = -32, y = -19.3333 }
-          },
-          properties = {}
-        },
-        {
-          id = 39,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 1208,
-          y = 340,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 14, y = -2.66667 },
-            { x = 18.6667, y = -7.33333 },
-            { x = 22.6667, y = -9.33333 },
-            { x = 24.6667, y = -10.6667 },
-            { x = 27.3333, y = -12.6667 },
-            { x = 29.3333, y = -14.6667 },
-            { x = 30, y = -17.3333 },
-            { x = 32, y = -19.3333 }
-          },
-          properties = {}
-        },
-        {
-          id = 37,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 681.333,
-          y = 157.333,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 8.66667, y = -4 },
-            { x = 12.6667, y = -8 },
-            { x = 15.3333, y = -12 },
-            { x = 18, y = -16.6667 },
-            { x = 20, y = -19.3333 },
-            { x = 21.3333, y = -22 },
-            { x = 22.6667, y = -27.3333 },
-            { x = 24.6667, y = -31.3333 },
-            { x = 26, y = -34.6667 },
-            { x = 27.3333, y = -40 },
-            { x = 30.6667, y = -44.6667 },
-            { x = 33.3333, y = -48.6667 },
-            { x = 38, y = -53.3333 },
-            { x = 40, y = -54.6667 },
-            { x = 42.6667, y = -58 },
-            { x = 46.6667, y = -62 },
-            { x = 50, y = -64.6667 },
-            { x = 51.3333, y = -66 },
-            { x = 54.6667, y = -68.6667 },
-            { x = 60, y = -68.6667 },
-            { x = 64.6667, y = -69.3333 },
-            { x = 66, y = -70 },
-            { x = 71.3333, y = -70.6667 },
-            { x = 74.6667, y = -74 },
-            { x = 77.3333, y = -76 },
-            { x = 78, y = -78.6667 }
-          },
-          properties = {}
-        },
-        {
-          id = 38,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 1240,
+          shape = "polygon",
+          x = 680,
           y = 160,
           width = 0,
           height = 0,
           rotation = 0,
           opacity = 1,
           visible = true,
-          polyline = {
+          polygon = {
             { x = 0, y = 0 },
-            { x = -8.66667, y = -4 },
-            { x = -12.6667, y = -8 },
-            { x = -15.3333, y = -12 },
-            { x = -18, y = -16.6667 },
-            { x = -20, y = -19.3333 },
-            { x = -21.3333, y = -22 },
-            { x = -22.6667, y = -27.3333 },
-            { x = -24.6667, y = -31.3333 },
-            { x = -26, y = -34.6667 },
-            { x = -27.3333, y = -40 },
-            { x = -30.6667, y = -44.6667 },
-            { x = -33.3333, y = -48.6667 },
-            { x = -38, y = -53.3333 },
-            { x = -40, y = -54.6667 },
-            { x = -42.6667, y = -58 },
-            { x = -46.6667, y = -62 },
-            { x = -50, y = -64.6667 },
-            { x = -51.3333, y = -66 },
-            { x = -54.6667, y = -68.6667 },
-            { x = -60, y = -68.6667 },
-            { x = -64.6667, y = -69.3333 },
-            { x = -66, y = -70 },
-            { x = -71.3333, y = -70.6667 },
-            { x = -74.6667, y = -74 },
-            { x = -77.3333, y = -76 },
-            { x = -78, y = -78.6667 }
+            { x = 40, y = -53.3333 },
+            { x = 80, y = -80 },
+            { x = 480, y = -80 },
+            { x = 520, y = -53.3333 },
+            { x = 560, y = 0 },
+            { x = 560, y = -120 },
+            { x = 0, y = -120 }
           },
           properties = {}
         }
@@ -312,7 +200,8 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["actor"] = "remilia"
+            ["actor"] = "remilia",
+            ["enemy"] = "remilia"
           }
         },
         {
@@ -344,10 +233,7 @@ return {
           rotation = 0,
           opacity = 1,
           visible = true,
-          properties = {
-            ["text1"] = "* ",
-            ["text2"] = "* "
-          }
+          properties = {}
         },
         {
           id = 32,
@@ -379,7 +265,7 @@ return {
           opacity = 1,
           visible = true,
           properties = {
-            ["cutscene"] = "rm_manor_topbattle.before",
+            ["cutscene"] = "rm_manor_topbattle.encounter",
             ["once"] = false
           }
         },
@@ -456,6 +342,43 @@ return {
           opacity = 1,
           visible = true,
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 8,
+      name = "controllers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 40,
+          name = "toggle",
+          type = "",
+          shape = "point",
+          x = 40,
+          y = 40,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["flag"] = "",
+            ["inverted"] = true,
+            ["target1"] = { id = 55 },
+            ["target2"] = { id = 56 },
+            ["target3"] = { id = 6 },
+            ["value"] = false
+          }
         }
       }
     }

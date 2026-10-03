@@ -110,8 +110,7 @@ function character:init()
         }
     end
 
-    -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
-    self.stronger_absent = {"kogasa","seija","rin"}
+    self.stronger_absent = {"kogasa", "seija", "rin"}
 
     -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/sword"

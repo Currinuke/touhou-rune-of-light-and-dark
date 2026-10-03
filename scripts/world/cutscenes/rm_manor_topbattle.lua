@@ -1,5 +1,8 @@
 return {
 	before = function(cutscene, event)
+		-- Kristal.Console:push("event: " .. tostring(event:getFlag("used_once", false)))
+		-- Kristal.Console:push("cutscene: " .. tostring(event:getFlag("used_once", false)))
+
 		if Game:getFlag("encounter#remilia:done", false) then
 			return
 		end
@@ -10,80 +13,96 @@ return {
 		local koakuma = cutscene:getCharacter("koakuma")
 		local remilia = cutscene:getCharacter("remilia")
 
+		cutscene:look(kogasa, "right")
+		cutscene:look(seija, "right")
+		cutscene:look(rin, "right")
+
 		cutscene:setSpeaker("remilia")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_1}", "angry", "rin")
-		
-		local x = event.x + event.width / 2 + 10
-		local y = event.y + event.height * 0.75
+		cutscene:text("{world_rm_manor_topbattle_cutscene_1}", "smile", "rin")
 
 		cutscene:setAnimation(koakuma, "poke")
 		cutscene:detachCamera()
-		cutscene:wait(cutscene:panToSpeed("camera", 6))
-			
-		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x + 200, koakuma.y, 2))
-		cutscene:walkTo(rin, x + 20, y + 12, 1, "up")
-		cutscene:walkTo(seija, x - 40, y + 12, 1, "up")
-		-- cutscene:wait(1.2)
-
-		cutscene:text("{world_rm_manor_topbattle_cutscene_2}", "smile_right", "koakuma")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_3}")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_4}", "smile_right", "koakuma")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_5}", "smile_left")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_6}", "smile_right")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_7}", "neutral")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_8}")
-
-		local cx, cy, data = cutscene:getMarker("camera")
-
+		cutscene:wait(cutscene:panTo("camera", 2))
+		cutscene:wait(0.5)
+		local cx, cy, data = cutscene:getMarker("camera")	
 		cutscene:detachFollowers()
-		cutscene:walkTo(kogasa, cx - 180, cy - 60, 2, "right")
-		cutscene:walkTo(seija, cx - 200, cy, 2, "right")
-		cutscene:walkTo(rin, cx - 220, cy + 60, 2, "right")
+		cutscene:walkTo(kogasa, cx - 360, cy, 0.5, "right")
+		cutscene:walkTo(seija, cx - 360, cy, 0.5, "right")
+		cutscene:walkTo(rin, cx - 360, cy, 0.5, "right")
+		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x + 240, koakuma.y, 2))
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_2}", "afraid", "koakuma")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_3}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_4}", "afraid_talk", "koakuma")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_5}", "afraid_talk", "koakuma")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_6}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_7}", "upset", "koakuma")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_8}", {functions = {turn = function()
+			cutscene:setSprite(remilia, "walk/left")
+		end}})
 
 		cutscene:text("{world_rm_manor_topbattle_cutscene_9}")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_10}", "spr_face_seija_alt_7", "seija")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_11}", "excited")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_10}", "afraid_talk", "koakuma")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_11}")
 
 		Game.world.music:play("gallery")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_12}", "spr_face_seija_alt_10", "seija")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_13}", "spr_face_seija_alt_11", "seija")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_14}", "afraid")
+		cutscene:setAnimation(koakuma, "scared")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_12}", "afraid_talk", "koakuma")
 
-		cutscene:walkTo(koakuma, koakuma.x - 960, koakuma.y, 2)
+		cutscene:walkTo(kogasa, cx - 180, cy - 60, 1.5, "right")
+		cutscene:walkTo(seija, cx - 200, cy, 1.5, "right")
+		cutscene:walkTo(rin, cx - 220, cy + 60, 1.5, "right")
+		cutscene:wait(1.5)
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_13}", "bangs/smile", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_14}", "bangs/smile", "seija")
+
+		cutscene:wait(1)
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_15}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_16}", {functions = {hurt = function()
+			cutscene:setSprite(rin, "battle/hurt")
+			cutscene:shakeCharacter(rin, 4, 0, 2)
+		end}})
+
+		cutscene:text("{world_rm_manor_topbattle_cutscene_17}", "surprise", "rin")
+		cutscene:setSprite(rin, "walk/right")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_18}", "angry", "rin")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_19}")
+		
 		cutscene:wait(0.5)
-		cutscene:text("{world_rm_manor_topbattle_cutscene_15}", "explain")
+		cutscene:setSprite(seija, "battle/attack")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "bangs/smile", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "bangs/smile", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "bangs/smile_confident", "seija")
 
-		cutscene:text("{world_rm_manor_topbattle_cutscene_16}", "surprise_b", "seija")
-
-		cutscene:wait(cutscene:walkTo(koakuma, remilia.x - 120, koakuma.y, 1))
-
-		cutscene:text("{world_rm_manor_topbattle_cutscene_17}", "smile_left")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_18}", "smile_right")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_19}", "smile_right")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "smile", "seija")
-
-		cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "sad")
-
-		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "sad")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_23}", "sad")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_24}", "sad")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_25}", "smile_b")
+		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x - 480, koakuma.y, 1))
+		cutscene:text("{world_rm_manor_topbattle_cutscene_23}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_24}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_25}")
 
 		Game.world.music:play("none")
 		cutscene:wait(cutscene:setAnimation(remilia, "battle/intro"))
-		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "smile_b")
-		cutscene:startEncounter("remilia", true, remilia)
+		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "bangs/laugh")
+		remilia.sprite.alpha = 0
+		cutscene:startEncounter("remilia", true, remilia, {on_start = function ()
+			-- remilia:remove()
+		end})
+		-- remilia.sprite.alpha = 1
 
-			cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "neutral", "seija")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_28}", "neutral", "seija")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_29}", "neutral", "seija")
+
+
+
+			cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "bangs/neutral", "seija")
+			cutscene:text("{world_rm_manor_topbattle_cutscene_28}", "bangs/neutral", "seija")
+			cutscene:text("{world_rm_manor_topbattle_cutscene_29}", "bangs/neutral", "seija")
 
 			cutscene:look(rin, "down")
 			cutscene:wait(1)
 			cutscene:look(rin, "left")
 
 			cutscene:text("{world_rm_manor_topbattle_cutscene_30}", "suspicious")
-			cutscene:text("{world_rm_manor_topbattle_cutscene_31}", "spr_face_seija_alt_9", "seija")
+			cutscene:text("{world_rm_manor_topbattle_cutscene_31}", "bangs/neutral_narrow", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_32}", "smile_left", "koakuma")
 			
 			cutscene:look(rin, "down")
@@ -96,7 +115,7 @@ return {
 			cutscene:wait(1)
 			cutscene:look(seija, "right")
 
-			cutscene:text("{world_rm_manor_topbattle_cutscene_34}", "spr_face_seija_alt_8", "seija")
+			cutscene:text("{world_rm_manor_topbattle_cutscene_34}", "bangs/smile_narrow", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_35}", "nervous")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_36}", "suspicious")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_37}", "suspicious")
@@ -107,7 +126,7 @@ return {
 			cutscene:wait(1)
 			cutscene:look(seija, "right")
 			cutscene:setSpeaker("seija")
-			cutscene:text("{world_rm_lake_bridge_cutscene_40}", "spr_face_seija_alt_2")
+			cutscene:text("{world_rm_lake_bridge_cutscene_40}", "upset")
 			cutscene:text("{world_rm_lake_bridge_cutscene_41}", "neutral")
 			cutscene:text("{world_rm_lake_bridge_cutscene_42}", "smile")
 
@@ -129,21 +148,21 @@ return {
 			--cutscene:look(kogasa, "right")
 			--cutscene:look(rin, "right")
 
-			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "spr_face_seija_alt_11")
-			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "spr_face_seija_alt_11")
-			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "spr_face_seija_alt_11")
-			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "spr_face_seija_alt_11")
+			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "smile_confident")
 			cutscene:text("{world_rm_lake_bridge_cutscene_48}", "excited", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_49}", "excited_right", "koakuma")
-			cutscene:text("{world_rm_lake_bridge_cutscene_50}", "spr_face_seija_alt_5")
+			cutscene:text("{world_rm_lake_bridge_cutscene_50}", "smile_eye")
 			cutscene:text("{world_rm_lake_bridge_cutscene_51}", "surprise", "rin")
 			cutscene:text("{world_rm_lake_bridge_cutscene_52}", "excited_right", "koakuma")
-			cutscene:text("{world_rm_lake_bridge_cutscene_53}", "spr_face_seija_alt_5")
+			cutscene:text("{world_rm_lake_bridge_cutscene_53}", "smile_eye")
 			cutscene:text("{world_rm_lake_bridge_cutscene_54}", "excited_right", "koakuma")
-			cutscene:text("{world_rm_lake_bridge_cutscene_55}", "spr_face_seija_alt_5")
+			cutscene:text("{world_rm_lake_bridge_cutscene_55}", "smile_eye")
 			cutscene:text("{world_rm_lake_bridge_cutscene_56}", "excited_right", "koakuma")
-			cutscene:text("{world_rm_lake_bridge_cutscene_57}", "spr_face_seija_alt_8")
-			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "spr_face_seija_alt_11")
+			cutscene:text("{world_rm_lake_bridge_cutscene_57}", "smile_narrow")
+			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "smile_confident")
 			cutscene:text("{world_rm_lake_bridge_cutscene_59}", "excited_right", "koakuma")
 
 			cutscene:walkTo(koakuma, koakuma.x + 300, koakuma.y, 1)

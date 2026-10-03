@@ -1,6 +1,6 @@
 local actor, super = Class(Actor, "seija")
 
-function actor:init(style)
+function actor:init()
     super.init(self)
 
     self.name = "Seija"
@@ -17,10 +17,8 @@ function actor:init(style)
 
     self.default = "walk"
     self.voice = "susie"
-    self.portrait_path = "face/seija/bangs"
-    if false then
-        self.portrait_path = "face/seija"
-    end
+    self.portrait_path = "face/seija"
+
     self.portrait_offset = {-22, -14}
     self.can_blush = false
 
@@ -31,9 +29,9 @@ function actor:init(style)
 
         ["battle/attack"]       = {"battle/attack", 1/15, false},
         ["battle/act"]          = {"battle/act", 1/15, false},
-        ["battle/spell"]        = {"battle/spell", 1/15, false, next="battle/idle"},
-        ["battle/item"]         = {"battle/item", 1/12, false, next="battle/idle"},
-        ["battle/spare"]        = {"battle/act", 1/15, false, next="battle/idle"},
+        ["battle/spell"]        = {"battle/spell", 1/15, false, next = "battle/idle"},
+        ["battle/item"]         = {"battle/item", 1/12, false, next = "battle/idle"},
+        ["battle/spare"]        = {"battle/act", 1/15, false, next = "battle/idle"},
 
         ["battle/attack_ready"] = {"battle/attackready", 0.2, true},
         ["battle/act_ready"]    = {"battle/actready", 0.2, true},
@@ -41,9 +39,9 @@ function actor:init(style)
         ["battle/item_ready"]   = {"battle/itemready", 0.2, true},
         ["battle/defend_ready"] = {"battle/defendready", 1/15, false, next = "battle/defend"},
 
-        ["battle/act_end"]      = {"battle/actend", 1/15, false, next="battle/idle"},
+        ["battle/act_end"]      = {"battle/actend", 1/15, false, next = "battle/idle"},
 
-        ["battle/hurt"]         = {"battle/hurt", 1/15, false, temp=true, duration=0.5},
+        ["battle/hurt"]         = {"battle/hurt", 1/15, false, temp = true, duration = 0.5},
         ["battle/defeat"]       = {"battle/defeat", 1/15, false},
         ["battle/swooned"]      = {"battle/swooned", 1/15, false},
 
@@ -56,10 +54,7 @@ function actor:init(style)
         
         ["jump_fall"]           = {"fall", 1/5, true},
         ["jump_ball"]           = {"ball", 1/15, true},
-        ["jump_ball_slow"]      = {"ball", 4/30, true},
-
-        ["diagonal_kick_right"] = {"diagonal_kick_right", 4/30, false},
-        ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false}
+        ["jump_ball_slow"]      = {"ball", 4/30, true}
     }
 
     self.mirror_sprites = {
@@ -79,16 +74,16 @@ function actor:init(style)
 
         ["slide"] = {-5, -12},
 
-        -- Battle offsets
         ["battle/idle"] = {3, -9},
 
         ["battle/attack"] = {-26, 1},
         ["battle/attackready"] = {-12, 1},
-        ["battle/act"] = {5, 11},
+        ["battle/act"] = {5, 9},
         ["battle/actend"] = {-24, -26},
         ["battle/actready"] = {5, 9},
-        ["battle/spell"] = {-22, -29},
+        ["battle/spell"] = {-8, -18},
         ["battle/spellready"] = {-5, -18},
+        ["battle/spellend"] = {3, -9},
         ["battle/item"] = {-22, -2},
         ["battle/itemready"] = {-22, -2},
         ["battle/defend"] = {-2, -1},
@@ -105,42 +100,10 @@ function actor:init(style)
         ["pose"] = {-1, -1},
 
         ["fall"] = {0, -4},
-        ["ball"] = {-3, 7},
+        ["ball"] = {-4, 8},
         ["landed"] = {-5, -2},
 
-        ["shock_left"] = {0, -4},
-        ["shock_right"] = {-16, -4},
-        ["shock_down"] = {0, -2},
-        ["shock_up"] = {-6, 0},
-
-        ["shock_behind"] = {-15, -3},
-        ["shock_down_flip"] = {0, -2},
-
-        ["laugh_left"] = {-8, -2},
-        ["laugh_right"] = {-4, -2},
-
-        ["point_laugh_left"] = {-14, 2},
-        ["point_laugh_right"] = {0, 2},
-
-        ["point_left"] = {-11, 2},
-        ["point_right"] = {0, 2},
-        ["point_up"] = {-2, -12},
-
-        ["point_up_turn"] = {-4, -12},
-
-        ["playful_punch"] = {-8, 0},
-
-        ["wall_left"] = {0, -2},
-        ["wall_right"] = {0, -2},
-
-        ["bangs_wall_left"] = {0, -2},
-        ["bangs_wall_right"] = {0, -2},
-
-        ["exasperated_left"] = {-1, 0},
-        ["exasperated_right"] = {-5, 0},
-
-        ["angry_down"] = {-10, 2},
-        ["turn_around"] = {-12, 2},
+        ["shock_right"] = {-5, -1},
 
         ["away"] = {-1, -2},
         ["away_turn"] = {-1, -2},
@@ -160,6 +123,14 @@ function actor:init(style)
     }
 
     self.spotlight_offset = {0, -7}
+end
+
+function actor:onSetAnimation(sprite, anim, keep_anim)
+    if anim[1] == "battle/victory" then
+        local victory = SeijaVictory(0, 0)
+        sprite.parent:addChild(victory)
+        victory.layer = sprite.layer + 1
+    end
 end
 
 return actor

@@ -14,7 +14,7 @@ function OverworldActionBox:init(x, y, index, chara)
 		self.chara = chara
 
 		-- 暂时用34 * 25
-		self.head_sprite = Sprite(chara:getHeadIcons() .. "/head", bar_x - 13 - 34, 13)
+		self.head_sprite = Sprite(chara:getHeadIcons() .. "/head", bar_x - 13 - 33, 14)
 
 		if chara:getNameSprite() then
 			-- self.name_sprite = Sprite(chara:getNameSprite(), 51, 16)

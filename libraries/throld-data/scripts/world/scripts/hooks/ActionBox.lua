@@ -133,7 +133,7 @@ function ActionBox:update()
 		end
 		self.hp_sprite.y = 22 - self.data_offset]]
 
-		self.head_sprite.y = 8 - self.data_offset + self.head_offset_y
+		self.head_sprite.y = 9 - self.data_offset + self.head_offset_y
 		if self.name_sprite then
 			self.name_sprite.y = 15 - self.data_offset
 		end

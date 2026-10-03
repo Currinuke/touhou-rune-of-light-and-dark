@@ -24,23 +24,23 @@ function spell:getCastMessage(user, target)
 end
 
 function spell:onCast(user, target)
-    local buster_finished = false
+    local burster_finished = false
     local anim_finished = false
     local function finishAnim()
         anim_finished = true
-        if buster_finished then
+        if burster_finished then
             Game.battle:finishAction()
         end
     end
-    if not user:setAnimation("battle/rude_buster", finishAnim) then
+    if not user:setAnimation("battle/rule_burster", finishAnim) then
         anim_finished = false
         user:setAnimation("battle/attack", finishAnim)
     end
-    Game.battle.timer:after(15/30, function()
+    Game.battle.timer:after(20/30, function()
         Assets.playSound("rudebuster_swing")
         local x, y = user:getRelativePos(user.width, user.height/2 - 10, Game.battle)
         local tx, ty = target:getRelativePos(target.width/2, target.height/2, Game.battle)
-        local blast = RudeBusterBeam(true, x, y, tx, ty, function(damage_bonus, play_sound)
+        local blast = YinYangOrb(true, x, y, tx, ty, function(damage_bonus, play_sound)
             local damage = self:getDamage(user, target, damage_bonus)
             if play_sound then
                 Assets.playSound("scytheburst")
@@ -48,7 +48,7 @@ function spell:onCast(user, target)
             local flash = target:flash()
             flash.color_mask:setColor(1, 0, 0)
             target:hurt(damage, user)
-            buster_finished = true
+            burster_finished = true
             if anim_finished then
                 Game.battle:finishAction()
             end

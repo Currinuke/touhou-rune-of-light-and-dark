@@ -49,5 +49,24 @@ return {
 		cutscene:text("{battle_remilia_rin_talk_5}", "sad", "rin")
 		cutscene:text("{battle_remilia_rin_talk_6}", "bangs/sad_cry", "kogasa")
 		cutscene:text("{battle_remilia_rin_talk_change}")
+	end,
+	battle_end = function(cutscene, battler, enemy)
+		cutscene:text("{battle_remilia_rin_talk_attempt}")
+
+		battler:setAnimation("battle/act_end")
+		local action = Game.battle:getCurrentAction()
+		if action.party then
+			for _, party_id in ipairs(action.party) do
+				Game.battle:getPartyBattler(party_id):setAnimation("battle/act_end")
+			end
+		end
+
+		cutscene:text("{battle_remilia_rin_talk_1}", "neutral", "kogasa")
+		cutscene:text("{battle_remilia_rin_talk_2}", "bangs/neutral", "remilia")
+		cutscene:text("{battle_remilia_rin_talk_3}", "bangs/laugh", "remilia")
+		cutscene:text("{battle_remilia_rin_talk_4}", "bangs/sad", "kogasa")
+		cutscene:text("{battle_remilia_rin_talk_5}", "sad", "rin")
+		cutscene:text("{battle_remilia_rin_talk_6}", "bangs/sad_cry", "kogasa")
+		cutscene:text("{battle_remilia_rin_talk_change}")
 	end
 }
