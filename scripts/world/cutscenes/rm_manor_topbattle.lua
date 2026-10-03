@@ -1,5 +1,5 @@
 return {
-	before = function(cutscene, event)
+	encounter = function(cutscene, event)
 		-- Kristal.Console:push("event: " .. tostring(event:getFlag("used_once", false)))
 		-- Kristal.Console:push("cutscene: " .. tostring(event:getFlag("used_once", false)))
 
@@ -74,7 +74,7 @@ return {
 		cutscene:setSprite(seija, "battle/attack")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "bangs/smile", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "bangs/smile", "seija")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "bangs/smile_confident", "seija")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "bangs/smile_mad", "seija")
 
 		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x - 480, koakuma.y, 1))
 		cutscene:text("{world_rm_manor_topbattle_cutscene_23}")
@@ -148,10 +148,10 @@ return {
 			--cutscene:look(kogasa, "right")
 			--cutscene:look(rin, "right")
 
-			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "smile_mad")
 			cutscene:text("{world_rm_lake_bridge_cutscene_48}", "excited", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_49}", "excited_right", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_50}", "smile_eye")
@@ -162,7 +162,7 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_55}", "smile_eye")
 			cutscene:text("{world_rm_lake_bridge_cutscene_56}", "excited_right", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_57}", "smile_narrow")
-			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "smile_mad")
 			cutscene:text("{world_rm_lake_bridge_cutscene_59}", "excited_right", "koakuma")
 
 			cutscene:walkTo(koakuma, koakuma.x + 300, koakuma.y, 1)

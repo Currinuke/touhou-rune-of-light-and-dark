@@ -39,7 +39,7 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_10}", "bangs/unhappy", "seija")
 			cutscene:text("{world_rm_lake_bridge_cutscene_11}", "excited")
 			cutscene:text("{world_rm_lake_bridge_cutscene_12}", "bangs/upset_narrow", "seija")
-			cutscene:text("{world_rm_lake_bridge_cutscene_13}", "bangs/smile_confident", "seija")
+			cutscene:text("{world_rm_lake_bridge_cutscene_13}", "bangs/smile_mad", "seija")
 			cutscene:text("{world_rm_lake_bridge_cutscene_14}", "afraid")
 
 			local rx = rumia.x
@@ -142,10 +142,10 @@ return {
 			--cutscene:look(kogasa, "right")
 			--cutscene:look(rin, "right")
 
-			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "smile_confident")
-			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_44}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_45}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_46}", "smile_mad")
+			cutscene:text("{world_rm_lake_bridge_cutscene_47}", "smile_mad")
 			cutscene:text("{world_rm_lake_bridge_cutscene_48}", "excited", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_49}", "excited_right", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_50}", "smile_eye")
@@ -156,7 +156,7 @@ return {
 			cutscene:text("{world_rm_lake_bridge_cutscene_55}", "smile_eye")
 			cutscene:text("{world_rm_lake_bridge_cutscene_56}", "excited_right", "koakuma")
 			cutscene:text("{world_rm_lake_bridge_cutscene_57}", "smile_narrow")
-			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "smile_confident")
+			cutscene:text("{world_rm_lake_bridge_cutscene_58}", "smile_mad")
 			cutscene:text("{world_rm_lake_bridge_cutscene_59}", "excited_right", "koakuma")
 
 			cutscene:walkTo(koakuma, koakuma.x + 300, koakuma.y, 1)
