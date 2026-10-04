@@ -52,6 +52,7 @@ function PartyBattler:hurt(amount, exact, color, options)
 
 	if (self.chara:getHealth() <= 0) then
 		self:statusMessage("msg", swoon and "swoon" or "down", color, true)
+		Assets.playSound("playermiss", 0.3)
 	else
 		self:statusMessage("damage", amount, color, true)
 	end

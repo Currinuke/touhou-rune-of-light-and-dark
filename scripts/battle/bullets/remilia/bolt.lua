@@ -33,9 +33,6 @@ function bolt:onDamage(soul)
 		if Game.party[2].health<0 then
 			target=3
 		end
-		if Game.party[target].health<=99.61 then
-			Assets.playSound('playermiss',0.3)
-		end
         local battlers = Game.battle:hurt(damage,false,target,self:shouldSwoon(damage, target, soul))
         soul.inv_timer = self:getInvulnTime()
         soul:onDamage(self, damage)

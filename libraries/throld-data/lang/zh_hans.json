@@ -80,7 +80,7 @@
  "spell_me_shield_castName": "庇护",
  "spell_me_shield_effect": "替队友\n承受伤害",
  "spell_me_shield_description": "",
- "spell_me_shield_castMessage": "* [var:userName]将代替队友承受伤害！",
+ "spell_me_shield_castMessage": "* 在倒下前，\n[var:userName]将代替队友承受伤害！",
 
  "spell_scare_burster_name": "惊吓突袭",
  "spell_scare_burster_castName": "惊吓突袭",

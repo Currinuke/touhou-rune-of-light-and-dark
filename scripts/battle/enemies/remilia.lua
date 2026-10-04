@@ -7,8 +7,8 @@ function Remilia:init()
 	
 	self:setActor("remilia")
 
-	self.max_health = 3500
-	self.health = 3500
+	self.max_health = 3200
+	self.health = 3200
 	self.attack = 10
 	self.defense = 0
 	self.money = 0
@@ -48,12 +48,7 @@ function Remilia:applyLocalization(update_acts)
 	}
 
 	self.text = {
-		Game:loc("enemy_remilia_turn_1"),
-		Game:loc("enemy_remilia_turn_2"),
-		Game:loc("enemy_remilia_turn_3"),
-		Game:loc("enemy_remilia_turn_4"),
-		Game:loc("enemy_remilia_turn_5"),
-		Game:loc("enemy_remilia_turn_6")
+		Game:loc("enemy_remilia_turn_1")
 	}
 
 	self.low_health_text = Game:loc("enemy_remilia_low_health")
@@ -154,17 +149,48 @@ function Remilia:getTarget()
 	return super.getTarget(self)
 end
 
-function Remilia:onTurnStart()
+function Remilia:onTurnEnd()
 	if self.acts[2].name == self.act_me_shield then
 		self.acts[2].unusable = self.encounter:getFlag("meshield_used", false)
 	end
 
+	if Game.battle.turn_count >= 13 or self.health <= 0 then
+		if self.health <= 800 then
+			self:defeat("VIOLENCED", true)
+		else
+			self:defeat("DEFEATED", false)
+		end
+		Game.battle:setState("VICTORY")
+		return true
+	end
+
+	self.text = {
+		Game:loc("enemy_remilia_turn_" .. tostring(MathUtils.clamp(Game.battle.turn_count - 1, 1, 11)))
+	}
+end
+
+function Remilia:getEnemyDialogue()
 	local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
-	self.wave_override = "remilia/wave" .. tostring(turn)
+	local dialogue = Game:loc("enemy_remilia_dialogue_" .. tostring(turn))
+	if turn == 9 then
+		dialogue = {
+			Game:loc("enemy_remilia_dialogue_9_1"),
+			Game:loc("enemy_remilia_dialogue_9_2")
+		}
+	end
+	return dialogue
+end
+
+function Remilia:getNextWaves()
+	return {"remilia/wave" .. tostring(MathUtils.clamp(Game.battle.turn_count, 1, 12))}
 end
 
 function Remilia:onHurt(damage, battler)
-    self:getActiveSprite():shake(9 / 4, 0, 0.5, 2 / 30)
+	if damage >= 160 then
+    	self:getActiveSprite():shake(9 / 2, 0, 0.5, 2 / 30)
+	else
+    	self:getActiveSprite():shake(9 / 4, 0, 0.5, 2 / 30)
+	end
 end
 
 function Remilia:onDefeatRun(damage, battler)
