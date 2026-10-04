@@ -58,7 +58,7 @@ return {
 		cutscene:walkTo(kogasa, cx - 180, cy - 80, 1.5, "right")
 		cutscene:walkTo(seija, cx - 200, cy - 20, 1.5, "right")
 		cutscene:walkTo(rin, cx - 220, cy + 40, 1.5, "right")
-		cutscene:wait(1)
+		cutscene:wait(1.5)
 
 		cutscene:text("{world_rm_manor_topbattle_cutscene_13}", "bangs/smile", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_14}", "bangs/smile", "seija")

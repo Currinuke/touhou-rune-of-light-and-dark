@@ -9,6 +9,7 @@ function Remilia:init()
 	self.remilia = self:addEnemy("remilia", 540, 220)
 	self.remilia:setAnimation("battle/idle")
 	self.no_end_message = true
+	self:setFlag("meshield_used", nil)
 	self:setFlag('pacifist', true)
 end
 

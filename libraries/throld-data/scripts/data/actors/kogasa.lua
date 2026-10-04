@@ -151,7 +151,26 @@ function actor:init()
     end
 
     -- The x and y offsets of the ReviveSong spotlight
-    self.spotlight_offset = { -2, -5 }
+    self.spotlight_offset = {-2, -5}
+end
+
+
+function actor:onBattleDraw(battler)
+	if Game.battle and Game.battle.encounter:getFlag("meshield_used", false) and not battler.defending then
+		if Game.battle:getState() == "DEFENDINGBEGIN" and battler:getActiveSprite().anim_sprite ~= "battle/defend" then
+			battler:setAnimation("battle/defend_ready", function(sprite) end, true)
+		elseif Game.battle:getState() == "DEFENDING" then
+			battler:toggleOverlay(false)
+		elseif Game.battle:getState() == "DEFENDINGEND" and not battler.is_down then
+			battler:resetSprite()
+		end
+	end
+end
+
+function actor:preSetAnimation(sprite, anim, keep_anim)
+	if Game.battle and Game.battle.encounter:getFlag("meshield_used", false) and anim[1] == "battle/hurt" then
+		return false
+	end
 end
 
 return actor

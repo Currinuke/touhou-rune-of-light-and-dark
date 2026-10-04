@@ -193,6 +193,8 @@ function Battle:hurt(amount, exact, target, swoon)
 		end
 	end
 
+	local me_shield = self.encounter:getFlag("meshield_used", false)
+	
 	if target == "ANY" then
 		target = self:randomTargetOld()
 
@@ -223,14 +225,17 @@ function Battle:hurt(amount, exact, target, swoon)
 				target = self:randomTargetOld()
 			end
 
-			-- If we landed on Kris (or, well, the first party member), and their health is low, retarget (plot armor lol)
+			-- If we landed on Kogasa (or, well, the first party member), and their health is low, retarget (plot armor lol)
 			if (target == self.party[1]) and ((target.chara:getHealth() / target.chara:getStat("health")) < 0.35) then
 				target = self:randomTargetOld()
 			end
 
 			-- They got hit, so un-darken them
-			target.should_darken = false
-			target.targeted = true
+			-- 不过此时伤害转移至队长（小伞），故队员不受伤
+			-- if (target == self.party[1]) or (not me_shield) then
+				target.should_darken = false
+				target.targeted = true
+			-- end
 		end
 	end
 
@@ -243,7 +248,17 @@ function Battle:hurt(amount, exact, target, swoon)
 			target:statusMessage("damage", 0, nil, true)
 			target.chara:addFlag("evilundulations_have", -1)
 		else
-			target:hurt(amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
+			-- 将目标重定向至小伞，无视敌人的getTarget函数
+			if me_shield then
+				self.party[1]:hurt(amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
+			else
+				target:hurt(amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
+			end
+			-- 倒下后取消重定向
+			if self.party[1].is_down then
+				self.encounter:setFlag("meshield_used", nil)
+				self.party[1]:resetSprite()
+			end
 		end
 		return { target }
 	end
@@ -252,7 +267,18 @@ function Battle:hurt(amount, exact, target, swoon)
 		Assets.playSound("hurt")
 		local alive_battlers = TableUtils.filter(self.party, function(battler) return not battler.is_down end)
 		for _, battler in ipairs(alive_battlers) do
-			battler:hurt(amount, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
+			-- 将目标重定向至队长（小伞），无视敌人的getTarget函数
+			-- 防止小伞挡屏障（虽然正常流程下不可能出现？）
+			if me_shield and battler.chara:getFlag("evilundulations_have", 0) <= 0 then
+				self.party[1]:hurt(amount, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
+			else
+				battler:hurt(amount, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
+			end
+		end
+		-- 倒下后取消重定向
+		if self.party[1].is_down then
+			self.encounter:setFlag("meshield_used", nil)
+			self.party[1]:resetSprite()
 		end
 		-- Return the battlers who aren't down, aka the ones we hit.
 		return alive_battlers
@@ -386,6 +412,7 @@ function Battle:onKeyPressed(key)
 							["name"] = v.name,
 							["tp"] = v.tp or 0,
 							["description"] = v.description,
+							["unusable"] = v.unusable or false,
 							["party"] = v.party,
 							["color"] = v.color or { 1, 1, 1, 1 },
 							["highlight"] = v.highlight or enemy,

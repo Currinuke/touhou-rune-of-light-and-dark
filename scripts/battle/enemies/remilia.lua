@@ -92,8 +92,8 @@ function Remilia:applyLocalization(update_acts)
 end
 
 function Remilia:onActStart(battler, name, index)
-    if name == self.act_check then
-        return super.onAct(self, battler, "Check")
+	if name == self.act_check then
+		super.onActStart(self, battler, name, index)
 	elseif name == self.act_kogasa_talk or name == self.act_seija_talk or name == self.act_rin_talk then
 		if index == 2 then
 			battler:setAnimation("battle/act")
@@ -106,12 +106,16 @@ function Remilia:onActStart(battler, name, index)
     		end
 		end
 	else
-		battler:setAnimation("battle/idle")
-    	local action = Game.battle:getCurrentAction()
-    	if action.party then
-    	    for _, party_id in ipairs(action.party) do
-    	        Game.battle:getPartyBattler(party_id):setAnimation("battle/idle")
-    	    end
+		if index == 2 then
+			battler:setAnimation("battle/defend")
+		else
+			battler:setAnimation("battle/idle")
+    		local action = Game.battle:getCurrentAction()
+    		if action.party then
+    		    for _, party_id in ipairs(action.party) do
+    		        Game.battle:getPartyBattler(party_id):setAnimation("battle/idle")
+    		    end
+			end
     	end
 	end
 end
@@ -141,34 +145,25 @@ function Remilia:onAct(battler, name, index)
 end
 
 function Remilia:getTarget()
-	if Game.battle.turn_count == 1 then
-		return "ALL"
-	else
-		return super.getTarget(self)
+	-- 这个判定很奇怪，不过能用就行
+	for _, wave in ipairs({"remilia/wave1", "remilia/wave7"}) do
+		if TableUtils.contains(self:getNextWaves(), wave) then
+			return "ALL"
+		end
 	end
+	return super.getTarget(self)
 end
 
 function Remilia:onTurnStart()
-	if Game.battle.turn_count >= 13 then -- and new == 'ACTIONSELECT' then
-		-- Game.battle:setState("VICTORY")
-	else
-
+	if self.acts[2].name == self.act_me_shield then
+		self.acts[2].unusable = self.encounter:getFlag("meshield_used", false)
 	end
-	--[[local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
 
-	if turn > 1 then
-		turn = 7
-	end]]
-
-	-- self.wave_override = "remilia_" .. tostring(turn)
-	-- self.defense = self.defense - 1
+	local turn = MathUtils.clamp(Game.battle.turn_count, 1, 12)
+	self.wave_override = "remilia/wave" .. tostring(turn)
 end
 
 function Remilia:onHurt(damage, battler)
-    self:toggleOverlay(true)
-    if not self:getActiveSprite():setAnimation("hurt") then
-        self:toggleOverlay(false)
-    end
     self:getActiveSprite():shake(9 / 4, 0, 0.5, 2 / 30)
 end
 

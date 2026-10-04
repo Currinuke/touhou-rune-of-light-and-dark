@@ -22,14 +22,7 @@ function spell:getCastMessage(user, target)
 end
 
 function spell:onCast(user, target)
-    -- user
-	-- local base_heal = user.chara:getStat("magic") * (Game:getConfig("oldDualHealFormula") and 4 or 5.5)
-
-	-- for _, battler in ipairs(target) do
-		-- local heal_amount = Game.battle:applyHealBonuses(base_heal, user.chara, battler.chara)
-
-		-- battler:heal(heal_amount)
-	-- end
+	Game.battle.encounter:setFlag("meshield_used", true)
 end
 
 return spell
