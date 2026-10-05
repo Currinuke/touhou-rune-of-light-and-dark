@@ -141,7 +141,7 @@ end
 
 function Remilia:getTarget()
 	-- 这个判定很奇怪，不过能用就行
-	for _, wave in ipairs({"remilia/wave1", "remilia/wave7", "remilia/wave12"}) do
+	for _, wave in ipairs({"remilia/wave1", "remilia/wave3", "remilia/wave7", "remilia/wave11", "remilia/wave12"}) do
 		if TableUtils.contains(self:getNextWaves(), wave) then
 			return "ALL"
 		end

@@ -4,6 +4,7 @@
   <export target="rm_manor_topbattle.lua" format="lua"/>
  </editorsettings>
  <properties>
+  <property name="music" value="wind_highplace"/>
   <property name="name" value="Scarlet Manor - The Top"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/castle.tsx"/>

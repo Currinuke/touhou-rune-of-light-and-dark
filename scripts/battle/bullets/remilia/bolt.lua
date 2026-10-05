@@ -6,7 +6,7 @@ function bolt:init(x, fixedpos)
 	else
 		x = x - Game.battle.soul.width / 2
 	end
-	super.init(self, x, 102 + 144 - 4, "bullets/remilia/bolt_new")
+	super.init(self, x, 102 + 144 - 4 + 1, "bullets/remilia/bolt_new")
 	self.sprite:play(1/15, true)
 	self:setOrigin(0.5, 1)
 	self:setScale(1.5, 2)
@@ -22,27 +22,5 @@ function bolt:update()
 		self.collidable = false
 	end
 end
-
---[[
-function bolt:onDamage(soul)
-	local damage = self:getDamage()
-    if damage > 0 then
-        local target = MathUtils.randomInt(1, 4)
-		if Game.party[target].health < 0 then
-			target = 1
-		end
-		if Game.party[1].health < 0 then
-			target = 2
-		end
-		if Game.party[2].health < 0 then
-			target = 3
-		end
-        local battlers = Game.battle:hurt(damage, false, target, self:shouldSwoon(damage, target, soul))
-        soul.inv_timer = self:getInvulnTime()
-        soul:onDamage(self, damage)
-        return battlers
-    end
-	return {}
-end--]]
 
 return bolt

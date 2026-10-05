@@ -19,7 +19,7 @@ function Flandre:init()
 	self.tired_percentage = 0
 	self.low_health_percentage = 0.15
 
-	self:registerAct(self.act_umbrella_spin, Game:loc("act_flandre_umbrella_spin_description"))
+	self:registerAct(self.act_umbrella_spin, Game:loc("act_flandre_umbrella_spin_description"), nil, 20)
 	self:registerAct(self.act_group_hypnosis, Game:loc("act_flandre_group_hypnosis_description"), {"seija", "rin"})
 end
 

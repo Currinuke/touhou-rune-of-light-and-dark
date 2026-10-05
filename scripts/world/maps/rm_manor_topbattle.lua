@@ -12,6 +12,7 @@ return {
   nextlayerid = 9,
   nextobjectid = 41,
   properties = {
+    ["music"] = "wind_highplace",
     ["name"] = "Scarlet Manor - The Top"
   },
   tilesets = {

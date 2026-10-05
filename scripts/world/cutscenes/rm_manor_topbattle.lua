@@ -13,13 +13,9 @@ return {
 		local koakuma = cutscene:getCharacter("koakuma")
 		local remilia = cutscene:getCharacter("remilia")
 
-		if kogasa and seija and koakuma and remilia and rin then
-			-- start cutscene
-		else
+		if not (kogasa and seija and koakuma and remilia and rin) then
 			return
 		end
-		
-		-- Game.world:addChild(RemiliaBolt(kogasa.x - 40, kogasa.y))
 
 		cutscene:look(kogasa, "right")
 		cutscene:look(seija, "right")
@@ -39,20 +35,42 @@ return {
 		cutscene:walkTo(rin, cx - 360, cy + 20, 0.5, "right")
 		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x + 240, koakuma.y, 2))
 
+		local tx, ty = koakuma.x, koakuma.y
+
+		local stepback = function()
+			tx, ty = tx - 10, ty
+			cutscene:walkTo(koakuma, tx, ty, 0.25)
+		end
+
+		local stepforward = function()
+			tx, ty = tx + 15, ty
+			cutscene:walkTo(koakuma, tx, ty, 0.25)
+		end
+
 		cutscene:text("{world_rm_manor_topbattle_cutscene_2}", "afraid", "koakuma")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_3}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_3}", {functions = {stepback = stepback}})
 		cutscene:text("{world_rm_manor_topbattle_cutscene_4}", "afraid_talk", "koakuma")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_5}", "afraid_talk", "koakuma")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_6}")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_7}", "upset", "koakuma")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_8}", {functions = {turn = function()
-			cutscene:setSprite(remilia, "walk/left")
-		end}})
+			cutscene:look(remilia, "left")
+			-- cutscene:setSprite(remilia, "walk/left")
+		end, stepback = stepback}})
 
-		cutscene:text("{world_rm_manor_topbattle_cutscene_9}")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_10}", "afraid_talk", "koakuma")
-		cutscene:text("{world_rm_manor_topbattle_cutscene_11}")
+		cutscene:text("{world_rm_manor_topbattle_cutscene_9}", {functions = {stepback = stepback}})
+		cutscene:text("{world_rm_manor_topbattle_cutscene_10}", "afraid_talk", "koakuma", {functions = {stepback = stepback, stepforward = stepforward}})
+		cutscene:text("{world_rm_manor_topbattle_cutscene_11}", {functions = {stepback = stepback}})
 
+		local bats = {}
+		for i = 0, 7 do
+			local sin, cos = math.sin(math.pi * i / 4), math.cos(math.pi * i / 4)
+			local x, y = koakuma.x - 20, koakuma.y - 20
+			local bat = RemiliaBat(x + 320 * sin, y + 320 * cos, x + 80 * sin, y + 80 * cos)
+			Game.world:addChild(bat)
+			table.insert(bats, bat)
+		end
+		
 		Game.world.music:play("gallery")
 		cutscene:setAnimation(koakuma, "scared")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_12}", "afraid_talk", "koakuma")
@@ -76,17 +94,17 @@ return {
 		cutscene:text("{world_rm_manor_topbattle_cutscene_17}", "surprise", "rin")
 		rin:resetSprite()
 		cutscene:look(rin, "right")
-		-- cutscene:setSprite(rin, "walk/right")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_18}", "angry", "rin")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_19}")
 		
 		cutscene:wait(0.5)
+    	Assets.playSound("weaponpull_fast", 0.8)
 		cutscene:setSprite(seija, "battle/attackready")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_20}", "bangs/smile", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "bangs/smile", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "bangs/smile_mad", "seija")
 		cutscene:playSound("laz_c", nil, 0.9)
-		seija:setAnimation({"battle/attack", 1/15, false, duration = 1.5, next = "walk/right"})
+		cutscene:setAnimation(seija, "battle/attack")
 
 		cutscene:wait(cutscene:walkTo(koakuma, koakuma.x - 480, koakuma.y, 1))
 		seija:resetSprite()
@@ -96,25 +114,16 @@ return {
 
 		Game.world.music:play("none")
 		cutscene:setAnimation(remilia, "battle/intro")
-		Game.stage.timer:after(21 / 15, function ()
+		Game.stage.timer:after(21 / 15, function()
 			Game.world:addChild(RemiliaBolt(remilia.x - 60, remilia.y))
 			Game.world:addChild(RemiliaBolt(remilia.x + 60, remilia.y))
 			cutscene:playSound("bolt")
 		end)
-			--[[
-			local rumiaaxe=Game.world:addChild(RemiliaBolt(remilia.x-20,remilia.y-110))
-			Game.stage.timer:tween(0.2,rumiaaxe,{y=rumiaaxe.y-20},nil,function()
-				rumiaaxe.layer=0.7
-				Game.stage.timer:tween(0.2,rumiaaxe,{y=rumiaaxe.y+20})
-			end)--]]
 
 		cutscene:wait(21 / 15)
 		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "bangs/laugh")
 		remilia.sprite.visible = false
-		cutscene:startEncounter("remilia", false, remilia)--, {on_start = function ()
-			-- remilia:remove()
-		--end})
-		-- remilia.sprite.alpha = 1 -- visible
+		cutscene:startEncounter("remilia", false, remilia)
 
 		cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "bangs/neutral", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_28}", "bangs/neutral", "seija")

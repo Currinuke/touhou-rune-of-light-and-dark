@@ -31,7 +31,7 @@
 
  "spell__scare_ya_name": "吓你一跳",
  "spell__scare_ya_effect": "使敌人\n疲惫",
- "spell__scare_ya_description": "惊吓目标敌人使其【疲惫】。\n顺带填饱肚子。",
+ "spell__scare_ya_description": "使一名敌人【疲惫】，前提是能吓到敌人。\n可能有其他作用...？",
 
  "spell_rule_burster_name": "反则突袭",
  "spell_rule_burster_castName": "反则突袭",
