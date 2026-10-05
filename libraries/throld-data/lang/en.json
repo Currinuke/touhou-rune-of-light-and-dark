@@ -80,7 +80,8 @@
  "spell_me_shield_castName": "ME SHIELD",
  "spell_me_shield_effect": "Take hit\nfor party",
  "spell_me_shield_description": "",
- "spell_me_shield_castMessage": "* [var:userName] will take damage for the party!",
+ "spell_me_shield_castMessage": "* [var:userName] will take damage for the party before DOWN!",
+ "spell_me_shield_castMessageUsed": "* ... but nothing happened.",
 
  "spell_scare_burster_name": "Scare Burster",
  "spell_scare_burster_castName": "SCARE BURSTER",

@@ -156,7 +156,7 @@ end
 
 
 function actor:onBattleDraw(battler)
-	if Game.battle and Game.battle.encounter:getFlag("meshield_used", false) and not battler.defending then
+	if Game.battle and (Game.battle.encounter:getFlag("meshield_used", 0) > 0) and not battler.defending then
 		if Game.battle:getState() == "DEFENDINGBEGIN" and battler:getActiveSprite().anim_sprite ~= "battle/defend" then
 			battler:setAnimation("battle/defend_ready", function(sprite) end, true)
 		elseif Game.battle:getState() == "DEFENDING" then
@@ -168,7 +168,7 @@ function actor:onBattleDraw(battler)
 end
 
 function actor:preSetAnimation(sprite, anim, keep_anim)
-	if Game.battle and Game.battle.encounter:getFlag("meshield_used", false) and anim[1] == "battle/hurt" then
+	if Game.battle and (Game.battle.encounter:getFlag("meshield_used", 0) > 0) and anim[1] == "battle/hurt" then
 		return false
 	end
 end

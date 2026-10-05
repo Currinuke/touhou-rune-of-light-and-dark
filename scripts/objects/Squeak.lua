@@ -1,4 +1,4 @@
-local Squeak, super = Class(Event)
+local Squeak, super = Class(Event, "Squeak")
 
 function Squeak:init(x, y, shape)
     super.init(self, x, y, shape)

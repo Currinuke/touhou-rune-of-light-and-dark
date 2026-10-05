@@ -1,4 +1,4 @@
-local SeijaVictory, super = Class(Object)
+local SeijaVictory, super = Class(Object, "SeijaVictory")
 
 function SeijaVictory:init(x, y)
     super.init(self, x, y, 120, 136)

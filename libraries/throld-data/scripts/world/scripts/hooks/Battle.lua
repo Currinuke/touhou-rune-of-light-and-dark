@@ -193,7 +193,8 @@ function Battle:hurt(amount, exact, target, swoon)
 		end
 	end
 
-	local me_shield = self.encounter:getFlag("meshield_used", false)
+	local me_shield = (self.encounter:getFlag("meshield_used", 0) > 0)
+	local times_max = 1
 	
 	if target == "ANY" then
 		target = self:randomTargetOld()
@@ -250,7 +251,10 @@ function Battle:hurt(amount, exact, target, swoon)
 		else
 			-- 将目标重定向至小伞，无视敌人的getTarget函数
 			if me_shield then
-				self.party[1]:hurt(amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
+				local times = self.encounter:getFlag("meshield_used", 0)
+				times = MathUtils.clamp(times, 0, times_max)
+				local _amount = math.ceil(amount * ((2 / 3) ^ times))
+				self.party[1]:hurt(_amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
 			else
 				target:hurt(amount, exact, nil, { swoon = self.encounter:canSwoon(target) and swoon })
 			end
@@ -270,7 +274,10 @@ function Battle:hurt(amount, exact, target, swoon)
 			-- 将目标重定向至队长（小伞），无视敌人的getTarget函数
 			-- 防止小伞挡屏障（虽然正常流程下不可能出现？）
 			if me_shield and battler.chara:getFlag("evilundulations_have", 0) <= 0 then
-				self.party[1]:hurt(amount, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
+				local times = self.encounter:getFlag("meshield_used", 0)
+				times = MathUtils.clamp(times, 0, times_max)
+				local _amount = math.ceil(amount * ((2 / 3) ^ times))
+				self.party[1]:hurt(_amount * 2 / 3, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
 			else
 				battler:hurt(amount, exact, nil, { all = true, swoon = self.encounter:canSwoon(battler) and swoon })
 			end

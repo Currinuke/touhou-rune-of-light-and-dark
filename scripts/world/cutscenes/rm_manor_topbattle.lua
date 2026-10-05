@@ -18,6 +18,8 @@ return {
 		else
 			return
 		end
+		
+		-- Game.world:addChild(RemiliaBolt(kogasa.x - 40, kogasa.y))
 
 		cutscene:look(kogasa, "right")
 		cutscene:look(seija, "right")
@@ -93,13 +95,25 @@ return {
 		cutscene:text("{world_rm_manor_topbattle_cutscene_25}")
 
 		Game.world.music:play("none")
-		cutscene:wait(cutscene:setAnimation(remilia, "battle/intro"))
-		cutscene:wait(cutscene:playSound("bolt"))
+		cutscene:setAnimation(remilia, "battle/intro")
+		Game.stage.timer:after(21 / 15, function ()
+			Game.world:addChild(RemiliaBolt(remilia.x - 60, remilia.y))
+			Game.world:addChild(RemiliaBolt(remilia.x + 60, remilia.y))
+			cutscene:playSound("bolt")
+		end)
+			--[[
+			local rumiaaxe=Game.world:addChild(RemiliaBolt(remilia.x-20,remilia.y-110))
+			Game.stage.timer:tween(0.2,rumiaaxe,{y=rumiaaxe.y-20},nil,function()
+				rumiaaxe.layer=0.7
+				Game.stage.timer:tween(0.2,rumiaaxe,{y=rumiaaxe.y+20})
+			end)--]]
+
+		cutscene:wait(21 / 15)
 		cutscene:text("{world_rm_manor_topbattle_cutscene_26}", "bangs/laugh")
-		remilia.sprite.alpha = 0
-		cutscene:startEncounter("remilia", false, remilia, {on_start = function ()
+		remilia.sprite.visible = false
+		cutscene:startEncounter("remilia", false, remilia)--, {on_start = function ()
 			-- remilia:remove()
-		end})
+		--end})
 		-- remilia.sprite.alpha = 1 -- visible
 
 		cutscene:text("{world_rm_manor_topbattle_cutscene_27}", "bangs/neutral", "seija")

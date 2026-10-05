@@ -1,4 +1,4 @@
-local YinYangOrb, super = Class(Sprite)
+local YinYangOrb, super = Class(Sprite, "YinYangOrb")
 
 function YinYangOrb:init(red, x, y, tx, ty, after)
 	super.init(self, "effects/ruleburster/yinyangorb", x, y)

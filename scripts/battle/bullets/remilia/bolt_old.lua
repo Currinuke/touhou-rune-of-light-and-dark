@@ -2,18 +2,15 @@ local bolt, super = Class(Bullet)
 
 function bolt:init(x, fixedpos)
 	if fixedpos then
-		x = 278 + (fixedpos - 1) * 28.4 - Game.battle.soul.width / 2 - Game.battle.soul.width / 4 + 1
-	else
-		x = x - Game.battle.soul.width / 2
+		x = 278 + (fixedpos - 1) * 28.4
 	end
-	super.init(self, x, 102 + 144 - 4, "bullets/remilia/bolt_new")
+	super.init(self, x, 102, "bullets/remilia/bolt")
 	self.sprite:play(1/15, true)
-	self:setOrigin(0.5, 1)
-	self:setScale(1.5, 2)
-    self.collider = Hitbox(self, self.width * 3 / 8, 0, self.width / 4, self.height)
+	self:setScale(0.25, 0.4)
+	self.collider = Hitbox(self, 410, 350, 28.4*2, 500)
 	self.destroy_on_hit = false
 	self.damage = 99.61
-	Game.battle.timer:tween(0.6, self, {alpha = 0.1}, nil, function() self:remove() end)
+	Game.battle.timer:tween(0.6, self, {alpha=0.1}, nil, function() self:remove() end)
 end
 
 function bolt:update()
@@ -23,11 +20,10 @@ function bolt:update()
 	end
 end
 
---[[
 function bolt:onDamage(soul)
 	local damage = self:getDamage()
     if damage > 0 then
-        local target = MathUtils.randomInt(1, 4)
+        local target = MathUtils.randomInt(1,4)
 		if Game.party[target].health < 0 then
 			target = 1
 		end
@@ -43,6 +39,6 @@ function bolt:onDamage(soul)
         return battlers
     end
 	return {}
-end--]]
+end
 
 return bolt

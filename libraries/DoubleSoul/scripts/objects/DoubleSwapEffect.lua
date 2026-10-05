@@ -7,7 +7,7 @@ function DoubleSwapEffect:init(x, y)
 	self:setScale(1)
 
 	self.alpha = 1
-	self.layer = BATTLE_LAYERS["soul"] - 1
+	self.layer = BATTLE_LAYERS["below_soul"]
 end
 
 function DoubleSwapEffect:update()

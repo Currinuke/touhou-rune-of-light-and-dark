@@ -141,7 +141,7 @@ end
 
 function Remilia:getTarget()
 	-- 这个判定很奇怪，不过能用就行
-	for _, wave in ipairs({"remilia/wave1", "remilia/wave7"}) do
+	for _, wave in ipairs({"remilia/wave1", "remilia/wave7", "remilia/wave12"}) do
 		if TableUtils.contains(self:getNextWaves(), wave) then
 			return "ALL"
 		end
@@ -150,9 +150,10 @@ function Remilia:getTarget()
 end
 
 function Remilia:onTurnEnd()
+	--[[
 	if self.acts[2].name == self.act_me_shield then
-		self.acts[2].unusable = self.encounter:getFlag("meshield_used", false)
-	end
+		self.acts[2].unusable = (self.encounter:getFlag("meshield_used", 0) > 0)
+	end--]]
 
 	if Game.battle.turn_count >= 13 or self.health <= 0 then
 		if self.health <= 800 then
@@ -160,7 +161,8 @@ function Remilia:onTurnEnd()
 		else
 			self:defeat("DEFEATED", false)
 		end
-		Game.battle:setState("VICTORY")
+		-- Game.battle:setState("VICTORY")
+		Game.battle:setState("TRANSITIONOUT")
 		return true
 	end
 

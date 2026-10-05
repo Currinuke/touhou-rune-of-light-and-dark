@@ -5,12 +5,11 @@ function rumiaaxe:init(x, y, angle)
 	self:setSprite("enemies/rumia/axe")
 	self.layer = 0.5
 	self.alpha = 0
-	self:setScale(2,2)
+	self:setScale(2, 2)
 end
 
 function rumiaaxe:update()
 	super.update(self)
-	
 end
 
 function rumiaaxe:setSprite(sprite)
