@@ -12,6 +12,7 @@ return {
   nextlayerid = 10,
   nextobjectid = 28,
   properties = {
+    ["music"] = "spamton_neo_meeting_spedup",
     ["name"] = "Intro"
   },
   tilesets = {},

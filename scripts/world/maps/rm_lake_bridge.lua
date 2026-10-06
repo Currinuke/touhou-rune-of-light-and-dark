@@ -12,6 +12,7 @@ return {
   nextlayerid = 16,
   nextobjectid = 34,
   properties = {
+    ["music"] = "none",
     ["name"] = "Misty Lake - Bridge"
   },
   tilesets = {

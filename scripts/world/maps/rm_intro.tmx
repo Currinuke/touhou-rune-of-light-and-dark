@@ -4,6 +4,7 @@
   <export target="rm_intro.lua" format="lua"/>
  </editorsettings>
  <properties>
+  <property name="music" value="spamton_neo_meeting_spedup"/>
   <property name="name" value="Intro"/>
  </properties>
  <objectgroup color="#0000ff" id="2" name="collision">

@@ -18,8 +18,8 @@ function Rumia:init()
 	self.spare_points = 0
 
 	self.waves = {
-		'rumia/wave1',
-		'rumia/wave2'
+		"rumia/wave1",
+		"rumia/wave2"
 	}
 
 	self.dialogue_offset = {45, 35}
@@ -45,8 +45,8 @@ function Rumia:applyLocalization(update_acts)
 	}
 
 	self.check = {
-		Game:loc("enemy_rumia_check_1"),
-		Game:loc("enemy_rumia_check_2")
+		Game:loc("enemy_rumia_check_1_1"),
+		Game:loc("enemy_rumia_check_1_2")
 	}
 
 	self.text = {
@@ -82,7 +82,7 @@ end
 function Rumia:onAct(battler, name)
 	if name == self.act_check then
 		if self.checked then
-			self.check = Game:loc("enemy_rumia_check_3")
+			self.check = Game:loc("enemy_rumia_check_2")
 		else
 			self.checked = true
 		end
@@ -99,16 +99,6 @@ function Rumia:onAct(battler, name)
 
 	return super.onAct(self, battler, name)
 end
-
---[[
-function Rumia:onHurt(damage, battler)
-	self:toggleOverlay(true)
-	if not self:getActiveSprite():setAnimation("hurt") then
-		self:toggleOverlay(false)
-	end
-	self:getActiveSprite():shake(9, 0, 0.5, 2 / 30)
-end--]]
-
 
 function Rumia:onTurnEnd()
 	self.text[2] = Game:loc("enemy_rumia_turn_2", {mercy = self:getMercyDisplay()})

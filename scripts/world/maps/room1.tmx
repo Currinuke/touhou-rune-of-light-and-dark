@@ -134,7 +134,12 @@ official music shines within
 you.</property>
    </properties>
   </object>
-  <object id="77" name="squeak" x="680" y="600" width="40" height="40"/>
+  <object id="77" name="find_girl" x="680" y="600" width="80" height="40">
+   <properties>
+    <property name="map" value="rm_manor_basement"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
   <object id="78" name="transition" x="800" y="200" width="40" height="80">
    <properties>
     <property name="map" value="rm_lake_bridge"/>

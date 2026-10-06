@@ -4,6 +4,7 @@
   <export target="rm_lake_bridge.lua" format="lua"/>
  </editorsettings>
  <properties>
+  <property name="music" value="none"/>
   <property name="name" value="Misty Lake - Bridge"/>
  </properties>
  <tileset firstgid="1" source="../tilesets/mistylake.tsx"/>

@@ -548,17 +548,20 @@ return {
         },
         {
           id = 77,
-          name = "squeak",
+          name = "find_girl",
           type = "",
           shape = "rectangle",
           x = 680,
           y = 600,
-          width = 40,
+          width = 80,
           height = 40,
           rotation = 0,
           opacity = 1,
           visible = true,
-          properties = {}
+          properties = {
+            ["map"] = "rm_manor_basement",
+            ["marker"] = "entry"
+          }
         },
         {
           id = 78,
