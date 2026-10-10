@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 7,
+  nextobjectid = 10,
   properties = {
     ["name"] = "Basement - Flandre's Room"
   },
@@ -60,6 +60,57 @@ return {
           visible = true,
           properties = {
             ["actor"] = "flandre_a",
+            ["encounter"] = "flandre"
+          }
+        },
+        {
+          id = 7,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 516,
+          y = -244,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "flandre_b",
+            ["encounter"] = "flandre"
+          }
+        },
+        {
+          id = 8,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 476,
+          y = -123,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "flandre_c",
+            ["encounter"] = "flandre"
+          }
+        },
+        {
+          id = 9,
+          name = "npc",
+          type = "",
+          shape = "rectangle",
+          x = 558,
+          y = -77,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["actor"] = "flandre_d",
             ["encounter"] = "flandre"
           }
         }

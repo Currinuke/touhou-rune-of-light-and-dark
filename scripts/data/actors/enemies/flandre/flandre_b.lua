@@ -47,7 +47,7 @@ function actor:init()
     self.offsets = {
         ["battle/idle"] = {0, 0},
         ["battle/hurt"] = {0, 0},
-        ["battle/tired"] = {0, -4},
+        ["battle/tired"] = {0, 2},
         ["battle/teleport"] = {0, 0}
     }
 end

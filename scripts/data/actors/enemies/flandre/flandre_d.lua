@@ -37,13 +37,15 @@ function actor:init()
     -- Table of sprite animations
     self.animations = {
         ["battle/idle"] = {"battle/idle", 0.1, true},
-        ["battle/attack"] = {"battle/attack", 0.2, true}
+        ["battle/attack"] = {"battle/attack", 0.2, true},
+        ["battle/upspin"] = {"battle/upspin", 0.1, true},
     }
 
     -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
         ["battle/idle"] = { 0, 0 },
-        ["battle/attack"] = { -1, 0 }
+        ["battle/attack"] = { -1, 0 },
+        ["battle/upspin"] = { -5, -4 },
     }
 end
 
