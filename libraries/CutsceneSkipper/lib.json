@@ -1,0 +1,9 @@
+{
+    "id": "throld-cutsceneskipper",
+    "version": "0.1.0",
+    "engineVer": "v0.10.0",
+    "config": {
+        "defaultOffset": 100,
+        "sameInvuln": true
+    }
+}

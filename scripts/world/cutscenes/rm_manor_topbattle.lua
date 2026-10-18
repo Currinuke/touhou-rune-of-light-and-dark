@@ -48,9 +48,8 @@ return {
 		end
 
 		-- 这一段是为了控制“是否跳过入场前对话”
-		-- 但是，判定方式很奇怪
-		local skipping = Game.skip_dialogue[Game.world.map.id] or false
-		Game.skip_dialogue[Game.world.map.id] = true
+		-- 改善了判定代码，虽然原理不变
+		local skipping = Game:skipCutscene()
 
 		if not skipping then
 
@@ -207,7 +206,7 @@ return {
 			cutscene:setSprite(seija, "battle/attackready")
 			cutscene:wait(1)
 			cutscene:playSound("laz_c", nil, 0.9)
-			cutsceme:wait(cutscene:setAnimation(seija, "battle/attack"))
+			cutscene:wait(cutscene:setAnimation(seija, "battle/attack"))
 			local bomb = SeijaBomb(seija.x + 20, seija.y - 20, remilia.x - 100, remilia.y - 10)
 			Game.world:addChild(bomb)
 
@@ -323,7 +322,6 @@ return {
 		cutscene:text("{world_rm_manor_topbattle_cutscene_90}", "bangs/neutral", "seija")
 		cutscene:text("{world_rm_manor_topbattle_cutscene_91}", "bangs/neutral", "seija")
 
-		-- Game.skip_dialogue[Game.world.map.id] = false
 		cutscene:alignFollowers()
 		cutscene:attachFollowers()
 		cutscene:attachCamera()

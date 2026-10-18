@@ -20,7 +20,7 @@ function Remilia:init()
 	self.waves = {}
 
 	self.tired_percentage = 0
-	self.low_health_percentage = 0.15
+	self.low_health_percentage = 0 -- 0.15
 
 	self:registerIndexAct(self.act_kogasa_talk, 2)
 	self:registerIndexAct(self.act_seija_talk, 3, nil, {"seija"})
@@ -51,7 +51,7 @@ function Remilia:applyLocalization(update_acts)
 		Game:loc("enemy_remilia_turn_1")
 	}
 
-	self.low_health_text = Game:loc("enemy_remilia_low_health")
+	-- self.low_health_text = Game:loc("enemy_remilia_low_health")
 
 	self.act_check = Game:loc("act_check")
 	self.act_kogasa_talk = Game:loc("act_remilia_kogasa_talk")

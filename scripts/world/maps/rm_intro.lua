@@ -102,77 +102,7 @@ return {
       parallaxx = 1,
       parallaxy = 1,
       properties = {},
-      objects = {
-        {
-          id = 24,
-          name = "npc",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 80,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "rin",
-            ["cutscene"] = "debug_seija.anim"
-          }
-        },
-        {
-          id = 25,
-          name = "transition",
-          type = "",
-          shape = "rectangle",
-          x = 600,
-          y = 0,
-          width = 40,
-          height = 480,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["map"] = "rm_manor_topbattle",
-            ["marker"] = "entry"
-          }
-        },
-        {
-          id = 26,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 360,
-          y = 80,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "dummy",
-            ["once"] = false
-          }
-        },
-        {
-          id = 27,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 200,
-          y = 80,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          opacity = 1,
-          visible = true,
-          properties = {
-            ["actor"] = "dummy",
-            ["encounter"] = "dummy"
-          }
-        }
-      }
+      objects = {}
     },
     {
       type = "objectgroup",

@@ -21,12 +21,14 @@ return {
 		elseif turn == 2 then
 			-- Turn2+9*X：将多多良小伞的HP设为1,其他团队成员HP设为满
 			for _, member in ipairs(party) do
-        		member:flash()
 				if member == battler then
 					member.chara.health = 1
 				else
 					member.chara.health = member.chara:getStat("health")
 				end
+				
+				member:checkHealth(false)
+				member:flash()
 			end
 		elseif turn == 3 then
 			-- Turn3+9*X：本场战斗中芙兰的攻击间隔（？）与伤害降低33%且给予的无敌时间降低50%
@@ -43,6 +45,11 @@ return {
 				local spells = member.chara:getSpells()
 				for _, spell in pairs(spells) do
 					spell.cost = spell:getTPCost(member.chara) * 2
+				end
+				for _, target in ipairs(enemies) do
+					for _, v in ipairs(target.acts) do
+						v["tp"] = (v["tp"] or 0) * 2
+					end
 				end
 			end
 		elseif turn == 6 then
