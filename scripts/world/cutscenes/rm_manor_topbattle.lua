@@ -110,7 +110,7 @@ return {
 			cutscene:text("{world_rm_manor_topbattle_cutscene_21}", "bangs/smile", "seija")
 			cutscene:text("{world_rm_manor_topbattle_cutscene_22}", "bangs/smile_mad", "seija")
 			cutscene:playSound("laz_c", nil, 0.9)
-			cutsceme:wait(cutscene:setAnimation(seija, "battle/attack"))
+			cutscene:wait(cutscene:setAnimation(seija, "battle/attack"))
 			local bomb = SeijaBomb(seija.x + 20, seija.y - 20, remilia.x - 100, remilia.y - 10)
 			Game.world:addChild(bomb)
 
