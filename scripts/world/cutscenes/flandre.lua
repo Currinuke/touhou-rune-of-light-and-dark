@@ -316,7 +316,7 @@ return {
 			cutscene:wait(1)
 
 			--[
-			local hinttext=Game.world:addChild(Sprite("hint_sc",soulleft.x+100,soulleft.y-500))
+			local hinttext=Game.world:addChild(Sprite("hint",soulleft.x+100,soulleft.y-500))
 			hinttext:setScale(0.5,0.5)
 			hinttext:setOrigin(0.5,0.5)
 			hinttext:setLayer(WORLD_LAYERS["top"])--]]

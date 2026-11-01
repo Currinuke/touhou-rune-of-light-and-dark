@@ -2,9 +2,10 @@ local FindGirl, super = Class(Transition, "find_girl")
 local _map = "rm_girl"
 
 function FindGirl:init(x, y, shape, properties)
+	properties = properties or {}
     super.init(self, x, y, shape, properties)
 
-	local find = ((not Game:getFlag("ch1_found_girl", false)) and MathUtils.random() <= 0.5)
+	local find = ((not Game:getFlag("ch1_found_girl", false)) and MathUtils.random() <= 0.02)
 
 	if find then
 		self.target.map = _map

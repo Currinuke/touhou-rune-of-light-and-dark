@@ -5,7 +5,7 @@ return function(cutscene)
     local slide = cutscene:slide("legends/dont_forget")
     slide:setScale(2)
     slide.x = (SCREEN_WIDTH - slide.width * slide.scale_x) / 2
-    slide.y = 160
+    slide.y = 80
 
     cutscene:setSpeed(0.5)
     local duration = Game.legend.music.source:getDuration()
