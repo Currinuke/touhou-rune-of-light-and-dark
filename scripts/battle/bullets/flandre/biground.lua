@@ -1,4 +1,4 @@
-local BigRound, super = Class(Bullet)
+local BigRound, super = Class(DoubleBullet)
 
 function BigRound:init(x, y, speed_x, speed_y)
     super.init(self, x, y, "bullets/remilia/biground")

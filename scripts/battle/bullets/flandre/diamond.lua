@@ -1,4 +1,4 @@
-local diamond, super = Class(Bullet)
+local diamond, super = Class(DoubleBullet)
 
 function diamond:init(x, y, speed_x, speed_y)
     super.init(self, x, y, "bullets/flandre/diamondbullet")

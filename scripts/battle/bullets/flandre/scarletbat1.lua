@@ -1,11 +1,5 @@
----@class ScarletBat1 : Bullet
 local ScarletBat1, super = Class(DoubleBullet)
 
----@param x number # The X position of the bullet
----@param y number # The Y position of the bullet
----@param dir? string # The dir of the bullet, either "left" or "right" (default: "right")
----@param speed? number # The speed the bullet will move at in the specified direction (default: 8)
----@param newspeed? number # The new speed the bullet will move at (default: 5)
 function ScarletBat1:init(x, y, dir, speed, newspeed)
     local table = {"none", "left", "right"}
     local no_damage = table[math.random(1, #table)]

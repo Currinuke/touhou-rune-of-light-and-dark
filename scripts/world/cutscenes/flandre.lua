@@ -100,12 +100,20 @@ return {
 			local flanbfloat=Game.stage.timer:every(DTMULT/30,function()curtime=curtime+DTMULT flanb.y=156+math.sin(math.rad(curtime*5))*8 end)
 			cutscene:text("[noskip]* 拜托，[wait:5]这也太扫兴了吧！\n[wait:10]游戏甚至都还没开始呢！[wait:20]", nil, nil, {auto = true})
 			Game.stage.timer:cancel(flanbfloat)
-			cutscene:setAnimation(flanb, "battle/idle")
-			cutscene:setAnimation(fland, "battle/upspin")
-			cutscene:text("[noskip]* 游戏还没开始就投降可是要受惩罚的！[wait:20]", nil, nil, {auto = true})
-			cutscene:setAnimation(fland, "battle/idle")
-			cutscene:setAnimation(flanc, "talk")
+			cutscene:setAnimation(flanb,'battle/idle')
+			cutscene:setAnimation(fland,'battle/upspin')
+			cutscene:text("[noskip]* 游戏还没开始就投降可是要受惩罚的![speed:0.1]  ",nil,nil,{auto=true})
+			cutscene:setAnimation(fland,'battle/idle')
+			cutscene:setAnimation(flanc,'talk')
+			cutscene:text("* 而作为惩罚...")--
+			--[[cutscene:setAnimation(flanc,'handopen')--何意味。
 			cutscene:text("* 而作为惩罚...")
+			cutscene:setAnimation(flanc,'talk')
+			Assets.playSound('voiceclips/flansing',0.7)
+			Game.stage.timer:after(11.1,function()
+				flanc:explode()
+			end)
+			cutscene:text("*[speed:0.001]     ")]]
 			cutscene:wait(0.5)
 			cutscene:setAnimation(flanc,"handopen")
 			cutscene:setSprite(rin, "battle/hurt")
@@ -314,22 +322,15 @@ return {
 			soullefttrans.x,soullefttrans.y=soulleft.x,soulleft.y
 			soulrighttrans.x,soulrighttrans.y=soulright.x,soulright.y
 			cutscene:wait(1)
-
-			--[
-			local hinttext=Game.world:addChild(Sprite("hint",soulleft.x+100,soulleft.y-500))
-			hinttext:setScale(0.5,0.5)
-			hinttext:setOrigin(0.5,0.5)
-			hinttext:setLayer(WORLD_LAYERS["top"])--]]
-
-			--[[]
-			local text_fixed = "{world_rm_flandre_cutscene_tutorial}"
-			local hinttext = Game.world:addChild(Text(text_fixed, soulleft.x + 20, 0))
-			hinttext:setLayer(WORLD_LAYERS["top"])--]]
+			local hinttext=Game.world:addChild(DialogueText('',soulleft.x+30,0,nil,nil,{font='main',font_size=32}))
+			hinttext:setColor(35/255,35/255,35/255)
+			hinttext:setLayer(WORLD_LAYERS['top'])
+			hinttext:setText('(长按[bind:confirm]键)')
 
 			if soulleft.y>=450 then
 				hinttext.y=soulleft.y-30
 			else
-				hinttext.y=soulleft.y+30
+				hinttext.y=soulleft.y+10
 			end
 			cutscene:wait(function()
 				return transformed
